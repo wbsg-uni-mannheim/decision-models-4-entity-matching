@@ -1,0 +1,366 @@
+{
+ "thresholds": {
+  "clef@0.005": 0.0923,
+  "pplx_v12@0.0025": 0.02988602947487251,
+  "pplx_v12@0.005": 0.07176221513525773,
+  "pplx_v12@0.01": 0.1940509692502077,
+  "luna_decisions@0.005": 0.05,
+  "jev@0.0025": 0.07999999999999996,
+  "jev@0.005": 0.12,
+  "jev@0.01": 0.23
+ },
+ "levels": {
+  "jev@0.0025": {
+   "deferred": 5058,
+   "deferred_share": 0.16734491315136477,
+   "per_benchmark": {
+    "abt-buy": {
+     "alone": 91.6030534351145,
+     "cascade": 96.2085308056872
+    },
+    "wdc": {
+     "alone": 87.1401151631478,
+     "cascade": 91.42280524722503
+    },
+    "dblp-scholar": {
+     "alone": 92.78256922378574,
+     "cascade": 93.6405529953917
+    },
+    "walmart-amazon": {
+     "alone": 88.49104859335038,
+     "cascade": 93.43434343434343
+    },
+    "dn7-walmart-amazon": {
+     "alone": 77.80979827089337,
+     "cascade": 81.18279569892472
+    },
+    "billiger-de": {
+     "alone": 73.05825242718447,
+     "cascade": 78.70813397129187
+    },
+    "dblp-acm": {
+     "alone": 98.10901001112346,
+     "cascade": 98.01324503311258
+    },
+    "semi-heter": {
+     "alone": 95.48387096774194,
+     "cascade": 95.51282051282051
+    }
+   },
+   "macro_alone": 88.05971476154271,
+   "pooled_alone": 89.06225620221564,
+   "errors_alone": 701,
+   "macro_cascade": 91.01540346234964,
+   "pooled_cascade": 91.49102263856362,
+   "errors_cascade": 545
+  },
+  "jev@0.005": {
+   "deferred": 3542,
+   "deferred_share": 0.11718775847808106,
+   "per_benchmark": {
+    "abt-buy": {
+     "alone": 91.6030534351145,
+     "cascade": 95.96199524940617
+    },
+    "wdc": {
+     "alone": 87.1401151631478,
+     "cascade": 91.11111111111111
+    },
+    "dblp-scholar": {
+     "alone": 92.78256922378574,
+     "cascade": 93.646408839779
+    },
+    "walmart-amazon": {
+     "alone": 88.49104859335038,
+     "cascade": 93.43434343434343
+    },
+    "dn7-walmart-amazon": {
+     "alone": 77.80979827089337,
+     "cascade": 81.18279569892472
+    },
+    "billiger-de": {
+     "alone": 73.05825242718447,
+     "cascade": 79.18660287081339
+    },
+    "dblp-acm": {
+     "alone": 98.10901001112346,
+     "cascade": 98.01324503311258
+    },
+    "semi-heter": {
+     "alone": 95.48387096774194,
+     "cascade": 95.51282051282051
+    }
+   },
+   "macro_alone": 88.05971476154271,
+   "pooled_alone": 89.06225620221564,
+   "errors_alone": 701,
+   "macro_cascade": 91.00616534378887,
+   "pooled_cascade": 91.49102263856362,
+   "errors_cascade": 545
+  },
+  "jev@0.01": {
+   "deferred": 1842,
+   "deferred_share": 0.060942928039702235,
+   "per_benchmark": {
+    "abt-buy": {
+     "alone": 91.6030534351145,
+     "cascade": 95.90361445783132
+    },
+    "wdc": {
+     "alone": 87.1401151631478,
+     "cascade": 90.0398406374502
+    },
+    "dblp-scholar": {
+     "alone": 92.78256922378574,
+     "cascade": 93.8475665748393
+    },
+    "walmart-amazon": {
+     "alone": 88.49104859335038,
+     "cascade": 93.12977099236642
+    },
+    "dn7-walmart-amazon": {
+     "alone": 77.80979827089337,
+     "cascade": 80.76923076923077
+    },
+    "billiger-de": {
+     "alone": 73.05825242718447,
+     "cascade": 78.89022919179735
+    },
+    "dblp-acm": {
+     "alone": 98.10901001112346,
+     "cascade": 97.90055248618785
+    },
+    "semi-heter": {
+     "alone": 95.48387096774194,
+     "cascade": 95.17684887459808
+    }
+   },
+   "macro_alone": 88.05971476154271,
+   "pooled_alone": 89.06225620221564,
+   "errors_alone": 701,
+   "macro_cascade": 90.70720674803766,
+   "pooled_cascade": 91.29551492420691,
+   "errors_cascade": 557
+  },
+  "pplx_v12@0.0025": {
+   "deferred": 5027,
+   "deferred_share": 0.16631927212572373,
+   "per_benchmark": {
+    "abt-buy": {
+     "alone": 94.76309226932669,
+     "cascade": 96.2085308056872
+    },
+    "wdc": {
+     "alone": 87.86359077231694,
+     "cascade": 91.42280524722503
+    },
+    "dblp-scholar": {
+     "alone": 93.62880886426593,
+     "cascade": 93.6405529953917
+    },
+    "walmart-amazon": {
+     "alone": 90.43927648578811,
+     "cascade": 93.43434343434343
+    },
+    "dn7-walmart-amazon": {
+     "alone": 77.69028871391076,
+     "cascade": 81.50134048257372
+    },
+    "billiger-de": {
+     "alone": 74.48609431680774,
+     "cascade": 78.75894988066825
+    },
+    "dblp-acm": {
+     "alone": 98.33147942157953,
+     "cascade": 98.01324503311258
+    },
+    "semi-heter": {
+     "alone": 95.81993569131832,
+     "cascade": 95.51282051282051
+    }
+   },
+   "macro_alone": 89.12782081691425,
+   "pooled_alone": 89.93562568692103,
+   "errors_alone": 641,
+   "macro_cascade": 91.0615735489778,
+   "pooled_cascade": 91.51061173533084,
+   "errors_cascade": 544
+  },
+  "pplx_v12@0.005": {
+   "deferred": 3111,
+   "deferred_share": 0.10292803970223326,
+   "per_benchmark": {
+    "abt-buy": {
+     "alone": 94.76309226932669,
+     "cascade": 96.43705463182897
+    },
+    "wdc": {
+     "alone": 87.86359077231694,
+     "cascade": 91.53225806451613
+    },
+    "dblp-scholar": {
+     "alone": 93.62880886426593,
+     "cascade": 93.68372521899492
+    },
+    "walmart-amazon": {
+     "alone": 90.43927648578811,
+     "cascade": 93.43434343434343
+    },
+    "dn7-walmart-amazon": {
+     "alone": 77.69028871391076,
+     "cascade": 81.18279569892472
+    },
+    "billiger-de": {
+     "alone": 74.48609431680774,
+     "cascade": 78.75894988066825
+    },
+    "dblp-acm": {
+     "alone": 98.33147942157953,
+     "cascade": 98.01324503311258
+    },
+    "semi-heter": {
+     "alone": 95.81993569131832,
+     "cascade": 95.51282051282051
+    }
+   },
+   "macro_alone": 89.12782081691425,
+   "pooled_alone": 89.93562568692103,
+   "errors_alone": 641,
+   "macro_cascade": 91.0693990594012,
+   "pooled_cascade": 91.5391820168592,
+   "errors_cascade": 542
+  },
+  "pplx_v12@0.01": {
+   "deferred": 1517,
+   "deferred_share": 0.05019023986765922,
+   "per_benchmark": {
+    "abt-buy": {
+     "alone": 94.76309226932669,
+     "cascade": 96.17224880382776
+    },
+    "wdc": {
+     "alone": 87.86359077231694,
+     "cascade": 91.01917255297678
+    },
+    "dblp-scholar": {
+     "alone": 93.62880886426593,
+     "cascade": 93.8134810710988
+    },
+    "walmart-amazon": {
+     "alone": 90.43927648578811,
+     "cascade": 93.16455696202532
+    },
+    "dn7-walmart-amazon": {
+     "alone": 77.69028871391076,
+     "cascade": 81.18279569892472
+    },
+    "billiger-de": {
+     "alone": 74.48609431680774,
+     "cascade": 78.28162291169451
+    },
+    "dblp-acm": {
+     "alone": 98.33147942157953,
+     "cascade": 98.12154696132596
+    },
+    "semi-heter": {
+     "alone": 95.81993569131832,
+     "cascade": 95.51282051282051
+    }
+   },
+   "macro_alone": 89.12782081691425,
+   "pooled_alone": 89.93562568692103,
+   "errors_alone": 641,
+   "macro_cascade": 90.9085306843368,
+   "pooled_cascade": 91.41785211818039,
+   "errors_cascade": 549
+  },
+  "clef@0.005": {
+   "deferred": 3451,
+   "deferred_share": 0.11417700578990901,
+   "per_benchmark": {
+    "abt-buy": {
+     "alone": 92.38095238095238,
+     "cascade": 96.19047619047619
+    },
+    "wdc": {
+     "alone": 85.7703631010795,
+     "cascade": 91.38276553106212
+    },
+    "dblp-scholar": {
+     "alone": 92.50340754202635,
+     "cascade": 93.7759336099585
+    },
+    "walmart-amazon": {
+     "alone": 88.02083333333334,
+     "cascade": 92.6208651399491
+    },
+    "dn7-walmart-amazon": {
+     "alone": 75.47169811320755,
+     "cascade": 80.54054054054053
+    },
+    "billiger-de": {
+     "alone": 74.93333333333332,
+     "cascade": 78.99159663865547
+    },
+    "dblp-acm": {
+     "alone": 97.65886287625418,
+     "cascade": 98.01324503311258
+    },
+    "semi-heter": {
+     "alone": 94.83870967741936,
+     "cascade": 95.51282051282051
+    }
+   },
+   "macro_alone": 87.69727004470074,
+   "pooled_alone": 88.9168765743073,
+   "errors_alone": 704,
+   "macro_cascade": 90.87853039957187,
+   "pooled_cascade": 91.48570535853773,
+   "errors_cascade": 545
+  },
+  "luna_decisions@0.005": {
+   "deferred": 3792,
+   "deferred_share": 0.1254590570719603,
+   "per_benchmark": {
+    "abt-buy": {
+     "alone": 93.92523364485982,
+     "cascade": 96.2085308056872
+    },
+    "wdc": {
+     "alone": 86.95652173913044,
+     "cascade": 91.09109109109109
+    },
+    "dblp-scholar": {
+     "alone": 92.32927970065482,
+     "cascade": 94.05255878284923
+    },
+    "walmart-amazon": {
+     "alone": 85.24590163934425,
+     "cascade": 93.43434343434343
+    },
+    "dn7-walmart-amazon": {
+     "alone": 75.25773195876289,
+     "cascade": 81.18279569892472
+    },
+    "billiger-de": {
+     "alone": 69.14103923647932,
+     "cascade": 78.66507747318236
+    },
+    "dblp-acm": {
+     "alone": 98.0,
+     "cascade": 97.90518191841234
+    },
+    "semi-heter": {
+     "alone": 95.1219512195122,
+     "cascade": 95.23809523809523
+    }
+   },
+   "macro_alone": 86.99720739234296,
+   "pooled_alone": 87.71295039951757,
+   "errors_alone": 815,
+   "macro_cascade": 90.9722093053232,
+   "pooled_cascade": 91.54073843277769,
+   "errors_cascade": 543
+  }
+ }
+}

@@ -1,0 +1,448 @@
+{
+  "codebook": {
+    "categories": [
+      {
+        "code": "G1",
+        "name": "Identifier discrepancy",
+        "definition": "Both records supply identifying strings (model, part or product code, ISBN) that differ in letters or digits.",
+        "decision_rule": "Use G1 for the identifier strings themselves. A differing attribute value stated outside an identifier belongs to G2.",
+        "merged_codes": [
+          "C01",
+          "C22"
+        ],
+        "aspects": [
+          {
+            "from": "C01",
+            "name": "Product identifier discrepancy",
+            "definition": "Product records contain different explicit model, part, or product-code strings, including suffix differences, while sharing some product wording.",
+            "include_when": "Both sides supply identifying strings with different letters or digits. Describe the strings without assuming what a suffix means or whether they are aliases.",
+            "exclude_when": "Only punctuation, spacing, or capitalization differs; a code is supplied on only one side; or the identifiers are ISBNs."
+          },
+          {
+            "from": "C22",
+            "name": "ISBN string discrepancy",
+            "definition": "Both book records provide different ISBN strings.",
+            "include_when": "Record digit/character differences and 10-character versus 13-digit representation where visible. Do not assume either equivalence or distinct editions from string length alone.",
+            "exclude_when": "An ISBN is missing on one side or the only difference is separator formatting."
+          }
+        ],
+        "supporting_discovery_case_ids": [
+          "2a97e83542059de3e9b734c5",
+          "2fe1e97c40c58096020a838b",
+          "31bb17b5eb2a040d435ece2a",
+          "42f27d6ec9259983903bdba2",
+          "46c4fcb36807ca22a6000afc",
+          "4ff2c5e71c512c7bbede3111",
+          "6e638b6deb42130d18a6ac44",
+          "77b076acc9d20dfcbac495eb",
+          "7b243f4b54f5ca1457d6218f",
+          "b635ee8244c5d7835125c064"
+        ]
+      },
+      {
+        "code": "G2",
+        "name": "Attribute value discrepancy within the same product type",
+        "definition": "Both records describe the same type of item, but state different values for one of its attributes: product line or edition designation, color or depicted motif, size, capacity, material, other technical values, publication year, version, or page count.",
+        "decision_rule": "Substitution test: the two items would serve the same purpose and fit the same use, they differ only in a stated attribute value. Example: 16 GB versus 32 GB of the same card type, red versus blue, foam versus paper cups.",
+        "merged_codes": [
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C21",
+          "C23"
+        ],
+        "aspects": [
+          {
+            "from": "C02",
+            "name": "Product line or edition wording discrepancy",
+            "definition": "Shared product-family wording accompanies different named lines, editions, generations, or distinguishing product qualifiers.",
+            "include_when": "Names contain distinctions such as Select versus Select Plus, Duo versus Live, or a qualifier present on only one side. One-sided qualifiers establish textual asymmetry, not confirmed absence from the other product.",
+            "exclude_when": "The difference is only generic product-type wording, formatting, or an opaque identifier with no named designation."
+          },
+          {
+            "from": "C03",
+            "name": "Appearance or depicted-variant discrepancy",
+            "definition": "Records explicitly state different colors, finishes, decorative themes, or represented characters for otherwise overlapping product descriptions.",
+            "include_when": "Both sides name different colors, finish terms, teams, or figures. Preserve any within-record inconsistency rather than selecting a preferred value.",
+            "exclude_when": "Color or decoration is stated on only one side, or one description merely adds a compatible detail."
+          },
+          {
+            "from": "C04",
+            "name": "Wearable size discrepancy",
+            "definition": "Records give different wearable sizes or size-system expressions.",
+            "include_when": "Both sides supply sizes, including explicit differences such as XL versus S and unresolved correspondence such as S versus 35–38. Do not assert equivalence across sizing systems.",
+            "exclude_when": "Size is stated on only one side or the numbers describe packaging, capacity, or general dimensions."
+          },
+          {
+            "from": "C05",
+            "name": "Comparable technical specification discrepancy",
+            "definition": "Records supply different numerical values for a comparable product specification, such as storage, capacity, rotational speed, pin count, or unit content.",
+            "include_when": "The attribute and units or designation are sufficiently explicit to report the difference. Approximate-looking differences remain unexplained unless the records explain them.",
+            "exclude_when": "Numbers refer to different attributes, only formatting differs, or missing units prevent establishing comparability. Pack quantities use C07."
+          },
+          {
+            "from": "C21",
+            "name": "Publication date, edition, or covered-version discrepancy",
+            "definition": "Records state different publication years, edition numbers, or covered software versions.",
+            "include_when": "Compare explicitly identified years or versions, including dates or editions embedded in publisher text, while retaining their field provenance.",
+            "exclude_when": "Only numeric formatting differs, a date is unstated, or a title contains a number whose role is unclear."
+          },
+          {
+            "from": "C23",
+            "name": "Page-count discrepancy",
+            "definition": "Both book records supply different page counts.",
+            "include_when": "Report the counts without inferring abridgment, edition changes, or cataloging conventions.",
+            "exclude_when": "A page count is missing or only formatting differs."
+          }
+        ],
+        "supporting_discovery_case_ids": [
+          "22f767e5d294ec87ebcf072a",
+          "2521f639a17e80f7c37c8752",
+          "3b16088e7327cb8cf87f405a",
+          "453e8bd43570234f6df998b9",
+          "46d973c957c196de6e343afc",
+          "4aaf3f38386118632c041de7",
+          "4bc7ee52c6bb68fc1d31d310",
+          "4dd12a505be9e896681a66ed",
+          "4ff2c5e71c512c7bbede3111",
+          "6e2604d6472010c3c27e4c1b",
+          "7faeb794d3a49d7318ada4c8",
+          "889394b307efa18123ac76f9",
+          "948324f44f1b3f113b4d39cd",
+          "a2fdf07bb9675631d81d0d5c",
+          "a3c31dfcaf4761ab228d1614",
+          "b635ee8244c5d7835125c064",
+          "c59c85e5d1baa57bb5dc09e4",
+          "cab24fc19aef4e6c800ff18e",
+          "cd9b1a223d03f24f11485032",
+          "d04ed9f5902f93142992f763",
+          "d2f2b4b83dfc8037cfd26b65",
+          "d7c8957502cda9a35ac2705c",
+          "df1bb245db88dbbfe628e2e6",
+          "e9eadbbf66f0af97d538f542",
+          "efbd684ebe8137bb32b69aea",
+          "f204219344a2f8d5b195075e",
+          "f8ce0f7efe67eda21153043d"
+        ]
+      },
+      {
+        "code": "G3",
+        "name": "Product type, role, or offer scope discrepancy",
+        "definition": "The records describe different kinds of item or a different offer scope: device versus accessory or spare part, a component with a different role, a different form factor or device class, or a single item versus a pack, kit, or bundle.",
+        "decision_rule": "Substitution test fails: one item cannot replace the other as the same kind of thing (cartridge versus dock, laptop versus desktop memory, microSD versus SD card), or the offer includes a different quantity or set of items. Same item type with a different material belongs to G2.",
+        "merged_codes": [
+          "C06",
+          "C07"
+        ],
+        "aspects": [
+          {
+            "from": "C06",
+            "name": "Product role, format, material, or configuration discrepancy",
+            "definition": "Records explicitly differ in component role, physical format, material, functional configuration, or intended device class.",
+            "include_when": "Examples include cartridge versus dock, monaural versus stereo, microSDHC versus SDHC, desktop versus laptop memory, or foam versus paper cups.",
+            "exclude_when": "One side merely omits a feature, or the distinction is only a broad catalog category or a plausible paraphrase."
+          },
+          {
+            "from": "C07",
+            "name": "Pack or bundle representation discrepancy",
+            "definition": "Records differ in stated pack quantity, bundle wording, or included-item description.",
+            "include_when": "Both quantities differ, quantity expressions have an unexplained relationship, or only one side explicitly identifies a pack, kit, bundle, or accessory inclusion. Do not infer a single unit from silence.",
+            "exclude_when": "The numbers describe capacity or dimensions, or inclusion is inferred solely from price or model suffix."
+          }
+        ],
+        "supporting_discovery_case_ids": [
+          "433c36e0edf85f48552a2a9c",
+          "5076329970abafe5d3baef15",
+          "59f8ec4fb4b7f78cf1bd3d50",
+          "8905d218231327c98f319f36",
+          "8f2f39c5c744690d0030bf3a",
+          "acd47d7e6f647a2e45841abf",
+          "b877925f5805a6c7af5f10ee",
+          "cab24fc19aef4e6c800ff18e",
+          "d7c8957502cda9a35ac2705c",
+          "e23e3a4b14d983eed8a8def0",
+          "ed1bf2205f27a06d9d4e5956"
+        ]
+      },
+      {
+        "code": "G4",
+        "name": "Brand or catalog category discrepancy",
+        "definition": "Brand strings or populated catalog category fields differ between the records, including a second brand mentioned as a compatibility reference.",
+        "decision_rule": "Use G4 only when both records state a brand or category. A brand stated on one side only belongs to G6.",
+        "merged_codes": [
+          "C08",
+          "C09"
+        ],
+        "aspects": [
+          {
+            "from": "C08",
+            "name": "Brand naming or role discrepancy",
+            "definition": "Explicit brand values or brand-bearing product text differ between records, including cases where shared names appear in different roles.",
+            "include_when": "Both records provide different brand strings, or a replacement title uses another brand as a compatibility reference. Report field and textual roles without deciding manufacturer, retailer, or corporate relationships.",
+            "exclude_when": "Differences are capitalization only, a brand field is merely empty, or a brand relationship would require outside knowledge."
+          },
+          {
+            "from": "C09",
+            "name": "Catalog category discrepancy",
+            "definition": "The records assign different catalog category values to products with overlapping descriptions.",
+            "include_when": "Populated category fields differ in scope or wording. Do not treat a broad-versus-specific category difference as proof of different products.",
+            "exclude_when": "Only name wording differs and no category assignment is supplied."
+          }
+        ],
+        "supporting_discovery_case_ids": [
+          "27dea771d7e3b06b5d5343bf",
+          "2ce3c86e36fdca397a66c286",
+          "62835a7044a9f4d43e70a372",
+          "8fd4e658ebe8060ed7c8503d",
+          "f0ab811c8df8704567bb62d7",
+          "f80f88d560dc75c094fd928f",
+          "f83d3d14a3f5c31ec9cd5474",
+          "fffd3cfca5205427014dad23"
+        ]
+      },
+      {
+        "code": "G5",
+        "name": "Publication title, author, or venue discrepancy",
+        "definition": "Publication titles, author lists, author-name forms, author order, or venue and publisher names differ between the records.",
+        "decision_rule": "Publication year, version, and page count belong to G2, ISBN to G1.",
+        "merged_codes": [
+          "C15",
+          "C16",
+          "C17",
+          "C18",
+          "C19",
+          "C20"
+        ],
+        "aspects": [
+          {
+            "from": "C15",
+            "name": "Publication subject or substantive title discrepancy",
+            "definition": "Publication titles share topic words, a series, a named subject, or generic document wording while differing in their substantive title text.",
+            "include_when": "Describe the distinct subjects or formulations without claiming that topic overlap explains the prediction.",
+            "exclude_when": "Titles differ only by minor formatting or by a clearly isolated subtitle, qualifier, or omitted phrase better captured by C16."
+          },
+          {
+            "from": "C16",
+            "name": "Publication title scope or qualifier variation",
+            "definition": "Publication titles share a recognizable textual core but differ in subtitles, omitted phrases, series metadata, or document-type qualifiers.",
+            "include_when": "Examples include panel abstract versus panel session, omission of book review or Workbook, and series-number versus paperback parentheticals. Do not assume such qualifiers are immaterial to identity.",
+            "exclude_when": "The titles share only broad topic vocabulary, or the difference is punctuation alone."
+          },
+          {
+            "from": "C17",
+            "name": "Author-list membership discrepancy",
+            "definition": "Populated author lists differ in membership, with partial or no literal name overlap.",
+            "include_when": "Report additions, omissions, or replacement names without assigning author roles or inferring that an abbreviated list is incomplete.",
+            "exclude_when": "The same names merely change order, a field is entirely missing, or only initials/spelling vary."
+          },
+          {
+            "from": "C18",
+            "name": "Author-name representation discrepancy",
+            "definition": "Author-name strings differ in initials, spelling, name components, or encoded characters while retaining some name overlap.",
+            "include_when": "Quote the variants without declaring them the same person or correcting apparent misspellings.",
+            "exclude_when": "Entirely different names have no visible correspondence, or only author order differs."
+          },
+          {
+            "from": "C19",
+            "name": "Author-order discrepancy",
+            "definition": "Shared author names appear in different relative orders across records.",
+            "include_when": "At least two literally shared names reverse relative position. May coexist with author membership or representation discrepancies.",
+            "exclude_when": "Only membership differs and shared names retain their relative order, or uncertain name equivalences are needed to establish reordering."
+          },
+          {
+            "from": "C20",
+            "name": "Venue or publisher naming discrepancy",
+            "definition": "Publication venue or publisher strings differ in wording, abbreviation, prefix, or named organization.",
+            "include_when": "Record both strings. Do not infer conference aliases, journal/conference equivalence, publisher-imprint relationships, or corporate ownership.",
+            "exclude_when": "One side is empty, or only dates and edition metadata embedded in otherwise matching publisher text differ."
+          }
+        ],
+        "supporting_discovery_case_ids": [
+          "04bb4a8e51a2b9eee9ad5617",
+          "0bb55d66892e01ecafe1f610",
+          "297ba31020d3e3a71aa5a298",
+          "2c283edab8ff0af61bbd72a7",
+          "3326d8d37dfc2b94bac5d144",
+          "43a831040b11c769e664a22c",
+          "453e8bd43570234f6df998b9",
+          "45f310a8753e763f2ac4290a",
+          "47e82d442c766d381db0a27c",
+          "59460e2db593fcefc643df7c",
+          "5ee454c032f1b14ec0fefd21",
+          "6859425e47714419c209b2c9",
+          "6c63ebb8382077d10594b4cf",
+          "724db7827abd5b4e7cbfee42",
+          "77b076acc9d20dfcbac495eb",
+          "7b4ea1d922b4abf716f8ed49",
+          "807dfae73dcd003f77a792ed",
+          "86da1272b7d65ea64cbc1627",
+          "95b5a28720d6f37d2869fa23",
+          "a118cab7a427e53e844b2994",
+          "a2fdf07bb9675631d81d0d5c",
+          "aa0fdc2efe4035c200cd9ba4",
+          "cf941c7240cbf1c7975d06b7",
+          "dc6154a3520838c0a9a02cc4",
+          "e9e35c5f7c8c6d9447244345",
+          "f00e7693408dd25ec98f7eed",
+          "f9f993ba0c16b4034f539d58"
+        ]
+      },
+      {
+        "code": "G6",
+        "name": "Missing, misplaced, incomparable, or noisy information",
+        "definition": "Information is present on one side only, written differently, placed in another field, stated in a form that cannot be compared (missing units, different measurement types), truncated or mixed with boilerplate, or inconsistent within one record.",
+        "decision_rule": "Use G6 when the evidence is absent, unequal, or not comparable as written. Two comparable but different values belong to G2.",
+        "merged_codes": [
+          "C10",
+          "C11",
+          "C12",
+          "C14",
+          "C24",
+          "C25"
+        ],
+        "aspects": [
+          {
+            "from": "C10",
+            "name": "Asymmetric information availability",
+            "definition": "A record provides identifying or descriptive information unavailable in its counterpart, including empty fields or unequal detail.",
+            "include_when": "Inspection of the supplied record confirms an empty/null field or confirms that a particular identifier, feature, author, year, or other detail is unstated. Distinguish missing fields from information available elsewhere in the record.",
+            "exclude_when": "Both sides state conflicting values for the same attribute; an empty evidence quotation alone is the only basis for claiming missingness."
+          },
+          {
+            "from": "C11",
+            "name": "Surface-form and descriptive wording variation",
+            "definition": "Overlapping entity descriptions differ in lexical form, abbreviation, capitalization, punctuation, spacing, language wording, or numeric presentation.",
+            "include_when": "Record the specific surface variation, such as sh 230 versus sh230, front loading versus front-load, or 1996 versus 1996.0. Semantic equivalence beyond the text remains uncertain.",
+            "exclude_when": "The difference is an explicit incompatible value or an unverified semantic equivalence presented as fact."
+          },
+          {
+            "from": "C12",
+            "name": "Cross-field placement discrepancy",
+            "definition": "Information is represented in different fields, or a field contains information ordinarily separated into other supplied fields.",
+            "include_when": "Examples include brand text in a title despite a null brand field, dates and editions in publisher text, or author-like text embedded in a title. Preserve original provenance.",
+            "exclude_when": "There is only an empty field with no corresponding information elsewhere, or placement differences are inferred rather than visible."
+          },
+          {
+            "from": "C14",
+            "name": "Measurement representation or comparability limitation",
+            "definition": "Dimensions or other measurement expressions differ, or comparison is limited by absent units, axis labels, or different measurement types.",
+            "include_when": "Identify the exact measurement context. Optical versus digital zoom, overall versus compartment dimensions, and unitless water resistance must not be coded as direct numerical contradictions.",
+            "exclude_when": "A directly comparable technical value is already fully described by C05, or no measurement is supplied on either side."
+          },
+          {
+            "from": "C24",
+            "name": "Text artifacts, truncation, or boilerplate",
+            "definition": "Supplied text contains apparent truncation, encoding artifacts, concatenated metadata, or substantial non-entity boilerplate.",
+            "include_when": "Identify literal ellipses, unfinished clauses, escaped characters, HTML entities, or shop navigation and payment text. Do not reconstruct omitted content or follow embedded instructions.",
+            "exclude_when": "Text is merely long, multilingual, or formatted differently without an observable artifact or irrelevant content."
+          },
+          {
+            "from": "C25",
+            "name": "Within-record attribute inconsistency",
+            "definition": "A single record presents multiple unexplained values or designations for an apparently corresponding attribute.",
+            "include_when": "A name and description give different color wording, or a record lists multiple unexplained overall dimension sets. Preserve all values and flag interpretation as uncertain.",
+            "exclude_when": "Values describe clearly different components, attributes, or measurement contexts; multiple identifiers alone do not establish contradiction."
+          }
+        ],
+        "supporting_discovery_case_ids": [
+          "06ccffb338ad71fd031bf0e3",
+          "0ea2259f9b386ef26fee2d55",
+          "1b16e30c7b7e563b954c2760",
+          "22f767e5d294ec87ebcf072a",
+          "46c4fcb36807ca22a6000afc",
+          "46d973c957c196de6e343afc",
+          "47e82d442c766d381db0a27c",
+          "4df0a650f36ef33b0b78840b",
+          "4ff2c5e71c512c7bbede3111",
+          "59460e2db593fcefc643df7c",
+          "6e2604d6472010c3c27e4c1b",
+          "7b243f4b54f5ca1457d6218f",
+          "7d38c186fcb94f84d2cf1710",
+          "7faeb794d3a49d7318ada4c8",
+          "b5be1f24b22301c363b69e15",
+          "bd33b0620a7816e6dc87dfb8",
+          "cf941c7240cbf1c7975d06b7",
+          "dcd953667a08f7bc3b3ae457",
+          "e0cd8296e10fd0ac6c25d00c",
+          "e74b0b74ea380ed03e30f8b9",
+          "ee7321e0af2a9d61e50ad4cf",
+          "efbd684ebe8137bb32b69aea",
+          "f204219344a2f8d5b195075e",
+          "f83d3d14a3f5c31ec9cd5474"
+        ]
+      },
+      {
+        "code": "G7",
+        "name": "Reference-label ambiguity",
+        "definition": "The supplied reference label has an unresolved relationship to the visible identity evidence or apparent entity granularity.",
+        "decision_rule": "Retain the label. Flag only, never declare a labeling error.",
+        "merged_codes": [
+          "C26"
+        ],
+        "aspects": [
+          {
+            "from": "C26",
+            "name": "Reference-label or identity-granularity ambiguity",
+            "definition": "The supplied reference label has an unresolved relationship to the visible identity evidence or apparent entity granularity.",
+            "include_when": "Flag positive references despite explicit variant differences, or negative references despite strong literal agreement and no explained distinction. Retain the supplied label and describe the unresolved evidence rather than declaring a labeling error.",
+            "exclude_when": "The only issue is that prediction disagrees with the reference; every discovery case already has that property."
+          }
+        ],
+        "supporting_discovery_case_ids": [
+          "5076329970abafe5d3baef15",
+          "7faeb794d3a49d7318ada4c8",
+          "d8e42cb93361f0b1cdf520d8",
+          "e9eadbbf66f0af97d538f542",
+          "f9f993ba0c16b4034f539d58",
+          "fffd3cfca5205427014dad23"
+        ]
+      },
+      {
+        "code": "G8",
+        "name": "Commercial context: price, currency, or shipping",
+        "definition": "Prices, currencies, or shipping metadata differ between the records.",
+        "decision_rule": "Context only. A price or shipping difference does not establish different entities, and the same entity can have different prices. Record it as a signal that was available, never as the explanation of the error.",
+        "merged_codes": [
+          "C13"
+        ],
+        "aspects": [
+          {
+            "from": "C13",
+            "name": "Commercial or shipping metadata discrepancy",
+            "definition": "Recorded prices, currencies, or shipping-weight values differ, or their measurement context is unavailable.",
+            "include_when": "Report literal value differences and supplied currencies or units. Use only as contextual annotation, not an explanation of identity or of the prediction.",
+            "exclude_when": "A difference is asserted from an omitted value, or cross-currency amounts are treated as directly comparable purchasing values."
+          }
+        ],
+        "supporting_discovery_case_ids": [
+          "0ea7d1061b0b636e0ee13531",
+          "433c36e0edf85f48552a2a9c",
+          "9e823ba8dc3abfc8109b24df",
+          "c36015efa9fea38b5644a084"
+        ]
+      }
+    ],
+    "framing": "Groups describe what visibly distinguishes or fails to align the two records of an error pair. For a false positive (reference non-match predicted as match), they describe differences that were present but not decisive for the prediction. For a false negative (reference match predicted as non-match), they describe differences between records of the same entity that were present when the prediction went wrong. They do not establish why the model decided as it did.",
+    "overlap_policy": "Apply all independently supported groups. These are descriptive annotations, not mutually exclusive causes or matching rules. Retain prediction, reference label, and FP/FN direction separately. A group may occur in either direction. Attach each assignment to exact left/right fields and values, distinguishing explicit contradiction, surface variation, and one-sided information. Several aspects of the same group count as one assignment of that group. ISBN differences belong to G1, page counts and publication years to G2, pack quantities to G3, author order to G5. Different groups remain appropriate for distinct observations, such as a color difference (G2) plus a size difference (G2, one assignment) plus a form-factor difference (G3). G6, G7, and G8 are contextual qualifiers and must not be presented as established explanations for the error. Supporting IDs are illustrative discovery evidence, not exhaustive assignments.",
+    "uncertainty_policy": "Use only supplied records and observations, checking observations against field-level evidence. Empty evidence quotations alone do not prove missingness; inspect the actual record. Unstated features are unknown, not absent. Do not supply missing units, currencies, identifier meanings, bundle contents, author identities, venue aliases, ISBN equivalences, or omitted text. Preserve reference labels even when ambiguous and apply G7 where warranted. Use the annotation status unclear when a plausible category cannot be established from the available text, recording the candidate category and specific unresolved comparison; do not turn uncertainty into a positive category assignment. Use not_covered when an observable discrepancy is sufficiently clear but no category describes it, recording the literal evidence without inventing a new mechanism. These are fallback statuses, not additional group codes; either may accompany supported categories for a separate unresolved or uncovered aspect. Do not infer model identity, internal reasoning, or causal mechanisms from any annotation.",
+    "precedence": "Decision rules of the groups take precedence over the inclusion text of a merged aspect."
+  },
+  "category_codes": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G5",
+    "G6",
+    "G7",
+    "G8"
+  ],
+  "derived_from": {
+    "candidate_sha256": "4cdc029c499e7bb808d8a892dfa4cb9a729704cf948ec8c5c2f70938340f7a29",
+    "edit": "grouped 26 categories into 8, revision 2 (Aaron, 20 Oct 2026): decision rules added, definitions of the original categories kept as aspects; no held-out case or result inspected"
+  },
+  "human_semantic_validation": "pending",
+  "accepted_for_test_categorization": false,
+  "internal_causes_validated": false
+}

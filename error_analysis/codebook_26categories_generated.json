@@ -1,0 +1,408 @@
+{
+  "codebook": {
+    "categories": [
+      {
+        "code": "C01",
+        "definition": "Product records contain different explicit model, part, or product-code strings, including suffix differences, while sharing some product wording.",
+        "exclude_when": "Only punctuation, spacing, or capitalization differs; a code is supplied on only one side; or the identifiers are ISBNs.",
+        "include_when": "Both sides supply identifying strings with different letters or digits. Describe the strings without assuming what a suffix means or whether they are aliases.",
+        "name": "Product identifier discrepancy",
+        "supporting_discovery_case_ids": [
+          "46c4fcb36807ca22a6000afc",
+          "42f27d6ec9259983903bdba2",
+          "2fe1e97c40c58096020a838b",
+          "7b243f4b54f5ca1457d6218f",
+          "31bb17b5eb2a040d435ece2a"
+        ]
+      },
+      {
+        "code": "C02",
+        "definition": "Shared product-family wording accompanies different named lines, editions, generations, or distinguishing product qualifiers.",
+        "exclude_when": "The difference is only generic product-type wording, formatting, or an opaque identifier with no named designation.",
+        "include_when": "Names contain distinctions such as Select versus Select Plus, Duo versus Live, or a qualifier present on only one side. One-sided qualifiers establish textual asymmetry, not confirmed absence from the other product.",
+        "name": "Product line or edition wording discrepancy",
+        "supporting_discovery_case_ids": [
+          "cab24fc19aef4e6c800ff18e",
+          "948324f44f1b3f113b4d39cd",
+          "3b16088e7327cb8cf87f405a",
+          "f8ce0f7efe67eda21153043d",
+          "22f767e5d294ec87ebcf072a"
+        ]
+      },
+      {
+        "code": "C03",
+        "definition": "Records explicitly state different colors, finishes, decorative themes, or represented characters for otherwise overlapping product descriptions.",
+        "exclude_when": "Color or decoration is stated on only one side, or one description merely adds a compatible detail.",
+        "include_when": "Both sides name different colors, finish terms, teams, or figures. Preserve any within-record inconsistency rather than selecting a preferred value.",
+        "name": "Appearance or depicted-variant discrepancy",
+        "supporting_discovery_case_ids": [
+          "6e2604d6472010c3c27e4c1b",
+          "2521f639a17e80f7c37c8752",
+          "df1bb245db88dbbfe628e2e6",
+          "e9eadbbf66f0af97d538f542",
+          "7faeb794d3a49d7318ada4c8"
+        ]
+      },
+      {
+        "code": "C04",
+        "definition": "Records give different wearable sizes or size-system expressions.",
+        "exclude_when": "Size is stated on only one side or the numbers describe packaging, capacity, or general dimensions.",
+        "include_when": "Both sides supply sizes, including explicit differences such as XL versus S and unresolved correspondence such as S versus 35–38. Do not assert equivalence across sizing systems.",
+        "name": "Wearable size discrepancy",
+        "supporting_discovery_case_ids": [
+          "4dd12a505be9e896681a66ed",
+          "4aaf3f38386118632c041de7",
+          "a3c31dfcaf4761ab228d1614",
+          "e9eadbbf66f0af97d538f542"
+        ]
+      },
+      {
+        "code": "C05",
+        "definition": "Records supply different numerical values for a comparable product specification, such as storage, capacity, rotational speed, pin count, or unit content.",
+        "exclude_when": "Numbers refer to different attributes, only formatting differs, or missing units prevent establishing comparability. Pack quantities use C07.",
+        "include_when": "The attribute and units or designation are sufficiently explicit to report the difference. Approximate-looking differences remain unexplained unless the records explain them.",
+        "name": "Comparable technical specification discrepancy",
+        "supporting_discovery_case_ids": [
+          "c59c85e5d1baa57bb5dc09e4",
+          "d7c8957502cda9a35ac2705c",
+          "f204219344a2f8d5b195075e",
+          "4bc7ee52c6bb68fc1d31d310",
+          "efbd684ebe8137bb32b69aea"
+        ]
+      },
+      {
+        "code": "C06",
+        "definition": "Records explicitly differ in component role, physical format, material, functional configuration, or intended device class.",
+        "exclude_when": "One side merely omits a feature, or the distinction is only a broad catalog category or a plausible paraphrase.",
+        "include_when": "Examples include cartridge versus dock, monaural versus stereo, microSDHC versus SDHC, desktop versus laptop memory, or foam versus paper cups.",
+        "name": "Product role, format, material, or configuration discrepancy",
+        "supporting_discovery_case_ids": [
+          "8f2f39c5c744690d0030bf3a",
+          "acd47d7e6f647a2e45841abf",
+          "cab24fc19aef4e6c800ff18e",
+          "d7c8957502cda9a35ac2705c",
+          "8905d218231327c98f319f36"
+        ]
+      },
+      {
+        "code": "C07",
+        "definition": "Records differ in stated pack quantity, bundle wording, or included-item description.",
+        "exclude_when": "The numbers describe capacity or dimensions, or inclusion is inferred solely from price or model suffix.",
+        "include_when": "Both quantities differ, quantity expressions have an unexplained relationship, or only one side explicitly identifies a pack, kit, bundle, or accessory inclusion. Do not infer a single unit from silence.",
+        "name": "Pack or bundle representation discrepancy",
+        "supporting_discovery_case_ids": [
+          "433c36e0edf85f48552a2a9c",
+          "b877925f5805a6c7af5f10ee",
+          "59f8ec4fb4b7f78cf1bd3d50",
+          "5076329970abafe5d3baef15",
+          "ed1bf2205f27a06d9d4e5956",
+          "e23e3a4b14d983eed8a8def0"
+        ]
+      },
+      {
+        "code": "C08",
+        "definition": "Explicit brand values or brand-bearing product text differ between records, including cases where shared names appear in different roles.",
+        "exclude_when": "Differences are capitalization only, a brand field is merely empty, or a brand relationship would require outside knowledge.",
+        "include_when": "Both records provide different brand strings, or a replacement title uses another brand as a compatibility reference. Report field and textual roles without deciding manufacturer, retailer, or corporate relationships.",
+        "name": "Brand naming or role discrepancy",
+        "supporting_discovery_case_ids": [
+          "27dea771d7e3b06b5d5343bf",
+          "f0ab811c8df8704567bb62d7",
+          "2ce3c86e36fdca397a66c286",
+          "f80f88d560dc75c094fd928f"
+        ]
+      },
+      {
+        "code": "C09",
+        "definition": "The records assign different catalog category values to products with overlapping descriptions.",
+        "exclude_when": "Only name wording differs and no category assignment is supplied.",
+        "include_when": "Populated category fields differ in scope or wording. Do not treat a broad-versus-specific category difference as proof of different products.",
+        "name": "Catalog category discrepancy",
+        "supporting_discovery_case_ids": [
+          "fffd3cfca5205427014dad23",
+          "f83d3d14a3f5c31ec9cd5474",
+          "62835a7044a9f4d43e70a372",
+          "8fd4e658ebe8060ed7c8503d"
+        ]
+      },
+      {
+        "code": "C10",
+        "definition": "A record provides identifying or descriptive information unavailable in its counterpart, including empty fields or unequal detail.",
+        "exclude_when": "Both sides state conflicting values for the same attribute; an empty evidence quotation alone is the only basis for claiming missingness.",
+        "include_when": "Inspection of the supplied record confirms an empty/null field or confirms that a particular identifier, feature, author, year, or other detail is unstated. Distinguish missing fields from information available elsewhere in the record.",
+        "name": "Asymmetric information availability",
+        "supporting_discovery_case_ids": [
+          "46c4fcb36807ca22a6000afc",
+          "efbd684ebe8137bb32b69aea",
+          "06ccffb338ad71fd031bf0e3",
+          "cf941c7240cbf1c7975d06b7",
+          "7d38c186fcb94f84d2cf1710"
+        ]
+      },
+      {
+        "code": "C11",
+        "definition": "Overlapping entity descriptions differ in lexical form, abbreviation, capitalization, punctuation, spacing, language wording, or numeric presentation.",
+        "exclude_when": "The difference is an explicit incompatible value or an unverified semantic equivalence presented as fact.",
+        "include_when": "Record the specific surface variation, such as sh 230 versus sh230, front loading versus front-load, or 1996 versus 1996.0. Semantic equivalence beyond the text remains uncertain.",
+        "name": "Surface-form and descriptive wording variation",
+        "supporting_discovery_case_ids": [
+          "7b243f4b54f5ca1457d6218f",
+          "bd33b0620a7816e6dc87dfb8",
+          "f83d3d14a3f5c31ec9cd5474",
+          "47e82d442c766d381db0a27c",
+          "59460e2db593fcefc643df7c"
+        ]
+      },
+      {
+        "code": "C12",
+        "definition": "Information is represented in different fields, or a field contains information ordinarily separated into other supplied fields.",
+        "exclude_when": "There is only an empty field with no corresponding information elsewhere, or placement differences are inferred rather than visible.",
+        "include_when": "Examples include brand text in a title despite a null brand field, dates and editions in publisher text, or author-like text embedded in a title. Preserve original provenance.",
+        "name": "Cross-field placement discrepancy",
+        "supporting_discovery_case_ids": [
+          "0ea2259f9b386ef26fee2d55",
+          "b5be1f24b22301c363b69e15",
+          "46d973c957c196de6e343afc",
+          "7faeb794d3a49d7318ada4c8"
+        ]
+      },
+      {
+        "code": "C13",
+        "definition": "Recorded prices, currencies, or shipping-weight values differ, or their measurement context is unavailable.",
+        "exclude_when": "A difference is asserted from an omitted value, or cross-currency amounts are treated as directly comparable purchasing values.",
+        "include_when": "Report literal value differences and supplied currencies or units. Use only as contextual annotation, not an explanation of identity or of the prediction.",
+        "name": "Commercial or shipping metadata discrepancy",
+        "supporting_discovery_case_ids": [
+          "433c36e0edf85f48552a2a9c",
+          "0ea7d1061b0b636e0ee13531",
+          "c36015efa9fea38b5644a084",
+          "9e823ba8dc3abfc8109b24df"
+        ]
+      },
+      {
+        "code": "C14",
+        "definition": "Dimensions or other measurement expressions differ, or comparison is limited by absent units, axis labels, or different measurement types.",
+        "exclude_when": "A directly comparable technical value is already fully described by C05, or no measurement is supplied on either side.",
+        "include_when": "Identify the exact measurement context. Optical versus digital zoom, overall versus compartment dimensions, and unitless water resistance must not be coded as direct numerical contradictions.",
+        "name": "Measurement representation or comparability limitation",
+        "supporting_discovery_case_ids": [
+          "6e2604d6472010c3c27e4c1b",
+          "e0cd8296e10fd0ac6c25d00c",
+          "e74b0b74ea380ed03e30f8b9",
+          "4ff2c5e71c512c7bbede3111"
+        ]
+      },
+      {
+        "code": "C15",
+        "definition": "Publication titles share topic words, a series, a named subject, or generic document wording while differing in their substantive title text.",
+        "exclude_when": "Titles differ only by minor formatting or by a clearly isolated subtitle, qualifier, or omitted phrase better captured by C16.",
+        "include_when": "Describe the distinct subjects or formulations without claiming that topic overlap explains the prediction.",
+        "name": "Publication subject or substantive title discrepancy",
+        "supporting_discovery_case_ids": [
+          "cf941c7240cbf1c7975d06b7",
+          "7b4ea1d922b4abf716f8ed49",
+          "43a831040b11c769e664a22c",
+          "a118cab7a427e53e844b2994",
+          "dc6154a3520838c0a9a02cc4"
+        ]
+      },
+      {
+        "code": "C16",
+        "definition": "Publication titles share a recognizable textual core but differ in subtitles, omitted phrases, series metadata, or document-type qualifiers.",
+        "exclude_when": "The titles share only broad topic vocabulary, or the difference is punctuation alone.",
+        "include_when": "Examples include panel abstract versus panel session, omission of book review or Workbook, and series-number versus paperback parentheticals. Do not assume such qualifiers are immaterial to identity.",
+        "name": "Publication title scope or qualifier variation",
+        "supporting_discovery_case_ids": [
+          "47e82d442c766d381db0a27c",
+          "45f310a8753e763f2ac4290a",
+          "f00e7693408dd25ec98f7eed",
+          "297ba31020d3e3a71aa5a298",
+          "724db7827abd5b4e7cbfee42"
+        ]
+      },
+      {
+        "code": "C17",
+        "definition": "Populated author lists differ in membership, with partial or no literal name overlap.",
+        "exclude_when": "The same names merely change order, a field is entirely missing, or only initials/spelling vary.",
+        "include_when": "Report additions, omissions, or replacement names without assigning author roles or inferring that an abbreviated list is incomplete.",
+        "name": "Author-list membership discrepancy",
+        "supporting_discovery_case_ids": [
+          "95b5a28720d6f37d2869fa23",
+          "807dfae73dcd003f77a792ed",
+          "04bb4a8e51a2b9eee9ad5617",
+          "45f310a8753e763f2ac4290a",
+          "453e8bd43570234f6df998b9"
+        ]
+      },
+      {
+        "code": "C18",
+        "definition": "Author-name strings differ in initials, spelling, name components, or encoded characters while retaining some name overlap.",
+        "exclude_when": "Entirely different names have no visible correspondence, or only author order differs.",
+        "include_when": "Quote the variants without declaring them the same person or correcting apparent misspellings.",
+        "name": "Author-name representation discrepancy",
+        "supporting_discovery_case_ids": [
+          "6859425e47714419c209b2c9",
+          "59460e2db593fcefc643df7c",
+          "86da1272b7d65ea64cbc1627",
+          "aa0fdc2efe4035c200cd9ba4",
+          "3326d8d37dfc2b94bac5d144"
+        ]
+      },
+      {
+        "code": "C19",
+        "definition": "Shared author names appear in different relative orders across records.",
+        "exclude_when": "Only membership differs and shared names retain their relative order, or uncertain name equivalences are needed to establish reordering.",
+        "include_when": "At least two literally shared names reverse relative position. May coexist with author membership or representation discrepancies.",
+        "name": "Author-order discrepancy",
+        "supporting_discovery_case_ids": [
+          "a2fdf07bb9675631d81d0d5c",
+          "2c283edab8ff0af61bbd72a7",
+          "5ee454c032f1b14ec0fefd21",
+          "6c63ebb8382077d10594b4cf",
+          "e9e35c5f7c8c6d9447244345"
+        ]
+      },
+      {
+        "code": "C20",
+        "definition": "Publication venue or publisher strings differ in wording, abbreviation, prefix, or named organization.",
+        "exclude_when": "One side is empty, or only dates and edition metadata embedded in otherwise matching publisher text differ.",
+        "include_when": "Record both strings. Do not infer conference aliases, journal/conference equivalence, publisher-imprint relationships, or corporate ownership.",
+        "name": "Venue or publisher naming discrepancy",
+        "supporting_discovery_case_ids": [
+          "f9f993ba0c16b4034f539d58",
+          "86da1272b7d65ea64cbc1627",
+          "43a831040b11c769e664a22c",
+          "0bb55d66892e01ecafe1f610",
+          "77b076acc9d20dfcbac495eb"
+        ]
+      },
+      {
+        "code": "C21",
+        "definition": "Records state different publication years, edition numbers, or covered software versions.",
+        "exclude_when": "Only numeric formatting differs, a date is unstated, or a title contains a number whose role is unclear.",
+        "include_when": "Compare explicitly identified years or versions, including dates or editions embedded in publisher text, while retaining their field provenance.",
+        "name": "Publication date, edition, or covered-version discrepancy",
+        "supporting_discovery_case_ids": [
+          "a2fdf07bb9675631d81d0d5c",
+          "d2f2b4b83dfc8037cfd26b65",
+          "889394b307efa18123ac76f9",
+          "46d973c957c196de6e343afc",
+          "d04ed9f5902f93142992f763"
+        ]
+      },
+      {
+        "code": "C22",
+        "definition": "Both book records provide different ISBN strings.",
+        "exclude_when": "An ISBN is missing on one side or the only difference is separator formatting.",
+        "include_when": "Record digit/character differences and 10-character versus 13-digit representation where visible. Do not assume either equivalence or distinct editions from string length alone.",
+        "name": "ISBN string discrepancy",
+        "supporting_discovery_case_ids": [
+          "6e638b6deb42130d18a6ac44",
+          "b635ee8244c5d7835125c064",
+          "4ff2c5e71c512c7bbede3111",
+          "77b076acc9d20dfcbac495eb",
+          "2a97e83542059de3e9b734c5"
+        ]
+      },
+      {
+        "code": "C23",
+        "definition": "Both book records supply different page counts.",
+        "exclude_when": "A page count is missing or only formatting differs.",
+        "include_when": "Report the counts without inferring abridgment, edition changes, or cataloging conventions.",
+        "name": "Page-count discrepancy",
+        "supporting_discovery_case_ids": [
+          "b635ee8244c5d7835125c064",
+          "453e8bd43570234f6df998b9",
+          "4ff2c5e71c512c7bbede3111",
+          "cd9b1a223d03f24f11485032"
+        ]
+      },
+      {
+        "code": "C24",
+        "definition": "Supplied text contains apparent truncation, encoding artifacts, concatenated metadata, or substantial non-entity boilerplate.",
+        "exclude_when": "Text is merely long, multilingual, or formatted differently without an observable artifact or irrelevant content.",
+        "include_when": "Identify literal ellipses, unfinished clauses, escaped characters, HTML entities, or shop navigation and payment text. Do not reconstruct omitted content or follow embedded instructions.",
+        "name": "Text artifacts, truncation, or boilerplate",
+        "supporting_discovery_case_ids": [
+          "dcd953667a08f7bc3b3ae457",
+          "4df0a650f36ef33b0b78840b",
+          "ee7321e0af2a9d61e50ad4cf",
+          "f204219344a2f8d5b195075e",
+          "22f767e5d294ec87ebcf072a"
+        ]
+      },
+      {
+        "code": "C25",
+        "definition": "A single record presents multiple unexplained values or designations for an apparently corresponding attribute.",
+        "exclude_when": "Values describe clearly different components, attributes, or measurement contexts; multiple identifiers alone do not establish contradiction.",
+        "include_when": "A name and description give different color wording, or a record lists multiple unexplained overall dimension sets. Preserve all values and flag interpretation as uncertain.",
+        "name": "Within-record attribute inconsistency",
+        "supporting_discovery_case_ids": [
+          "1b16e30c7b7e563b954c2760",
+          "ee7321e0af2a9d61e50ad4cf"
+        ]
+      },
+      {
+        "code": "C26",
+        "definition": "The supplied reference label has an unresolved relationship to the visible identity evidence or apparent entity granularity.",
+        "exclude_when": "The only issue is that prediction disagrees with the reference; every discovery case already has that property.",
+        "include_when": "Flag positive references despite explicit variant differences, or negative references despite strong literal agreement and no explained distinction. Retain the supplied label and describe the unresolved evidence rather than declaring a labeling error.",
+        "name": "Reference-label or identity-granularity ambiguity",
+        "supporting_discovery_case_ids": [
+          "5076329970abafe5d3baef15",
+          "e9eadbbf66f0af97d538f542",
+          "7faeb794d3a49d7318ada4c8",
+          "f9f993ba0c16b4034f539d58",
+          "fffd3cfca5205427014dad23",
+          "d8e42cb93361f0b1cdf520d8"
+        ]
+      }
+    ],
+    "overlap_policy": "Apply all independently supported categories; these are descriptive annotations, not mutually exclusive causes or matching rules. Retain prediction, reference label, and FP/FN direction separately. A category may occur in either direction. Attach each assignment to exact left/right fields and values, distinguishing explicit contradiction, surface variation, and one-sided information. Prefer specialized categories over duplicating the same observation under a broad category: author order uses C19, ISBN differences use C22, page counts use C23, and pack quantities use C07. Multiple categories remain appropriate for distinct observations, such as color plus size, identifier plus configuration, or author membership plus order. C10, C12–C14, C24–C26 are often contextual qualifiers and must not be presented as established explanations for the error. Supporting IDs are illustrative discovery evidence, not exhaustive assignments.",
+    "uncertainty_policy": "Use only supplied records and observations, checking observations against field-level evidence. Empty evidence quotations alone do not prove missingness; inspect the actual record. Unstated features are unknown, not absent. Do not supply missing units, currencies, identifier meanings, bundle contents, author identities, venue aliases, ISBN equivalences, or omitted text. Preserve reference labels even when ambiguous and apply C26 where warranted. Use the annotation status unclear when a plausible category cannot be established from the available text, recording the candidate category and specific unresolved comparison; do not turn uncertainty into a positive category assignment. Use not_covered when an observable discrepancy is sufficiently clear but no category describes it, recording the literal evidence without inventing a new mechanism. These are fallback statuses, not additional C-codes; either may accompany supported categories for a separate unresolved or uncovered aspect. Do not infer model identity, internal reasoning, or causal mechanisms from any annotation."
+  },
+  "category_codes": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20",
+    "C21",
+    "C22",
+    "C23",
+    "C24",
+    "C25",
+    "C26"
+  ],
+  "usage": {
+    "input_tokens": 80636,
+    "input_tokens_details": {
+      "cache_write_tokens": 80633,
+      "cached_tokens": 0
+    },
+    "output_tokens": 5427,
+    "output_tokens_details": {
+      "reasoning_tokens": 44
+    },
+    "total_tokens": 86063
+  },
+  "schema_and_discovery_references_valid": true,
+  "human_semantic_validation": "pending",
+  "accepted_for_test_categorization": false,
+  "internal_causes_validated": false
+}
