@@ -1,0 +1,116 @@
+{
+ "requested": 23543,
+ "returned": 23543,
+ "valid": 23543,
+ "cost_usd": 29.41082,
+ "status": {
+  "batch-1792668789-tqy3aErHWvQtUjUudthz": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 2.407912
+  },
+  "batch-1792668792-ya6qL16blBosFWnLb6qL": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 3.40635
+  },
+  "batch-1792668794-pZguhr43iqn4YNhhgxBC": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 2.54837
+  },
+  "batch-1792668796-5UFYPlA96i2MwwU8d41z": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 1.771906
+  },
+  "batch-1792668798-uhoeapR1tHDO0R641rN6": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 1.820218
+  },
+  "batch-1792668800-Z3XjgoJBSgtejVIuuGUA": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 2.076506
+  },
+  "batch-1792668803-f9K6YHFzFFdq6d9WIdN1": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 2.107158
+  },
+  "batch-1792668806-1c2k4JDL3r3SQgWp5uBE": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 2.10643
+  },
+  "batch-1792668809-aeA8ORUKZ619DvCOpBMH": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 2.108088
+  },
+  "batch-1792668811-sxnSiRlgel8LioUpUiEf": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 4.359818
+  },
+  "batch-1792668814-pe7AhNO39f0pFY40OvMd": {
+   "status": "completed",
+   "counts": {
+    "total": 2000,
+    "completed": 2000,
+    "failed": 0
+   },
+   "cost": 3.22905
+  },
+  "batch-1792668816-oNZ2O3JiP1fTQvEv63II": {
+   "status": "completed",
+   "counts": {
+    "total": 1543,
+    "completed": 1543,
+    "failed": 0
+   },
+   "cost": 1.469014
+  }
+ }
+}

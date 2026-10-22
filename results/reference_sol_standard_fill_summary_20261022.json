@@ -1,0 +1,9 @@
+{
+ "requested": 21044,
+ "valid": 21044,
+ "cost_usd": 14.04465199999994,
+ "served_tiers": {
+  "default": 21044
+ },
+ "missing_after_this_pass": 0
+}

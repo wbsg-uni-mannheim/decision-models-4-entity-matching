@@ -1,0 +1,58 @@
+{
+ "overall": {
+  "n": 1000,
+  "agree": 1000,
+  "live_correct": 1000,
+  "batch_correct": 1000
+ },
+ "per_benchmark": {
+  "dblp-scholar": {
+   "n": 162,
+   "agree": 162,
+   "live_correct": 162,
+   "batch_correct": 162
+  },
+  "billiger-de": {
+   "n": 119,
+   "agree": 119,
+   "live_correct": 119,
+   "batch_correct": 119
+  },
+  "abt-buy": {
+   "n": 67,
+   "agree": 67,
+   "live_correct": 67,
+   "batch_correct": 67
+  },
+  "dn7-walmart-amazon": {
+   "n": 361,
+   "agree": 361,
+   "live_correct": 361,
+   "batch_correct": 361
+  },
+  "wdc": {
+   "n": 138,
+   "agree": 138,
+   "live_correct": 138,
+   "batch_correct": 138
+  },
+  "walmart-amazon": {
+   "n": 49,
+   "agree": 49,
+   "live_correct": 49,
+   "batch_correct": 49
+  },
+  "dblp-acm": {
+   "n": 97,
+   "agree": 97,
+   "live_correct": 97,
+   "batch_correct": 97
+  },
+  "semi-heter": {
+   "n": 7,
+   "agree": 7,
+   "live_correct": 7,
+   "batch_correct": 7
+  }
+ }
+}

@@ -1,0 +1,315 @@
+{
+ "description": "Error classes of all test errors of Jev 1.13 and PPLX v1.2 (selected prompts, F0) and of the ensemble members GPT-6.1 Sol, Claude Opus 5.5 and Gemini 4 Argon (B0, all 30,225 test pairs). Cases: the 479 F0 sample cases (artifacts/astra_error_analysis/f0_v1) plus the census of the 886 remaining error pairs of these five models (artifacts/astra_error_analysis/census_v1, runs/error_categorization/sol_flex_census_run1-3, approval 2026-10-22, 6.92 USD). Frozen 8-group codebook (revision 2), GPT-6.1 Sol flex low reasoning, three runs, majority of two. Stability (kappa, same_set_share) over the 1,100 error pairs of the five models. Counts per model: pairs with the class; clef, clef_flash, kev are partial (only their errors among the assigned cases). Computed by src/errcat_census_eval.py.",
+ "cases": 1365,
+ "f0_cases": 479,
+ "census_cases": 886,
+ "target_cases": 1100,
+ "models": {
+  "jev": {
+   "all": {
+    "n": 701,
+    "C1": 256,
+    "C2": 67,
+    "C3": 101,
+    "C4": 178,
+    "C5": 677,
+    "C6": 202,
+    "C7": 436
+   },
+   "FP": {
+    "n": 482,
+    "C1": 160,
+    "C2": 34,
+    "C3": 63,
+    "C4": 116,
+    "C5": 463,
+    "C6": 117,
+    "C7": 301
+   },
+   "FN": {
+    "n": 219,
+    "C1": 96,
+    "C2": 33,
+    "C3": 38,
+    "C4": 62,
+    "C5": 214,
+    "C6": 85,
+    "C7": 135
+   },
+   "errors": 701
+  },
+  "pplx_v12": {
+   "all": {
+    "n": 641,
+    "C1": 240,
+    "C2": 69,
+    "C3": 86,
+    "C4": 154,
+    "C5": 616,
+    "C6": 201,
+    "C7": 407
+   },
+   "FP": {
+    "n": 432,
+    "C1": 142,
+    "C2": 42,
+    "C3": 59,
+    "C4": 86,
+    "C5": 412,
+    "C6": 121,
+    "C7": 289
+   },
+   "FN": {
+    "n": 209,
+    "C1": 98,
+    "C2": 27,
+    "C3": 27,
+    "C4": 68,
+    "C5": 204,
+    "C6": 80,
+    "C7": 118
+   },
+   "errors": 641
+  },
+  "sol": {
+   "all": {
+    "n": 588,
+    "C1": 192,
+    "C2": 62,
+    "C3": 72,
+    "C4": 172,
+    "C5": 566,
+    "C6": 187,
+    "C7": 351
+   },
+   "FP": {
+    "n": 465,
+    "C1": 127,
+    "C2": 44,
+    "C3": 58,
+    "C4": 115,
+    "C5": 447,
+    "C6": 126,
+    "C7": 287
+   },
+   "FN": {
+    "n": 123,
+    "C1": 65,
+    "C2": 18,
+    "C3": 14,
+    "C4": 57,
+    "C5": 119,
+    "C6": 61,
+    "C7": 64
+   },
+   "errors": 588
+  },
+  "opus": {
+   "all": {
+    "n": 552,
+    "C1": 170,
+    "C2": 62,
+    "C3": 61,
+    "C4": 165,
+    "C5": 536,
+    "C6": 178,
+    "C7": 330
+   },
+   "FP": {
+    "n": 370,
+    "C1": 88,
+    "C2": 36,
+    "C3": 43,
+    "C4": 94,
+    "C5": 358,
+    "C6": 112,
+    "C7": 225
+   },
+   "FN": {
+    "n": 182,
+    "C1": 82,
+    "C2": 26,
+    "C3": 18,
+    "C4": 71,
+    "C5": 178,
+    "C6": 66,
+    "C7": 105
+   },
+   "errors": 552
+  },
+  "argon": {
+   "all": {
+    "n": 544,
+    "C1": 174,
+    "C2": 62,
+    "C3": 73,
+    "C4": 150,
+    "C5": 527,
+    "C6": 174,
+    "C7": 346
+   },
+   "FP": {
+    "n": 393,
+    "C1": 102,
+    "C2": 44,
+    "C3": 58,
+    "C4": 87,
+    "C5": 379,
+    "C6": 117,
+    "C7": 268
+   },
+   "FN": {
+    "n": 151,
+    "C1": 72,
+    "C2": 18,
+    "C3": 15,
+    "C4": 63,
+    "C5": 148,
+    "C6": 57,
+    "C7": 78
+   },
+   "errors": 544
+  },
+  "clef": {
+   "all": {
+    "n": 596,
+    "C1": 197,
+    "C2": 65,
+    "C3": 85,
+    "C4": 148,
+    "C5": 575,
+    "C6": 194,
+    "C7": 365
+   },
+   "FP": {
+    "n": 381,
+    "C1": 95,
+    "C2": 32,
+    "C3": 53,
+    "C4": 90,
+    "C5": 367,
+    "C6": 114,
+    "C7": 220
+   },
+   "FN": {
+    "n": 215,
+    "C1": 102,
+    "C2": 33,
+    "C3": 32,
+    "C4": 58,
+    "C5": 208,
+    "C6": 80,
+    "C7": 145
+   },
+   "errors": 704
+  },
+  "clef_flash": {
+   "all": {
+    "n": 774,
+    "C1": 329,
+    "C2": 94,
+    "C3": 113,
+    "C4": 165,
+    "C5": 739,
+    "C6": 177,
+    "C7": 502
+   },
+   "FP": {
+    "n": 628,
+    "C1": 263,
+    "C2": 70,
+    "C3": 95,
+    "C4": 128,
+    "C5": 595,
+    "C6": 123,
+    "C7": 410
+   },
+   "FN": {
+    "n": 146,
+    "C1": 66,
+    "C2": 24,
+    "C3": 18,
+    "C4": 37,
+    "C5": 144,
+    "C6": 54,
+    "C7": 92
+   },
+   "errors": 1544
+  },
+  "kev": {
+   "all": {
+    "n": 842,
+    "C1": 344,
+    "C2": 79,
+    "C3": 111,
+    "C4": 240,
+    "C5": 765,
+    "C6": 175,
+    "C7": 494
+   },
+   "FP": {
+    "n": 658,
+    "C1": 272,
+    "C2": 56,
+    "C3": 91,
+    "C4": 166,
+    "C5": 608,
+    "C6": 121,
+    "C7": 399
+   },
+   "FN": {
+    "n": 184,
+    "C1": 72,
+    "C2": 23,
+    "C3": 20,
+    "C4": 74,
+    "C5": 157,
+    "C6": 54,
+    "C7": 95
+   },
+   "errors": 1501
+  }
+ },
+ "stability": {
+  "G1": {
+   "fleiss_kappa": 0.9725205332681967,
+   "present_majority": 172
+  },
+  "C1": {
+   "fleiss_kappa": 0.911629745963088,
+   "present_majority": 406
+  },
+  "C2": {
+   "fleiss_kappa": 0.9033961746096485,
+   "present_majority": 113
+  },
+  "C3": {
+   "fleiss_kappa": 0.9836309523809522,
+   "present_majority": 140
+  },
+  "C4": {
+   "fleiss_kappa": 1.0,
+   "present_majority": 287
+  },
+  "C5": {
+   "fleiss_kappa": 0.9454851818812599,
+   "present_majority": 1062
+  },
+  "C6": {
+   "fleiss_kappa": 0.8256347555372899,
+   "present_majority": 241
+  },
+  "C7": {
+   "fleiss_kappa": 0.9974552931637224,
+   "present_majority": 669
+  }
+ },
+ "same_set_share": 0.8263636363636364,
+ "missing_focus": {
+  "jev": 0,
+  "pplx_v12": 0,
+  "sol": 0,
+  "opus": 0,
+  "argon": 0
+ }
+}
