@@ -1,6 +1,6 @@
-# EMDecision
+# decision-models-4-entity-matching
 
-Code and data for the paper *Decision Models for Entity Matching*. The paper evaluates decision models, LLM APIs that return a match probability instead of text, on eight entity matching benchmarks, and compares them with a generative LLM, Ditto, and published results.
+Code and data for the paper *Entity Matching using Decision Models*. The paper evaluates decision models, LLM APIs that return a match probability instead of text, on eight entity matching benchmarks, and compares them with a generative LLM, Ditto, and published results.
 
 ## Repository layout
 
