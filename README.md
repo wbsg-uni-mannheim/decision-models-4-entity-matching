@@ -29,6 +29,3 @@ Python 3.10. The runners read the OpenRouter key from `OPENROUTER_API_KEY` and t
 PYTHONPATH=src:runners python -m unittest discover -s tests
 ```
 
-## Not included
-
-The packages of the blind human audit and the mapping from error cases to the models that made them are withheld until the audit is complete. Internal approval records, the budget ledger, and job logs are not part of the release.
