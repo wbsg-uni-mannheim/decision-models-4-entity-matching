@@ -71,9 +71,27 @@ PYTHONPATH=src python src/prompt12_runs123_eval.py --help
 
 - **Paths:** Internal paths, host names, and user names are replaced by placeholders such as `/path/to/decision-em` (the repository root) and `/path/to/hf_cache`. Replace them with your own paths. The SHA-256 hashes of source files in the frozen manifests refer to the files before this replacement.
 - **API keys:** `run.py` reads `OPENROUTER_API_KEY` from the environment or from `.secrets/source.env`, and the runners that call the OpenAI API directly (GPT-6.1 Sol, GPT-6 Astra) read `OPENAI_API_KEY`. The runners also keep a local budget ledger in `artifacts/`.
-- **Raw responses:** Most evaluation scripts read the raw per-pair responses from `runs/`. These responses are not part of this repository yet. The aggregated numbers are in `results/`.
+- **Raw responses:** Most evaluation scripts read the raw per-pair responses from `runs/`. They are available as release assets (see below); `MANIFEST.md` there says where each folder belongs under `runs/`. The aggregated numbers are in `results/`.
 - **Ditto:** Ditto is trained and run with the code of our earlier labeling study, public at [wbsg-uni-mannheim/Automatic-data-labeling](https://github.com/wbsg-uni-mannheim/Automatic-data-labeling) (`third_party/ditto_modern`), with the settings named there and in our configs. The checkpoints are not included.
 - **Development sets:** The code reads them from `runs/labeled_chapter_20261028/sets/`; [`data/README.md`](data/README.md) shows how to copy them there.
+
+## Raw per-pair results
+
+The per-pair answers of all runs are available as release assets of the release [`raw-results-v1`](https://github.com/wbsg-uni-mannheim/decision-models-4-entity-matching/releases/tag/raw-results-v1), together with `MANIFEST.md` (content of each archive and the paper section it covers) and `SHA256SUMS`. Each answer line holds the prediction, the match probability (decision models), and every attempt with the raw provider response, the model version, token usage, cost, and time. Account identifiers in provider responses are replaced by `redacted`.
+
+| Archive | Content | Size |
+|---|---|---:|
+| `zeroshot_dp_runs123.tar.gz` | DP on all test pairs, runs 1 to 3, decision models and GPT-6 Luna Gen. | 154 MB |
+| `frontier_llms_runs123.tar.gz` | GPT-6.1 Sol, Claude Opus 5.5, Gemini 4 Argon on all test pairs, runs 1 to 3 | 84 MB |
+| `qwen38_api_runs123.tar.gz` | Qwen3.8-27B with DP via the API, runs 1 to 3 | 15 MB |
+| `prompt_study_test_runs123.tar.gz` | Prompt study on all test pairs, runs 1 to 3, with the API throughput measurements | 956 MB |
+| `prompt_and_threshold_validation.tar.gz` | Prompts and the first routing step on the validation splits | 355 MB |
+| `input_variants_runs123.tar.gz` | Serializations and perturbations, runs 1 to 3 | 1,133 MB |
+| `development_sets_sol_labels.tar.gz` | Selection and GPT-6.1 Sol labels of the development sets, decision models with DP on them | 23 MB |
+| `development_sets_demonstrations_rules.tar.gz` | Demonstrations, rules, and both with PPLX and Jev, runs 1 to 3 | 264 MB |
+| `rule_derivation_gpt6_astra.tar.gz` | Rule derivation by GPT-6 Astra, three runs | 16 MB |
+| `ditto_logistic_regression.tar.gz` | Ditto predictions (three seeds, no checkpoints) and logistic regression | 51 MB |
+| `local_inference_full_runs123.tar.gz` | Local runs of Ditto, PPLX v1.2, Qwen3.8-27B, and GLM-5.3-Flash on all test pairs, with timings | 15 MB |
 
 ## License
 
