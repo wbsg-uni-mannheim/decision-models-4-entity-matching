@@ -72,6 +72,7 @@ PYTHONPATH=src python src/prompt12_runs123_eval.py --help
 - **Paths:** Internal paths, host names, and user names are replaced by placeholders such as `/path/to/decision-em` (the repository root) and `/path/to/hf_cache`. Replace them with your own paths. The SHA-256 hashes of source files in the frozen manifests refer to the files before this replacement.
 - **API keys:** `run.py` reads `OPENROUTER_API_KEY` from the environment or from `.secrets/source.env`, and the runners that call the OpenAI API directly (GPT-6.1 Sol, GPT-6 Astra) read `OPENAI_API_KEY`. The runners also keep a local budget ledger in `artifacts/`.
 - **Raw responses:** Most evaluation scripts read the raw per-pair responses from `runs/`. These responses are not part of this repository yet. The aggregated numbers are in `results/`.
+- **Ditto:** Ditto is trained and run with the code of our earlier labeling study, public at [wbsg-uni-mannheim/Automatic-data-labeling](https://github.com/wbsg-uni-mannheim/Automatic-data-labeling) (`third_party/ditto_modern`), with the settings named there and in our configs. The checkpoints are not included.
 - **Development sets:** The code reads them from `runs/labeled_chapter_20261028/sets/`; [`data/README.md`](data/README.md) shows how to copy them there.
 
 ## License

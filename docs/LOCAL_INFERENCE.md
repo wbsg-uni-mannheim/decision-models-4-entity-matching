@@ -39,7 +39,7 @@ All models get the DP prompt and the default serialization of the paper. Times a
 | Qwen3.8-27B | bf16 | vLLM `LLM.chat` | thinking off, JSON schema with one Boolean field, `max_tokens` 64, `max_num_seqs` 512, `max_model_len` 16,384, the model's default generation settings (`--sampling api`), seed 0, 1, 2 for the three runs |
 | GLM-5.3-Flash | native FP8 weights of the release | vLLM `LLM.chat`, tensor parallel 4 | reasoning effort `low` (thinking cannot be switched off), temperature 0, `max_tokens` 1,024, `max_num_seqs` 64, `max_model_len` 8,192 |
 
-Each model also runs with batch size 1 (one request after the other). Ditto uses the checkpoints trained on the 2,000-pair development sets with the seeds 42, 52, and 62 (one per run). The Ditto code (`ditto_modern`) comes from our labeling study (Steiner and Bizer, 2026, [arXiv:2606.28823](https://arxiv.org/abs/2606.28823)); the script expects it under `/path/to/Automatic-data-labeling/third_party`. The trained checkpoints are not part of this repository.
+Each model also runs with batch size 1 (one request after the other). Ditto uses the checkpoints trained on the 2,000-pair development sets with the seeds 42, 52, and 62 (one per run). Ditto is trained and run with the code of our earlier labeling study (Steiner and Bizer, 2026, [arXiv:2606.28823](https://arxiv.org/abs/2606.28823)), which is public at [wbsg-uni-mannheim/Automatic-data-labeling](https://github.com/wbsg-uni-mannheim/Automatic-data-labeling) (`third_party/ditto_modern`), with the settings named there and in our configs. The script expects this code under `/path/to/Automatic-data-labeling/third_party`. The trained checkpoints are not included.
 
 ## Running
 
