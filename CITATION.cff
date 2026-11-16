@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper."
+title: "Entity Matching using Decision Models"
+authors:
+  - family-names: Steiner
+    given-names: Aaron
+  - family-names: Peeters
+    given-names: Ralph
+  - family-names: Bizer
+    given-names: Christian
