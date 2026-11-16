@@ -1,0 +1,1671 @@
+{
+ "description": "Local inference throughput on one H100 (Aaron, 3 Nov 2026; Chris asked how fast the models run locally).\n\nThree models on the same GPU, B0 prompt and default serialization as in the paper, no quantization:\n  ditto  RoBERTa-base Ditto checkpoints of the labelled-data chapter (set 4000, seed 42, one per benchmark), fp16\n  pplx   perplexity-ai/pplx-decider-v1.2 with Perplexity's own pplx_decider package (bf16, one forward pass);\n         --path vllm: the same checkpoint in vLLM via the plugin in pplx_vllm_plugin/ (prompts from pplx_decider)\n  qwen   Qwen/Qwen3.8-27B generative with vLLM (bf16, B0 chat request, thinking off, JSON schema, max_tokens 64);\n         speed only: the greedy runs keep no decisions (Aaron, 3 Nov). The decision check uses --sampling api, the\n         sampling the API runs had (no temperature set, so the model defaults)\n  qwen-medium  Qwen/Qwen3.8-27B generative with thinking on, reasoning_effort='medium', no output-token limit\n         (up to the 32k context), JSON schema only for the answer after </think>, the model's sampling defaults;\n         (a) on a stratified 200-pair subset\n  glm    zai-org/GLM-5.3-Flash generative with vLLM on four H100 (tensor parallel), native FP8 weights; thinking\n         cannot be switched off, so the lowest level reasoning_effort='low'; (a) on a stratified 1,000-pair subset\nTwo settings per model: (a) one request after the other (batch size 1) and (b) the fastest supported batched path.\n\nSample: up to 1,250 test pairs per benchmark (semi-heter has 414), fixed seed, split round-robin into three\nblocks; 200 further test pairs as an uncounted warm-up. Times are wall-clock seconds from record text to decision\n(tokenization included, model loading and compilation excluded). Per block and benchmark: seconds per 1,000 pairs;\nper block: unweighted mean over the eight benchmarks, as Table 7. No API calls.\n\n    python local_throughput_20261103.py sample\n    python local_throughput_20261103.py ditto\n    python local_throughput_20261103.py pplx --path ref|fast|fast32k|vllm\n    python local_throughput_20261103.py qwen [--sampling api]\n    python local_throughput_20261103.py qwen-medium\n    python local_throughput_20261103.py glm\n    python local_throughput_20261103.py report\n",
+ "date": "2026-11-03",
+ "sample": 20261103,
+ "runs": {
+  "ditto_a": {
+   "settings": {
+    "framework": "PyTorch eager + ditto_modern DittoModel (RoBERTa-base, linear head)",
+    "checkpoints": "labelled-data chapter, set 4000, seed 42, one per benchmark; threshold from its validation",
+    "precision": "fp16 (model.half())",
+    "max_len": 256,
+    "tokenizer": "fast (Rust) RoBERTa tokenizer, per pair",
+    "batch_size": 1
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389662",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 615.71.10, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 36.897324063582346,
+   "seconds_per_1k": 4.015580717023141,
+   "pairs_per_second": 248.3648945437988,
+   "pairs_per_second_from_seconds_per_1k": 249.02998357391434,
+   "hours_per_1m": 1.1154390880619836,
+   "blocks_seconds_per_1k": [
+    4.155154146329192,
+    3.968047633940233,
+    3.92331956810649
+   ],
+   "blocks_sd": 0.12298829111700382,
+   "blocks_cv": 0.03062833349818074,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 4.0183852763148025,
+    "wdc": 4.224307717685588,
+    "dblp-scholar": 4.140962529426906,
+    "walmart-amazon": 3.883538667508401,
+    "dn7-walmart-amazon": 3.886923062277492,
+    "billiger-de": 4.170069026469719,
+    "dblp-acm": 3.902752391132526,
+    "semi-heter": 3.8977070653696932
+   },
+   "input_tokens_mean": 127.75752946311654,
+   "input_tokens_mean_over_benchmarks": 125.54341835748792,
+   "f1_macro": 0.7851903311955578,
+   "f1_per_benchmark": {
+    "abt-buy": 0.8871595330739299,
+    "wdc": 0.664179104477612,
+    "dblp-scholar": 0.9196787148594378,
+    "walmart-amazon": 0.853448275862069,
+    "dn7-walmart-amazon": 0.7058823529411765,
+    "billiger-de": 0.3829787234042553,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.8896551724137931
+   },
+   "latency_p50": 0.0038936070050112903,
+   "latency_p95": 0.004150870998273604
+  },
+  "ditto_b1024": {
+   "settings": {
+    "framework": "PyTorch eager + ditto_modern DittoModel (RoBERTa-base, linear head)",
+    "checkpoints": "labelled-data chapter, set 4000, seed 42, one per benchmark; threshold from its validation",
+    "precision": "fp16 (model.half())",
+    "max_len": 256,
+    "tokenizer": "fast (Rust) RoBERTa tokenizer, per pair",
+    "batch_size": 1024,
+    "batching": "length-sorted batches per benchmark block"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389662",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 615.71.10, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 3.1463767719833413,
+   "seconds_per_1k": 0.3343630642816804,
+   "pairs_per_second": 2912.5564622775314,
+   "pairs_per_second_from_seconds_per_1k": 2990.760962633006,
+   "hours_per_1m": 0.09287862896713345,
+   "blocks_seconds_per_1k": [
+    0.33356721515307214,
+    0.31875433630427924,
+    0.35080084039693965
+   ],
+   "blocks_sd": 0.016038483113000348,
+   "blocks_cv": 0.04796568168522159,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 0.3893911408027634,
+    "wdc": 0.38726099440827966,
+    "dblp-scholar": 0.2743839783943258,
+    "walmart-amazon": 0.26582851199200375,
+    "dn7-walmart-amazon": 0.33408951519522817,
+    "billiger-de": 0.4782413407927379,
+    "dblp-acm": 0.30975942640798165,
+    "semi-heter": 0.23594960626012282
+   },
+   "input_tokens_mean": 127.75752946311654,
+   "input_tokens_mean_over_benchmarks": 125.54341835748792,
+   "f1_macro": 0.7851903311955578,
+   "f1_per_benchmark": {
+    "abt-buy": 0.8871595330739299,
+    "wdc": 0.664179104477612,
+    "dblp-scholar": 0.9196787148594378,
+    "walmart-amazon": 0.853448275862069,
+    "dn7-walmart-amazon": 0.7058823529411765,
+    "billiger-de": 0.3829787234042553,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.8896551724137931
+   }
+  },
+  "ditto_b1024_r2": {
+   "settings": {
+    "framework": "PyTorch eager + ditto_modern DittoModel (RoBERTa-base, linear head)",
+    "checkpoints": "labelled-data chapter, set 4000, seed 42, one per benchmark; threshold from its validation",
+    "precision": "fp16 (model.half())",
+    "max_len": 256,
+    "tokenizer": "fast (Rust) RoBERTa tokenizer, per pair",
+    "batch_size": 1024,
+    "batching": "length-sorted batches per benchmark block"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "391165",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 615.71.10, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 3.2638172578881495,
+   "seconds_per_1k": 0.3661446787235001,
+   "pairs_per_second": 2807.7552374759975,
+   "pairs_per_second_from_seconds_per_1k": 2731.1608173204277,
+   "hours_per_1m": 0.10170685520097224,
+   "blocks_seconds_per_1k": [
+    0.36860097533135916,
+    0.3502924652608963,
+    0.3795682472569151
+   ],
+   "blocks_sd": 0.01479050374377508,
+   "blocks_cv": 0.04039422742017187,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 0.39014240317046645,
+    "wdc": 0.3893136679660529,
+    "dblp-scholar": 0.2770084415562451,
+    "walmart-amazon": 0.26715467595495285,
+    "dn7-walmart-amazon": 0.33611362082883717,
+    "billiger-de": 0.48112302720546724,
+    "dblp-acm": 0.3126681847963482,
+    "semi-heter": 0.47563340830963086
+   },
+   "input_tokens_mean": 127.75752946311654,
+   "input_tokens_mean_over_benchmarks": 125.54341835748792,
+   "f1_macro": 0.7851903311955578,
+   "f1_per_benchmark": {
+    "abt-buy": 0.8871595330739299,
+    "wdc": 0.664179104477612,
+    "dblp-scholar": 0.9196787148594378,
+    "walmart-amazon": 0.853448275862069,
+    "dn7-walmart-amazon": 0.7058823529411765,
+    "billiger-de": 0.3829787234042553,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.8896551724137931
+   }
+  },
+  "ditto_b1024_r3": {
+   "settings": {
+    "framework": "PyTorch eager + ditto_modern DittoModel (RoBERTa-base, linear head)",
+    "checkpoints": "labelled-data chapter, set 4000, seed 42, one per benchmark; threshold from its validation",
+    "precision": "fp16 (model.half())",
+    "max_len": 256,
+    "tokenizer": "fast (Rust) RoBERTa tokenizer, per pair",
+    "batch_size": 1024,
+    "batching": "length-sorted batches per benchmark block"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "391165",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 615.71.10, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 3.265395568916574,
+   "seconds_per_1k": 0.3662070402130372,
+   "pairs_per_second": 2806.39812439034,
+   "pairs_per_second_from_seconds_per_1k": 2730.695727253797,
+   "hours_per_1m": 0.10172417783695478,
+   "blocks_seconds_per_1k": [
+    0.3689971010663027,
+    0.350537493919283,
+    0.3791129070810071
+   ],
+   "blocks_sd": 0.014489311374898985,
+   "blocks_cv": 0.039564950580538626,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 0.38911148640327153,
+    "wdc": 0.3901294023729861,
+    "dblp-scholar": 0.2762921872548759,
+    "walmart-amazon": 0.2659695727750659,
+    "dn7-walmart-amazon": 0.3371583695523441,
+    "billiger-de": 0.4830227224621922,
+    "dblp-acm": 0.31348115359432993,
+    "semi-heter": 0.47449142728923205
+   },
+   "input_tokens_mean": 127.75752946311654,
+   "input_tokens_mean_over_benchmarks": 125.54341835748792,
+   "f1_macro": 0.7851903311955578,
+   "f1_per_benchmark": {
+    "abt-buy": 0.8871595330739299,
+    "wdc": 0.664179104477612,
+    "dblp-scholar": 0.9196787148594378,
+    "walmart-amazon": 0.853448275862069,
+    "dn7-walmart-amazon": 0.7058823529411765,
+    "billiger-de": 0.3829787234042553,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.8896551724137931
+   }
+  },
+  "ditto_b256": {
+   "settings": {
+    "framework": "PyTorch eager + ditto_modern DittoModel (RoBERTa-base, linear head)",
+    "checkpoints": "labelled-data chapter, set 4000, seed 42, one per benchmark; threshold from its validation",
+    "precision": "fp16 (model.half())",
+    "max_len": 256,
+    "tokenizer": "fast (Rust) RoBERTa tokenizer, per pair",
+    "batch_size": 256,
+    "batching": "length-sorted batches per benchmark block"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389662",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 615.71.10, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 3.4181287449755473,
+   "seconds_per_1k": 0.38152297708028865,
+   "pairs_per_second": 2680.999073973019,
+   "pairs_per_second_from_seconds_per_1k": 2621.0741163029807,
+   "hours_per_1m": 0.10597860474452461,
+   "blocks_seconds_per_1k": [
+    0.4056702237122187,
+    0.3751332720955923,
+    0.36371510797728357
+   ],
+   "blocks_sd": 0.021691440793550423,
+   "blocks_cv": 0.05685737406577816,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 0.39959345520474016,
+    "wdc": 0.43745513759786264,
+    "dblp-scholar": 0.2969615031965077,
+    "walmart-amazon": 0.2905014631920494,
+    "dn7-walmart-amazon": 0.3328035615966655,
+    "billiger-de": 0.5081999951973557,
+    "dblp-acm": 0.3116674735909328,
+    "semi-heter": 0.4750012270661953
+   },
+   "input_tokens_mean": 127.75752946311654,
+   "input_tokens_mean_over_benchmarks": 125.54341835748792,
+   "f1_macro": 0.7851903311955578,
+   "f1_per_benchmark": {
+    "abt-buy": 0.8871595330739299,
+    "wdc": 0.664179104477612,
+    "dblp-scholar": 0.9196787148594378,
+    "walmart-amazon": 0.853448275862069,
+    "dn7-walmart-amazon": 0.7058823529411765,
+    "billiger-de": 0.3829787234042553,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.8896551724137931
+   }
+  },
+  "ditto_b64": {
+   "settings": {
+    "framework": "PyTorch eager + ditto_modern DittoModel (RoBERTa-base, linear head)",
+    "checkpoints": "labelled-data chapter, set 4000, seed 42, one per benchmark; threshold from its validation",
+    "precision": "fp16 (model.half())",
+    "max_len": 256,
+    "tokenizer": "fast (Rust) RoBERTa tokenizer, per pair",
+    "batch_size": 64,
+    "batching": "length-sorted batches per benchmark block"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389662",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 615.71.10, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 4.735096070027794,
+   "seconds_per_1k": 0.5203790760668321,
+   "pairs_per_second": 1935.3356013210118,
+   "pairs_per_second_from_seconds_per_1k": 1921.6760357819812,
+   "hours_per_1m": 0.1445497433518978,
+   "blocks_seconds_per_1k": [
+    0.6262339727143142,
+    0.4474790258481631,
+    0.48736883444674023
+   ],
+   "blocks_sd": 0.09383323370500106,
+   "blocks_cv": 0.18032347514567548,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 0.6166222447995097,
+    "wdc": 0.6959714752039872,
+    "dblp-scholar": 0.5354632936185226,
+    "walmart-amazon": 0.31216459521092477,
+    "dn7-walmart-amazon": 0.5280252584023402,
+    "billiger-de": 0.5918579167919233,
+    "dblp-acm": 0.3222882424015552,
+    "semi-heter": 0.5606395821058943
+   },
+   "input_tokens_mean": 127.75752946311654,
+   "input_tokens_mean_over_benchmarks": 125.54341835748792,
+   "f1_macro": 0.7851903311955578,
+   "f1_per_benchmark": {
+    "abt-buy": 0.8871595330739299,
+    "wdc": 0.664179104477612,
+    "dblp-scholar": 0.9196787148594378,
+    "walmart-amazon": 0.853448275862069,
+    "dn7-walmart-amazon": 0.7058823529411765,
+    "billiger-de": 0.3829787234042553,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.8896551724137931
+   }
+  },
+  "glm_a": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.chat, tensor parallel 4 (NVLink pairs, PCIe between pairs)",
+    "precision": "native FP8 block-scaled weights (zai-org release), bf16 activations; no own quantization",
+    "max_tokens": 1024,
+    "decoding": {
+     "temperature": 0
+    },
+    "thinking": "not switchable; reasoning_effort='low' (lowest), clear_thinking=True",
+    "structured_output": "JSON schema {match: boolean} after the reasoning (reasoning_parser glm47)",
+    "max_model_len": 8192,
+    "gpu_memory_utilization": 0.92,
+    "max_num_seqs": 64,
+    "max_num_batched_tokens": 16384,
+    "prefix_caching": true,
+    "cuda_graphs": true,
+    "workarounds": {
+     "VLLM_BLOCKSCALE_FP8_GEMM_FLASHINFER": "0",
+     "VLLM_ALLREDUCE_USE_FLASHINFER": "0",
+     "VLLM_ALLREDUCE_USE_SYMM_MEM": "0",
+     "disable_custom_all_reduce": true
+    },
+    "batch_size": 1,
+    "pairs": "125 per benchmark, 1000 in all"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389867",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1",
+    "gpus": 4
+   },
+   "pairs": 1000,
+   "wall_seconds": 237.57846797071397,
+   "seconds_per_1k": 237.57846797071397,
+   "pairs_per_second": 4.209135653333992,
+   "pairs_per_second_from_seconds_per_1k": 4.209135653333992,
+   "hours_per_1m": 65.99401888075388,
+   "blocks_seconds_per_1k": [
+    227.49210665157685,
+    247.4429081887051,
+    237.805801781644
+   ],
+   "blocks_sd": 9.97731267351809,
+   "blocks_cv": 0.04199554357279316,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 234.3399287685752,
+    "wdc": 233.3139907196164,
+    "dblp-scholar": 236.6602619960904,
+    "walmart-amazon": 257.7004552260041,
+    "dn7-walmart-amazon": 200.84812309592962,
+    "billiger-de": 244.20463443547487,
+    "dblp-acm": 207.22133416682482,
+    "semi-heter": 286.33901535719633
+   },
+   "input_tokens_mean": 246.58,
+   "input_tokens_mean_over_benchmarks": 246.58,
+   "f1_macro": 0.8793547908867299,
+   "f1_per_benchmark": {
+    "abt-buy": 1.0,
+    "wdc": 0.9629629629629629,
+    "dblp-scholar": 0.8852459016393442,
+    "walmart-amazon": 0.8181818181818182,
+    "dn7-walmart-amazon": 0.8571428571428571,
+    "billiger-de": 0.5714285714285714,
+    "dblp-acm": 0.9743589743589743,
+    "semi-heter": 0.9655172413793104
+   },
+   "latency_p50": 0.21496187709271908,
+   "latency_p95": 0.38382753636687994,
+   "unparsed": 0,
+   "output_tokens_mean": 16.348
+  },
+  "glm_b": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.chat, tensor parallel 4 (NVLink pairs, PCIe between pairs)",
+    "precision": "native FP8 block-scaled weights (zai-org release), bf16 activations; no own quantization",
+    "max_tokens": 1024,
+    "decoding": {
+     "temperature": 0
+    },
+    "thinking": "not switchable; reasoning_effort='low' (lowest), clear_thinking=True",
+    "structured_output": "JSON schema {match: boolean} after the reasoning (reasoning_parser glm47)",
+    "max_model_len": 8192,
+    "gpu_memory_utilization": 0.92,
+    "max_num_seqs": 64,
+    "max_num_batched_tokens": 16384,
+    "prefix_caching": true,
+    "cuda_graphs": true,
+    "workarounds": {
+     "VLLM_BLOCKSCALE_FP8_GEMM_FLASHINFER": "0",
+     "VLLM_ALLREDUCE_USE_FLASHINFER": "0",
+     "VLLM_ALLREDUCE_USE_SYMM_MEM": "0",
+     "disable_custom_all_reduce": true
+    },
+    "batching": "one LLM.chat call per benchmark block, continuous batching; prefix cache reset before each call"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389867",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1",
+    "gpus": 4
+   },
+   "pairs": 9164,
+   "wall_seconds": 337.87777595501393,
+   "seconds_per_1k": 37.97379524451928,
+   "pairs_per_second": 27.12223369559566,
+   "pairs_per_second_from_seconds_per_1k": 26.333949334293337,
+   "hours_per_1m": 10.54827645681091,
+   "blocks_seconds_per_1k": [
+    38.46733176608049,
+    36.03284609070209,
+    39.421925372595126
+   ],
+   "blocks_sd": 1.7475615314001538,
+   "blocks_cv": 0.04601990698542952,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 36.59003680348396,
+    "wdc": 39.20985733270645,
+    "dblp-scholar": 34.72275695949793,
+    "walmart-amazon": 38.80428701490164,
+    "dn7-walmart-amazon": 27.340908432006835,
+    "billiger-de": 46.04166028648615,
+    "dblp-acm": 31.008873679488897,
+    "semi-heter": 50.071981447582374
+   },
+   "input_tokens_mean": 260.47610213880404,
+   "input_tokens_mean_over_benchmarks": 256.83524009661835,
+   "f1_macro": 0.8894119530651674,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9581749049429658,
+    "wdc": 0.9018181818181819,
+    "dblp-scholar": 0.9383697813121272,
+    "walmart-amazon": 0.9043478260869565,
+    "dn7-walmart-amazon": 0.7878787878787878,
+    "billiger-de": 0.7217391304347827,
+    "dblp-acm": 0.957983193277311,
+    "semi-heter": 0.9449838187702265
+   },
+   "unparsed": 0,
+   "output_tokens_mean": 15.513422086425141
+  },
+  "pplx_fast32k_b": {
+   "settings": {
+    "framework": "pplx_decider 0.3.0 (model card source), transformers 5.17.0",
+    "precision": "bf16",
+    "temperature": 1.3823494677922652,
+    "path": "fast=FastOptions(buckets=(32768,)): as fast, one static 32k pack (model card: offline throughput)",
+    "batching": "one decide() call per benchmark block, packs of up to 32,768 tokens"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389634",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 504.7657214673236,
+   "seconds_per_1k": 55.979626596229075,
+   "pairs_per_second": 18.15495706277519,
+   "pairs_per_second_from_seconds_per_1k": 17.863641842644274,
+   "hours_per_1m": 15.5498962767303,
+   "blocks_seconds_per_1k": [
+    56.10628737067511,
+    55.92074753573505,
+    55.911742385901604
+   ],
+   "blocks_sd": 0.10981338274062308,
+   "blocks_cv": 0.0019616681360520483,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 43.6248065777123,
+    "wdc": 76.47201229631901,
+    "dblp-scholar": 43.68671599030495,
+    "walmart-amazon": 43.68247337043285,
+    "dn7-walmart-amazon": 43.627137166261676,
+    "billiger-de": 87.27628493085504,
+    "dblp-acm": 43.64157227650285,
+    "semi-heter": 65.8260101614439
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8794572869752009,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9429657794676806,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.9153225806451613,
+    "walmart-amazon": 0.8995633187772926,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7161572052401747,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9411764705882353
+   }
+  },
+  "pplx_fast_a": {
+   "settings": {
+    "framework": "pplx_decider 0.3.0 (model card source), transformers 5.17.0",
+    "precision": "bf16",
+    "temperature": 1.3823494677922652,
+    "path": "fast=True default FastOptions(): packed varlen FlashAttention, whole-layer torch.compile, CUDA graphs, buckets 2k-32k, last-layer pruning",
+    "batch_size": 1
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389634",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 2320.4103291863576,
+   "seconds_per_1k": 253.0721371510183,
+   "pairs_per_second": 3.949301502727459,
+   "pairs_per_second_from_seconds_per_1k": 3.9514425067002135,
+   "hours_per_1m": 70.29781587528286,
+   "blocks_seconds_per_1k": [
+    253.7964073800226,
+    252.72961172455422,
+    252.68955876597457
+   ],
+   "blocks_sd": 0.6277965520290326,
+   "blocks_cv": 0.002480704704939842,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 250.07208767160773,
+    "wdc": 263.0473832845688,
+    "dblp-scholar": 250.40644941702485,
+    "walmart-amazon": 250.95898602083327,
+    "dn7-walmart-amazon": 251.15923215821385,
+    "billiger-de": 256.7269647948444,
+    "dblp-acm": 250.63776141628622,
+    "semi-heter": 251.56823244476735
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8788539773911972,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9429657794676806,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.9153225806451613,
+    "walmart-amazon": 0.8947368421052632,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7161572052401747,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9411764705882353
+   },
+   "latency_p50": 0.25138157792389393,
+   "latency_p95": 0.25912637915462255
+  },
+  "pplx_fast_b": {
+   "settings": {
+    "framework": "pplx_decider 0.3.0 (model card source), transformers 5.17.0",
+    "precision": "bf16",
+    "temperature": 1.3823494677922652,
+    "path": "fast=True default FastOptions(): packed varlen FlashAttention, whole-layer torch.compile, CUDA graphs, buckets 2k-32k, last-layer pruning",
+    "batching": "one decide() call per benchmark block, packs of up to 32,768 tokens"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389634",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 477.5297102890909,
+   "seconds_per_1k": 51.83052171846483,
+   "pairs_per_second": 19.19042899854801,
+   "pairs_per_second_from_seconds_per_1k": 19.293651054331296,
+   "hours_per_1m": 14.397367144018007,
+   "blocks_seconds_per_1k": [
+    53.844330202468015,
+    50.282338989721396,
+    51.36371207671929
+   ],
+   "blocks_sd": 1.8262263203466236,
+   "blocks_cv": 0.035234841643129775,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 43.61362297832966,
+    "wdc": 72.5249776981771,
+    "dblp-scholar": 33.64135264381766,
+    "walmart-amazon": 38.537233045697214,
+    "dn7-walmart-amazon": 43.61179896742105,
+    "billiger-de": 87.27203530073166,
+    "dblp-acm": 46.66862333416939,
+    "semi-heter": 48.77452977937489
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8794572869752009,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9429657794676806,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.9153225806451613,
+    "walmart-amazon": 0.8995633187772926,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7161572052401747,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9411764705882353
+   }
+  },
+  "pplx_ref_a": {
+   "settings": {
+    "framework": "pplx_decider 0.3.0 (model card source), transformers 5.17.0",
+    "precision": "bf16",
+    "temperature": 1.3823494677922652,
+    "path": "reference path (fast=False): unmodified Transformers Qwen3_5Model, SDPA, left-padded batches",
+    "batch_size": 1
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389634",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 740.281046802178,
+   "seconds_per_1k": 80.35657858836065,
+   "pairs_per_second": 12.379082295279748,
+   "pairs_per_second_from_seconds_per_1k": 12.444531830090217,
+   "hours_per_1m": 22.32127183010018,
+   "blocks_seconds_per_1k": [
+    81.26228113360544,
+    79.30307823650416,
+    80.50467759279745
+   ],
+   "blocks_sd": 0.9879507519860903,
+   "blocks_cv": 0.012294569218547524,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 71.47931850776077,
+    "wdc": 109.06686837896704,
+    "dblp-scholar": 64.30988435298204,
+    "walmart-amazon": 66.81477547883988,
+    "dn7-walmart-amazon": 71.83088977783919,
+    "billiger-de": 118.2830711312592,
+    "dblp-acm": 65.36837241724133,
+    "semi-heter": 75.69944866199569
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8784742816253833,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9429657794676806,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.9153225806451613,
+    "walmart-amazon": 0.9004329004329005,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7074235807860262,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9411764705882353
+   },
+   "latency_p50": 0.06985109113156796,
+   "latency_p95": 0.13694805279374123
+  },
+  "pplx_ref_b": {
+   "settings": {
+    "framework": "pplx_decider 0.3.0 (model card source), transformers 5.17.0",
+    "precision": "bf16",
+    "temperature": 1.3823494677922652,
+    "path": "reference path (fast=False): unmodified Transformers Qwen3_5Model, SDPA, left-padded batches",
+    "batching": "one decide() call per benchmark block, batch_tokens=32768 (default)"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389634",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.17.0",
+    "fla": "0.5.2"
+   },
+   "pairs": 9164,
+   "wall_seconds": 690.6578562352806,
+   "seconds_per_1k": 74.53143384252463,
+   "pairs_per_second": 13.268509026961937,
+   "pairs_per_second_from_seconds_per_1k": 13.417157680246321,
+   "hours_per_1m": 20.703176067367956,
+   "blocks_seconds_per_1k": [
+    83.94794978365057,
+    68.88148849192423,
+    70.75375748994207
+   ],
+   "blocks_sd": 8.211682301649924,
+   "blocks_cv": 0.11018290896416832,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 57.91037611812353,
+    "wdc": 123.45863675996661,
+    "dblp-scholar": 52.327068416774274,
+    "walmart-amazon": 55.57433774545789,
+    "dn7-walmart-amazon": 54.864879412204026,
+    "billiger-de": 133.47786514386536,
+    "dblp-acm": 53.25973993092775,
+    "semi-heter": 65.37856721287764
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.878464761518784,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9429657794676806,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.9153225806451613,
+    "walmart-amazon": 0.8947368421052632,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7130434782608696,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9411764705882353
+   }
+  },
+  "pplx_vllm_a": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.encode (token_classify) with the pplx_vllm plugin (D3ForSequenceClassification backbone, readout at each marker)",
+    "prompts": "pplx_decider 0.3.0 Encoder (token ids, same template as the reference path)",
+    "precision": "bf16 backbone, readout in vLLM head dtype torch.float32",
+    "temperature": 1.3823494677922652,
+    "attention": "noncausal full attention, causal Gated DeltaNet (is_causal=False)",
+    "max_num_seqs": 128,
+    "max_num_batched_tokens": 32768,
+    "chunked_prefill": false,
+    "prefix_caching": false,
+    "cuda_graphs": true,
+    "batch_size": 1,
+    "note": "one LLM.encode call per pair"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389718",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 548.1362851914018,
+   "seconds_per_1k": 59.48007027255776,
+   "pairs_per_second": 16.718469927237265,
+   "pairs_per_second_from_seconds_per_1k": 16.812354044264954,
+   "hours_per_1m": 16.522241742377155,
+   "blocks_seconds_per_1k": [
+    59.07714288992502,
+    59.24691071428028,
+    60.11765100721888
+   ],
+   "blocks_sd": 0.5582214187470075,
+   "blocks_cv": 0.009384937562033395,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 52.714300663769244,
+    "wdc": 77.96387182846665,
+    "dblp-scholar": 47.372020102292296,
+    "walmart-amazon": 49.546095906198026,
+    "dn7-walmart-amazon": 52.78735433965922,
+    "billiger-de": 90.72237828746438,
+    "dblp-acm": 48.915859791636464,
+    "semi-heter": 55.81868126097581
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8799587909075421,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9465648854961832,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.920892494929006,
+    "walmart-amazon": 0.8947368421052632,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7192982456140351,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9377049180327869
+   },
+   "latency_p50": 0.05152247566729784,
+   "latency_p95": 0.10451173689216375
+  },
+  "pplx_vllm_b": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.encode (token_classify) with the pplx_vllm plugin (D3ForSequenceClassification backbone, readout at each marker)",
+    "prompts": "pplx_decider 0.3.0 Encoder (token ids, same template as the reference path)",
+    "precision": "bf16 backbone, readout in vLLM head dtype torch.float32",
+    "temperature": 1.3823494677922652,
+    "attention": "noncausal full attention, causal Gated DeltaNet (is_causal=False)",
+    "max_num_seqs": 128,
+    "max_num_batched_tokens": 32768,
+    "chunked_prefill": false,
+    "prefix_caching": false,
+    "cuda_graphs": true,
+    "batching": "one LLM.encode call per benchmark block"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389718",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 421.9578841775656,
+   "seconds_per_1k": 45.78029503525653,
+   "pairs_per_second": 21.717807259038356,
+   "pairs_per_second_from_seconds_per_1k": 21.8434590521943,
+   "hours_per_1m": 12.716748620904593,
+   "blocks_seconds_per_1k": [
+    45.60660278965877,
+    45.50256053286785,
+    46.23282883852152
+   ],
+   "blocks_sd": 0.3950265083330241,
+   "blocks_cv": 0.008628675806663997,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 39.482695781439546,
+    "wdc": 65.59923652634025,
+    "dblp-scholar": 31.555070145428182,
+    "walmart-amazon": 34.906899175047876,
+    "dn7-walmart-amazon": 39.73934857025743,
+    "billiger-de": 78.34241009354591,
+    "dblp-acm": 33.73982657492161,
+    "semi-heter": 42.876873415071465
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8787725172601446,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9429657794676806,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.9171717171717172,
+    "walmart-amazon": 0.8947368421052632,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7136563876651982,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9411764705882353
+   }
+  },
+  "pplx_vllm_t65k_b": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.encode (token_classify) with the pplx_vllm plugin (D3ForSequenceClassification backbone, readout at each marker)",
+    "prompts": "pplx_decider 0.3.0 Encoder template (token ids, same as the reference path); tokenized in one batched fast-tokenizer call per LLM.encode call",
+    "precision": "bf16 backbone, readout in vLLM head dtype torch.float32",
+    "temperature": 1.3823494677922652,
+    "attention": "noncausal full attention, causal Gated DeltaNet (is_causal=False)",
+    "max_num_seqs": 256,
+    "max_num_batched_tokens": 65536,
+    "chunked_prefill": false,
+    "prefix_caching": false,
+    "cuda_graphs": true,
+    "batching": "one LLM.encode call per benchmark block"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "390693",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 402.6347385691479,
+   "seconds_per_1k": 43.6898652426579,
+   "pairs_per_second": 22.76008282982813,
+   "pairs_per_second_from_seconds_per_1k": 22.8886034426039,
+   "hours_per_1m": 12.136073678516084,
+   "blocks_seconds_per_1k": [
+    43.50196623572986,
+    43.21439337485216,
+    44.3547285284387
+   ],
+   "blocks_sd": 0.5930522659210656,
+   "blocks_cv": 0.013573983576577407,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 37.50565514415503,
+    "wdc": 62.54830635935068,
+    "dblp-scholar": 30.118807515501977,
+    "walmart-amazon": 33.3120885014534,
+    "dn7-walmart-amazon": 37.92951625287533,
+    "billiger-de": 75.24862162992358,
+    "dblp-acm": 31.870383646339178,
+    "semi-heter": 40.98554289166406
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8787725172601446,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9429657794676806,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.9171717171717172,
+    "walmart-amazon": 0.8947368421052632,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7136563876651982,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9411764705882353
+   }
+  },
+  "pplx_vllm_tok_a": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.encode (token_classify) with the pplx_vllm plugin (D3ForSequenceClassification backbone, readout at each marker)",
+    "prompts": "pplx_decider 0.3.0 Encoder template (token ids, same as the reference path); tokenized in one batched fast-tokenizer call per LLM.encode call",
+    "precision": "bf16 backbone, readout in vLLM head dtype torch.float32",
+    "temperature": 1.3823494677922652,
+    "attention": "noncausal full attention, causal Gated DeltaNet (is_causal=False)",
+    "max_num_seqs": 128,
+    "max_num_batched_tokens": 32768,
+    "chunked_prefill": false,
+    "prefix_caching": false,
+    "cuda_graphs": true,
+    "batch_size": 1,
+    "note": "one LLM.encode call per pair"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "390693",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 539.447958975099,
+   "seconds_per_1k": 58.55115859378714,
+   "pairs_per_second": 16.987736903131022,
+   "pairs_per_second_from_seconds_per_1k": 17.079081337019176,
+   "hours_per_1m": 16.26421072049643,
+   "blocks_seconds_per_1k": [
+    58.41235686647303,
+    58.21978006156866,
+    59.02244148040488
+   ],
+   "blocks_sd": 0.41903747152088777,
+   "blocks_cv": 0.007156730134523004,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 52.030653884261845,
+    "wdc": 76.67405928522348,
+    "dblp-scholar": 46.519280506670476,
+    "walmart-amazon": 48.96984551548958,
+    "dn7-walmart-amazon": 52.16538959667086,
+    "billiger-de": 88.88195630982518,
+    "dblp-acm": 48.06805140003562,
+    "semi-heter": 55.10003225212008
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8799587909075421,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9465648854961832,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.920892494929006,
+    "walmart-amazon": 0.8947368421052632,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7192982456140351,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9377049180327869
+   },
+   "latency_p50": 0.05109224747866392,
+   "latency_p95": 0.1030455669388175
+  },
+  "pplx_vllm_tok_b": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.encode (token_classify) with the pplx_vllm plugin (D3ForSequenceClassification backbone, readout at each marker)",
+    "prompts": "pplx_decider 0.3.0 Encoder template (token ids, same as the reference path); tokenized in one batched fast-tokenizer call per LLM.encode call",
+    "precision": "bf16 backbone, readout in vLLM head dtype torch.float32",
+    "temperature": 1.3823494677922652,
+    "attention": "noncausal full attention, causal Gated DeltaNet (is_causal=False)",
+    "max_num_seqs": 128,
+    "max_num_batched_tokens": 32768,
+    "chunked_prefill": false,
+    "prefix_caching": false,
+    "cuda_graphs": true,
+    "batching": "one LLM.encode call per benchmark block"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "390693",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 402.75603063963354,
+   "seconds_per_1k": 43.717659782815346,
+   "pairs_per_second": 22.753228512671235,
+   "pairs_per_second_from_seconds_per_1k": 22.87405146954098,
+   "hours_per_1m": 12.143794384115374,
+   "blocks_seconds_per_1k": [
+    43.41641713452361,
+    43.422019862327694,
+    44.31592114185375
+   ],
+   "blocks_sd": 0.5177190916736186,
+   "blocks_cv": 0.011842208654464092,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 37.76499585285783,
+    "wdc": 62.687919387966396,
+    "dblp-scholar": 29.835487603396178,
+    "walmart-amazon": 33.43823166266084,
+    "dn7-walmart-amazon": 37.842610304802655,
+    "billiger-de": 75.04354584366084,
+    "dblp-acm": 31.955560348182917,
+    "semi-heter": 41.17292725899513
+   },
+   "input_tokens_mean": 350.8915320820602,
+   "input_tokens_mean_over_benchmarks": 349.02909082125603,
+   "f1_macro": 0.8787725172601446,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9429657794676806,
+    "wdc": 0.8705035971223022,
+    "dblp-scholar": 0.9171717171717172,
+    "walmart-amazon": 0.8947368421052632,
+    "dn7-walmart-amazon": 0.7714285714285715,
+    "billiger-de": 0.7136563876651982,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9411764705882353
+   }
+  },
+  "qwen_a": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.chat",
+    "precision": "bf16 (no quantization)",
+    "max_tokens": 64,
+    "temperature": 0,
+    "thinking": "enable_thinking=False",
+    "structured_output": "JSON schema {match: boolean} (as the API request)",
+    "max_model_len": 16384,
+    "gpu_memory_utilization": 0.9,
+    "max_num_seqs": 512,
+    "max_num_batched_tokens": 16384,
+    "prefix_caching": true,
+    "cuda_graphs": true,
+    "gdn_prefill_backend": "default (flashinfer, precompiled jit-cache)",
+    "batch_size": 1,
+    "note": "one LLM.chat call per pair"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389664",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 2075.0934592997655,
+   "seconds_per_1k": 227.1593432632995,
+   "pairs_per_second": 4.416186634356395,
+   "pairs_per_second_from_seconds_per_1k": 4.402196210088986,
+   "hours_per_1m": 63.09981757313875,
+   "blocks_seconds_per_1k": [
+    226.90289244920822,
+    226.84154518496123,
+    227.73485587680557
+   ],
+   "blocks_sd": 0.49898741197440954,
+   "blocks_cv": 0.002196636420471256,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 230.68517329469324,
+    "wdc": 247.99592867642642,
+    "dblp-scholar": 213.12136263400316,
+    "walmart-amazon": 205.27476635426282,
+    "dn7-walmart-amazon": 212.45525842756032,
+    "billiger-de": 257.18654254227874,
+    "dblp-acm": 215.50789918527008,
+    "semi-heter": 235.04781499190102
+   },
+   "input_tokens_mean": 280.8915320820602,
+   "input_tokens_mean_over_benchmarks": 279.02909082125603,
+   "latency_p50": 0.2277263179421425,
+   "latency_p95": 0.28055962175130844,
+   "output_tokens_mean": 9.428633784373636
+  },
+  "qwen_b": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.chat",
+    "precision": "bf16 (no quantization)",
+    "max_tokens": 64,
+    "temperature": 0,
+    "thinking": "enable_thinking=False",
+    "structured_output": "JSON schema {match: boolean} (as the API request)",
+    "max_model_len": 16384,
+    "gpu_memory_utilization": 0.9,
+    "max_num_seqs": 512,
+    "max_num_batched_tokens": 16384,
+    "prefix_caching": true,
+    "cuda_graphs": true,
+    "gdn_prefill_backend": "default (flashinfer, precompiled jit-cache)",
+    "batching": "one LLM.chat call per benchmark block, continuous batching; prefix cache reset before each call"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389664",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 362.2710933396593,
+   "seconds_per_1k": 39.32237700042202,
+   "pairs_per_second": 25.295973563664898,
+   "pairs_per_second_from_seconds_per_1k": 25.4308125876843,
+   "hours_per_1m": 10.922882500117227,
+   "blocks_seconds_per_1k": [
+    39.05371010443982,
+    39.05676503109656,
+    39.85799431967273
+   ],
+   "blocks_sd": 0.4634743438282133,
+   "blocks_cv": 0.011786395448764917,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 32.89949352070689,
+    "wdc": 59.032053066045044,
+    "dblp-scholar": 25.157285635918377,
+    "walmart-amazon": 28.323290698230267,
+    "dn7-walmart-amazon": 33.11761690452695,
+    "billiger-de": 71.96125068888068,
+    "dblp-acm": 27.063292636722327,
+    "semi-heter": 37.02473285234565
+   },
+   "input_tokens_mean": 280.8915320820602,
+   "input_tokens_mean_over_benchmarks": 279.02909082125603,
+   "output_tokens_mean": 9.418485377564382
+  },
+  "qwen_b_apisampling": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.chat",
+    "precision": "bf16 (no quantization)",
+    "max_tokens": 64,
+    "decoding": {
+     "temperature": 1.0,
+     "top_k": 20,
+     "top_p": 0.95
+    },
+    "thinking": "enable_thinking=False",
+    "structured_output": "JSON schema {match: boolean} (as the API request)",
+    "max_model_len": 16384,
+    "gpu_memory_utilization": 0.9,
+    "max_num_seqs": 512,
+    "max_num_batched_tokens": 16384,
+    "prefix_caching": true,
+    "cuda_graphs": true,
+    "gdn_prefill_backend": "default (flashinfer, precompiled jit-cache)",
+    "batching": "as qwen_b"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "389693",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 615.71.10, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 331.064787072959,
+   "seconds_per_1k": 35.90341119225518,
+   "pairs_per_second": 27.680382685883373,
+   "pairs_per_second_from_seconds_per_1k": 27.852506678131817,
+   "hours_per_1m": 9.973169775626438,
+   "blocks_seconds_per_1k": [
+    35.496681504969615,
+    35.70080902799348,
+    36.51406284540698
+   ],
+   "blocks_sd": 0.538224644713777,
+   "blocks_cv": 0.014990721825998464,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 30.332681981590575,
+    "wdc": 53.66194976241095,
+    "dblp-scholar": 23.016077350382695,
+    "walmart-amazon": 25.882973990403116,
+    "dn7-walmart-amazon": 30.22711706480477,
+    "billiger-de": 65.71655063120416,
+    "dblp-acm": 24.933808554382995,
+    "semi-heter": 33.45613020286217
+   },
+   "input_tokens_mean": 280.8915320820602,
+   "input_tokens_mean_over_benchmarks": 279.02909082125603,
+   "f1_macro": 0.7380741495328064,
+   "f1_per_benchmark": {
+    "abt-buy": 0.7266187050359713,
+    "wdc": 0.7279411764705882,
+    "dblp-scholar": 0.8369351669941061,
+    "walmart-amazon": 0.7169811320754716,
+    "dn7-walmart-amazon": 0.5102040816326531,
+    "billiger-de": 0.5725806451612904,
+    "dblp-acm": 0.9287169042769857,
+    "semi-heter": 0.8846153846153846
+   },
+   "unparsed": 0,
+   "output_tokens_mean": 8.632911392405063
+  },
+  "qwen_medium_a": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.chat",
+    "precision": "bf16 (no quantization)",
+    "thinking": "enable_thinking=True, reasoning_effort='medium'",
+    "max_tokens": null,
+    "max_model_len": 32768,
+    "decoding": {
+     "temperature": 1.0,
+     "top_k": 20,
+     "top_p": 0.95
+    },
+    "structured_output": "JSON schema {match: boolean} for the answer after </think> (reasoning_parser qwen3)",
+    "max_num_seqs": 512,
+    "max_num_batched_tokens": 16384,
+    "prefix_caching": true,
+    "cuda_graphs": true,
+    "batch_size": 1,
+    "pairs": "25 per benchmark, 200 in all"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "390717",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 200,
+   "wall_seconds": 1431.7607683287933,
+   "seconds_per_1k": 7158.803841643967,
+   "pairs_per_second": 0.13968814094092533,
+   "pairs_per_second_from_seconds_per_1k": 0.13968814094092533,
+   "hours_per_1m": 1988.5566226788796,
+   "blocks_seconds_per_1k": [
+    6525.911913033471,
+    7595.175744849257,
+    7434.435358125484
+   ],
+   "blocks_sd": 576.5670623375545,
+   "blocks_cv": 0.08024399063423794,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 6466.831815540791,
+    "wdc": 6986.200821623206,
+    "dblp-scholar": 7677.743682637811,
+    "walmart-amazon": 7479.419060572982,
+    "dn7-walmart-amazon": 6771.938026957214,
+    "billiger-de": 6868.541935868561,
+    "dblp-acm": 6089.428042061627,
+    "semi-heter": 8930.327347889543
+   },
+   "input_tokens_mean": 250.845,
+   "input_tokens_mean_over_benchmarks": 250.845,
+   "f1_macro": 0.9926470588235294,
+   "f1_per_benchmark": {
+    "abt-buy": 1.0,
+    "wdc": 1.0,
+    "dblp-scholar": 1.0,
+    "walmart-amazon": 1.0,
+    "dn7-walmart-amazon": 1.0,
+    "billiger-de": 1.0,
+    "dblp-acm": 1.0,
+    "semi-heter": 0.9411764705882353
+   },
+   "latency_p50": 6.1113558784127235,
+   "latency_p95": 13.714350091293454,
+   "unparsed": 0,
+   "output_tokens_mean": 386.87,
+   "reasoning_tokens": {
+    "mean": 379.41,
+    "median": 323,
+    "p95": 737,
+    "max": 1674
+   },
+   "finish_reasons": {
+    "stop": 200
+   }
+  },
+  "qwen_medium_b": {
+   "settings": {
+    "framework": "vLLM 0.33.0 offline LLM.chat",
+    "precision": "bf16 (no quantization)",
+    "thinking": "enable_thinking=True, reasoning_effort='medium'",
+    "max_tokens": null,
+    "max_model_len": 32768,
+    "decoding": {
+     "temperature": 1.0,
+     "top_k": 20,
+     "top_p": 0.95
+    },
+    "structured_output": "JSON schema {match: boolean} for the answer after </think> (reasoning_parser qwen3)",
+    "max_num_seqs": 512,
+    "max_num_batched_tokens": 16384,
+    "prefix_caching": true,
+    "cuda_graphs": true,
+    "batching": "one LLM.chat call per benchmark block, continuous batching; prefix cache reset before each call"
+   },
+   "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA H100 NVL",
+    "host": "gpu-node",
+    "slurm_job": "390717",
+    "nvidia_smi": "NVIDIA H100 NVL, 95830 MiB, 610.57.04, 400.00 W",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0",
+    "flashinfer": "0.7.2.post1"
+   },
+   "pairs": 9164,
+   "wall_seconds": 1992.3042356818914,
+   "seconds_per_1k": 235.87000801174898,
+   "pairs_per_second": 4.599699100104309,
+   "pairs_per_second_from_seconds_per_1k": 4.23962337742486,
+   "hours_per_1m": 65.51944666993028,
+   "blocks_seconds_per_1k": [
+    233.05573910186257,
+    245.1438259872007,
+    229.40072613566093
+   ],
+   "blocks_sd": 8.239398817734795,
+   "blocks_cv": 0.0349324283211102,
+   "per_benchmark_seconds_per_1k": {
+    "abt-buy": 182.4304528735578,
+    "wdc": 240.083759765327,
+    "dblp-scholar": 193.14820816218852,
+    "walmart-amazon": 198.62970365136863,
+    "dn7-walmart-amazon": 176.624791251868,
+    "billiger-de": 294.28361695334314,
+    "dblp-acm": 163.48699024543166,
+    "semi-heter": 438.272541190907
+   },
+   "input_tokens_mean": 278.8915320820602,
+   "input_tokens_mean_over_benchmarks": 277.02909082125603,
+   "f1_macro": 0.8818235093377611,
+   "f1_per_benchmark": {
+    "abt-buy": 0.9349593495934959,
+    "wdc": 0.8669201520912547,
+    "dblp-scholar": 0.9171717171717172,
+    "walmart-amazon": 0.9049773755656109,
+    "dn7-walmart-amazon": 0.7887323943661971,
+    "billiger-de": 0.7255813953488373,
+    "dblp-acm": 0.9785407725321889,
+    "semi-heter": 0.9377049180327869
+   },
+   "unparsed": 0,
+   "output_tokens_mean": 373.4821038847665,
+   "reasoning_tokens": {
+    "mean": 365.9131383675251,
+    "median": 324,
+    "p95": 676,
+    "max": 2577
+   },
+   "finish_reasons": {
+    "stop": 9164
+   }
+  }
+ },
+ "checks": {
+  "pplx_fast32k_b_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9984722828459188,
+   "flips": 14,
+   "mean_abs_dprob": 0.002948776940152949,
+   "max_abs_dprob": 0.12552363258276944,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_fast32k_b_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_fast_a_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9985814054997818,
+   "flips": 13,
+   "mean_abs_dprob": 0.0029475158084400974,
+   "max_abs_dprob": 0.12552363258276944,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_fast_a_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_fast_b_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9984722828459188,
+   "flips": 14,
+   "mean_abs_dprob": 0.002948843827714704,
+   "max_abs_dprob": 0.12552363258276944,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_fast_b_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_ref_a_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9984722828459188,
+   "flips": 14,
+   "mean_abs_dprob": 0.0029674360564910817,
+   "max_abs_dprob": 0.13542821537685557,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_ref_a_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_ref_b_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9984722828459188,
+   "flips": 14,
+   "mean_abs_dprob": 0.00297282652490664,
+   "max_abs_dprob": 0.14013224715554295,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_ref_b_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_vllm_a_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.99814491488433,
+   "flips": 17,
+   "mean_abs_dprob": 0.0029252516234823246,
+   "max_abs_dprob": 0.13039121221491978,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_vllm_a_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_vllm_b_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9986905281536447,
+   "flips": 12,
+   "mean_abs_dprob": 0.002922184250736635,
+   "max_abs_dprob": 0.1316351015467374,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_vllm_b_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_vllm_t65k_b_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9986905281536447,
+   "flips": 12,
+   "mean_abs_dprob": 0.0029212844903742227,
+   "max_abs_dprob": 0.1316351015467374,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_vllm_t65k_b_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_vllm_tok_a_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.99814491488433,
+   "flips": 17,
+   "mean_abs_dprob": 0.0029252516234823246,
+   "max_abs_dprob": 0.13039121221491978,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_vllm_tok_a_api_f1_macro_same_pairs": 0.8786465169785573,
+  "pplx_vllm_tok_b_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9986905281536447,
+   "flips": 12,
+   "mean_abs_dprob": 0.0029216796575351907,
+   "max_abs_dprob": 0.1316351015467374,
+   "api_input_tokens_mean": 350.8915320820602
+  },
+  "pplx_vllm_tok_b_api_f1_macro_same_pairs": 0.8786465169785573,
+  "qwen_b_apisampling_vs_api_b0_run1": {
+   "pairs": 9164,
+   "decision_agreement": 0.9048450458315146,
+   "flips": 872,
+   "api_prompt_tokens_mean": 280.8915320820602,
+   "api_completion_tokens_mean": 8.038629419467481,
+   "per_benchmark_agreement": {
+    "abt-buy": 0.9088,
+    "wdc": 0.9136,
+    "dblp-scholar": 0.8792,
+    "walmart-amazon": 0.8976,
+    "dn7-walmart-amazon": 0.9184,
+    "billiger-de": 0.9016,
+    "dblp-acm": 0.9136,
+    "semi-heter": 0.9082125603864735
+   }
+  },
+  "qwen_api_same_pairs": {
+   "sampling": "API request without temperature: provider default sampling (model generation_config temperature 1.0, top_p 0.95, top_k 20)",
+   "run_to_run_agreement": {
+    "1-2": 0.8930597992143169,
+    "1-3": 0.8882584024443474,
+    "2-3": 0.8897861195984287
+   },
+   "f1_macro": {
+    "run1": 0.7017231725344222,
+    "run2": 0.6917518912384821,
+    "run3": 0.7050755111257795
+   },
+   "f1_per_benchmark_run1": {
+    "abt-buy": 0.7635135135135135,
+    "wdc": 0.70625,
+    "dblp-scholar": 0.775,
+    "walmart-amazon": 0.6877192982456141,
+    "dn7-walmart-amazon": 0.4,
+    "billiger-de": 0.550185873605948,
+    "dblp-acm": 0.8330275229357799,
+    "semi-heter": 0.8980891719745223
+   }
+  }
+ },
+ "three_runs": {
+  "ditto_b1024": {
+   "runs": [
+    "ditto_b1024",
+    "ditto_b1024_r2",
+    "ditto_b1024_r3"
+   ],
+   "pairs": 9164,
+   "decision_agreement_between_runs": {
+    "1-2": 1,
+    "1-3": 1,
+    "2-3": 1
+   },
+   "seconds_per_1k": {
+    "runs": [
+     0.3343630642816804,
+     0.3661446787235001,
+     0.3662070402130372
+    ],
+    "mean": 0.35557159440607256,
+    "sd": 0.018367152331452523
+   },
+   "pairs_per_second": {
+    "runs": [
+     2990.760962633006,
+     2731.1608173204277,
+     2730.695727253797
+    ],
+    "mean": 2817.5391690690767,
+    "sd": 150.0146539552748
+   },
+   "hours_per_1m": {
+    "runs": [
+     0.09287862896713345,
+     0.10170685520097224,
+     0.10172417783695478
+    ],
+    "mean": 0.09876988733502015,
+    "sd": 0.005101986758736808
+   },
+   "f1_macro": {
+    "runs": [
+     0.7851903311955578,
+     0.7851903311955578,
+     0.7851903311955578
+    ],
+    "mean": 0.7851903311955578,
+    "sd": 0.0
+   }
+  }
+ },
+ "large_llm_feasibility": {
+  "labeling_paper_models": "GPT-5.2 and Kimi K2.6 via API (Automatic-data-labeling/configs/labeling); neither GLM-5.3-Flash nor DeepSeek-V4",
+  "cluster": "2 GPU nodes with 4 x H100 NVL 94 GB each (two nodes); NVLink pairs 0-1 and 2-3, PCIe between pairs; 4 GPUs per job allowed, walltime up to 5 days",
+  "GLM-5.3-Flash": {
+   "params_total": 321323031390,
+   "params_active": "18B (model card)",
+   "format": "native FP8 e4m3, 128x128 blocks",
+   "weight_bytes": 328326771576,
+   "fits_one_node": true,
+   "job": 389867,
+   "runs": [
+    "glm_a",
+    "glm_b"
+   ],
+   "earlier_attempt": "/path/to/glm53-dws12-20261017 (17-18 Oct): ran with vLLM 0.31, TP4, eager, max_num_seqs 4, ~8 output tokens/s per request after fixes (CUDA_HOME, ninja, FlashInfer FP8 block GEMM and all-reduce off); hard part was getting a free 4-GPU node and the kernel fixes, not memory"
+  },
+  "DeepSeek-V4-Pro": {
+   "params_total": 1598839674782,
+   "format": "native FP8 + packed FP4 experts",
+   "repo_storage_bytes": 864800000000,
+   "fits_one_node": false,
+   "note": "more than both H100 nodes together (8 x 94 GB = 752 GB); only possible with own quantization or more hardware"
+  }
+ }
+}

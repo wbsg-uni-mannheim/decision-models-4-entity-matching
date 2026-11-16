@@ -1,5 +1,5 @@
 #!/bin/bash
 set -euo pipefail
-cd /ceph/aasteine/decision-em-20261013
+cd /path/to/decision-em
 export PYTHONPATH=artifacts/operations
-exec .venv/bin/python -u artifacts/operations/grouped_resume_20261015.py --root /ceph/aasteine/decision-em-20261013 --admission /ceph/aasteine/decision-em-20261013/configs/grouped_core2_admission_20261015.json
+exec .venv/bin/python -u artifacts/operations/grouped_resume_20261015.py --root /path/to/decision-em --admission /path/to/decision-em/configs/grouped_core2_admission_20261015.json

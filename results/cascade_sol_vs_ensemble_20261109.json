@@ -1,0 +1,168 @@
+{
+ "description": "Single frontier LLM against the ensemble as cascade partner, t = 0.05. Read-only, no inference (abstract check, relayed 9 Nov).\n\nJev 1.13, PPLX v1.2, Clef, Luna Dec. with B0, fixed t = 0.05, decision-model run r with partner run r (cascade_fixed_t_20261107.json,\nasserted). Per model: X + Sol cascade minus X + ensemble cascade, and X + Sol cascade minus the ensemble majority (Sol, Opus, Argon)\nalone on all test pairs. diff in F1 points, mean over the runs and the eight benchmarks. fixed_ci95: paired bootstrap on the run mean\n(multibootstrap_eval.Data: 10,000 replicates, seed 0, pairs drawn per benchmark in protocol order, the same pairs for both arms and\nevery run); multi_ci95: runs drawn with replacement (rng seed 1), jointly for both arms because both use partner run r.\nboth_include_zero: both intervals contain zero. Cost: list USD, mean over the runs, as Table VII.\n\n    .venv/bin/python src/cascade_sol_vs_ensemble_eval.py --out artifacts/results/cascade_sol_vs_ensemble_20261109.json\n",
+ "created_at": "2026-11-09T09:33:00.699816+00:00",
+ "t": 0.05,
+ "replicates": 10000,
+ "input_sha256": {
+  "cascade_fixed_t_20261107.json": "229707fa2e7a7c4b1b3a904a808a1d0164de370a16b81a9d1dfaf562ca1e9aaf"
+ },
+ "units": "F1, differences and intervals in points; USD at list prices",
+ "ensemble_alone": {
+  "mean_f1": 91.30679916742147,
+  "usd_list": 142.24371086666665
+ },
+ "models": {
+  "jev": {
+   "mean_f1_sol_cascade": 90.80413497104807,
+   "mean_f1_ensemble_cascade": 91.29955918281115,
+   "usd_sol_cascade": 7.225189887999999,
+   "usd_ensemble_cascade": 40.31626419858457,
+   "cost_ratio_ensemble_cascade_over_sol_cascade": 5.579959118520066,
+   "cost_ratio_ensemble_alone_over_sol_cascade": 19.687193426281155,
+   "sol_cascade_minus_ensemble_cascade": {
+    "diff": -0.49542421176306667,
+    "fixed_ci95": [
+     -0.7781353767852248,
+     -0.23311359320757727
+    ],
+    "multi_ci95": [
+     -0.8097642400004164,
+     -0.19455932081330127
+    ],
+    "fixed_includes_zero": false,
+    "multi_includes_zero": false,
+    "both_include_zero": false,
+    "pairing": "joint"
+   },
+   "sol_cascade_minus_ensemble_alone": {
+    "diff": -0.5026641963733993,
+    "fixed_ci95": [
+     -0.7862881423330591,
+     -0.23703138617940286
+    ],
+    "multi_ci95": [
+     -0.8141920662465357,
+     -0.2057006576377597
+    ],
+    "fixed_includes_zero": false,
+    "multi_includes_zero": false,
+    "both_include_zero": false,
+    "pairing": "joint"
+   }
+  },
+  "pplx_v12": {
+   "mean_f1_sol_cascade": 90.81113427456633,
+   "mean_f1_ensemble_cascade": 91.28210584158458,
+   "usd_sol_cascade": 4.40307294,
+   "usd_ensemble_cascade": 25.737108036435085,
+   "cost_ratio_ensemble_cascade_over_sol_cascade": 5.84526043223692,
+   "cost_ratio_ensemble_alone_over_sol_cascade": 32.30555405395275,
+   "sol_cascade_minus_ensemble_cascade": {
+    "diff": -0.4709715670182621,
+    "fixed_ci95": [
+     -0.7425058094383614,
+     -0.21313246699502425
+    ],
+    "multi_ci95": [
+     -0.7709501947874998,
+     -0.18729704142499565
+    ],
+    "fixed_includes_zero": false,
+    "multi_includes_zero": false,
+    "both_include_zero": false,
+    "pairing": "joint"
+   },
+   "sol_cascade_minus_ensemble_alone": {
+    "diff": -0.4956648928551563,
+    "fixed_ci95": [
+     -0.7792900651050416,
+     -0.2277688867984267
+    ],
+    "multi_ci95": [
+     -0.8111426547419278,
+     -0.19233487048570833
+    ],
+    "fixed_includes_zero": false,
+    "multi_includes_zero": false,
+    "both_include_zero": false,
+    "pairing": "joint"
+   }
+  },
+  "clef": {
+   "mean_f1_sol_cascade": 90.81409089361817,
+   "mean_f1_ensemble_cascade": 91.28313778952601,
+   "usd_sol_cascade": 8.762460046666662,
+   "usd_ensemble_cascade": 38.612052708418666,
+   "cost_ratio_ensemble_cascade_over_sol_cascade": 4.4065311000313345,
+   "cost_ratio_ensemble_alone_over_sol_cascade": 16.23330778218815,
+   "sol_cascade_minus_ensemble_cascade": {
+    "diff": -0.4690468959078459,
+    "fixed_ci95": [
+     -0.7418127002257314,
+     -0.21208847454666827
+    ],
+    "multi_ci95": [
+     -0.7771917340996187,
+     -0.17760716800177068
+    ],
+    "fixed_includes_zero": false,
+    "multi_includes_zero": false,
+    "both_include_zero": false,
+    "pairing": "joint"
+   },
+   "sol_cascade_minus_ensemble_alone": {
+    "diff": -0.4927082738033092,
+    "fixed_ci95": [
+     -0.7804804595704994,
+     -0.22350700379646496
+    ],
+    "multi_ci95": [
+     -0.8066517592341086,
+     -0.19628450959744623
+    ],
+    "fixed_includes_zero": false,
+    "multi_includes_zero": false,
+    "both_include_zero": false,
+    "pairing": "joint"
+   }
+  },
+  "luna_decisions": {
+   "mean_f1_sol_cascade": 90.65521461419581,
+   "mean_f1_ensemble_cascade": 91.11598345267234,
+   "usd_sol_cascade": 5.111283900000001,
+   "usd_ensemble_cascade": 25.017533884203498,
+   "cost_ratio_ensemble_cascade_over_sol_cascade": 4.894569422020071,
+   "cost_ratio_ensemble_alone_over_sol_cascade": 27.829350442980992,
+   "sol_cascade_minus_ensemble_cascade": {
+    "diff": -0.4607688384765163,
+    "fixed_ci95": [
+     -0.731541949333149,
+     -0.2043728180173762
+    ],
+    "multi_ci95": [
+     -0.7713525690408398,
+     -0.16336544918663498
+    ],
+    "fixed_includes_zero": false,
+    "multi_includes_zero": false,
+    "both_include_zero": false,
+    "pairing": "joint"
+   },
+   "sol_cascade_minus_ensemble_alone": {
+    "diff": -0.6515845532256592,
+    "fixed_ci95": [
+     -0.9786002162461896,
+     -0.33024773988904405
+    ],
+    "multi_ci95": [
+     -1.0193419907945374,
+     -0.29957883790384
+    ],
+    "fixed_includes_zero": false,
+    "multi_includes_zero": false,
+    "both_include_zero": false,
+    "pairing": "joint"
+   }
+  }
+ }
+}

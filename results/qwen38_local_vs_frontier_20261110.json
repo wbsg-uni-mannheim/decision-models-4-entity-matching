@@ -1,0 +1,86 @@
+{
+ "description": "Qwen3.8-27B, three local runs, minus the mean of Sol, Opus and Argon, for the Delta row of Table II (hardening session, 10 Nov). Read-only, no inference.\n\nInput: runs/local_throughput_full_20261107/qwen_b_apisampling_r{1,2,3}.jsonl (benchmark, pair_id, label, pred; 30,225 pairs per run).\nMethod of the frontier block of thresholds_sol2000_multi_frontier_eval.py: mean F1 over the runs and the eight benchmarks; fixed_ci95 paired bootstrap on the run mean\n(multibootstrap_eval.Data: 10,000 replicates, seed 0, pairs drawn per benchmark in protocol order, the same pairs for every arm and run); multi_ci95 also draws the three\nruns with replacement (rng seed 1), independently per model; per replicate the frontier value is the mean of the three LLMs.\n\n    .venv/bin/python src/qwen38_local_vs_frontier_eval.py --out artifacts/results/qwen38_local_vs_frontier_20261110.json\n",
+ "created_at": "2026-11-10T15:53:36.733132+00:00",
+ "replicates": 10000,
+ "seed": 0,
+ "run_draw_seed": 1,
+ "inputs_sha256": {
+  "sota_runs123_20261104.json": "40fd11a9cb4db732379cc8d473589f830a57cd18c1559beb72689cf55c64d404",
+  "qwen_b_apisampling_r1.jsonl": "944c75e9516ef8f930f1561bcb04f487a4e7b0a0efd9d50d48eea42f661113e9",
+  "qwen_b_apisampling_r2.jsonl": "60368370a4510af24c01a388dab9edf79ff5ea46f3ee488eb95e680771cd7234",
+  "qwen_b_apisampling_r3.jsonl": "f29626685765a88acf7b40170ab11f87592d9d27fa256790b7af8086d789f60c"
+ },
+ "units": "F1, difference and intervals in points",
+ "frontier": [
+  {
+   "model": "qwen38 (local runs)",
+   "benchmarks": "all eight",
+   "mean_f1": 73.43433345754435,
+   "mean_f1_sd_over_runs": 0.2787163956397956,
+   "mean_f1_frontier": 90.87455182960797,
+   "diff": -17.44021837206361,
+   "fixed_ci95": [
+    -18.344015132320006,
+    -16.589182330183192
+   ],
+   "multi_ci95": [
+    -18.49047951183037,
+    -16.425640248012208
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "significant_both": true
+  }
+ ],
+ "per_run": {
+  "1": {
+   "mean_f1": 73.26840181023199,
+   "per_benchmark": {
+    "abt-buy": 77.47747747747748,
+    "wdc": 71.06299212598425,
+    "dblp-scholar": 81.70731707317073,
+    "walmart-amazon": 71.89542483660131,
+    "dn7-walmart-amazon": 47.54990925589836,
+    "billiger-de": 55.59105431309904,
+    "dblp-acm": 89.83739837398373,
+    "semi-heter": 91.02564102564102
+   }
+  },
+  "2": {
+   "mean_f1": 73.75611478637889,
+   "per_benchmark": {
+    "abt-buy": 78.87323943661971,
+    "wdc": 71.23552123552123,
+    "dblp-scholar": 81.12379280070236,
+    "walmart-amazon": 71.46067415730337,
+    "dn7-walmart-amazon": 48.97196261682243,
+    "billiger-de": 55.12953367875648,
+    "dblp-acm": 90.94650205761316,
+    "semi-heter": 92.3076923076923
+   }
+  },
+  "3": {
+   "mean_f1": 73.27848377602217,
+   "per_benchmark": {
+    "abt-buy": 73.31887201735357,
+    "wdc": 70.27027027027027,
+    "dblp-scholar": 80.76588337684943,
+    "walmart-amazon": 74.71526195899773,
+    "dn7-walmart-amazon": 49.280575539568346,
+    "billiger-de": 56.041666666666664,
+    "dblp-acm": 90.46153846153845,
+    "semi-heter": 91.3738019169329
+   }
+  }
+ },
+ "per_benchmark_mean": {
+  "abt-buy": 76.55652964381692,
+  "wdc": 70.85626121059192,
+  "dblp-scholar": 81.19899775024084,
+  "walmart-amazon": 72.69045365096747,
+  "dn7-walmart-amazon": 48.60081580409638,
+  "billiger-de": 55.5874182195074,
+  "dblp-acm": 90.41514629771179,
+  "semi-heter": 91.56904508342208
+ }
+}

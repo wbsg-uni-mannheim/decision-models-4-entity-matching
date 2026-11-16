@@ -1,0 +1,99 @@
+{
+  "approval_file": "artifacts/operations/approval_parallel_aaron_20261014.json",
+  "approval_sha256": "65144e31cdab36ba875ef8c04c6365afdf1f2455b95f76b19c5c37c2fc44f2fe",
+  "project_cap_usd": 100,
+  "reviewed_project_jobs": {
+    "365636": {
+      "name": "decision-em-confirm-recovery",
+      "batch_script_sha256": "2df9ccd50db01e8c72380d168149c1c29dfaac8d873723d80ca7c02615587d0e",
+      "scope": "quality selected-prompt development/test; existing supervisor only"
+    },
+    "365221": {
+      "name": "decision-em-stability",
+      "batch_script_sha256": "4138be721e87ddddcdd5da7b07eb5c5443a32210914238648db86077f271cb99",
+      "scope": "quality I3 factorial expanded_screen plus e3_repeat_1/2; reads completed screen only"
+    },
+    "365268": {
+      "name": "decision-em-cascade-live",
+      "batch_script_sha256": "e644588aa36b4d611cbb1227778b0c78d6d0412cf45eb65b766f353cd1362a14",
+      "scope": "runs/expanded_cascades_live separate chains and journals; reads frozen B0/routes"
+    },
+    "365279": {
+      "name": "decision-em-variants",
+      "batch_script_sha256": "a71a3a4ac0dc02208b9469b26a74c250589fe751a5fdb5208ea4eea90d6078bf",
+      "scope": "quality B0 additional benchmark names; distinct from confirmation cells"
+    },
+    "365288": {
+      "name": "decision-em-schema",
+      "batch_script_sha256": "fa73287be608e453c32600a46f0fe88bcff06b2580ad37ef734911a8df0a72b1",
+      "scope": "schema/schema_pilot namespaces"
+    },
+    "365300": {
+      "name": "decision-em-rules",
+      "batch_script_sha256": "6eabdcbb9e873cc95dd4aa09939278c4e7e1379cb1408ecccf528e7719b21436",
+      "scope": "learned rules plus shared domain controls; must remain behind confirmation"
+    },
+    "365355": {
+      "name": "statistics-full",
+      "batch_script_sha256": "84f4a24a550085b0d3dc3961cf63839ddfe65f49718617975c3c1d24e87dc068",
+      "scope": "cache-only final statistics; must wait all results"
+    },
+    "365738": {
+      "name": "decision-em-ensemble-pilot",
+      "batch_script_sha256": "75f9794bd68977faf99ea712bb7e50a83392e3540f64afa1f5149f67b5038c06",
+      "scope": "strong_ensemble/pilot_v1 exclusive execution journal; no baseline writes"
+    },
+    "365776": {
+      "name": "decision-em-ensemble-pilot-resume",
+      "batch_script_sha256": "75f9794bd68977faf99ea712bb7e50a83392e3540f64afa1f5149f67b5038c06",
+      "scope": "Remaining 45 technical pilot calls only; 3 known responses reused after provider-name verification; old job terminal"
+    },
+    "365887": {
+      "name": "decision-em-schema-resume",
+      "batch_script_sha256": "f571d1233f432dfae86781aff314f209e0191cd4b47afbfaa3eb37a930ff19cb",
+      "scope": "schema/schema_pilot only; one unchanged cache continuation after all365288 steps terminal"
+    },
+    "365892": {
+      "name": "decision-em-run02-smoke",
+      "batch_script_sha256": "1fc33b8e4a5440c6913502e6604e68beda63d22fde14d49bf1e25c030480c72f",
+      "scope": "Exclusive replications/run02 smoke stage; independent caches, shared root budget, per-run development selection"
+    },
+    "365893": {
+      "name": "decision-em-run02-core",
+      "batch_script_sha256": "a9a8d0186e07e4f3604ccdced479a234e5c5c9cabce7a2088ba78ba3eb2092a8",
+      "scope": "Exclusive replications/run02 core stage; independent caches, shared root budget, per-run development selection"
+    },
+    "365894": {
+      "name": "decision-em-run03-smoke",
+      "batch_script_sha256": "3f613c08ec8d5f1ecfa3c1c4417a92e09210c62ae3328ad0df6537962d0cb537",
+      "scope": "Exclusive replications/run03 smoke stage; independent caches, shared root budget, per-run development selection"
+    },
+    "365895": {
+      "name": "decision-em-run03-core",
+      "batch_script_sha256": "85bee527fdb2aa884a8a7a896b64386c37cff75c22f2893c097150bb2b131617",
+      "scope": "Exclusive replications/run03 core stage; independent caches, shared root budget, per-run development selection"
+    },
+    "365969": {
+      "name": "decision-em-schema-resume",
+      "batch_script_sha256": "f571d1233f432dfae86781aff314f209e0191cd4b47afbfaa3eb37a930ff19cb",
+      "scope": "schema/schema_pilot only; one unchanged continuation after terminal365887 and complete probability-schema diagnosis"
+    }
+  },
+  "files_sha256": {
+    "artifacts/operations/parallel_admission.py": "d74c16978b393e38f1b142afbcba8159c716dc24bcc4b807a4f8c3eae82f2c46",
+    "artifacts/operations/ensemble_pilot_run.py": "4dbf617d0a39d133d499f8419ed71bc755e75384b4fcc9d1d850a47bde4a0710",
+    "artifacts/operations/astra_discovery_submit.py": "5a71625c89c61f1b31a9b79ae3c1e7beaf7a03a0153817e0841975bbf5dfcff3",
+    "artifacts/operations/launch_ensemble_pilot.py": "120c6623c31d66a061cde66baeb27436fc89eae4c77c108234612a495dfba1bf",
+    "artifacts/operations/batch_budget.py": "f5a1b660ccce2dfbb14a4fcc742966bece9bd2fce3cb355d247cb4710b1e1491",
+    "src/run.py": "e6467e3267a282dd3652ae04b1354c4f767628b06895c82dcb31ec78c5ad17ab",
+    "src/expanded_stability.py": "1a2d124f5ce7d5304ff15379d622c17e51ac0ced29cbe63e5b8b6bd36d637742",
+    "src/expanded_variants.py": "05c931c68ed829d40e9c84ff6ea1cd09d61b22aecbfa1c351248451b4b233b8e",
+    "src/expanded_schema.py": "aaf916eb209e125b340fe30d08456b4d6fa58de756708414a0c1224538e737b1",
+    "src/expanded_rules.py": "c2e3ff5f2287d049d2469514ca0addc8a63c5021019642a5b0b61cf71f2044ee",
+    "src/expanded_cascades.py": "1ed178201f21a492c509acdc9754538b2c6db1e5572a3c23c2a8cb16554dc161",
+    "artifacts/operations/resume_schema_once.py": "0ed4fe5c2b2c6966540ee2dd73abe54597c1e88ba8201e71a831c5cd069abd8e",
+    "artifacts/operations/repeated_runs_parallel.py": "34b41c42de362e6657181f683c7ff1f814be1b181a02bf5f58deb2a78d1a5aba",
+    "artifacts/operations/approval_runs23_aaron_20261014.json": "2e5703ca1fddc3f788957e4b87a2414f1608a16b1a0c12d48f50df366444c849"
+  },
+  "operational_caveat": "The already-running legacy confirmation supervisor still requires aggregate reserved=0 between invocations. If it ends at that guard after its child finishes, inspect completed child and use a parallel-aware successor, never release unrelated holds or overlap confirmation writers."
+}

@@ -1,0 +1,209 @@
+{
+  "utc": "2026-10-14T21:05:00.875433+00:00",
+  "predecessor": 365887,
+  "job_id": 365969,
+  "predecessor_accounting": "365887|FAILED|1:0|2026-10-14T20:54:20\n365887.batch|FAILED|1:0|2026-10-14T20:54:20\n365887.extern|COMPLETED|0:0|2026-10-14T20:54:21\n",
+  "source_sha256": {
+    "src/expanded_protocol.py": "2dc4d8d1ff24ede5096acd24f7713ef9aa97793bcc6226d6bf57c785dfe320b6",
+    "src/expanded_screen.py": "3f7af27bf8b1171f10924bfb4bd745771363c51873e3b88c8d6faf9653e19fb8",
+    "src/build_audit.py": "a869f24a87603f704b9f979f359b178cc86325ceba969dd0b22daf2d6566d2b5",
+    "configs/expanded_screen_manifest.json": "a0fd44133596633630e9bf3b68d944ebba1566dad6cb8fbb25431ad5ef04b849",
+    "src/expanded_calibration.py": "18c9ba45a4f30f806c5b8adc225386a3b9ab47ec2a6947d5a9e555e5de16111d",
+    "src/similarity_baseline.py": "c5e69a42bcc9cbf46eab9e7f27c6ea446ebd5b470d22b46afea7d7ea280a829f",
+    "src/expanded_confirmation.py": "dcf0323b256ded6ec57cd8d92dd3724cdb7a293fe94b82a66e33184c0a326b7d",
+    "src/expanded_stability.py": "1a2d124f5ce7d5304ff15379d622c17e51ac0ced29cbe63e5b8b6bd36d637742",
+    "tests/test_calibration.py": "a5196b42098a1c27ad0f6758b5435e72dcd69711594531b7aac0bd443b375600",
+    "tests/test_confirmation.py": "cbf28ff527258de88875ac12332b918d592834a86bce95bc62b4a31151981c4f",
+    "tests/test_stability.py": "e1ccc695795331ab5476b2892265a3d6b18932bc2f588fd264f49a4d6c15a4f0",
+    "configs/calibration_manifest.json": "152ef021c8146bc32718732097b482371b87d58c1f05670d6634a60ff3752db9",
+    "configs/expanded_confirmation_manifest.json": "354b2404ee40fa171d0ef225ffa2dc7fb9936b14dc208f4272391c14154ff9a2",
+    "configs/expanded_stability_manifest.json": "60e16d8b59417e1fd0361126b91ff66b67802614de3e3b6e4035b293c6c26199",
+    "src/expanded_cascades.py": "1ed178201f21a492c509acdc9754538b2c6db1e5572a3c23c2a8cb16554dc161",
+    "tests/test_cascades.py": "1151a2ad8384ae46f40a0f8b4df69a4a9839c1d5784d946a7b3427e68a548287",
+    "configs/expanded_cascade_manifest.json": "d1c654fbac7e002e47500243a999fb10775a96c34d6752100ef704f2374a6c95",
+    "src/expanded_variants.py": "05c931c68ed829d40e9c84ff6ea1cd09d61b22aecbfa1c351248451b4b233b8e",
+    "tests/test_variants.py": "a3ea22902fd8012f1644350d805ff1190c04e823aa35a480646f55439aca407e",
+    "configs/expanded_variant_manifest.json": "f6f75b53a2ff786d2cb2381267bc8fd22b80215019326e189913c6684c943cbc",
+    "src/expanded_errors.py": "95c5fb4c241916a67f8e7d3dea1311f28125bccb3d050e59b305892c8d9b1a42",
+    "tests/test_errors.py": "8d2447f813ce264ccc33444ed5ce2e1b5c0e4d8db16814e5a2ec690205b844a8",
+    "configs/expanded_error_manifest.json": "88abd3c8d0eb6a66fd5d1360104a78dc8a2044c37fd0994138a7476425aec35d",
+    "src/expanded_schema.py": "aaf916eb209e125b340fe30d08456b4d6fa58de756708414a0c1224538e737b1",
+    "tests/test_schema.py": "a498d70d8bbbb001ef0ab659b1f9a33e7fa63c4248d53934b36fdd36e0e7f8dc",
+    "configs/expanded_schema_manifest.json": "4d8c9098dd316eae15812f516272b7a428c162311bc452a99d736eb5caea5d31",
+    "src/rule_training.py": "a042c6e0f366b88b8d3534b2802ee0a0c31bb9af2add68c47889a02f96e703e6",
+    "src/expanded_rules.py": "c2e3ff5f2287d049d2469514ca0addc8a63c5021019642a5b0b61cf71f2044ee",
+    "tests/test_rule_training.py": "b311cb9d26dc9cb927b68d705dafe2955d6d25d4d3a2fa790b11c3ee4afb4770",
+    "tests/test_rules.py": "b7d04f73cc7e46e866391f8e3e5277254d4eee41054f0a18270e5bc91569902f",
+    "configs/rule_agent_training_manifest.json": "df40030d4a34163b22eda9ba8bcffbc2d186d5a626a754a74beb1e85057b4955",
+    "configs/expanded_rules_manifest.json": "42112553009cbcd584f47e6f839f200d3c9394db9418bb8842391c3c85d746d7",
+    "configs/learned_rules.json": "d7f66b800aadd9495a357fe76710f704eebfe9b3e279582792c8b6c3851ba94c",
+    "artifacts/astra_agent/acceptance.json": "61917f19079c75c6fc1efc49eb640889d1d9567c74f021b13104ffac798cbff0",
+    "src/expanded_statistics.py": "f8a2d6f88bd9ea65bd5aabd79bea72c1374c7c72c981f41f554bf9e50e9bfa62",
+    "tests/test_statistics.py": "d260c78ba3f61a0a397a09c8023a8d250e18b6fca41990277cadaca39c1f11f6",
+    "configs/expanded_statistics_manifest.json": "bf4212ac1d708e411d099b3f0328060a4d3be4da2fabdec0289f0f9570008982",
+    "src/protocol.py": "29f262bdac311c69353143c994ae14e906b29e002a1edf00cbfe7733878659ec",
+    "src/run.py": "e6467e3267a282dd3652ae04b1354c4f767628b06895c82dcb31ec78c5ad17ab",
+    "artifacts/operations/resume_schema_once.py": "0ed4fe5c2b2c6966540ee2dd73abe54597c1e88ba8201e71a831c5cd069abd8e",
+    "artifacts/operations/parallel_admission.py": "d74c16978b393e38f1b142afbcba8159c716dc24bcc4b807a4f8c3eae82f2c46"
+  },
+  "diagnosed_failure_sha256": {
+    "runs/schema/jev/C_match_reverse/dblp-acm/prompt.failures.jsonl": "b9c59d23cf38595b78ece8dfbf72c38c1b1dedc666b3034f8411c3436ddb633b",
+    "runs/schema/jev/C_review/walmart-amazon/prompt.failures.jsonl": "e3fa9dcdafe8f6f991d3bed63ceb4468ed3f5f91db246ca3906d30b91256b8ea"
+  },
+  "full_failure_records": [
+    {
+      "benchmark": "dblp-acm",
+      "pair_id": "dblp_1982#acm_1389",
+      "input_hash": "e8f587da74a65398e748415bc89398e911a7e8c799d24556464af193555fbbf4",
+      "request_hash": "615b8c8fb6b156e020dba1d81658b15983fee20e56cd743768e48a3c07022074",
+      "model_alias": "jev",
+      "variant": "C_match_reverse",
+      "error": "HTTP 499",
+      "attempts": [
+        {
+          "status": 499,
+          "seconds": 16.149241351522505,
+          "cost": null,
+          "error": "HTTP 499",
+          "response": {
+            "error": {
+              "message": "HTTP 499: {\"detail\":{\"error_type\":\"internal_error\",\"message\":\"Unable to complete this request.\",\"request_id\":\"req_01a13adb3d5a7e00ad14fd29b1b77d94\"}}",
+              "code": 499
+            }
+          }
+        }
+      ],
+      "completed_at": "2026-10-14T14:40:15.024393+00:00"
+    },
+    {
+      "benchmark": "walmart-amazon",
+      "pair_id": "walmart_1702#amazon_16518",
+      "input_hash": "1b2b8a00e8edf6b03323f761b1c68e99d86d6c53f17471b1a00e4b62877566b9",
+      "request_hash": "57d234ea457e904a05f307ba1fd3d290114f0cda1b9a8a2464b23b9f0f733f0e",
+      "model_alias": "jev",
+      "variant": "C_review",
+      "error": "ValueError: Choice probabilities do not sum to one",
+      "attempts": [
+        {
+          "status": 200,
+          "seconds": 10.972125880420208,
+          "cost": 2.2344e-05,
+          "error": "ValueError: Choice probabilities do not sum to one",
+          "response": {
+            "model": "typesafe/jev-1.13-20260917",
+            "answers": {
+              "match": {
+                "type": "choice",
+                "choice": "No Match",
+                "probabilities": {
+                  "Match": 0.07,
+                  "No Match": 0.81,
+                  "Review": 0.11
+                },
+                "confidence": 0.72
+              }
+            },
+            "usage": {
+              "input_tokens": 532,
+              "output_tokens": 40,
+              "cost": 2.2344e-05
+            },
+            "id": "gen-dec-1792011240-1YP9d9DlMNW1a7jgFmhY",
+            "provider": "TypeSafe"
+          }
+        }
+      ],
+      "completed_at": "2026-10-14T20:54:11.837133+00:00"
+    }
+  ],
+  "diagnosis": "One preserved earlier HTTP499 and one new invalid probability sum0.99. Keep parser tolerance .001; no normalization or imputation. One new unchanged invocation only after complete provenance check; any further failure requires a fresh diagnosis.",
+  "checked_records": {
+    "schema": 55105,
+    "schema_pilot": 140
+  },
+  "checked_files": 348,
+  "policy_review": {
+    "policy_sha256": "7f504ce2530d738aeea72a11d0ca8106d5c34971532d3eb708101a3cde1365f4",
+    "approval_sha256": "65144e31cdab36ba875ef8c04c6365afdf1f2455b95f76b19c5c37c2fc44f2fe",
+    "reviewed_jobs": [
+      {
+        "id": "365300",
+        "name": "decision-em-rules",
+        "scope": "learned rules plus shared domain controls; must remain behind confirmation",
+        "self": false
+      },
+      {
+        "id": "365355",
+        "name": "statistics-full",
+        "scope": "cache-only final statistics; must wait all results",
+        "self": false
+      },
+      {
+        "id": "365969",
+        "name": "decision-em-schema-resume",
+        "scope": "schema/schema_pilot only; one unchanged continuation after terminal365887 and complete probability-schema diagnosis",
+        "self": true
+      },
+      {
+        "id": "365279",
+        "name": "decision-em-variants",
+        "scope": "quality B0 additional benchmark names; distinct from confirmation cells",
+        "self": false
+      },
+      {
+        "id": "365895",
+        "name": "decision-em-run03-core",
+        "scope": "Exclusive replications/run03 core stage; independent caches, shared root budget, per-run development selection",
+        "self": false
+      },
+      {
+        "id": "365893",
+        "name": "decision-em-run02-core",
+        "scope": "Exclusive replications/run02 core stage; independent caches, shared root budget, per-run development selection",
+        "self": false
+      },
+      {
+        "id": "365746",
+        "scope": "different project",
+        "metadata_sha256": "11fb931df15b4bc40feb7e7a054a1f11a3895a5befe336bb559eecb23454f4d7"
+      },
+      {
+        "id": "365636",
+        "name": "decision-em-confirm-recovery",
+        "scope": "quality selected-prompt development/test; existing supervisor only",
+        "self": false
+      }
+    ],
+    "all_project_inference_jobs_reviewed": true
+  },
+  "invocations_limit": 1,
+  "command": ".venv/bin/python -u artifacts/operations/resume_schema_once.py",
+  "budget_before": {
+    "attempts": 1449007,
+    "direct_openai_commitments": {
+      "astra-discovery-e475aae65b0f95c1": {
+        "actual_usd": 1.326705,
+        "approval_reference": "Direct user message in thread 01a1349c-b93e-7e20-aa60-f5edf1e60521 on 2026-10-14; exact quote stored below",
+        "package_sha256": "e475aae65b0f95c189891ab6f30c3dfc1e570af149a6dcc82df41eb4c1753a27",
+        "reserved_usd": 11.0,
+        "status": "reconciled"
+      }
+    },
+    "ensemble_pilot_commitments": {
+      "c1d26fcd612f456d8da70cca908f9d6307d40d903187bf5e8b232a828822b367": {
+        "actual_usd": 0.124831,
+        "authorization": "docs/APPROVED_TODO_20261014.md; operator admission verifies broad ensemble authorization",
+        "ceiling_exceeded": false,
+        "prior_actual_usd": 0.0032979999999999997,
+        "reserved_usd": 9.996702,
+        "resume_count": 1,
+        "status": "reconciled"
+      }
+    },
+    "reserved": 7.500000000000059,
+    "spent": 88.77496608000025,
+    "unknown_cost_attempts": 769
+  },
+  "cache_policy": "One unchanged invocation; preserved journals; same requests, models, selection and workers. Independent active writers allowed; shared USD100 cap.",
+  "held_submission_receipt": "365969"
+}

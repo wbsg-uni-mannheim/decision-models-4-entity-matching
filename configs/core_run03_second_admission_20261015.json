@@ -1,0 +1,75 @@
+{
+  "admitted": true,
+  "run_id": 3,
+  "stage": "core",
+  "predecessor": "366118",
+  "slurm_job_id": "366520",
+  "budget_cap_usd": 200,
+  "budget_authority": "artifacts/operations/approval_budget200_parallel_aaron_20261015.json",
+  "budget_authority_sha256": "f4e7f5255c74a18b856a30fb0abc4b44dfb9d81aa98db3e9468b313871dae41b",
+  "budget_binding_sha256": "f9f4f2f311df28bb7e6c09b62d3dc950ac6e00d9163b722dc6c8bfb4d02f5f8a",
+  "max_invocations": 1,
+  "historical_unknown_outcomes_disclosed": true,
+  "unobserved_worker_causes_disclosed": true,
+  "source_sha256": {
+    "artifacts/operations/schema_drained.py": "a52d18e0124e3c5e03ac0c898a403b74b8d8e3d392fbdfc0e93b017e8ab18e5c",
+    "artifacts/operations/parallel_admission.py": "d74c16978b393e38f1b142afbcba8159c716dc24bcc4b807a4f8c3eae82f2c46",
+    "artifacts/operations/drained_inference.py": "28e7ce2b2020a1d2b8a9def38c1b3e70e2b202938e5564a6a45cd981330a85b2",
+    "artifacts/operations/authorized_recovery_200.py": "a8b6173d8fd7351923ee6f60aef5b474dfa3b953605df2fbedd5e98c4adcd3bf",
+    "artifacts/operations/resume_confirmation_drained.py": "3ef29ad0d9fea82fc16c11b8c0e4bade776f080f7caec4623310769152311e98",
+    "artifacts/operations/resume_variants_drained.py": "20186df914b77656d466965c63d7b846871a18d40022cb1731d078ed143a1e61",
+    "artifacts/operations/fresh_core_drained.py": "73ae8c556063b853af1296fe5298fdac8c26e0ffa851096a94c935ea983c540f",
+    "artifacts/operations/resume_schema_drained.py": "a104b107df14df045bdd5b6dc3796541bc595b58d1768b200fdcba136c69529c",
+    "artifacts/operations/resume_schema_once.py": "0ed4fe5c2b2c6966540ee2dd73abe54597c1e88ba8201e71a831c5cd069abd8e",
+    "artifacts/operations/operational_journal.py": "074439fc1a5f88a05cc075c60ac989ba403a86c8dad1a016d5f56e4789895a0f",
+    "artifacts/operations/approval_budget200_parallel_aaron_20261015.json": "f4e7f5255c74a18b856a30fb0abc4b44dfb9d81aa98db3e9468b313871dae41b",
+    "artifacts/operations/confirmation_drained.py": "96727d4eba97a9619edd9717ddada7eb21667b10ed03b4c815b09cb60f60117e",
+    "artifacts/operations/repeated_runs.py": "c4f0ba89bf9abf88f9675888654f6b594932d87bd9d728b69615a8d5d48818ab",
+    "artifacts/operations/resume_fresh_core_drained.py": "37c93ffca7a7338fa61498c70c85f84b7af2eb29c6bda317cb9a560f4973e309",
+    "artifacts/operations/authorized_recovery_200_reviewed.py": "1ca96612bb1bd51482e50cb3b437cfdcfeea0b9e25f6ff69059557289c978956",
+    "artifacts/verification/audit_run03_drained_terminal_366118_20261015.py": "c7d2afbcb27e912e93b601347b31fdcc80e8409f14bf0346e6fdda691a512a5e",
+    "artifacts/verification/verify_run03_drained_terminal_366118_20261015.py": "64f841b459901091a3e7760e975cfbdb53470b28321ee1151a0a917c3229317b",
+    "configs/core_run03_budget200_reviewed_admission_20261015.json": "9129d10dfabad82cbecae61330ef1d1450dd09d49d2ef36e01e747ac35bddd85",
+    "artifacts/operations/resume_fresh_core_second_drained.py": "f9f4f2f311df28bb7e6c09b62d3dc950ac6e00d9163b722dc6c8bfb4d02f5f8a",
+    "artifacts/operations/resume_variants_second_drained.py": "098bf253f1040b556bd9a282638c9e873561a5fdb3a764b35b31b0bff39100cc"
+  },
+  "diagnosis": "artifacts/operations/run03_drained_terminal_diagnosis_366118_20261015.json",
+  "diagnosis_sha256": "dbac76fb06fed8fcc864ffe459814285738e1deb8c3dfe2d6839cd4c24c10c18",
+  "cost_plan": "artifacts/verification/core_run03_second_phase_cost_plan_20261015.json",
+  "cost_plan_sha256": "88a3fcbea4ade4bf5de4167f76294720dccd1304deef5c38a929700ff16343e9",
+  "parallel_policy": "configs/parallel_core_run03_second_20261015.json",
+  "planning_caveat": "Historical scenarios are not hard bounds or a fully funded completion promise; every request shares the enforced USD200 ledger.",
+  "cost_source_verification": "artifacts/verification/run03_drained_terminal_verification_366118_20261015.json",
+  "replica": "/path/to/decision-em/replications/run03",
+  "runner_sha256": "c4f0ba89bf9abf88f9675888654f6b594932d87bd9d728b69615a8d5d48818ab",
+  "parallel_policy_sha256": "7506792edc40bd861e3ea0e5957d558eaac5fb1d2497482c312c11e211817a07",
+  "reviewed_dependencies": {
+    "365355": "afterok:366115(unfulfilled),afterok:366251(unfulfilled),afterok:366116(unfulfilled),afterok:365300(unfulfilled)",
+    "366520": "(null)",
+    "365300": "afterok:366115(unfulfilled),afterok:366116(unfulfilled)",
+    "366116": "(null)",
+    "366115": "(null)",
+    "366251": "(null)"
+  },
+  "reviewed_job_write_roots": {
+    "366116": [
+      "/path/to/decision-em/runs"
+    ],
+    "366251": [
+      "/path/to/decision-em/runs"
+    ],
+    "366115": [
+      "/path/to/decision-em/runs"
+    ]
+  },
+  "preserved_active_admissions_and_policies_sha256": {
+    "configs/parallel_variants_second_20261015.json": "7a997b64e00642eee436ec17d40112b653442bb62340660535c9715cea33e220",
+    "configs/parallel_budget200_reviewed_20261015.json": "058c72bd569550682c06949564261796543b114af74eb7d62839f01e25787a18",
+    "configs/parallel_budget200_20261015.json": "b164f529e524c5677828cfafb5aa8453983de07834e1f12d3e4298934c8becd6",
+    "configs/variants_second_admission_20261015.json": "1574cce5f7942799e316893b26b98c54417dd9c2a4000c7895e73a9c352de46e",
+    "configs/confirmation_budget200_reviewed_admission_20261015.json": "56738840d02e8a25c81fda04fb3818bb0c8c55723aeacc0910af3bd974a94631",
+    "configs/schema_budget200_reviewed_admission_20261015.json": "9c1b443815e6d21bc9c7d2675fd3245d281e5a5b6542a4abd3211a6ccde6c6f3",
+    "configs/core_run02_budget200_reviewed_admission_20261015.json": "46818c1b41ce05a759706b7bbee7bc4721ea9ec87e0067368081afc8c54b7e60",
+    "configs/core_run03_budget200_reviewed_admission_20261015.json": "9129d10dfabad82cbecae61330ef1d1450dd09d49d2ef36e01e747ac35bddd85"
+  }
+}

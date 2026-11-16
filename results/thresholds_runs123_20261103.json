@@ -1,0 +1,2208 @@
+{
+ "description": "Threshold table (tab:thresholds) over the three B0 test runs. Read-only, free.\n\nt is tuned once on the official validation sets without the Astra training pairs (one validation run,\nruns/promptval_run01_20261027), exactly as paper scripts/import_thresholds.py: one t per benchmark that maximizes its\nF1 and one shared t per model that maximizes the mean F1 over the eight benchmarks, every distinct probability (and\n0.5) as a candidate, ties to the t closest to 0.5. The values must reproduce sources/thresholds.json (asserted).\nThey are applied unchanged to B0 test Runs 1-3 of the six decision models (Run 1: runs/quality, PPLX v1.2\nprompt12_run01_20261019; Runs 2/3: replications/run0{2,3}/runs/quality, PPLX v1.2 pplx12_b0_run0{2,3}_20261021); a pair is\na match if p >= t. The test-optimal t per benchmark is computed on each run (upper bound).\nPer model and variant (bench, global, oracle): mean F1 over the benchmarks and its difference to t = 0.5 per run, mean\nand SD (ddof=1) over the runs; mean F1 at t = 0.5 per run and over the runs (checked against sources/baseline.json,\nwhich uses the journal predictions: the share of pairs where p >= 0.5 differs from the prediction is reported).\nPaired bootstrap as scripts/import_thresholds_bootstrap.py (10,000 replicates, seed 0, the same draw sequence; the\nrng is restarted per run, so every run uses the same resample of pair positions): per run (Run 1 reproduces\nsources/thresholds_bootstrap.json, asserted) and run_mean (per replicate the difference averaged over the three runs).\ndeterminism: pairs whose probability differs between runs, per model.\n\n    .venv/bin/python src/thresholds_runs123_eval.py --paper-sources <dir with thresholds.json, thresholds_bootstrap.json,\n        baseline.json> --out artifacts/results/thresholds_runs123_20261103.json\n",
+ "created_at": "2026-11-03T18:25:21.894062+00:00",
+ "replicates": 10000,
+ "units": "F1 as fraction in per_benchmark; means, diff, sd and ci95 in F1 points",
+ "models": {
+  "jev": {
+   "t_global": 0.39,
+   "t_benchmark": {
+    "abt-buy": 0.27,
+    "wdc": 0.4,
+    "dblp-scholar": 0.57,
+    "walmart-amazon": 0.62,
+    "dn7-walmart-amazon": 0.51,
+    "billiger-de": 0.43,
+    "dblp-acm": 0.65,
+    "semi-heter": 0.29
+   },
+   "runs": {
+    "1": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9099756690997567,
+       "f1_bench": 0.9054054054054054,
+       "f1_global": 0.908235294117647,
+       "t_oracle": 0.42,
+       "f1_oracle": 0.9121140142517815,
+       "f1_journal": 0.9099756690997567,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8522613065326633,
+       "f1_bench": 0.8783783783783784,
+       "f1_global": 0.8796920115495669,
+       "t_oracle": 0.39,
+       "f1_oracle": 0.8796920115495669,
+       "f1_journal": 0.8522613065326633,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9191374663072777,
+       "f1_bench": 0.9196141479099679,
+       "f1_global": 0.9061012548680225,
+       "t_oracle": 0.49,
+       "f1_oracle": 0.9201077199281867,
+       "f1_journal": 0.9191374663072777,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8711340206185567,
+       "f1_bench": 0.8791208791208791,
+       "f1_global": 0.8571428571428571,
+       "t_oracle": 0.62,
+       "f1_oracle": 0.8791208791208791,
+       "f1_journal": 0.8711340206185567,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7514792899408284,
+       "f1_bench": 0.7559523809523809,
+       "f1_global": 0.7493112947658402,
+       "t_oracle": 0.56,
+       "f1_oracle": 0.7639751552795031,
+       "f1_journal": 0.7514792899408284,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.7285886610373945,
+       "f1_bench": 0.7134894091415831,
+       "f1_global": 0.7079261672095548,
+       "t_oracle": 0.69,
+       "f1_oracle": 0.7511045655375552,
+       "f1_journal": 0.7285886610373945,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9714912280701754,
+       "f1_bench": 0.9717514124293786,
+       "f1_global": 0.96,
+       "t_oracle": 0.57,
+       "f1_oracle": 0.9789590254706534,
+       "f1_journal": 0.9714912280701754,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9054054054054054,
+       "f1_bench": 0.9532710280373832,
+       "f1_global": 0.9385113268608414,
+       "t_oracle": 0.3,
+       "f1_oracle": 0.95625,
+       "f1_journal": 0.9054054054054054,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 86.36841308765074,
+      "f1_bench": 87.21228801719195,
+      "f1_global": 86.33650258142912,
+      "f1_oracle": 88.01654213922657,
+      "f1_journal": 86.36841308765074
+     },
+     "diff": {
+      "bench": 0.8438749295412151,
+      "global": -0.03191050622162095,
+      "oracle": 1.648129051575836
+     }
+    },
+    "2": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9073170731707317,
+       "f1_bench": 0.9054054054054054,
+       "f1_global": 0.909952606635071,
+       "t_oracle": 0.36,
+       "f1_oracle": 0.9116279069767442,
+       "f1_journal": 0.9073170731707317,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8493427704752275,
+       "f1_bench": 0.8701550387596899,
+       "f1_global": 0.8722382324687801,
+       "t_oracle": 0.35,
+       "f1_oracle": 0.8771266540642723,
+       "f1_journal": 0.8493427704752275,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9194056731202161,
+       "f1_bench": 0.9177767570050528,
+       "f1_global": 0.9061824470384782,
+       "t_oracle": 0.51,
+       "f1_oracle": 0.9204339963833634,
+       "f1_journal": 0.9194056731202161,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8785529715762274,
+       "f1_bench": 0.8791208791208791,
+       "f1_global": 0.8433734939759037,
+       "t_oracle": 0.53,
+       "f1_oracle": 0.8825065274151436,
+       "f1_journal": 0.8785529715762274,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7588235294117647,
+       "f1_bench": 0.7588235294117647,
+       "f1_global": 0.743801652892562,
+       "t_oracle": 0.46,
+       "f1_oracle": 0.764367816091954,
+       "f1_journal": 0.7588235294117647,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.7202881152460985,
+       "f1_bench": 0.7182940516273849,
+       "f1_global": 0.7091891891891892,
+       "t_oracle": 0.7,
+       "f1_oracle": 0.7432835820895523,
+       "f1_journal": 0.7202881152460985,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9692982456140351,
+       "f1_bench": 0.972972972972973,
+       "f1_global": 0.962080173347779,
+       "t_oracle": 0.55,
+       "f1_oracle": 0.9767955801104973,
+       "f1_journal": 0.9692982456140351,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9054054054054054,
+       "f1_bench": 0.95625,
+       "f1_global": 0.935064935064935,
+       "t_oracle": 0.3,
+       "f1_oracle": 0.95625,
+       "f1_journal": 0.9054054054054054,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 86.35542230024633,
+      "f1_bench": 87.23498292878938,
+      "f1_global": 86.02353413265872,
+      "f1_oracle": 87.9049007891441,
+      "f1_journal": 86.35542230024633
+     },
+     "diff": {
+      "bench": 0.8795606285430466,
+      "global": -0.3318881675876071,
+      "oracle": 1.549478488897762
+     }
+    },
+    "3": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9099756690997567,
+       "f1_bench": 0.9095022624434389,
+       "f1_global": 0.9129411764705883,
+       "t_oracle": 0.37,
+       "f1_oracle": 0.9180327868852459,
+       "f1_journal": 0.9099756690997567,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.857429718875502,
+       "f1_bench": 0.872093023255814,
+       "f1_global": 0.8706563706563707,
+       "t_oracle": 0.35,
+       "f1_oracle": 0.8752362948960303,
+       "f1_journal": 0.857429718875502,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9192602616147948,
+       "f1_bench": 0.9162833486660533,
+       "f1_global": 0.906966681090437,
+       "t_oracle": 0.49,
+       "f1_oracle": 0.9217625899280576,
+       "f1_journal": 0.9192602616147948,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8756476683937824,
+       "f1_bench": 0.8681318681318682,
+       "f1_global": 0.8509615384615384,
+       "t_oracle": 0.55,
+       "f1_oracle": 0.8865435356200527,
+       "f1_journal": 0.8756476683937824,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7610619469026548,
+       "f1_bench": 0.7610619469026548,
+       "f1_global": 0.7472527472527473,
+       "t_oracle": 0.43,
+       "f1_oracle": 0.7619047619047619,
+       "f1_journal": 0.7610619469026548,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.7272727272727273,
+       "f1_bench": 0.7211646136618141,
+       "f1_global": 0.7080610021786492,
+       "t_oracle": 0.66,
+       "f1_oracle": 0.7429378531073446,
+       "f1_journal": 0.7272727272727273,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9683060109289617,
+       "f1_bench": 0.9717514124293786,
+       "f1_global": 0.9631236442516269,
+       "t_oracle": 0.6,
+       "f1_oracle": 0.977728285077951,
+       "f1_journal": 0.9683060109289617,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9054054054054054,
+       "f1_bench": 0.9595015576323987,
+       "f1_global": 0.9285714285714286,
+       "t_oracle": 0.29,
+       "f1_oracle": 0.9595015576323987,
+       "f1_journal": 0.9054054054054054,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 86.5544926061698,
+      "f1_bench": 87.24362541404275,
+      "f1_global": 86.10668236166732,
+      "f1_oracle": 88.04559581314804,
+      "f1_journal": 86.5544926061698
+     },
+     "diff": {
+      "bench": 0.6891328078729515,
+      "global": -0.4478102445024774,
+      "oracle": 1.491103206978238
+     }
+    }
+   },
+   "over_runs": {
+    "f1_05_mean": 86.42610933135562,
+    "f1_05_sd": 0.11137274836492224,
+    "f1_journal_mean": 86.42610933135562,
+    "diff_bench_mean": 0.804189455319071,
+    "diff_global_mean": -0.27053630610390184,
+    "diff_oracle_mean": 1.5629035824839452,
+    "diff_bench_sd": 0.10122693006047265,
+    "diff_global_sd": 0.2146303479383986,
+    "diff_oracle_sd": 0.07936909865461235,
+    "f1_bench_mean": 87.2302987866747,
+    "f1_global_mean": 86.15557302525173,
+    "f1_oracle_mean": 87.98901291383957
+   }
+  },
+  "clef": {
+   "t_global": 0.4516,
+   "t_benchmark": {
+    "abt-buy": 0.4734,
+    "wdc": 0.3012,
+    "dblp-scholar": 0.4374,
+    "walmart-amazon": 0.6124,
+    "dn7-walmart-amazon": 0.6532,
+    "billiger-de": 0.3109,
+    "dblp-acm": 0.8622,
+    "semi-heter": 0.242
+   },
+   "runs": {
+    "1": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9086538461538461,
+       "f1_bench": 0.9138755980861244,
+       "f1_global": 0.9164677804295943,
+       "t_oracle": 0.3812,
+       "f1_oracle": 0.927400468384075,
+       "f1_journal": 0.9086538461538461,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8548387096774194,
+       "f1_bench": 0.8619402985074627,
+       "f1_global": 0.8597014925373134,
+       "t_oracle": 0.3168,
+       "f1_oracle": 0.8657844990548205,
+       "f1_journal": 0.8548387096774194,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9046270066100094,
+       "f1_bench": 0.9167828916782892,
+       "f1_global": 0.9137529137529138,
+       "t_oracle": 0.4089,
+       "f1_oracle": 0.9192431933548685,
+       "f1_journal": 0.9046270066100094,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8802083333333334,
+       "f1_bench": 0.8847184986595175,
+       "f1_global": 0.8695652173913043,
+       "t_oracle": 0.6711,
+       "f1_oracle": 0.8931506849315068,
+       "f1_journal": 0.8802083333333334,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7436619718309859,
+       "f1_bench": 0.743202416918429,
+       "f1_global": 0.7333333333333333,
+       "t_oracle": 0.6133,
+       "f1_oracle": 0.7529411764705882,
+       "f1_journal": 0.7436619718309859,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.6791131855309218,
+       "f1_bench": 0.6190935390549662,
+       "f1_global": 0.6659217877094972,
+       "t_oracle": 0.6786,
+       "f1_oracle": 0.6873239436619718,
+       "f1_journal": 0.6791131855309218,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9724366041896362,
+       "f1_bench": 0.9807474518686297,
+       "f1_global": 0.9702970297029703,
+       "t_oracle": 0.7308,
+       "f1_oracle": 0.9831649831649831,
+       "f1_journal": 0.9724366041896362,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9342105263157895,
+       "f1_bench": 0.9389067524115756,
+       "f1_global": 0.9311475409836065,
+       "t_oracle": 0.2632,
+       "f1_oracle": 0.9419354838709677,
+       "f1_journal": 0.9342105263157895,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 85.97187729552427,
+      "f1_bench": 85.74084308981243,
+      "f1_global": 85.75233869800667,
+      "f1_oracle": 87.13680541117228,
+      "f1_journal": 85.97187729552427
+     },
+     "diff": {
+      "bench": -0.2310342057118362,
+      "global": -0.21953859751759808,
+      "oracle": 1.16492811564801
+     }
+    },
+    "2": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9086538461538461,
+       "f1_bench": 0.9138755980861244,
+       "f1_global": 0.9164677804295943,
+       "t_oracle": 0.3812,
+       "f1_oracle": 0.927400468384075,
+       "f1_journal": 0.9086538461538461,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8548387096774194,
+       "f1_bench": 0.8619402985074627,
+       "f1_global": 0.8597014925373134,
+       "t_oracle": 0.3168,
+       "f1_oracle": 0.8657844990548205,
+       "f1_journal": 0.8548387096774194,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9046270066100094,
+       "f1_bench": 0.9167828916782892,
+       "f1_global": 0.9137529137529138,
+       "t_oracle": 0.4089,
+       "f1_oracle": 0.9192431933548685,
+       "f1_journal": 0.9046270066100094,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8802083333333334,
+       "f1_bench": 0.8847184986595175,
+       "f1_global": 0.8695652173913043,
+       "t_oracle": 0.6711,
+       "f1_oracle": 0.8931506849315068,
+       "f1_journal": 0.8802083333333334,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7436619718309859,
+       "f1_bench": 0.743202416918429,
+       "f1_global": 0.7333333333333333,
+       "t_oracle": 0.6133,
+       "f1_oracle": 0.7529411764705882,
+       "f1_journal": 0.7436619718309859,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.6791131855309218,
+       "f1_bench": 0.6190935390549662,
+       "f1_global": 0.6659217877094972,
+       "t_oracle": 0.6786,
+       "f1_oracle": 0.6873239436619718,
+       "f1_journal": 0.6791131855309218,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9724366041896362,
+       "f1_bench": 0.9807474518686297,
+       "f1_global": 0.9702970297029703,
+       "t_oracle": 0.7308,
+       "f1_oracle": 0.9831649831649831,
+       "f1_journal": 0.9724366041896362,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9342105263157895,
+       "f1_bench": 0.9389067524115756,
+       "f1_global": 0.9311475409836065,
+       "t_oracle": 0.2632,
+       "f1_oracle": 0.9419354838709677,
+       "f1_journal": 0.9342105263157895,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 85.97187729552427,
+      "f1_bench": 85.74084308981243,
+      "f1_global": 85.75233869800667,
+      "f1_oracle": 87.13680541117228,
+      "f1_journal": 85.97187729552427
+     },
+     "diff": {
+      "bench": -0.2310342057118362,
+      "global": -0.21953859751759808,
+      "oracle": 1.16492811564801
+     }
+    },
+    "3": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9086538461538461,
+       "f1_bench": 0.9138755980861244,
+       "f1_global": 0.9164677804295943,
+       "t_oracle": 0.3812,
+       "f1_oracle": 0.927400468384075,
+       "f1_journal": 0.9086538461538461,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8548387096774194,
+       "f1_bench": 0.8619402985074627,
+       "f1_global": 0.8597014925373134,
+       "t_oracle": 0.3168,
+       "f1_oracle": 0.8657844990548205,
+       "f1_journal": 0.8548387096774194,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9046270066100094,
+       "f1_bench": 0.9167828916782892,
+       "f1_global": 0.9137529137529138,
+       "t_oracle": 0.4089,
+       "f1_oracle": 0.9192431933548685,
+       "f1_journal": 0.9046270066100094,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8802083333333334,
+       "f1_bench": 0.8847184986595175,
+       "f1_global": 0.8695652173913043,
+       "t_oracle": 0.6711,
+       "f1_oracle": 0.8931506849315068,
+       "f1_journal": 0.8802083333333334,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7436619718309859,
+       "f1_bench": 0.743202416918429,
+       "f1_global": 0.7333333333333333,
+       "t_oracle": 0.6133,
+       "f1_oracle": 0.7529411764705882,
+       "f1_journal": 0.7436619718309859,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.6791131855309218,
+       "f1_bench": 0.6190935390549662,
+       "f1_global": 0.6659217877094972,
+       "t_oracle": 0.6786,
+       "f1_oracle": 0.6873239436619718,
+       "f1_journal": 0.6791131855309218,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9724366041896362,
+       "f1_bench": 0.9807474518686297,
+       "f1_global": 0.9702970297029703,
+       "t_oracle": 0.7308,
+       "f1_oracle": 0.9831649831649831,
+       "f1_journal": 0.9724366041896362,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9342105263157895,
+       "f1_bench": 0.9389067524115756,
+       "f1_global": 0.9311475409836065,
+       "t_oracle": 0.2632,
+       "f1_oracle": 0.9419354838709677,
+       "f1_journal": 0.9342105263157895,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 85.97187729552427,
+      "f1_bench": 85.74084308981243,
+      "f1_global": 85.75233869800667,
+      "f1_oracle": 87.13680541117228,
+      "f1_journal": 85.97187729552427
+     },
+     "diff": {
+      "bench": -0.2310342057118362,
+      "global": -0.21953859751759808,
+      "oracle": 1.16492811564801
+     }
+    }
+   },
+   "over_runs": {
+    "f1_05_mean": 85.97187729552427,
+    "f1_05_sd": 0.0,
+    "f1_journal_mean": 85.97187729552427,
+    "diff_bench_mean": -0.2310342057118362,
+    "diff_global_mean": -0.21953859751759808,
+    "diff_oracle_mean": 1.16492811564801,
+    "diff_bench_sd": 0.0,
+    "diff_global_sd": 0.0,
+    "diff_oracle_sd": 0.0,
+    "f1_bench_mean": 85.74084308981243,
+    "f1_global_mean": 85.75233869800667,
+    "f1_oracle_mean": 87.13680541117228
+   }
+  },
+  "clef_flash": {
+   "t_global": 0.7826,
+   "t_benchmark": {
+    "abt-buy": 0.7991,
+    "wdc": 0.7579,
+    "dblp-scholar": 0.6703,
+    "walmart-amazon": 0.8284,
+    "dn7-walmart-amazon": 0.8646,
+    "billiger-de": 0.7232,
+    "dblp-acm": 0.5949,
+    "semi-heter": 0.6009
+   },
+   "runs": {
+    "1": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.8333333333333334,
+       "f1_bench": 0.8361858190709046,
+       "f1_global": 0.8433734939759037,
+       "t_oracle": 0.6466,
+       "f1_oracle": 0.8617511520737328,
+       "f1_journal": 0.8333333333333334,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.7217321571772254,
+       "f1_bench": 0.7588235294117647,
+       "f1_global": 0.7505112474437627,
+       "t_oracle": 0.7314,
+       "f1_oracle": 0.764367816091954,
+       "f1_journal": 0.7217321571772254,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9021129797326434,
+       "f1_bench": 0.928212162780064,
+       "f1_global": 0.9101338432122371,
+       "t_oracle": 0.6662,
+       "f1_oracle": 0.9297445255474452,
+       "f1_journal": 0.9021129797326434,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.6558558558558558,
+       "f1_bench": 0.8021108179419525,
+       "f1_global": 0.7733990147783252,
+       "t_oracle": 0.8657,
+       "f1_oracle": 0.8156424581005587,
+       "f1_journal": 0.6558558558558558,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.4040114613180516,
+       "f1_bench": 0.5371024734982333,
+       "f1_global": 0.5561224489795918,
+       "t_oracle": 0.8284,
+       "f1_oracle": 0.5988372093023255,
+       "f1_journal": 0.4040114613180516,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.437976437976438,
+       "f1_bench": 0.5454545454545454,
+       "f1_global": 0.5675057208237986,
+       "t_oracle": 0.8186,
+       "f1_oracle": 0.5754838709677419,
+       "f1_journal": 0.437976437976438,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9205020920502092,
+       "f1_bench": 0.9395248380129589,
+       "f1_global": 0.915606936416185,
+       "t_oracle": 0.6127,
+       "f1_oracle": 0.9414316702819957,
+       "f1_journal": 0.9205020920502092,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9422492401215805,
+       "f1_bench": 0.9415384615384615,
+       "f1_global": 0.9315960912052117,
+       "t_oracle": 0.6433,
+       "f1_oracle": 0.95625,
+       "f1_journal": 0.9422492401215805,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 72.72216946956671,
+      "f1_bench": 78.61190809636106,
+      "f1_global": 78.1031099604377,
+      "f1_oracle": 80.54385877957192,
+      "f1_journal": 72.72216946956671
+     },
+     "diff": {
+      "bench": 5.889738626794355,
+      "global": 5.380940490870998,
+      "oracle": 7.821689310005212
+     }
+    },
+    "2": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.8333333333333334,
+       "f1_bench": 0.8361858190709046,
+       "f1_global": 0.8433734939759037,
+       "t_oracle": 0.6466,
+       "f1_oracle": 0.8617511520737328,
+       "f1_journal": 0.8333333333333334,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.7217321571772254,
+       "f1_bench": 0.7588235294117647,
+       "f1_global": 0.7505112474437627,
+       "t_oracle": 0.7314,
+       "f1_oracle": 0.764367816091954,
+       "f1_journal": 0.7217321571772254,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9021129797326434,
+       "f1_bench": 0.928212162780064,
+       "f1_global": 0.9101338432122371,
+       "t_oracle": 0.6662,
+       "f1_oracle": 0.9297445255474452,
+       "f1_journal": 0.9021129797326434,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.6558558558558558,
+       "f1_bench": 0.8021108179419525,
+       "f1_global": 0.7733990147783252,
+       "t_oracle": 0.8657,
+       "f1_oracle": 0.8156424581005587,
+       "f1_journal": 0.6558558558558558,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.4040114613180516,
+       "f1_bench": 0.5371024734982333,
+       "f1_global": 0.5561224489795918,
+       "t_oracle": 0.8284,
+       "f1_oracle": 0.5988372093023255,
+       "f1_journal": 0.4040114613180516,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.437976437976438,
+       "f1_bench": 0.5454545454545454,
+       "f1_global": 0.5675057208237986,
+       "t_oracle": 0.8186,
+       "f1_oracle": 0.5754838709677419,
+       "f1_journal": 0.437976437976438,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9205020920502092,
+       "f1_bench": 0.9395248380129589,
+       "f1_global": 0.915606936416185,
+       "t_oracle": 0.6127,
+       "f1_oracle": 0.9414316702819957,
+       "f1_journal": 0.9205020920502092,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9422492401215805,
+       "f1_bench": 0.9415384615384615,
+       "f1_global": 0.9315960912052117,
+       "t_oracle": 0.6433,
+       "f1_oracle": 0.95625,
+       "f1_journal": 0.9422492401215805,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 72.72216946956671,
+      "f1_bench": 78.61190809636106,
+      "f1_global": 78.1031099604377,
+      "f1_oracle": 80.54385877957192,
+      "f1_journal": 72.72216946956671
+     },
+     "diff": {
+      "bench": 5.889738626794355,
+      "global": 5.380940490870998,
+      "oracle": 7.821689310005212
+     }
+    },
+    "3": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.8333333333333334,
+       "f1_bench": 0.8361858190709046,
+       "f1_global": 0.8433734939759037,
+       "t_oracle": 0.6466,
+       "f1_oracle": 0.8617511520737328,
+       "f1_journal": 0.8333333333333334,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.7217321571772254,
+       "f1_bench": 0.7588235294117647,
+       "f1_global": 0.7505112474437627,
+       "t_oracle": 0.7314,
+       "f1_oracle": 0.764367816091954,
+       "f1_journal": 0.7217321571772254,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9021129797326434,
+       "f1_bench": 0.928212162780064,
+       "f1_global": 0.9101338432122371,
+       "t_oracle": 0.6662,
+       "f1_oracle": 0.9297445255474452,
+       "f1_journal": 0.9021129797326434,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.6558558558558558,
+       "f1_bench": 0.8021108179419525,
+       "f1_global": 0.7733990147783252,
+       "t_oracle": 0.8657,
+       "f1_oracle": 0.8156424581005587,
+       "f1_journal": 0.6558558558558558,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.4040114613180516,
+       "f1_bench": 0.5371024734982333,
+       "f1_global": 0.5561224489795918,
+       "t_oracle": 0.8284,
+       "f1_oracle": 0.5988372093023255,
+       "f1_journal": 0.4040114613180516,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.437976437976438,
+       "f1_bench": 0.5454545454545454,
+       "f1_global": 0.5675057208237986,
+       "t_oracle": 0.8186,
+       "f1_oracle": 0.5754838709677419,
+       "f1_journal": 0.437976437976438,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9205020920502092,
+       "f1_bench": 0.9395248380129589,
+       "f1_global": 0.915606936416185,
+       "t_oracle": 0.6127,
+       "f1_oracle": 0.9414316702819957,
+       "f1_journal": 0.9205020920502092,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9422492401215805,
+       "f1_bench": 0.9415384615384615,
+       "f1_global": 0.9315960912052117,
+       "t_oracle": 0.6433,
+       "f1_oracle": 0.95625,
+       "f1_journal": 0.9422492401215805,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 72.72216946956671,
+      "f1_bench": 78.61190809636106,
+      "f1_global": 78.1031099604377,
+      "f1_oracle": 80.54385877957192,
+      "f1_journal": 72.72216946956671
+     },
+     "diff": {
+      "bench": 5.889738626794355,
+      "global": 5.380940490870998,
+      "oracle": 7.821689310005212
+     }
+    }
+   },
+   "over_runs": {
+    "f1_05_mean": 72.72216946956671,
+    "f1_05_sd": 0.0,
+    "f1_journal_mean": 72.72216946956671,
+    "diff_bench_mean": 5.889738626794355,
+    "diff_global_mean": 5.380940490870998,
+    "diff_oracle_mean": 7.821689310005212,
+    "diff_bench_sd": 0.0,
+    "diff_global_sd": 0.0,
+    "diff_oracle_sd": 0.0,
+    "f1_bench_mean": 78.61190809636106,
+    "f1_global_mean": 78.1031099604377,
+    "f1_oracle_mean": 80.54385877957192
+   }
+  },
+  "luna_decisions": {
+   "t_global": 0.77,
+   "t_benchmark": {
+    "abt-buy": 0.77,
+    "wdc": 0.37,
+    "dblp-scholar": 0.6,
+    "walmart-amazon": 0.88,
+    "dn7-walmart-amazon": 0.86,
+    "billiger-de": 0.46,
+    "dblp-acm": 0.89,
+    "semi-heter": 0.39
+   },
+   "runs": {
+    "1": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9103139013452914,
+       "f1_bench": 0.9248826291079812,
+       "f1_global": 0.9248826291079812,
+       "t_oracle": 0.84,
+       "f1_oracle": 0.9400479616306955,
+       "f1_journal": 0.9103139013452914,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8654037886340977,
+       "f1_bench": 0.8707482993197279,
+       "f1_global": 0.8370136698212408,
+       "t_oracle": 0.32,
+       "f1_oracle": 0.8746411483253589,
+       "f1_journal": 0.8654037886340977,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9011576135351737,
+       "f1_bench": 0.9027027027027027,
+       "f1_global": 0.9041860465116279,
+       "t_oracle": 0.71,
+       "f1_oracle": 0.9078404401650619,
+       "f1_journal": 0.9011576135351737,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8457943925233645,
+       "f1_bench": 0.889487870619946,
+       "f1_global": 0.8905852417302799,
+       "t_oracle": 0.83,
+       "f1_oracle": 0.8981723237597912,
+       "f1_journal": 0.8457943925233645,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7468030690537084,
+       "f1_bench": 0.7828571428571428,
+       "f1_global": 0.7717391304347826,
+       "t_oracle": 0.86,
+       "f1_oracle": 0.7828571428571428,
+       "f1_journal": 0.7468030690537084,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.6914103923647932,
+       "f1_bench": 0.6770508826583593,
+       "f1_global": 0.7346938775510204,
+       "t_oracle": 0.82,
+       "f1_oracle": 0.7413333333333333,
+       "f1_journal": 0.6914103923647932,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9660460021905805,
+       "f1_bench": 0.9799554565701559,
+       "f1_global": 0.9745293466223699,
+       "t_oracle": 0.92,
+       "f1_oracle": 0.9820627802690582,
+       "f1_journal": 0.9660460021905805,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9473684210526315,
+       "f1_bench": 0.9538461538461539,
+       "f1_global": 0.9463722397476341,
+       "t_oracle": 0.43,
+       "f1_oracle": 0.9538461538461539,
+       "f1_journal": 0.9473684210526315,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 85.92871975874552,
+      "f1_bench": 87.26913922102713,
+      "f1_global": 87.30002726908671,
+      "f1_oracle": 88.51001605233245,
+      "f1_journal": 85.92871975874552
+     },
+     "diff": {
+      "bench": 1.3404194622816163,
+      "global": 1.3713075103411967,
+      "oracle": 2.581296293586931
+     }
+    },
+    "2": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9103139013452914,
+       "f1_bench": 0.9248826291079812,
+       "f1_global": 0.9248826291079812,
+       "t_oracle": 0.84,
+       "f1_oracle": 0.9400479616306955,
+       "f1_journal": 0.9103139013452914,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8654037886340977,
+       "f1_bench": 0.8707482993197279,
+       "f1_global": 0.8370136698212408,
+       "t_oracle": 0.32,
+       "f1_oracle": 0.8746411483253589,
+       "f1_journal": 0.8654037886340977,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9011576135351737,
+       "f1_bench": 0.9027027027027027,
+       "f1_global": 0.9041860465116279,
+       "t_oracle": 0.71,
+       "f1_oracle": 0.9078404401650619,
+       "f1_journal": 0.9011576135351737,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8457943925233645,
+       "f1_bench": 0.889487870619946,
+       "f1_global": 0.8905852417302799,
+       "t_oracle": 0.83,
+       "f1_oracle": 0.8981723237597912,
+       "f1_journal": 0.8457943925233645,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7468030690537084,
+       "f1_bench": 0.7828571428571428,
+       "f1_global": 0.7717391304347826,
+       "t_oracle": 0.86,
+       "f1_oracle": 0.7828571428571428,
+       "f1_journal": 0.7468030690537084,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.6914103923647932,
+       "f1_bench": 0.6770508826583593,
+       "f1_global": 0.7346938775510204,
+       "t_oracle": 0.82,
+       "f1_oracle": 0.7413333333333333,
+       "f1_journal": 0.6914103923647932,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9660460021905805,
+       "f1_bench": 0.9799554565701559,
+       "f1_global": 0.9745293466223699,
+       "t_oracle": 0.92,
+       "f1_oracle": 0.9820627802690582,
+       "f1_journal": 0.9660460021905805,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9473684210526315,
+       "f1_bench": 0.9538461538461539,
+       "f1_global": 0.9463722397476341,
+       "t_oracle": 0.43,
+       "f1_oracle": 0.9538461538461539,
+       "f1_journal": 0.9473684210526315,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 85.92871975874552,
+      "f1_bench": 87.26913922102713,
+      "f1_global": 87.30002726908671,
+      "f1_oracle": 88.51001605233245,
+      "f1_journal": 85.92871975874552
+     },
+     "diff": {
+      "bench": 1.3404194622816163,
+      "global": 1.3713075103411967,
+      "oracle": 2.581296293586931
+     }
+    },
+    "3": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9103139013452914,
+       "f1_bench": 0.9248826291079812,
+       "f1_global": 0.9248826291079812,
+       "t_oracle": 0.84,
+       "f1_oracle": 0.9400479616306955,
+       "f1_journal": 0.9103139013452914,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8654037886340977,
+       "f1_bench": 0.8707482993197279,
+       "f1_global": 0.8370136698212408,
+       "t_oracle": 0.32,
+       "f1_oracle": 0.8746411483253589,
+       "f1_journal": 0.8654037886340977,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9011576135351737,
+       "f1_bench": 0.9027027027027027,
+       "f1_global": 0.9041860465116279,
+       "t_oracle": 0.71,
+       "f1_oracle": 0.9078404401650619,
+       "f1_journal": 0.9011576135351737,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.8457943925233645,
+       "f1_bench": 0.889487870619946,
+       "f1_global": 0.8905852417302799,
+       "t_oracle": 0.83,
+       "f1_oracle": 0.8981723237597912,
+       "f1_journal": 0.8457943925233645,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7468030690537084,
+       "f1_bench": 0.7828571428571428,
+       "f1_global": 0.7717391304347826,
+       "t_oracle": 0.86,
+       "f1_oracle": 0.7828571428571428,
+       "f1_journal": 0.7468030690537084,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.6877637130801688,
+       "f1_bench": 0.6763485477178424,
+       "f1_global": 0.7364438839848676,
+       "t_oracle": 0.84,
+       "f1_oracle": 0.7482993197278912,
+       "f1_journal": 0.6877637130801688,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9672489082969432,
+       "f1_bench": 0.9765886287625418,
+       "f1_global": 0.9701657458563536,
+       "t_oracle": 0.94,
+       "f1_oracle": 0.9797297297297297,
+       "f1_journal": 0.9672489082969432,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9503105590062112,
+       "f1_bench": 0.9567901234567902,
+       "f1_global": 0.949685534591195,
+       "t_oracle": 0.41,
+       "f1_oracle": 0.9567901234567902,
+       "f1_journal": 0.9503105590062112,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 85.93494931843699,
+      "f1_bench": 87.25507430680844,
+      "f1_global": 87.30877352547911,
+      "f1_oracle": 88.60472737065577,
+      "f1_journal": 85.93494931843699
+     },
+     "diff": {
+      "bench": 1.3201249883714468,
+      "global": 1.3738242070421194,
+      "oracle": 2.669778052218774
+     }
+    }
+   },
+   "over_runs": {
+    "f1_05_mean": 85.93079627864267,
+    "f1_05_sd": 0.0035966379648068214,
+    "f1_journal_mean": 85.93079627864267,
+    "diff_bench_mean": 1.3336546376448932,
+    "diff_global_mean": 1.3721464092415043,
+    "diff_oracle_mean": 2.6107902131308784,
+    "diff_bench_sd": 0.011717019975098247,
+    "diff_global_sd": 0.0014530155177463603,
+    "diff_oracle_sd": 0.05108496716446627,
+    "f1_bench_mean": 87.26445091628757,
+    "f1_global_mean": 87.30294268788418,
+    "f1_oracle_mean": 88.54158649177356
+   }
+  },
+  "pplx_v12": {
+   "t_global": 0.4481288398933616,
+   "t_benchmark": {
+    "abt-buy": 0.3079617418534467,
+    "wdc": 0.375508749288629,
+    "dblp-scholar": 0.4644403996680232,
+    "walmart-amazon": 0.6925116245354868,
+    "dn7-walmart-amazon": 0.5830927761916305,
+    "billiger-de": 0.30930989320279634,
+    "dblp-acm": 0.6731629280249165,
+    "semi-heter": 0.3187980056030861
+   },
+   "runs": {
+    "1": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9400479616306955,
+       "f1_bench": 0.9284064665127021,
+       "f1_global": 0.9358669833729216,
+       "t_oracle": 0.5965203722253507,
+       "f1_oracle": 0.9478908188585607,
+       "f1_journal": 0.9400479616306955,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.871587462082912,
+       "f1_bench": 0.8756121449559255,
+       "f1_global": 0.878,
+       "t_oracle": 0.4053657471645563,
+       "f1_oracle": 0.8814229249011858,
+       "f1_journal": 0.871587462082912,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.9260120986505351,
+       "f1_bench": 0.9253456221198156,
+       "f1_global": 0.9243466299862448,
+       "t_oracle": 0.5125727370565756,
+       "f1_oracle": 0.9276714885674289,
+       "f1_journal": 0.9260120986505351,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.9043927648578811,
+       "f1_bench": 0.9002695417789758,
+       "f1_global": 0.906801007556675,
+       "t_oracle": 0.4677488969565944,
+       "f1_oracle": 0.910941475826972,
+       "f1_journal": 0.9043927648578811,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7671232876712328,
+       "f1_bench": 0.7793696275071633,
+       "f1_global": 0.7795698924731183,
+       "t_oracle": 0.7780085924858906,
+       "f1_oracle": 0.8073394495412844,
+       "f1_journal": 0.7671232876712328,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.7156626506024096,
+       "f1_bench": 0.6804979253112033,
+       "f1_global": 0.7207415990730012,
+       "t_oracle": 0.6429747157411898,
+       "f1_oracle": 0.7366984993178718,
+       "f1_journal": 0.7156626506024096,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9811738648947951,
+       "f1_bench": 0.9921436588103255,
+       "f1_global": 0.9779735682819384,
+       "t_oracle": 0.6883127439786813,
+       "f1_oracle": 0.9921436588103255,
+       "f1_journal": 0.9811738648947951,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9411764705882353,
+       "f1_bench": 0.9584664536741214,
+       "f1_global": 0.9446254071661238,
+       "t_oracle": 0.34475553724494246,
+       "f1_oracle": 0.9584664536741214,
+       "f1_journal": 0.9411764705882353,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 88.0897070122337,
+      "f1_bench": 88.0013930083779,
+      "f1_global": 88.34906359887529,
+      "f1_oracle": 89.53218461872187,
+      "f1_journal": 88.0897070122337
+     },
+     "diff": {
+      "bench": -0.08831400385579968,
+      "global": 0.25935658664158723,
+      "oracle": 1.4424776064881684
+     }
+    },
+    "2": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9371980676328503,
+       "f1_bench": 0.9284064665127021,
+       "f1_global": 0.9380952380952381,
+       "t_oracle": 0.6238167397566764,
+       "f1_oracle": 0.945,
+       "f1_journal": 0.9371980676328503,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8693009118541033,
+       "f1_bench": 0.8781925343811395,
+       "f1_global": 0.8768768768768769,
+       "t_oracle": 0.4193994525075269,
+       "f1_oracle": 0.882703777335984,
+       "f1_journal": 0.8693009118541033,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.925512104283054,
+       "f1_bench": 0.9261311172668514,
+       "f1_global": 0.927030748049564,
+       "t_oracle": 0.4467127337436583,
+       "f1_oracle": 0.9280146721687299,
+       "f1_journal": 0.925512104283054,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.9048843187660668,
+       "f1_bench": 0.9002695417789758,
+       "f1_global": 0.9035532994923858,
+       "t_oracle": 0.46805875110612505,
+       "f1_oracle": 0.9104859335038363,
+       "f1_journal": 0.9048843187660668,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7747252747252747,
+       "f1_bench": 0.7793696275071633,
+       "f1_global": 0.7795698924731183,
+       "t_oracle": 0.8162197627851514,
+       "f1_oracle": 0.80625,
+       "f1_journal": 0.7747252747252747,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.7178871548619448,
+       "f1_bench": 0.68125,
+       "f1_global": 0.7215777262180975,
+       "t_oracle": 0.6353857305308678,
+       "f1_oracle": 0.738255033557047,
+       "f1_journal": 0.7178871548619448,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9811320754716981,
+       "f1_bench": 0.98989898989899,
+       "f1_global": 0.976897689768977,
+       "t_oracle": 0.6803636677681396,
+       "f1_oracle": 0.98989898989899,
+       "f1_journal": 0.9811320754716981,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9411764705882353,
+       "f1_bench": 0.9551282051282052,
+       "f1_global": 0.9446254071661238,
+       "t_oracle": 0.30368844267997863,
+       "f1_oracle": 0.9584664536741214,
+       "f1_journal": 0.9411764705882353,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 88.14770472729035,
+      "f1_bench": 87.98308103092533,
+      "f1_global": 88.35283597675476,
+      "f1_oracle": 89.48843575173386,
+      "f1_journal": 88.14770472729035
+     },
+     "diff": {
+      "bench": -0.1646236963650125,
+      "global": 0.20513124946441508,
+      "oracle": 1.3407310244435138
+     }
+    },
+    "3": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.9371980676328503,
+       "f1_bench": 0.9284064665127021,
+       "f1_global": 0.9380952380952381,
+       "t_oracle": 0.6238167397566764,
+       "f1_oracle": 0.945,
+       "f1_journal": 0.9371980676328503,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.8693009118541033,
+       "f1_bench": 0.8781925343811395,
+       "f1_global": 0.8768768768768769,
+       "t_oracle": 0.4193994525075269,
+       "f1_oracle": 0.882703777335984,
+       "f1_journal": 0.8693009118541033,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.925512104283054,
+       "f1_bench": 0.9261311172668514,
+       "f1_global": 0.927030748049564,
+       "t_oracle": 0.4467127337436583,
+       "f1_oracle": 0.9280146721687299,
+       "f1_journal": 0.925512104283054,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.9048843187660668,
+       "f1_bench": 0.9002695417789758,
+       "f1_global": 0.9035532994923858,
+       "t_oracle": 0.46805875110612505,
+       "f1_oracle": 0.9104859335038363,
+       "f1_journal": 0.9048843187660668,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.7747252747252747,
+       "f1_bench": 0.7793696275071633,
+       "f1_global": 0.7795698924731183,
+       "t_oracle": 0.8162197627851514,
+       "f1_oracle": 0.80625,
+       "f1_journal": 0.7747252747252747,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.7178871548619448,
+       "f1_bench": 0.68125,
+       "f1_global": 0.7215777262180975,
+       "t_oracle": 0.6353857305308678,
+       "f1_oracle": 0.738255033557047,
+       "f1_journal": 0.7178871548619448,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.9811320754716981,
+       "f1_bench": 0.98989898989899,
+       "f1_global": 0.976897689768977,
+       "t_oracle": 0.6803636677681396,
+       "f1_oracle": 0.98989898989899,
+       "f1_journal": 0.9811320754716981,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9411764705882353,
+       "f1_bench": 0.9551282051282052,
+       "f1_global": 0.9446254071661238,
+       "t_oracle": 0.30368844267997863,
+       "f1_oracle": 0.9584664536741214,
+       "f1_journal": 0.9411764705882353,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 88.14770472729035,
+      "f1_bench": 87.98308103092533,
+      "f1_global": 88.35283597675476,
+      "f1_oracle": 89.48843575173386,
+      "f1_journal": 88.14770472729035
+     },
+     "diff": {
+      "bench": -0.1646236963650125,
+      "global": 0.20513124946441508,
+      "oracle": 1.3407310244435138
+     }
+    }
+   },
+   "over_runs": {
+    "f1_05_mean": 88.1283721556048,
+    "f1_05_sd": 0.03348499640033636,
+    "f1_journal_mean": 88.1283721556048,
+    "diff_bench_mean": -0.1391871321952749,
+    "diff_global_mean": 0.22320636185680579,
+    "diff_oracle_mean": 1.374646551791732,
+    "diff_bench_sd": 0.044057421511971596,
+    "diff_global_sd": 0.031307013016138564,
+    "diff_oracle_sd": 0.05874341653260567,
+    "f1_bench_mean": 87.98918502340952,
+    "f1_global_mean": 88.3515785174616,
+    "f1_oracle_mean": 89.50301870739654
+   }
+  },
+  "kev": {
+   "t_global": 0.6945,
+   "t_benchmark": {
+    "abt-buy": 0.6375,
+    "wdc": 0.7244,
+    "dblp-scholar": 0.7177,
+    "walmart-amazon": 0.7424,
+    "dn7-walmart-amazon": 0.7085,
+    "billiger-de": 0.6581,
+    "dblp-acm": 0.1487,
+    "semi-heter": 0.688
+   },
+   "runs": {
+    "1": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.8755760368663594,
+       "f1_bench": 0.891566265060241,
+       "f1_global": 0.8823529411764706,
+       "t_oracle": 0.6411,
+       "f1_oracle": 0.891566265060241,
+       "f1_journal": 0.8755760368663594,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.7639123102866779,
+       "f1_bench": 0.7794263105835806,
+       "f1_global": 0.781099324975892,
+       "t_oracle": 0.7068,
+       "f1_oracle": 0.7848101265822784,
+       "f1_journal": 0.7639123102866779,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.890061565523307,
+       "f1_bench": 0.8861124459394522,
+       "f1_global": 0.8910984848484849,
+       "t_oracle": 0.6104,
+       "f1_oracle": 0.8950729927007299,
+       "f1_journal": 0.890061565523307,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.7436974789915967,
+       "f1_bench": 0.8093994778067886,
+       "f1_global": 0.797979797979798,
+       "t_oracle": 0.7735,
+       "f1_oracle": 0.8150134048257373,
+       "f1_journal": 0.7436974789915967,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.6844660194174758,
+       "f1_bench": 0.672514619883041,
+       "f1_global": 0.6609195402298851,
+       "t_oracle": 0.6327,
+       "f1_oracle": 0.6970509383378016,
+       "f1_journal": 0.6844660194174758,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.5324232081911263,
+       "f1_bench": 0.5722772277227722,
+       "f1_global": 0.5843621399176955,
+       "t_oracle": 0.8448,
+       "f1_oracle": 0.6256830601092896,
+       "f1_journal": 0.5324232081911263,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.7662178702570379,
+       "f1_bench": 0.8174603174603174,
+       "f1_global": 0.7354497354497355,
+       "t_oracle": 0.2324,
+       "f1_oracle": 0.8263103802672148,
+       "f1_journal": 0.7662178702570379,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9125,
+       "f1_bench": 0.8990228013029316,
+       "f1_global": 0.8990228013029316,
+       "t_oracle": 0.2749,
+       "f1_oracle": 0.9226190476190477,
+       "f1_journal": 0.9125,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 77.11068111916977,
+      "f1_bench": 79.09724332198905,
+      "f1_global": 77.90355957351116,
+      "f1_oracle": 80.72657769377926,
+      "f1_journal": 77.11068111916977
+     },
+     "diff": {
+      "bench": 1.986562202819286,
+      "global": 0.7928784543413911,
+      "oracle": 3.6158965746094935
+     }
+    },
+    "2": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.8755760368663594,
+       "f1_bench": 0.8894230769230769,
+       "f1_global": 0.8823529411764706,
+       "t_oracle": 0.6466,
+       "f1_oracle": 0.893719806763285,
+       "f1_journal": 0.8755760368663594,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.7635135135135135,
+       "f1_bench": 0.7830374753451677,
+       "f1_global": 0.782608695652174,
+       "t_oracle": 0.7199,
+       "f1_oracle": 0.7846607669616519,
+       "f1_journal": 0.7635135135135135,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.8891820580474934,
+       "f1_bench": 0.8861124459394522,
+       "f1_global": 0.8905731880625296,
+       "t_oracle": 0.5657,
+       "f1_oracle": 0.8944995491433724,
+       "f1_journal": 0.8891820580474934,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.7421383647798742,
+       "f1_bench": 0.8051948051948052,
+       "f1_global": 0.7939698492462312,
+       "t_oracle": 0.7698,
+       "f1_oracle": 0.8150134048257373,
+       "f1_journal": 0.7421383647798742,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.6844660194174758,
+       "f1_bench": 0.6666666666666666,
+       "f1_global": 0.664756446991404,
+       "t_oracle": 0.5708,
+       "f1_oracle": 0.6936708860759494,
+       "f1_journal": 0.6844660194174758,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.5335598980458793,
+       "f1_bench": 0.5728444003964321,
+       "f1_global": 0.5849639546858908,
+       "t_oracle": 0.8399,
+       "f1_oracle": 0.6244952893674294,
+       "f1_journal": 0.5335598980458793,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.7647058823529411,
+       "f1_bench": 0.8186323092170465,
+       "f1_global": 0.7364238410596027,
+       "t_oracle": 0.2394,
+       "f1_oracle": 0.8290155440414507,
+       "f1_journal": 0.7647058823529411,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9125,
+       "f1_bench": 0.8990228013029316,
+       "f1_global": 0.8990228013029316,
+       "t_oracle": 0.3924,
+       "f1_oracle": 0.9212121212121213,
+       "f1_journal": 0.9125,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 77.0705221627942,
+      "f1_bench": 79.01167476231974,
+      "f1_global": 77.93339647721544,
+      "f1_oracle": 80.70359210488746,
+      "f1_journal": 77.0705221627942
+     },
+     "diff": {
+      "bench": 1.9411525995255374,
+      "global": 0.8628743144212336,
+      "oracle": 3.6330699420932575
+     }
+    },
+    "3": {
+     "per_benchmark": {
+      "abt-buy": {
+       "f1_05": 0.8755760368663594,
+       "f1_bench": 0.891566265060241,
+       "f1_global": 0.8872549019607843,
+       "t_oracle": 0.6466,
+       "f1_oracle": 0.893719806763285,
+       "f1_journal": 0.8755760368663594,
+       "p05_differs_from_prediction": 0
+      },
+      "wdc": {
+       "f1_05": 0.7639123102866779,
+       "f1_bench": 0.7818361303060217,
+       "f1_global": 0.7818532818532818,
+       "t_oracle": 0.7003,
+       "f1_oracle": 0.7848837209302325,
+       "f1_journal": 0.7639123102866779,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-scholar": {
+       "f1_05": 0.890061565523307,
+       "f1_bench": 0.886221795487278,
+       "f1_global": 0.8896257697773567,
+       "t_oracle": 0.5657,
+       "f1_oracle": 0.895092300765421,
+       "f1_journal": 0.890061565523307,
+       "p05_differs_from_prediction": 0
+      },
+      "walmart-amazon": {
+       "f1_05": 0.7452631578947368,
+       "f1_bench": 0.8051948051948052,
+       "f1_global": 0.7959697732997482,
+       "t_oracle": 0.7607,
+       "f1_oracle": 0.816,
+       "f1_journal": 0.7452631578947368,
+       "p05_differs_from_prediction": 0
+      },
+      "dn7-walmart-amazon": {
+       "f1_05": 0.6829268292682927,
+       "f1_bench": 0.6647398843930635,
+       "f1_global": 0.664756446991404,
+       "t_oracle": 0.6346,
+       "f1_oracle": 0.6935483870967742,
+       "f1_journal": 0.6829268292682927,
+       "p05_differs_from_prediction": 0
+      },
+      "billiger-de": {
+       "f1_05": 0.5318606627017842,
+       "f1_bench": 0.5734126984126984,
+       "f1_global": 0.5849639546858908,
+       "t_oracle": 0.8436,
+       "f1_oracle": 0.6275579809004093,
+       "f1_journal": 0.5318606627017842,
+       "p05_differs_from_prediction": 0
+      },
+      "dblp-acm": {
+       "f1_05": 0.7692307692307693,
+       "f1_bench": 0.8166501486620417,
+       "f1_global": 0.7357237715803453,
+       "t_oracle": 0.2324,
+       "f1_oracle": 0.8305785123966942,
+       "f1_journal": 0.7692307692307693,
+       "p05_differs_from_prediction": 0
+      },
+      "semi-heter": {
+       "f1_05": 0.9125,
+       "f1_bench": 0.8990228013029316,
+       "f1_global": 0.8990228013029316,
+       "t_oracle": 0.3517,
+       "f1_oracle": 0.9216867469879518,
+       "f1_journal": 0.9125,
+       "p05_differs_from_prediction": 0
+      }
+     },
+     "mean": {
+      "f1_05": 77.1416416471491,
+      "f1_bench": 78.9830566102385,
+      "f1_global": 77.98963376814679,
+      "f1_oracle": 80.7883431980096,
+      "f1_journal": 77.1416416471491
+     },
+     "diff": {
+      "bench": 1.8414149630894059,
+      "global": 0.847992120997688,
+      "oracle": 3.6467015508604987
+     }
+    }
+   },
+   "over_runs": {
+    "f1_05_mean": 77.10761497637102,
+    "f1_05_sd": 0.035658746296992325,
+    "f1_journal_mean": 77.10761497637102,
+    "diff_bench_mean": 1.9230432551447432,
+    "diff_global_mean": 0.8345816299201042,
+    "diff_oracle_mean": 3.6318893558544167,
+    "diff_bench_sd": 0.07424884891853527,
+    "diff_global_sd": 0.036874599120338726,
+    "diff_oracle_sd": 0.015436384886259931,
+    "f1_bench_mean": 79.03065823151577,
+    "f1_global_mean": 77.94219660629113,
+    "f1_oracle_mean": 80.73950433222544
+   }
+  }
+ },
+ "determinism": {
+  "jev": {
+   "run1_vs_run2": 7159,
+   "run1_vs_run3": 7091,
+   "pairs": 30225
+  },
+  "clef": {
+   "run1_vs_run2": 0,
+   "run1_vs_run3": 0,
+   "pairs": 30225
+  },
+  "clef_flash": {
+   "run1_vs_run2": 0,
+   "run1_vs_run3": 0,
+   "pairs": 30225
+  },
+  "luna_decisions": {
+   "run1_vs_run2": 0,
+   "run1_vs_run3": 394,
+   "pairs": 30225
+  },
+  "pplx_v12": {
+   "run1_vs_run2": 30225,
+   "run1_vs_run3": 30225,
+   "pairs": 30225
+  },
+  "kev": {
+   "run1_vs_run2": 19686,
+   "run1_vs_run3": 19661,
+   "pairs": 30225
+  }
+ },
+ "bootstrap": {
+  "jev": {
+   "bench": {
+    "per_run": {
+     "1": {
+      "diff": 0.8438749295412316,
+      "ci95": [
+       0.14348189673584186,
+       1.5575880195741467
+      ]
+     },
+     "2": {
+      "diff": 0.8795606285430426,
+      "ci95": [
+       0.20226536770628303,
+       1.5922258162406782
+      ]
+     },
+     "3": {
+      "diff": 0.6891328078729428,
+      "ci95": [
+       0.010491389958007354,
+       1.3928609991928282
+      ]
+     }
+    },
+    "significant_in_all_runs": true,
+    "run_mean": {
+     "diff": 0.8041894553190723,
+     "ci95": [
+      0.16159490285048755,
+      1.4665257076553604
+     ]
+    }
+   },
+   "global": {
+    "per_run": {
+     "1": {
+      "diff": -0.03191050622160102,
+      "ci95": [
+       -0.7046444483180555,
+       0.6417580914929142
+      ]
+     },
+     "2": {
+      "diff": -0.33188816758760453,
+      "ci95": [
+       -0.9663228607742717,
+       0.322439742895237
+      ]
+     },
+     "3": {
+      "diff": -0.4478102445024848,
+      "ci95": [
+       -1.107056949196049,
+       0.2177389686882822
+      ]
+     }
+    },
+    "significant_in_all_runs": false,
+    "run_mean": {
+     "diff": -0.2705363061038968,
+     "ci95": [
+      -0.8592939948496301,
+      0.3375635815780087
+     ]
+    }
+   }
+  },
+  "clef": {
+   "bench": {
+    "per_run": {
+     "1": {
+      "diff": -0.2310342057118428,
+      "ci95": [
+       -0.832232802610892,
+       0.3747023597238393
+      ]
+     },
+     "2": {
+      "diff": -0.2310342057118428,
+      "ci95": [
+       -0.832232802610892,
+       0.3747023597238393
+      ]
+     },
+     "3": {
+      "diff": -0.2310342057118428,
+      "ci95": [
+       -0.832232802610892,
+       0.3747023597238393
+      ]
+     }
+    },
+    "significant_in_all_runs": false,
+    "run_mean": {
+     "diff": -0.2310342057118428,
+     "ci95": [
+      -0.832232802610892,
+      0.3747023597238393
+     ]
+    }
+   },
+   "global": {
+    "per_run": {
+     "1": {
+      "diff": -0.2195385975176073,
+      "ci95": [
+       -0.5177006212170469,
+       0.07759350317608367
+      ]
+     },
+     "2": {
+      "diff": -0.2195385975176073,
+      "ci95": [
+       -0.5177006212170469,
+       0.07759350317608367
+      ]
+     },
+     "3": {
+      "diff": -0.2195385975176073,
+      "ci95": [
+       -0.5177006212170469,
+       0.07759350317608367
+      ]
+     }
+    },
+    "significant_in_all_runs": false,
+    "run_mean": {
+     "diff": -0.2195385975176073,
+     "ci95": [
+      -0.5177006212170469,
+      0.07759350317608367
+     ]
+    }
+   }
+  },
+  "clef_flash": {
+   "bench": {
+    "per_run": {
+     "1": {
+      "diff": 5.889738626794347,
+      "ci95": [
+       4.6242241016635415,
+       7.124371560566978
+      ]
+     },
+     "2": {
+      "diff": 5.889738626794347,
+      "ci95": [
+       4.6242241016635415,
+       7.124371560566978
+      ]
+     },
+     "3": {
+      "diff": 5.889738626794347,
+      "ci95": [
+       4.6242241016635415,
+       7.124371560566978
+      ]
+     }
+    },
+    "significant_in_all_runs": true,
+    "run_mean": {
+     "diff": 5.889738626794347,
+     "ci95": [
+      4.6242241016635415,
+      7.124371560566978
+     ]
+    }
+   },
+   "global": {
+    "per_run": {
+     "1": {
+      "diff": 5.380940490870982,
+      "ci95": [
+       4.244378334478858,
+       6.4967430199566465
+      ]
+     },
+     "2": {
+      "diff": 5.380940490870982,
+      "ci95": [
+       4.244378334478858,
+       6.4967430199566465
+      ]
+     },
+     "3": {
+      "diff": 5.380940490870982,
+      "ci95": [
+       4.244378334478858,
+       6.4967430199566465
+      ]
+     }
+    },
+    "significant_in_all_runs": true,
+    "run_mean": {
+     "diff": 5.380940490870981,
+     "ci95": [
+      4.244378334478858,
+      6.4967430199566465
+     ]
+    }
+   }
+  },
+  "luna_decisions": {
+   "bench": {
+    "per_run": {
+     "1": {
+      "diff": 1.3404194622816112,
+      "ci95": [
+       0.6885531178675176,
+       2.0275431538022044
+      ]
+     },
+     "2": {
+      "diff": 1.3404194622816112,
+      "ci95": [
+       0.6885531178675176,
+       2.0275431538022044
+      ]
+     },
+     "3": {
+      "diff": 1.3201249883714503,
+      "ci95": [
+       0.6630757532853,
+       2.0094376719271603
+      ]
+     }
+    },
+    "significant_in_all_runs": true,
+    "run_mean": {
+     "diff": 1.333654637644891,
+     "ci95": [
+      0.6801938906042913,
+      2.0195098221938284
+     ]
+    }
+   },
+   "global": {
+    "per_run": {
+     "1": {
+      "diff": 1.3713075103411994,
+      "ci95": [
+       0.7292935997238574,
+       2.0261161121705675
+      ]
+     },
+     "2": {
+      "diff": 1.3713075103411994,
+      "ci95": [
+       0.7292935997238574,
+       2.0261161121705675
+      ]
+     },
+     "3": {
+      "diff": 1.3738242070421207,
+      "ci95": [
+       0.7469057613932819,
+       2.031045917622124
+      ]
+     }
+    },
+    "significant_in_all_runs": true,
+    "run_mean": {
+     "diff": 1.3721464092415063,
+     "ci95": [
+      0.7429768544233409,
+      2.023378391547566
+     ]
+    }
+   }
+  },
+  "pplx_v12": {
+   "bench": {
+    "per_run": {
+     "1": {
+      "diff": -0.08831400385579946,
+      "ci95": [
+       -0.6608546114864164,
+       0.5057701282681312
+      ]
+     },
+     "2": {
+      "diff": -0.16462369636500024,
+      "ci95": [
+       -0.7560199917424621,
+       0.42435318050986265
+      ]
+     },
+     "3": {
+      "diff": -0.16462369636500024,
+      "ci95": [
+       -0.7560199917424621,
+       0.42435318050986265
+      ]
+     }
+    },
+    "significant_in_all_runs": false,
+    "run_mean": {
+     "diff": -0.13918713219526663,
+     "ci95": [
+      -0.7073235534835373,
+      0.4314923546621234
+     ]
+    }
+   },
+   "global": {
+    "per_run": {
+     "1": {
+      "diff": 0.2593565866415806,
+      "ci95": [
+       -0.11602246146960604,
+       0.636053833595673
+      ]
+     },
+     "2": {
+      "diff": 0.20513124946442418,
+      "ci95": [
+       -0.14747307700247825,
+       0.5681467800732359
+      ]
+     },
+     "3": {
+      "diff": 0.20513124946442418,
+      "ci95": [
+       -0.14747307700247825,
+       0.5681467800732359
+      ]
+     }
+    },
+    "significant_in_all_runs": false,
+    "run_mean": {
+     "diff": 0.22320636185680967,
+     "ci95": [
+      -0.10864145344796274,
+      0.5627204344800175
+     ]
+    }
+   }
+  },
+  "kev": {
+   "bench": {
+    "per_run": {
+     "1": {
+      "diff": 1.9865622028192933,
+      "ci95": [
+       0.9996571414742451,
+       2.9820410955702092
+      ]
+     },
+     "2": {
+      "diff": 1.9411525995255265,
+      "ci95": [
+       0.9466717487872544,
+       2.922905068016901
+      ]
+     },
+     "3": {
+      "diff": 1.8414149630894203,
+      "ci95": [
+       0.8711621389425747,
+       2.810634816051022
+      ]
+     }
+    },
+    "significant_in_all_runs": true,
+    "run_mean": {
+     "diff": 1.9230432551447467,
+     "ci95": [
+      0.9486557893330161,
+      2.903941034204093
+     ]
+    }
+   },
+   "global": {
+    "per_run": {
+     "1": {
+      "diff": 0.7928784543414003,
+      "ci95": [
+       -0.13141392285048395,
+       1.6939925938698925
+      ]
+     },
+     "2": {
+      "diff": 0.8628743144212205,
+      "ci95": [
+       -0.0559676458113705,
+       1.780621819198722
+      ]
+     },
+     "3": {
+      "diff": 0.8479921209976913,
+      "ci95": [
+       -0.07395755139106473,
+       1.775093017203497
+      ]
+     }
+    },
+    "significant_in_all_runs": false,
+    "run_mean": {
+     "diff": 0.834581629920104,
+     "ci95": [
+      -0.07471835826495458,
+      1.7453245915095585
+     ]
+    }
+   }
+  }
+ }
+}

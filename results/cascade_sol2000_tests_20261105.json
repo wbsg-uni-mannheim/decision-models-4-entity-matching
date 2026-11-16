@@ -1,0 +1,603 @@
+{
+ "description": "Two paired tests for the cascade chapter, t tuned on the Sol-labelled 2,000 set. Read-only, no inference (paper writer, 5 Nov).\n\nCascades exactly as cascade_solset_runs123_eval.py --tuning sol2000 (cascade_sol2000_runs123_20261105_v2.json): Jev 1.13,\nPPLX v1.2, Clef, Luna Dec. with B0, t = valsel_eval.tune_risk on the pooled Sol 2,000 set, decision-model run r with\npartner run r (r = 1, 2, 3).\n(1) partner_alone, at 0.5 %: + ensemble against the majority of Sol, Opus and Argon alone on all test pairs, + Sol against\n    Sol alone; diff = cascade minus partner alone (F1 points, mean over runs); cost_ratio = mean list cost of the partner\n    alone on all test pairs / mean list cost of the cascade (decision model on all pairs + partner on the deferred pairs).\n(2) target_vs_05: the cascade at 0.25 % and at 1 % minus the cascade at 0.5 %, same model and partner; usd_diff = cost at\n    the other risk minus cost at 0.5 % (mean over runs).\nSignificance: fixed_ci95 = paired bootstrap on the run mean (10,000 replicates, seed 0, pairs drawn per benchmark in\nprotocol order, the same pairs for both arms and every run); multi_ci95 = multi-bootstrap of multibootstrap_eval.py with\nruns drawn jointly for both arms (run r of both arms uses partner run r). Checked against the v2 file and against\nmajority_alone of cascade_extras_sol2000_runs123_20261105.json.\n\n    .venv/bin/python src/cascade_sol2000_tests_eval.py --out artifacts/results/cascade_sol2000_tests_20261105.json\n",
+ "created_at": "2026-11-05T12:53:06.325368+00:00",
+ "replicates": 10000,
+ "tuning_source": "sol2000",
+ "units": "F1 and differences in points; USD at list prices",
+ "partner_alone": [
+  {
+   "model": "jev",
+   "target_risk": 0.005,
+   "config": "sol61",
+   "partner": "Sol",
+   "mean_f1_cascade": 90.51259140958999,
+   "mean_f1_partner_alone": 90.79425161592934,
+   "diff": -0.2816602063393611,
+   "fixed_ci95": [
+    -0.595251198096213,
+    0.01884985027693235
+   ],
+   "multi_ci95": [
+    -0.6214006325250898,
+    0.03992937967605881
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd_cascade": 3.1589359213333323,
+   "usd_partner_alone": 22.333376199999996,
+   "cost_ratio": 7.069904789513256,
+   "deferred_share": 0.06667769506479183
+  },
+  {
+   "model": "jev",
+   "target_risk": 0.005,
+   "config": "majority",
+   "partner": "majority of Sol, Opus, Argon",
+   "mean_f1_cascade": 90.8923294226651,
+   "mean_f1_partner_alone": 91.30679916742147,
+   "diff": -0.41446974475637666,
+   "fixed_ci95": [
+    -0.7319364349116044,
+    -0.12710120732699512
+   ],
+   "multi_ci95": [
+    -0.7565971270301939,
+    -0.10185324446938503
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd_cascade": 15.721360587999998,
+   "usd_partner_alone": 142.24371086666665,
+   "cost_ratio": 9.047799016532975,
+   "deferred_share": 0.06667769506479183
+  },
+  {
+   "model": "pplx_v12",
+   "target_risk": 0.005,
+   "config": "sol61",
+   "partner": "Sol",
+   "mean_f1_cascade": 90.67888899619501,
+   "mean_f1_partner_alone": 90.79425161592934,
+   "diff": -0.11536261973433964,
+   "fixed_ci95": [
+    -0.408345318970333,
+    0.17115078245215978
+   ],
+   "multi_ci95": [
+    -0.4277424456669762,
+    0.19409614165010763
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd_cascade": 2.053920073333334,
+   "usd_partner_alone": 22.333376199999996,
+   "cost_ratio": 10.873537140008992,
+   "deferred_share": 0.046275158533223046
+  },
+  {
+   "model": "pplx_v12",
+   "target_risk": 0.005,
+   "config": "majority",
+   "partner": "majority of Sol, Opus, Argon",
+   "mean_f1_cascade": 91.0229333122365,
+   "mean_f1_partner_alone": 91.30679916742147,
+   "diff": -0.28386585518497265,
+   "fixed_ci95": [
+    -0.5454032993713902,
+    -0.03666112737154255
+   ],
+   "multi_ci95": [
+    -0.5536391550620425,
+    -0.02660031129913276
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd_cascade": 11.786245406666668,
+   "usd_partner_alone": 142.24371086666665,
+   "cost_ratio": 12.068619476242127,
+   "deferred_share": 0.046275158533223046
+  },
+  {
+   "model": "clef",
+   "target_risk": 0.005,
+   "config": "sol61",
+   "partner": "Sol",
+   "mean_f1_cascade": 90.56546426734266,
+   "mean_f1_partner_alone": 90.79425161592934,
+   "diff": -0.2287873485866787,
+   "fixed_ci95": [
+    -0.550843932781565,
+    0.0834017999945008
+   ],
+   "multi_ci95": [
+    -0.56376244641808,
+    0.08941784299834331
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd_cascade": 6.045693979999996,
+   "usd_partner_alone": 22.333376199999996,
+   "cost_ratio": 3.694096372373782,
+   "deferred_share": 0.08744416873449132
+  },
+  {
+   "model": "clef",
+   "target_risk": 0.005,
+   "config": "majority",
+   "partner": "majority of Sol, Opus, Argon",
+   "mean_f1_cascade": 90.920220140496,
+   "mean_f1_partner_alone": 91.30679916742147,
+   "diff": -0.38657902692547375,
+   "fixed_ci95": [
+    -0.7111803669131422,
+    -0.08543997146579668
+   ],
+   "multi_ci95": [
+    -0.7200168758137906,
+    -0.07653917155800383
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd_cascade": 22.307665373768412,
+   "usd_partner_alone": 142.24371086666665,
+   "cost_ratio": 6.376449910080284,
+   "deferred_share": 0.08744416873449132
+  },
+  {
+   "model": "luna_decisions",
+   "target_risk": 0.005,
+   "config": "sol61",
+   "partner": "Sol",
+   "mean_f1_cascade": 90.6458306261313,
+   "mean_f1_partner_alone": 90.79425161592934,
+   "diff": -0.14842098979804402,
+   "fixed_ci95": [
+    -0.31804888309172663,
+    0.01961828407390709
+   ],
+   "multi_ci95": [
+    -0.32182092724856476,
+    0.020850795193146393
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd_cascade": 5.715378100000001,
+   "usd_partner_alone": 22.333376199999996,
+   "cost_ratio": 3.907593830056492,
+   "deferred_share": 0.13583677970774746
+  },
+  {
+   "model": "luna_decisions",
+   "target_risk": 0.005,
+   "config": "majority",
+   "partner": "majority of Sol, Opus, Argon",
+   "mean_f1_cascade": 91.1428566943789,
+   "mean_f1_partner_alone": 91.30679916742147,
+   "diff": -0.16394247304257759,
+   "fixed_ci95": [
+    -0.33847118857019104,
+    0.007139987419008097
+   ],
+   "multi_ci95": [
+    -0.33995680020543434,
+    0.006770113931574703
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd_cascade": 28.65900743827133,
+   "usd_partner_alone": 142.24371086666665,
+   "cost_ratio": 4.963316024570828,
+   "deferred_share": 0.13583677970774746
+  }
+ ],
+ "target_vs_05": [
+  {
+   "model": "jev",
+   "target_risk": 0.0025,
+   "reference_risk": 0.005,
+   "config": "sol61",
+   "mean_f1": 90.64970741736715,
+   "mean_f1_05": 90.51259140958999,
+   "diff": 0.1371160077771702,
+   "fixed_ci95": [
+    -0.06799307563009657,
+    0.3514570083484413
+   ],
+   "multi_ci95": [
+    -0.08720853187691606,
+    0.37842698711344985
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 3.9425345546666652,
+   "usd_05": 3.1589359213333323,
+   "usd_diff": 0.7835986333333329,
+   "deferred_share": 0.09295836779707747,
+   "deferred_share_05": 0.06667769506479183
+  },
+  {
+   "model": "jev",
+   "target_risk": 0.0025,
+   "reference_risk": 0.005,
+   "config": "majority",
+   "mean_f1": 91.1052458260278,
+   "mean_f1_05": 90.8923294226651,
+   "diff": 0.2129164033626882,
+   "fixed_ci95": [
+    0.008373414795918238,
+    0.4299652757857307
+   ],
+   "multi_ci95": [
+    -0.01666343986222684,
+    0.46262819380846326
+   ],
+   "fixed_significant": true,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 20.48516952170058,
+   "usd_05": 15.721360587999998,
+   "usd_diff": 4.763808933700583,
+   "deferred_share": 0.09295836779707747,
+   "deferred_share_05": 0.06667769506479183
+  },
+  {
+   "model": "jev",
+   "target_risk": 0.01,
+   "reference_risk": 0.005,
+   "config": "sol61",
+   "mean_f1": 89.88536996490848,
+   "mean_f1_05": 90.51259140958999,
+   "diff": -0.6272214446815083,
+   "fixed_ci95": [
+    -0.9829716394800698,
+    -0.2898793233649643
+   ],
+   "multi_ci95": [
+    -1.019189897979088,
+    -0.2659327604023648
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd": 2.291545421333332,
+   "usd_05": 3.1589359213333323,
+   "usd_diff": -0.8673905000000004,
+   "deferred_share": 0.04025365315687896,
+   "deferred_share_05": 0.06667769506479183
+  },
+  {
+   "model": "jev",
+   "target_risk": 0.01,
+   "reference_risk": 0.005,
+   "config": "majority",
+   "mean_f1": 90.18754146129633,
+   "mean_f1_05": 90.8923294226651,
+   "diff": -0.7047879613687691,
+   "fixed_ci95": [
+    -1.0633435423139392,
+    -0.3686851894283687
+   ],
+   "multi_ci95": [
+    -1.091648226306583,
+    -0.3479390967985178
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd": 10.407068087999999,
+   "usd_05": 15.721360587999998,
+   "usd_diff": -5.314292499999999,
+   "deferred_share": 0.04025365315687896,
+   "deferred_share_05": 0.06667769506479183
+  },
+  {
+   "model": "pplx_v12",
+   "target_risk": 0.0025,
+   "reference_risk": 0.005,
+   "config": "sol61",
+   "mean_f1": 90.77905350389548,
+   "mean_f1_05": 90.67888899619501,
+   "diff": 0.10016450770047314,
+   "fixed_ci95": [
+    -0.12549869754679377,
+    0.3417136187729273
+   ],
+   "multi_ci95": [
+    -0.1529873423108502,
+    0.3654245926052775
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 2.9858504400000005,
+   "usd_05": 2.053920073333334,
+   "usd_diff": 0.9319303666666667,
+   "deferred_share": 0.07449682933553901,
+   "deferred_share_05": 0.046275158533223046
+  },
+  {
+   "model": "pplx_v12",
+   "target_risk": 0.0025,
+   "reference_risk": 0.005,
+   "config": "majority",
+   "mean_f1": 91.22970800161652,
+   "mean_f1_05": 91.0229333122365,
+   "diff": 0.20677468938000987,
+   "fixed_ci95": [
+    0.0068989643993235365,
+    0.42852704579800077
+   ],
+   "multi_ci95": [
+    -0.012299352146304602,
+    0.44365961675785537
+   ],
+   "fixed_significant": true,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 17.327435106666666,
+   "usd_05": 11.786245406666668,
+   "usd_diff": 5.5411896999999986,
+   "deferred_share": 0.07449682933553901,
+   "deferred_share_05": 0.046275158533223046
+  },
+  {
+   "model": "pplx_v12",
+   "target_risk": 0.01,
+   "reference_risk": 0.005,
+   "config": "sol61",
+   "mean_f1": 90.27094511136936,
+   "mean_f1_05": 90.67888899619501,
+   "diff": -0.40794388482564836,
+   "fixed_ci95": [
+    -0.707944820445773,
+    -0.11469673450121101
+   ],
+   "multi_ci95": [
+    -0.7211718662823131,
+    -0.10257329001807944
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd": 1.3298467400000002,
+   "usd_05": 2.053920073333334,
+   "usd_diff": -0.7240733333333336,
+   "deferred_share": 0.027273228563551143,
+   "deferred_share_05": 0.046275158533223046
+  },
+  {
+   "model": "pplx_v12",
+   "target_risk": 0.01,
+   "reference_risk": 0.005,
+   "config": "majority",
+   "mean_f1": 90.4715119336642,
+   "mean_f1_05": 91.0229333122365,
+   "diff": -0.5514213785723032,
+   "fixed_ci95": [
+    -0.8538841470521028,
+    -0.2666133451688396
+   ],
+   "multi_ci95": [
+    -0.8657940523578014,
+    -0.2567451743186937
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd": 7.301106740000001,
+   "usd_05": 11.786245406666668,
+   "usd_diff": -4.485138666666667,
+   "deferred_share": 0.027273228563551143,
+   "deferred_share_05": 0.046275158533223046
+  },
+  {
+   "model": "clef",
+   "target_risk": 0.0025,
+   "reference_risk": 0.005,
+   "config": "sol61",
+   "mean_f1": 90.60040491122314,
+   "mean_f1_05": 90.56546426734266,
+   "diff": 0.03494064388046558,
+   "fixed_ci95": [
+    -0.17536271226866892,
+    0.2637641768420919
+   ],
+   "multi_ci95": [
+    -0.17805958879744424,
+    0.26453730862034647
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 7.049527846666663,
+   "usd_05": 6.045693979999996,
+   "usd_diff": 1.0038338666666675,
+   "deferred_share": 0.12198511166253102,
+   "deferred_share_05": 0.08744416873449132
+  },
+  {
+   "model": "clef",
+   "target_risk": 0.0025,
+   "reference_risk": 0.005,
+   "config": "majority",
+   "mean_f1": 91.02080123193558,
+   "mean_f1_05": 90.920220140496,
+   "diff": 0.10058109143956245,
+   "fixed_ci95": [
+    -0.10481593595281571,
+    0.33063250763598456
+   ],
+   "multi_ci95": [
+    -0.11561254537119027,
+    0.33818184828581394
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 28.360097146570745,
+   "usd_05": 22.307665373768412,
+   "usd_diff": 6.052431772802333,
+   "deferred_share": 0.12198511166253102,
+   "deferred_share_05": 0.08744416873449132
+  },
+  {
+   "model": "clef",
+   "target_risk": 0.01,
+   "reference_risk": 0.005,
+   "config": "sol61",
+   "mean_f1": 90.19095018863841,
+   "mean_f1_05": 90.56546426734266,
+   "diff": -0.3745140787042439,
+   "fixed_ci95": [
+    -0.6825882187862399,
+    -0.06976443304623935
+   ],
+   "multi_ci95": [
+    -0.6882603614541595,
+    -0.06666833427844843
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd": 4.976174646666664,
+   "usd_05": 6.045693979999996,
+   "usd_diff": -1.0695193333333322,
+   "deferred_share": 0.05515301902398677,
+   "deferred_share_05": 0.08744416873449132
+  },
+  {
+   "model": "clef",
+   "target_risk": 0.01,
+   "reference_risk": 0.005,
+   "config": "majority",
+   "mean_f1": 90.45385143221414,
+   "mean_f1_05": 90.920220140496,
+   "diff": -0.46636870828187377,
+   "fixed_ci95": [
+    -0.7685836471883617,
+    -0.18423703062312372
+   ],
+   "multi_ci95": [
+    -0.7719227211514383,
+    -0.17782821995982273
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd": 15.784911979999995,
+   "usd_05": 22.307665373768412,
+   "usd_diff": -6.522753393768417,
+   "deferred_share": 0.05515301902398677,
+   "deferred_share_05": 0.08744416873449132
+  },
+  {
+   "model": "luna_decisions",
+   "target_risk": 0.0025,
+   "reference_risk": 0.005,
+   "config": "sol61",
+   "mean_f1": 90.70087783957686,
+   "mean_f1_05": 90.6458306261313,
+   "diff": 0.05504721344557206,
+   "fixed_ci95": [
+    -0.08649578555350533,
+    0.18727532630170052
+   ],
+   "multi_ci95": [
+    -0.08693127783006384,
+    0.1881925267644749
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 6.877565466666668,
+   "usd_05": 5.715378100000001,
+   "usd_diff": 1.162187366666667,
+   "deferred_share": 0.185729252826027,
+   "deferred_share_05": 0.13583677970774746
+  },
+  {
+   "model": "luna_decisions",
+   "target_risk": 0.0025,
+   "reference_risk": 0.005,
+   "config": "majority",
+   "mean_f1": 91.20533084180508,
+   "mean_f1_05": 91.1428566943789,
+   "diff": 0.06247414742617807,
+   "fixed_ci95": [
+    -0.08055983752670214,
+    0.19941448287544458
+   ],
+   "multi_ci95": [
+    -0.0817314458866904,
+    0.19960131927910435
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 35.75057348108533,
+   "usd_05": 28.65900743827133,
+   "usd_diff": 7.0915660428140015,
+   "deferred_share": 0.185729252826027,
+   "deferred_share_05": 0.13583677970774746
+  },
+  {
+   "model": "luna_decisions",
+   "target_risk": 0.01,
+   "reference_risk": 0.005,
+   "config": "sol61",
+   "mean_f1": 90.52496224676919,
+   "mean_f1_05": 90.6458306261313,
+   "diff": -0.12086837936210737,
+   "fixed_ci95": [
+    -0.28095806966054904,
+    0.028880417622461334
+   ],
+   "multi_ci95": [
+    -0.2839797537245623,
+    0.03246571950974448
+   ],
+   "fixed_significant": false,
+   "multi_significant": false,
+   "pairing": "joint",
+   "usd": 4.7130044,
+   "usd_05": 5.715378100000001,
+   "usd_diff": -1.0023737000000006,
+   "deferred_share": 0.0991232423490488,
+   "deferred_share_05": 0.13583677970774746
+  },
+  {
+   "model": "luna_decisions",
+   "target_risk": 0.01,
+   "reference_risk": 0.005,
+   "config": "majority",
+   "mean_f1": 90.98599682454213,
+   "mean_f1_05": 91.1428566943789,
+   "diff": -0.15685986983677846,
+   "fixed_ci95": [
+    -0.3107628791839295,
+    -0.023058311960799802
+   ],
+   "multi_ci95": [
+    -0.3125569183084688,
+    -0.02132978184447935
+   ],
+   "fixed_significant": true,
+   "multi_significant": true,
+   "pairing": "joint",
+   "usd": 22.602347642802336,
+   "usd_05": 28.65900743827133,
+   "usd_diff": -6.056659795468995,
+   "deferred_share": 0.0991232423490488,
+   "deferred_share_05": 0.13583677970774746
+  }
+ ]
+}

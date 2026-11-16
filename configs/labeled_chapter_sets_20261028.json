@@ -1,0 +1,609 @@
+{
+ "benchmarks": {
+  "abt-buy": {
+   "200": {
+    "files": {
+     "all": {
+      "n": 200,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set200_all.json.gz",
+      "pos": 42,
+      "sha256": "eeef1d6ef03ce33ecd9e6ec3402b64f7c2594bca5d8a29ee19df29f4bfc97be8"
+     },
+     "train": {
+      "n": 160,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set200_train.json.gz",
+      "pos": 34,
+      "sha256": "fc976fa4826b0e1dfdd6a92dd13d35e61c21e682f0530c70e661fa68630f1451"
+     },
+     "valid": {
+      "n": 40,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set200_valid.json.gz",
+      "pos": 8,
+      "sha256": "0cb22b502250af1fe3e0bd39a43e7d443001c703cb70b29ae6759c804b6928f8"
+     }
+    },
+    "pos_share": 0.21,
+    "seed_inside": true
+   },
+   "2000": {
+    "files": {
+     "all": {
+      "n": 2000,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set2000_all.json.gz",
+      "pos": 310,
+      "sha256": "8eca9b2496fd2b6ebba89dc212fcc48c54a7343bbe8bc5b084ebbe2300512c31"
+     },
+     "train": {
+      "n": 1600,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set2000_train.json.gz",
+      "pos": 248,
+      "sha256": "4982825bc945aa4d002c93843438fbdb7d56be3606418ca2e5e5266b1be4b4f8"
+     },
+     "valid": {
+      "n": 400,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set2000_valid.json.gz",
+      "pos": 62,
+      "sha256": "2ab7907dbeceed0e3c638681ea84c2b7d01a0cf91d947fb7bfba36484ea7d063"
+     }
+    },
+    "pos_share": 0.155,
+    "seed_inside": true
+   },
+   "2000_in_4000": true,
+   "4000": {
+    "files": {
+     "all": {
+      "n": 4000,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set4000_all.json.gz",
+      "pos": 619,
+      "sha256": "1d5a0618cb7b252fde2dbf3cd3e1ba3803dc5ea3468f5e4920e635444c1148ee"
+     },
+     "train": {
+      "n": 3200,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set4000_train.json.gz",
+      "pos": 495,
+      "sha256": "aa568ca49b39bab718e86be76415802bcaf2408266de25d92b7cb9e1ea2b5078"
+     },
+     "valid": {
+      "n": 800,
+      "path": "runs/labeled_chapter_20261028/sets/abt-buy/set4000_valid.json.gz",
+      "pos": 124,
+      "sha256": "4295b47890d89ad9297d0031a0806237cb328ddcef8c9d473670cc4a1f3745e0"
+     }
+    },
+    "pos_share": 0.1547,
+    "seed_inside": true
+   }
+  },
+  "billiger-de": {
+   "200": {
+    "files": {
+     "all": {
+      "n": 200,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set200_all.json.gz",
+      "pos": 61,
+      "sha256": "d5aa71971aaf8d6277f9a69e5dbad642df50ce93ac3bf1f3d1379215ab260a7d"
+     },
+     "train": {
+      "n": 160,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set200_train.json.gz",
+      "pos": 49,
+      "sha256": "f482b942b164fad8bcfde196a23e8ea3c0dd4705fd205e44435df738ce197e8e"
+     },
+     "valid": {
+      "n": 40,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set200_valid.json.gz",
+      "pos": 12,
+      "sha256": "9ff3411e3d12a0b1b5acbfd8375dc07675bcc4e039e722adf16e8d5f4f25ef5b"
+     }
+    },
+    "pos_share": 0.305,
+    "seed_inside": true
+   },
+   "2000": {
+    "files": {
+     "all": {
+      "n": 2000,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set2000_all.json.gz",
+      "pos": 588,
+      "sha256": "6775e3d3256e7142756c83c3b187f81a6927b01ee97f50fe688a615f9e290002"
+     },
+     "train": {
+      "n": 1600,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set2000_train.json.gz",
+      "pos": 470,
+      "sha256": "e18847354635443a84a35bfe495311d1e8bb78abcc8b19b45e5e6fed49a0ab20"
+     },
+     "valid": {
+      "n": 400,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set2000_valid.json.gz",
+      "pos": 118,
+      "sha256": "86a4f1940acb1636cc167f65661fc2349f294f9dc8dd7d5c8ea5e991fafd0df8"
+     }
+    },
+    "pos_share": 0.294,
+    "seed_inside": true
+   },
+   "2000_in_4000": true,
+   "4000": {
+    "files": {
+     "all": {
+      "n": 4000,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set4000_all.json.gz",
+      "pos": 1177,
+      "sha256": "2327a3528525c0f66815fe4ac6b8dd54d56bf4f4f984c67b441f6d181ceac54f"
+     },
+     "train": {
+      "n": 3200,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set4000_train.json.gz",
+      "pos": 942,
+      "sha256": "5bfc60350503294ccd337a3eea97bcbe33638e0d6bc528a8a8ed6c98793ed030"
+     },
+     "valid": {
+      "n": 800,
+      "path": "runs/labeled_chapter_20261028/sets/billiger-de/set4000_valid.json.gz",
+      "pos": 235,
+      "sha256": "e715405c6ee5c13584ded454057587bae912b3692e98907fca64fdc810c167dc"
+     }
+    },
+    "pos_share": 0.2943,
+    "seed_inside": true
+   }
+  },
+  "dblp-acm": {
+   "200": {
+    "files": {
+     "all": {
+      "n": 200,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set200_all.json.gz",
+      "pos": 36,
+      "sha256": "3861590620013ad41d4124e717a1a4c590659b278cc8c81b6665def1f24b3155"
+     },
+     "train": {
+      "n": 160,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set200_train.json.gz",
+      "pos": 29,
+      "sha256": "5ecdbc4d0aa7b99360e949f060487f896b8bf5bd399adec54c1106d1ab4208f2"
+     },
+     "valid": {
+      "n": 40,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set200_valid.json.gz",
+      "pos": 7,
+      "sha256": "37c237e6c92a732b1754434a8d790cee8097e04c814293e567b031a23c2ccb98"
+     }
+    },
+    "pos_share": 0.18,
+    "seed_inside": true
+   },
+   "2000": {
+    "files": {
+     "all": {
+      "n": 2000,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set2000_all.json.gz",
+      "pos": 400,
+      "sha256": "e4b78246f2952d1effb83b841bcbcacf5525aa953dbf24e106d85dc7e6e0cdb2"
+     },
+     "train": {
+      "n": 1600,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set2000_train.json.gz",
+      "pos": 320,
+      "sha256": "ecbaf2d46c9e133cfed6d372a257bc3a5932e8838a95ceed6807cf47a657f579"
+     },
+     "valid": {
+      "n": 400,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set2000_valid.json.gz",
+      "pos": 80,
+      "sha256": "d2e60224589dd95689bb0a6722e0763b9a00990b05ca5c530ac14148e3e87953"
+     }
+    },
+    "pos_share": 0.2,
+    "seed_inside": true
+   },
+   "2000_in_4000": true,
+   "4000": {
+    "files": {
+     "all": {
+      "n": 4000,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set4000_all.json.gz",
+      "pos": 801,
+      "sha256": "a322198769643cd15b72f22bc5030635092b796808caf1fcf65b45eb9ad941c2"
+     },
+     "train": {
+      "n": 3200,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set4000_train.json.gz",
+      "pos": 641,
+      "sha256": "e571bd188b5b5f588544e176f714339f90175a4406bd861ef12db996517e2ec9"
+     },
+     "valid": {
+      "n": 800,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-acm/set4000_valid.json.gz",
+      "pos": 160,
+      "sha256": "739ca2ab699e18de229697866c6e4104bd122381c51a34195624c9bcb38e494a"
+     }
+    },
+    "pos_share": 0.2003,
+    "seed_inside": true
+   }
+  },
+  "dblp-scholar": {
+   "200": {
+    "files": {
+     "all": {
+      "n": 200,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set200_all.json.gz",
+      "pos": 48,
+      "sha256": "27a857eefa896e0113ee8d395c999a3e48f6d6bcecc5b4ab56262e99200d2e4a"
+     },
+     "train": {
+      "n": 160,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set200_train.json.gz",
+      "pos": 38,
+      "sha256": "116a3c09e2b6d16fc73297da3ad6bdcf1540dbaf16189bd8fead408c04f4a2f8"
+     },
+     "valid": {
+      "n": 40,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set200_valid.json.gz",
+      "pos": 10,
+      "sha256": "36a7cc009a33ac47322823cf4b7ed230886298bb02fff4098cac5658f2e8c9b0"
+     }
+    },
+    "pos_share": 0.24,
+    "seed_inside": true
+   },
+   "2000": {
+    "files": {
+     "all": {
+      "n": 2000,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set2000_all.json.gz",
+      "pos": 494,
+      "sha256": "544df1b156602bfafdc55a3988875f351415b045a36ed80dc2df1e4b1825b889"
+     },
+     "train": {
+      "n": 1600,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set2000_train.json.gz",
+      "pos": 395,
+      "sha256": "ad69f0f17e4d658992257600eeafeeec282379107b1e383443cbe816b94e0930"
+     },
+     "valid": {
+      "n": 400,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set2000_valid.json.gz",
+      "pos": 99,
+      "sha256": "c6d66409113a9d526eeaf605c9940d41dfd53062f1dc75c834279aee94b8eead"
+     }
+    },
+    "pos_share": 0.247,
+    "seed_inside": true
+   },
+   "2000_in_4000": true,
+   "4000": {
+    "files": {
+     "all": {
+      "n": 4000,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set4000_all.json.gz",
+      "pos": 989,
+      "sha256": "bde1f4bc4dbf251308cce80987a1881dd6f69a8edf05cf3f3d909dd13f466850"
+     },
+     "train": {
+      "n": 3200,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set4000_train.json.gz",
+      "pos": 791,
+      "sha256": "9f1ddee62d85febda7b8c9dfcd670a08659f8bc68cffe570fbb345d6df66e9f7"
+     },
+     "valid": {
+      "n": 800,
+      "path": "runs/labeled_chapter_20261028/sets/dblp-scholar/set4000_valid.json.gz",
+      "pos": 198,
+      "sha256": "32fd50e9307075a08ad451e91ba575f2cfb007cb45b71bcb82cd291cae1aaf0c"
+     }
+    },
+    "pos_share": 0.2472,
+    "seed_inside": true
+   }
+  },
+  "dn7-walmart-amazon": {
+   "200": {
+    "files": {
+     "all": {
+      "n": 200,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set200_all.json.gz",
+      "pos": 30,
+      "sha256": "9d0019acdd422bf05008914d843a92baef0c4131453f74ab3b1e1b6a6dbbed15"
+     },
+     "train": {
+      "n": 160,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set200_train.json.gz",
+      "pos": 24,
+      "sha256": "7d2769bfe221628a515ec91559877748970cc8467c23dae6edfb511c9011b859"
+     },
+     "valid": {
+      "n": 40,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set200_valid.json.gz",
+      "pos": 6,
+      "sha256": "ac8e6859e3177b60eb61d5ba55a7b75c1944a9a9afc61fefc0835d2fdde50cfb"
+     }
+    },
+    "pos_share": 0.15,
+    "seed_inside": true
+   },
+   "2000": {
+    "files": {
+     "all": {
+      "n": 2000,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set2000_all.json.gz",
+      "pos": 106,
+      "sha256": "c86b24244742cd0463ae3bf6ea09e56c771dd93a04fd15ca280791869e19665e"
+     },
+     "train": {
+      "n": 1600,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set2000_train.json.gz",
+      "pos": 85,
+      "sha256": "06346e0cd752e269f73be7e324fe260cd8cdc47a320efdebfd8e2f8e56804a96"
+     },
+     "valid": {
+      "n": 400,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set2000_valid.json.gz",
+      "pos": 21,
+      "sha256": "7dab59f030d434d9697a97dd33c915e5cb24e9f724f118714ce0a3fdc1e0bb00"
+     }
+    },
+    "pos_share": 0.053,
+    "seed_inside": true
+   },
+   "2000_in_4000": true,
+   "4000": {
+    "files": {
+     "all": {
+      "n": 4000,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set4000_all.json.gz",
+      "pos": 211,
+      "sha256": "2f7baea273c9812a6a383c309fdd82d8b8f69ce1fe5ed6125cb884cf20487a9a"
+     },
+     "train": {
+      "n": 3200,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set4000_train.json.gz",
+      "pos": 169,
+      "sha256": "d4e267c2670afd71426f6bdd2484f6c670c51651f92e74d882442b800faaf66c"
+     },
+     "valid": {
+      "n": 800,
+      "path": "runs/labeled_chapter_20261028/sets/dn7-walmart-amazon/set4000_valid.json.gz",
+      "pos": 42,
+      "sha256": "80daa9a8f8de81977debdc277f49f91cf223281f5d5cc8da3b6c768e1280975d"
+     }
+    },
+    "pos_share": 0.0527,
+    "seed_inside": true
+   }
+  },
+  "semi-heter": {
+   "200": {
+    "files": {
+     "all": {
+      "n": 200,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set200_all.json.gz",
+      "pos": 43,
+      "sha256": "fc3bc4c2af30e86908d344da2114555fcb054d0073a5954fed8bf41e4965bf5d"
+     },
+     "train": {
+      "n": 160,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set200_train.json.gz",
+      "pos": 34,
+      "sha256": "14eb89acf5c3b399a9f59f60facb36336a831d4815837fd2b7f1429d1778b17a"
+     },
+     "valid": {
+      "n": 40,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set200_valid.json.gz",
+      "pos": 9,
+      "sha256": "961568b02deb3d4a4c79eff57430fc524f881fd5869faf5a68c82beeab47b186"
+     }
+    },
+    "pos_share": 0.215,
+    "seed_inside": true
+   },
+   "2000": {
+    "files": {
+     "all": {
+      "n": 2000,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set2000_all.json.gz",
+      "pos": 306,
+      "sha256": "c7a8adac8bd50aa4ee0c6940f7c8b836b4b0021717eec957926071261673ed26"
+     },
+     "train": {
+      "n": 1600,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set2000_train.json.gz",
+      "pos": 245,
+      "sha256": "cd38be06204c8068a43f5e314f21cb8d504a8b44fc3ee7c9773f297da6f22a35"
+     },
+     "valid": {
+      "n": 400,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set2000_valid.json.gz",
+      "pos": 61,
+      "sha256": "b853bf47675983df2f75aec8a99b1d9897dc9573c057f804d2bea7bc20021129"
+     }
+    },
+    "pos_share": 0.153,
+    "seed_inside": true
+   },
+   "2000_in_4000": true,
+   "4000": {
+    "files": {
+     "all": {
+      "n": 4000,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set4000_all.json.gz",
+      "pos": 613,
+      "sha256": "10a27ff2b673ad0eb8668cb6be6a6411a3053a17b841a37c154ad998729f1dfb"
+     },
+     "train": {
+      "n": 3200,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set4000_train.json.gz",
+      "pos": 490,
+      "sha256": "062b6a909a8c039cf367d464bb13c96e64c170810c3e1fd8a8dba798f6a8aa58"
+     },
+     "valid": {
+      "n": 800,
+      "path": "runs/labeled_chapter_20261028/sets/semi-heter/set4000_valid.json.gz",
+      "pos": 123,
+      "sha256": "78baadbb0df4868f3516132d1bb1a367af544b74d7b6156edcc7396b21c72f4d"
+     }
+    },
+    "pos_share": 0.1532,
+    "seed_inside": true
+   }
+  },
+  "walmart-amazon": {
+   "200": {
+    "files": {
+     "all": {
+      "n": 200,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set200_all.json.gz",
+      "pos": 35,
+      "sha256": "3f2094d65b452ca3c4b298d98653891bf12be96bb83b0cf69c6df849a0a1826b"
+     },
+     "train": {
+      "n": 160,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set200_train.json.gz",
+      "pos": 28,
+      "sha256": "e1791cea2f0110437e4aa1aba20e270a6af6d0942fa6abcb4afb436d6bad0490"
+     },
+     "valid": {
+      "n": 40,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set200_valid.json.gz",
+      "pos": 7,
+      "sha256": "991753d41dc51c1730dd758f1c5f67e01a50def5477bab07e20182899746b234"
+     }
+    },
+    "pos_share": 0.175,
+    "seed_inside": true
+   },
+   "2000": {
+    "files": {
+     "all": {
+      "n": 2000,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set2000_all.json.gz",
+      "pos": 316,
+      "sha256": "2fc878a2acf225de17b2f5e0f000e070fb243e27d7439b80ced1bfe645155577"
+     },
+     "train": {
+      "n": 1600,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set2000_train.json.gz",
+      "pos": 253,
+      "sha256": "ff55e7618cb477e16bfdbcdf4f892a6de3dc6d744bdbf4eb9cd3d5c6e6302e65"
+     },
+     "valid": {
+      "n": 400,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set2000_valid.json.gz",
+      "pos": 63,
+      "sha256": "6dc02c163f1d55e5e71f9982c07d52e8c2bb1c02fb8b0f5c88722fa019f91fb1"
+     }
+    },
+    "pos_share": 0.158,
+    "seed_inside": true
+   },
+   "2000_in_4000": true,
+   "4000": {
+    "files": {
+     "all": {
+      "n": 4000,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set4000_all.json.gz",
+      "pos": 632,
+      "sha256": "351c0a9e21ef94d190f57fa576f30e835781cffd8ecd1bcc9f5c20b906193950"
+     },
+     "train": {
+      "n": 3200,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set4000_train.json.gz",
+      "pos": 506,
+      "sha256": "baa6abcdc1094c0593afe678c9719c255f446cba8a9d22445171ffc4a4be99f1"
+     },
+     "valid": {
+      "n": 800,
+      "path": "runs/labeled_chapter_20261028/sets/walmart-amazon/set4000_valid.json.gz",
+      "pos": 126,
+      "sha256": "f2b496a3db7c898029968665073b75e21b82c01fd9438a1e26a554b9ed0f2a57"
+     }
+    },
+    "pos_share": 0.158,
+    "seed_inside": true
+   }
+  },
+  "wdc": {
+   "200": {
+    "files": {
+     "all": {
+      "n": 200,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set200_all.json.gz",
+      "pos": 53,
+      "sha256": "6a70bf111e4a22d70a9f5d7e7f8f5091bf2851bd33eea6c17e3c2038e06a076b"
+     },
+     "train": {
+      "n": 160,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set200_train.json.gz",
+      "pos": 42,
+      "sha256": "a5339122a2c12d8ef95504a1ff722eeb062db17488b21ca3db44f670284c7882"
+     },
+     "valid": {
+      "n": 40,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set200_valid.json.gz",
+      "pos": 11,
+      "sha256": "e42ef1879b56f965e551a48ed1a8f75a3ebc98e51e669a1598c725d6cc41f086"
+     }
+    },
+    "pos_share": 0.265,
+    "seed_inside": true
+   },
+   "2000": {
+    "files": {
+     "all": {
+      "n": 2000,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set2000_all.json.gz",
+      "pos": 551,
+      "sha256": "bff1bde0ccadcbd537172b87138b4eb2547e90d80053ff79577108c5bda9cf8c"
+     },
+     "train": {
+      "n": 1600,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set2000_train.json.gz",
+      "pos": 441,
+      "sha256": "6c2e44b643db76d714e541fc2df39292f3efc57975e8b31647df0cf1e7509169"
+     },
+     "valid": {
+      "n": 400,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set2000_valid.json.gz",
+      "pos": 110,
+      "sha256": "c679873cfeac34fb44e611662ce632dda3e15270319484d823dfcb3f98ebbc28"
+     }
+    },
+    "pos_share": 0.2755,
+    "seed_inside": true
+   },
+   "2000_in_4000": true,
+   "4000": {
+    "files": {
+     "all": {
+      "n": 4000,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set4000_all.json.gz",
+      "pos": 1102,
+      "sha256": "2856769d520a2691996c36e5b38d37a92c1e781ce8c9aac16624c821c03b11af"
+     },
+     "train": {
+      "n": 3200,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set4000_train.json.gz",
+      "pos": 882,
+      "sha256": "4887336c36e24d02b4c7824d508b5b219439a47c242192000e1bb17145980209"
+     },
+     "valid": {
+      "n": 800,
+      "path": "runs/labeled_chapter_20261028/sets/wdc/set4000_valid.json.gz",
+      "pos": 220,
+      "sha256": "2ac5730d16626e8c7e08b13f8d17f854d52147a46a1e5a3357548ea9b877b274"
+     }
+    },
+    "pos_share": 0.2755,
+    "seed_inside": true
+   }
+  }
+ },
+ "labels": "runs/labelsets_sol_b0_20261028",
+ "labels_report_sha256": {},
+ "script_sha256": "167ff36bfae2526cf301f4c80e9cebfc115b9e82929dfe7a9fae2724a0885e47",
+ "split_rule": "Sets per benchmark from the Sol-B0 label sets (runs/labelsets_sol_b0_20261028): 200, 4000 and a\n2000 set nested in the 4000 set (profile mechanism of the labelling repo: the first k positives and\n2000-k negatives in labelling order, k at the 4000 set's positive share; the seed comes first and is\nchecked to be inside). One stratified 80/20 train/validation split per set: within each class the\npairs are ranked by sha256('labeled-chapter-split|<benchmark>|<pair_id>'), the first round(0.2 n)\ngo to validation. All files are frozen with sha256 in MANIFEST; every method uses these splits.",
+ "valid_share": 0.2
+}

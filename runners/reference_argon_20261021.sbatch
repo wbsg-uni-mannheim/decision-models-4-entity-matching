@@ -4,8 +4,8 @@
 #SBATCH --partition=cpu
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=4G
-#SBATCH --output=/ceph/aasteine/decision-em-20261013/logs/reference-argon-%j.log
+#SBATCH --output=/path/to/decision-em/logs/reference-argon-%j.log
 set -euo pipefail
-cd /ceph/aasteine/decision-em-20261013
+cd /path/to/decision-em
 export PYTHONPATH=src:artifacts/operations PYTHONDONTWRITEBYTECODE=1
-exec .venv/bin/python -u artifacts/operations/run_reference_argon_20261021.py --root /ceph/aasteine/decision-em-20261013 --action execute --models argon4 "$@"
+exec .venv/bin/python -u artifacts/operations/run_reference_argon_20261021.py --root /path/to/decision-em --action execute --models argon4 "$@"

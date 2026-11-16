@@ -1,0 +1,782 @@
+{
+  "created_at": "2026-10-13T15:23:30.779315+00:00",
+  "screen_job": 365468,
+  "screen_dependency": null,
+  "audit_job": 365147,
+  "audit_dependency": "afterok:365344",
+  "core_successor": 365344,
+  "billiger50_job": 364870,
+  "shared_budget_cap_usd": 100,
+  "screen_conditions": 27,
+  "screen_pairs_per_benchmark": 500,
+  "screen_benchmarks": [
+    "abt-buy",
+    "wdc",
+    "dblp-scholar"
+  ],
+  "screen_decisions": 283500,
+  "registration": "Post-registered extension after initial B0 results were viewed; no test-based variant selection",
+  "validation": "68 tests and Ruff passed remote; Compileall passed. Local new-statistics nine tests and Compileall passed; local Ruff executable unavailable. No expanded inference completion inferred from tests or queued jobs.",
+  "source_sha256": {
+    "src/expanded_protocol.py": "2dc4d8d1ff24ede5096acd24f7713ef9aa97793bcc6226d6bf57c785dfe320b6",
+    "src/expanded_screen.py": "3f7af27bf8b1171f10924bfb4bd745771363c51873e3b88c8d6faf9653e19fb8",
+    "src/build_audit.py": "a869f24a87603f704b9f979f359b178cc86325ceba969dd0b22daf2d6566d2b5",
+    "configs/expanded_screen_manifest.json": "a0fd44133596633630e9bf3b68d944ebba1566dad6cb8fbb25431ad5ef04b849",
+    "src/expanded_calibration.py": "18c9ba45a4f30f806c5b8adc225386a3b9ab47ec2a6947d5a9e555e5de16111d",
+    "src/similarity_baseline.py": "c5e69a42bcc9cbf46eab9e7f27c6ea446ebd5b470d22b46afea7d7ea280a829f",
+    "src/expanded_confirmation.py": "dcf0323b256ded6ec57cd8d92dd3724cdb7a293fe94b82a66e33184c0a326b7d",
+    "src/expanded_stability.py": "1a2d124f5ce7d5304ff15379d622c17e51ac0ced29cbe63e5b8b6bd36d637742",
+    "tests/test_calibration.py": "a5196b42098a1c27ad0f6758b5435e72dcd69711594531b7aac0bd443b375600",
+    "tests/test_confirmation.py": "cbf28ff527258de88875ac12332b918d592834a86bce95bc62b4a31151981c4f",
+    "tests/test_stability.py": "e1ccc695795331ab5476b2892265a3d6b18932bc2f588fd264f49a4d6c15a4f0",
+    "configs/calibration_manifest.json": "152ef021c8146bc32718732097b482371b87d58c1f05670d6634a60ff3752db9",
+    "configs/expanded_confirmation_manifest.json": "354b2404ee40fa171d0ef225ffa2dc7fb9936b14dc208f4272391c14154ff9a2",
+    "configs/expanded_stability_manifest.json": "60e16d8b59417e1fd0361126b91ff66b67802614de3e3b6e4035b293c6c26199",
+    "src/expanded_cascades.py": "1ed178201f21a492c509acdc9754538b2c6db1e5572a3c23c2a8cb16554dc161",
+    "tests/test_cascades.py": "1151a2ad8384ae46f40a0f8b4df69a4a9839c1d5784d946a7b3427e68a548287",
+    "configs/expanded_cascade_manifest.json": "d1c654fbac7e002e47500243a999fb10775a96c34d6752100ef704f2374a6c95",
+    "src/expanded_variants.py": "05c931c68ed829d40e9c84ff6ea1cd09d61b22aecbfa1c351248451b4b233b8e",
+    "tests/test_variants.py": "a3ea22902fd8012f1644350d805ff1190c04e823aa35a480646f55439aca407e",
+    "configs/expanded_variant_manifest.json": "f6f75b53a2ff786d2cb2381267bc8fd22b80215019326e189913c6684c943cbc",
+    "src/expanded_errors.py": "95c5fb4c241916a67f8e7d3dea1311f28125bccb3d050e59b305892c8d9b1a42",
+    "tests/test_errors.py": "8d2447f813ce264ccc33444ed5ce2e1b5c0e4d8db16814e5a2ec690205b844a8",
+    "configs/expanded_error_manifest.json": "88abd3c8d0eb6a66fd5d1360104a78dc8a2044c37fd0994138a7476425aec35d",
+    "src/expanded_schema.py": "aaf916eb209e125b340fe30d08456b4d6fa58de756708414a0c1224538e737b1",
+    "tests/test_schema.py": "a498d70d8bbbb001ef0ab659b1f9a33e7fa63c4248d53934b36fdd36e0e7f8dc",
+    "configs/expanded_schema_manifest.json": "4d8c9098dd316eae15812f516272b7a428c162311bc452a99d736eb5caea5d31",
+    "src/rule_training.py": "a042c6e0f366b88b8d3534b2802ee0a0c31bb9af2add68c47889a02f96e703e6",
+    "src/expanded_rules.py": "c2e3ff5f2287d049d2469514ca0addc8a63c5021019642a5b0b61cf71f2044ee",
+    "tests/test_rule_training.py": "b311cb9d26dc9cb927b68d705dafe2955d6d25d4d3a2fa790b11c3ee4afb4770",
+    "tests/test_rules.py": "b7d04f73cc7e46e866391f8e3e5277254d4eee41054f0a18270e5bc91569902f",
+    "configs/rule_agent_training_manifest.json": "df40030d4a34163b22eda9ba8bcffbc2d186d5a626a754a74beb1e85057b4955",
+    "configs/expanded_rules_manifest.json": "42112553009cbcd584f47e6f839f200d3c9394db9418bb8842391c3c85d746d7",
+    "configs/learned_rules.json": "d7f66b800aadd9495a357fe76710f704eebfe9b3e279582792c8b6c3851ba94c",
+    "artifacts/astra_agent/acceptance.json": "61917f19079c75c6fc1efc49eb640889d1d9567c74f021b13104ffac798cbff0",
+    "src/expanded_statistics.py": "f8a2d6f88bd9ea65bd5aabd79bea72c1374c7c72c981f41f554bf9e50e9bfa62",
+    "tests/test_statistics.py": "d260c78ba3f61a0a397a09c8023a8d250e18b6fca41990277cadaca39c1f11f6",
+    "configs/expanded_statistics_manifest.json": "bf4212ac1d708e411d099b3f0328060a4d3be4da2fabdec0289f0f9570008982"
+  },
+  "remaining_implementation": [
+    "Run02/run03 prepared, not executed. Baseline/AP2/screen normalized exporter checked on758 cells/3972 rows; confirmation adapter awaits complete results. Still calibration/schema/rules/variants/stability/cascade adapters, fresh inference and full3run verification.",
+    "Astra130-case discovery stage approved by Aaron up to11USD; start with atomic reservation only after current inference chain ends and budget admission. No repeat approval. Follow-up codebook/classification separate.",
+    "Fixed strong ensemble protocol/primitives prepared (Sol6.1, Opus5.5, Gemini4Argon; Astra excluded). Still real input quote, bounded pilot, cost-aware runner, routing/evaluation/live implementation. Codex+web separate; no simultaneous paid arm.",
+    "Complete existing E1-E6 inference and verify all new results, figures, manuscript and release artifacts",
+    "Track shared provider spending and commitments within100USD until explicit numerical increase; report precise remaining matrix/need at exhaustion",
+    "Human160+40, separate category validation, adjudication and author approval remain outstanding"
+  ],
+  "delivery": {
+    "morning": "2026-10-14 09:00 Europe/Berlin, first heartbeat at or after that time",
+    "must_label_incomplete_extensions": true,
+    "disable_only_when": "All feasible automated expanded packages delivered, or user-only blocker with concrete pending matrix"
+  },
+  "similarity_job": 365218,
+  "similarity_job_execution": {
+    "job_id": 365218,
+    "command": ".venv/bin/python -u src/similarity_baseline.py",
+    "dependency": null,
+    "log": "logs/similarity-365218.log",
+    "submitted_at": "2026-10-13T16:10:46.860905+00:00"
+  },
+  "e4_calibration_job": 365495,
+  "e4_calibration_job_execution": {
+    "job_id": 365495,
+    "predecessor": 365219,
+    "submitted_at": "2026-10-14T04:38:49.177514+00:00",
+    "command": ".venv/bin/python -u src/expanded_calibration.py run",
+    "dependency": null,
+    "log": "logs/calibration-resume-365495.log",
+    "reason": "Clef-flash B0/wdc calibration_extra pair14185911#2596154 exhausted3HTTP429 Cloudflare capacity attempts. All predecessor Slurm steps ended; reservations zero.",
+    "predecessor_accounting": "365219|FAILED|1:0\n365219.batch|FAILED|1:0\n365219.extern|COMPLETED|0:0\n",
+    "budget_before": {
+      "attempts": 710579,
+      "reserved": 1.3877787807814457e-17,
+      "spent": 43.30065120999981,
+      "unknown_cost_attempts": 412
+    },
+    "source_hashes_verified": true,
+    "dependent_jobs": {
+      "365220": "afterok:365495"
+    },
+    "cache_policy": "One bounded unchanged invocation. Existing requests validated and reused; failures retained; no change to inputs, prompts, selection, workers, providers or USD100 cap."
+  },
+  "e2_confirmation_job": 366694,
+  "e2_confirmation_job_execution": {
+    "job_id": 365636,
+    "predecessor": 365220,
+    "submitted_at": "2026-10-14T08:15:22.386665+00:00",
+    "command": ".venv/bin/python -u artifacts/operations/resume_confirmation.py",
+    "dependency": null,
+    "log": "logs/confirmation-recovery-365636.log",
+    "predecessor_accounting": "365220|FAILED|1:0|2026-10-14T09:43:25\n365220.batch|FAILED|1:0|2026-10-14T09:43:25\n365220.extern|COMPLETED|0:0|2026-10-14T09:43:25\n",
+    "budget_before": {
+      "attempts": 862926,
+      "reserved": 1.3877787807814457e-17,
+      "spent": 53.77650779799829,
+      "unknown_cost_attempts": 517
+    },
+    "source_hashes_verified": true,
+    "manifest_verified": true,
+    "diagnosed_failure_records": [
+      {
+        "attempts": [
+          {
+            "cost": null,
+            "error": "ValueError: Missing actual usage cost",
+            "response": {
+              "error": {
+                "code": 502,
+                "message": "Our servers are currently overloaded. Please try again later.",
+                "metadata": {
+                  "error_type": "provider_unavailable"
+                }
+              },
+              "id": "gen-1791958128-ZI5NXObDoTa65UpfCxNs"
+            },
+            "seconds": 0.9120889883488417,
+            "status": 200
+          }
+        ],
+        "benchmark": "dblp-scholar",
+        "completed_at": "2026-10-14T06:08:49.579722+00:00",
+        "error": "ValueError: Missing actual usage cost",
+        "input_hash": "7cac4d40843832e61151b32d7ed60caa4880339628dbb6a5ba0672582d705252",
+        "model_alias": "luna",
+        "pair_id": "dblp_562#scholar_34940",
+        "request_hash": "f496ab972c305478c02c65e9c9c7c08e80921b681dcf50622d34013c920dc81e",
+        "variant": "X_P_detailed_1"
+      },
+      {
+        "attempts": [
+          {
+            "cost": null,
+            "error": "HTTP 499",
+            "response": {
+              "error": {
+                "code": 499,
+                "message": "HTTP 499: {\"detail\":{\"error_type\":\"internal_error\",\"message\":\"Unable to complete this request.\",\"request_id\":\"req_01a138d6c93a7823bbb1863d5d2ebc9b\"}}"
+              }
+            },
+            "seconds": 0.21127914357930422,
+            "status": 499
+          }
+        ],
+        "benchmark": "walmart-amazon",
+        "completed_at": "2026-10-14T05:16:02.836702+00:00",
+        "error": "HTTP 499",
+        "input_hash": "ccf0f4aeddf7434574f1c66f5135510f1999dc5d519286bba0e56b9485cc1e45",
+        "model_alias": "jev",
+        "pair_id": "walmart_1701#amazon_20851",
+        "request_hash": "61a2b674c1088969f776d4dd22e915c09061f75f223ac73bb3c34576cbfc5326",
+        "variant": "X_P_identity_1"
+      },
+      {
+        "attempts": [
+          {
+            "cost": 0.0,
+            "error": "HTTP 429",
+            "response": {
+              "error": {
+                "code": 429,
+                "message": "HTTP 429: {\"errors\":[{\"message\":\"AiError: AiError: Capacity temporarily exceeded, please try again. (484295f4-283d-4aa8-b642-624941027940)\",\"code\":3040}],\"success\":false,\"result\":{},\"messages\":[]}"
+              }
+            },
+            "seconds": 0.9134989622980356,
+            "status": 429
+          },
+          {
+            "cost": 0.0,
+            "error": "HTTP 429",
+            "response": {
+              "error": {
+                "code": 429,
+                "message": "HTTP 429: {\"errors\":[{\"message\":\"AiError: AiError: Capacity temporarily exceeded, please try again. (9fd6ab09-8f82-4d6a-a6dc-5be9e1ff2e8a)\",\"code\":3040}],\"success\":false,\"result\":{},\"messages\":[]}"
+              }
+            },
+            "seconds": 0.8549776123836637,
+            "status": 429
+          },
+          {
+            "cost": 0.0,
+            "error": "HTTP 429",
+            "response": {
+              "error": {
+                "code": 429,
+                "message": "HTTP 429: {\"errors\":[{\"message\":\"AiError: AiError: Capacity temporarily exceeded, please try again. (6f292448-1886-48af-bf72-214a23a87298)\",\"code\":3040}],\"success\":false,\"result\":{},\"messages\":[]}"
+              }
+            },
+            "seconds": 0.8651870116591454,
+            "status": 429
+          }
+        ],
+        "benchmark": "dblp-scholar",
+        "completed_at": "2026-10-14T05:28:50.240206+00:00",
+        "error": "HTTP 429",
+        "input_hash": "d5954e1187ef8b622cd246268a93ab53101ef7ef34265d37fe890070f88a94fe",
+        "model_alias": "clef_flash",
+        "pair_id": "dblp_438#scholar_24830",
+        "request_hash": "7747b0701a118122ccd0ff933b8be2df318a9ca3e532cc0236e83361769b7921",
+        "variant": "X_P_identity_1"
+      }
+    ],
+    "max_sequential_invocations": 3,
+    "cooldown_seconds": 60,
+    "dependent_jobs": {
+      "365221": "afterok:365636"
+    },
+    "policy": "Only the three prepared narrow provider error classes permit sequential cache recovery; other errors stop. Frozen inputs, inference, selection and USD100 ceiling unchanged."
+  },
+  "e3_stability_job": 365221,
+  "e3_stability_job_execution": {
+    "job_id": 365221,
+    "command": ".venv/bin/python -u src/expanded_stability.py run",
+    "dependency": "afterok:365636",
+    "log": "logs/stability-365221.log",
+    "submitted_at": "2026-10-13T16:10:47.113026+00:00"
+  },
+  "pending_execution": [
+    "E2 global/per-benchmark/LOBO/opposite-domain prompt selection and full confirmation",
+    "E3 serialization selection and full confirmation",
+    "E3 fixed prompt-format interactions and fresh repeatability runs",
+    "E5 fresh live cascade latency with per-call journal and shared budget",
+    "E6 35 new B0 language/unseen cells, 156387 decisions; source translation noise explicitly uncontrolled",
+    "E2 schemas: mandatory 140-call technical pilot, 56000 development calls; global/per-benchmark binary selection plus Review full test confirmation. All models required; compatibility failure blocks until diagnosis.",
+    "E2 frozen Astra rules plus fixed manual X_P_domain_0 on all7x8development/full-tests and billiger50; reuse exact manual cache; 238 inference cells, no test-based rule changes",
+    "Expanded statistics: 9999 joint component and pair bootstraps, approximate centered p and declared Holm families, ten cache-only stages; unavailable fits retained. Actual inference pending."
+  ],
+  "e4_pool_limits": {
+    "semi-heter": 211,
+    "other_seven_families": 500,
+    "additional_decisions": 12666,
+    "missing_budget": "semi-heter 500 unavailable; affected transfer fits explicitly unavailable too"
+  },
+  "additional_fixed_decisions": {
+    "E4": 12666,
+    "E2_E3_selection_development_gross_before_cache": 235200,
+    "E3_interactions_and_repeats": 25200,
+    "full_test_confirmation": "Exact unique matrix freezes after development; not yet determined or claimed financed",
+    "E5_live_maximum_before_retries": 10560,
+    "E6_language_unseen": 156387,
+    "E2_schema_pilot": 140,
+    "E2_schema_development": 56000,
+    "E2_schema_confirmation_upper_bound": 727902,
+    "E2_rules_development": 11200,
+    "E2_rules_test": 242634,
+    "E2_manual_domain_development_gross": 11200,
+    "E2_manual_domain_test_gross": 242634
+  },
+  "implementation_updated_at": "2026-10-13T19:38:49.425831+00:00",
+  "e5_cascade_offline_job": 365267,
+  "e5_cascade_offline_job_execution": {
+    "job_id": 365267,
+    "dependency": "afterok:364870",
+    "command": ".venv/bin/python -u src/expanded_cascades.py analyze",
+    "log": "logs/cascade-offline-365267.log",
+    "submitted_at": "2026-10-13T16:37:13.001546+00:00"
+  },
+  "e5_cascade_live_job": 365268,
+  "e5_cascade_live_job_execution": {
+    "job_id": 365268,
+    "dependency": "afterok:365221:365267",
+    "command": ".venv/bin/python -u src/expanded_cascades.py live",
+    "log": "logs/cascade-live-365268.log",
+    "submitted_at": "2026-10-13T16:37:13.017250+00:00"
+  },
+  "completed_expanded": {
+    "E1_similarity": {
+      "job_id": 365218,
+      "metric_cells": 18,
+      "interval_records": 9,
+      "new_api_calls": 0
+    },
+    "billiger50": {
+      "job_id": 364870,
+      "cells": 7,
+      "decisions": 31059,
+      "verification": "artifacts/verification/billiger50_result_verification.json"
+    },
+    "E5_offline": {
+      "job_id": 365267,
+      "operating_points": 804,
+      "unavailable_router_fits": 2,
+      "live_complete": false
+    },
+    "E6_offline_errors": {
+      "job_id": 365281,
+      "cells": 63,
+      "semantic_labels": "not inferred"
+    },
+    "baseline_similarity_statistics": {
+      "job_id": 365354,
+      "baseline_contrasts": 54,
+      "similarity_contrasts": 18
+    },
+    "cascade_statistics": {
+      "job_id": 365389,
+      "planned_contrasts": 1620,
+      "available_estimates": 1608,
+      "unavailable_planned_contrasts": 12,
+      "component_intervals": 360,
+      "verification": "artifacts/verification/cascade_statistics_verification.json"
+    },
+    "E2_E3_screen": {
+      "job_id": 365468,
+      "completed_at": "2026-10-14T04:17:57.642341+00:00",
+      "cells": 567,
+      "decisions": 283500,
+      "verification": "artifacts/verification/screen_result_verification.json",
+      "full_confirmation_complete": false,
+      "category_groups": 126,
+      "category_descriptives": "artifacts/results/expanded_screen/category_descriptives.json"
+    },
+    "E4_calibration": {
+      "job_id": 365495,
+      "metric_rows": 1956,
+      "available_fits": 978,
+      "unavailable_records": 162,
+      "unavailable_method_conditions": 318,
+      "verification": "artifacts/verification/calibration_result_verification.json"
+    },
+    "screen_statistics": {
+      "job_id": 365494,
+      "contrasts": 546,
+      "component_intervals": 546,
+      "verification": "artifacts/verification/screen_statistics_verification.json"
+    }
+  },
+  "e5_protocol": {
+    "strategies": 5,
+    "fractions": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "primary_interval_fraction": 0.25,
+    "training_split": "D_prompt",
+    "threshold_split": "D_route",
+    "billiger50": "Transfer frozen billiger-de routes; excluded from eight-family macro",
+    "live_cases_per_family": 20,
+    "live_fraction": 0.25,
+    "concurrent_live_chains": 6,
+    "original_core_routing_unchanged": true
+  },
+  "e6_variants_job": 366563,
+  "e6_variants_job_execution": {
+    "job_id": 365279,
+    "dependency": "afterok:365268",
+    "command": ".venv/bin/python -u src/expanded_variants.py run",
+    "log": "logs/variants-365279.log",
+    "submitted_at": "2026-10-13T17:03:55.025940+00:00"
+  },
+  "e6_errors_job": 365281,
+  "e6_errors_job_execution": {
+    "job_id": 365281,
+    "dependency": "afterok:364870",
+    "command": ".venv/bin/python -u src/expanded_errors.py analyze",
+    "log": "logs/errors-365281.log",
+    "submitted_at": "2026-10-13T17:07:36.625077+00:00"
+  },
+  "e2_schema_job": 366695,
+  "e2_schema_job_execution": {
+    "job_id": 365969,
+    "predecessor": 365887,
+    "dependency": null,
+    "command": ".venv/bin/python -u artifacts/operations/resume_schema_once.py",
+    "log": "logs/schema-resume-365969.log",
+    "execution_config": "configs/schema_resume_execution.json",
+    "diagnosis": "artifacts/operations/schema_terminal_diagnosis_20261014T2103Z.json"
+  },
+  "provider_context_limitation": "Cloudflare Clef/Clef-flash text-state truncation ~2K tokens documented in current model page. B0 input usage >2048 on 39 WDC and 11 billiger100 pairs per model; flags not proven truncation incidence. Keep inputs/providers and all pairs unchanged. Document effective-context confound.",
+  "e2_rule_agent": {
+    "model": "gpt-6-astra",
+    "role": "iterative rule induction only; seven evaluation models unchanged",
+    "started_at": "2026-10-13T18:07:34.628454+00:00",
+    "session_id": "01a13672-cc37-7c21-9c34-4f258266a36c",
+    "workspace_local": "/path/to/rule-agent-astra-20261013",
+    "status_local": "artifacts/astra_agent/",
+    "status": "completed and accepted unchanged; 57 rules, 800 ledger entries; no human validation",
+    "training_pairs": 800,
+    "pairs_per_family": 100,
+    "class_counts_per_family": [
+      50,
+      50
+    ],
+    "training_manifest": "configs/rule_agent_training_manifest.json",
+    "disjointness": "Pair IDs and direction-invariant descriptive inputs excluded across frozen dev/tests. Entity overlap remains in five families.",
+    "proposed_dependency": "afterok:365288",
+    "job_id": 365300,
+    "billing": "ChatGPT-authenticated CLI usage separately; no dollar amount inferred from tokens. OpenRouter cap100 unchanged.",
+    "completed_at": "2026-10-13T18:26:12.192941+00:00",
+    "acceptance": "artifacts/astra_agent/acceptance.json",
+    "dependency": "afterok:365636:365969"
+  },
+  "e2_rules_job": 365300,
+  "e2_rules_job_execution": {
+    "job_id": 365300,
+    "dependency": "afterok:365636:365969",
+    "command": ".venv/bin/python -u src/expanded_rules.py run",
+    "log": "logs/rules-365300.log",
+    "submitted_at": "2026-10-13T18:32:51.815330+00:00"
+  },
+  "core_successor_execution": {
+    "job_id": 365344,
+    "predecessor": 364926,
+    "created_at": "2026-10-13T19:01:45.848333+00:00",
+    "dependency": null,
+    "command": ".venv/bin/python -u src/orchestrate.py all",
+    "log": "logs/core-resume-365344.log",
+    "reason": "Cloudflare clef-flash capacity temporarily exceeded; three HTTP429 attempts on P1/dblp-acm pair dblp_378#acm_346 at18:39UTC. Prior job and all Slurm steps ended18:43UTC; no outstanding cost reservations.",
+    "cache_policy": "Verified cache only; no changed inputs, prompts, selection, concurrency, provider or cap. One bounded continuation after diagnosis.",
+    "predecessor_accounting": "364926|FAILED|1:0\n364926.batch|FAILED|1:0\n364926.extern|COMPLETED|0:0\n",
+    "dependent_jobs": {
+      "364870": "afterok:365344",
+      "365147": "afterok:365344"
+    }
+  },
+  "statistics_baseline_job": 365354,
+  "statistics_baseline_job_execution": {
+    "job_id": 365354,
+    "dependency": "afterok:364870",
+    "command": ".venv/bin/python -u src/expanded_statistics.py analyze --stage baseline && .venv/bin/python -u src/expanded_statistics.py analyze --stage similarity",
+    "log": "logs/statistics-baseline-365354.log",
+    "submitted_at": "2026-10-13T19:14:43.539296+00:00"
+  },
+  "statistics_full_job": 365355,
+  "statistics_full_job_execution": {
+    "job_id": 365355,
+    "dependency": "afterok:365636:365279:365969:365300",
+    "command": ".venv/bin/python -u src/expanded_statistics.py analyze",
+    "log": "logs/statistics-full-365355.log",
+    "submitted_at": "2026-10-13T19:14:43.553514+00:00",
+    "completed_prerequisites": [
+      365354,
+      365281
+    ]
+  },
+  "core_completed": {
+    "job_id": 365344,
+    "utc": "2026-10-13T19:19:27Z",
+    "verified_core_cells": 56,
+    "verified_ap2_cells": 32,
+    "verification": "artifacts/verification/core_result_verification.json",
+    "full_expanded_study_complete": false
+  },
+  "audit_packet_validation": {
+    "job_id": 365147,
+    "browser_checks": "artifacts/verification/audit_ui_verification.json",
+    "visual_checks": "artifacts/verification/visual_and_manuscript_review.json",
+    "human_labels": 0,
+    "second_reviews": 0,
+    "author_approval": false
+  },
+  "manuscript_status": "Core+supplement+offline+screen+calibration integrated; morning delivery completed09:12Berlin immutable. Confirmation365636 invocation2 now full-test stage; not complete. Three fresh runs, stronger ensemble and semantic audit remain pending; no human labels.",
+  "statistics_cascade_job": 365389,
+  "statistics_cascade_job_execution": {
+    "job_id": 365389,
+    "dependency": null,
+    "completed_prerequisites": [
+      365267,
+      365354,
+      365281
+    ],
+    "accounting": "365267|COMPLETED|0:0\n365267.batch|COMPLETED|0:0\n365267.extern|COMPLETED|0:0\n365281|COMPLETED|0:0\n365281.batch|COMPLETED|0:0\n365281.extern|COMPLETED|0:0\n365354|COMPLETED|0:0\n365354.batch|COMPLETED|0:0\n365354.extern|COMPLETED|0:0\n",
+    "command": ".venv/bin/python -u src/expanded_statistics.py analyze --stage cascades",
+    "log": "logs/statistics-cascades-365389.log",
+    "submitted_at": "2026-10-13T20:06:11.543209+00:00",
+    "note": "Completed prerequisite jobs verified via sacct; afterok submission rejected because completed dependencies expired from scheduler memory, no job created by first attempt."
+  },
+  "screen_successor_execution": {
+    "job_id": 365468,
+    "predecessor": 365463,
+    "created_at": "2026-10-14T03:05:27.031187+00:00",
+    "command": ".venv/bin/python -u artifacts/operations/resume_screen.py",
+    "log": "logs/expanded-recovery-365468.log",
+    "dependency": null,
+    "reason": "Recurrent transient JevHTTP499 internal_error, now X_P_conservative_0/dblp-scholar pair dblp_2568#scholar_7046. Previous failed pair recovered. All prior writers ended02:38UTC.",
+    "predecessor_accounting": "365463|FAILED|1:0|2026-10-14T04:38:09\n365463.batch|FAILED|1:0|2026-10-14T04:38:09\n365463.extern|COMPLETED|0:0|2026-10-14T04:38:09\n",
+    "budget_before": {
+      "attempts": 678145,
+      "reserved": 1.3877787807814457e-17,
+      "spent": 42.20379975200009,
+      "unknown_cost_attempts": 407
+    },
+    "source_hashes_verified": true,
+    "manifest_verified": true,
+    "dependent_jobs": {
+      "365219": "afterok:365468"
+    },
+    "operational_change": "At most3sequential screen invocations; additional invocations only for new JevHTTP499 internal_error records, after process exit, zero reservations and30s cooldown. Other errors stop. Durable per-invocation journal. This is documented operational recovery, not unchanged transport retry behavior. Frozen inference code, requests, selections, concurrency and USD100 cap unchanged.",
+    "operational_sha256": {
+      "artifacts/operations/resume_screen.py": "1e4d014292471ca3454655664cc28ec8f34b4bf87a421ac69bfdc3fdd3da65aa",
+      "artifacts/operations/test_resume_screen.py": "a07066745f14af8e93ac069adbc6494c1a7c73a9890b6282b7d9c20782536d65"
+    },
+    "validation": "3local+3remote offline guard tests, remoteRuff and py_compile passed. NoAPI calls during tests."
+  },
+  "screen_resume_history": [
+    {
+      "job_id": 365453,
+      "predecessor": 365146,
+      "created_at": "2026-10-14T01:34:11.692095+00:00",
+      "command": ".venv/bin/python -u src/expanded_screen.py run",
+      "log": "logs/expanded-resume-365453.log",
+      "dependency": null,
+      "reason": "Jev provider internal_error HTTP499 on one pair; Clef-flash HTTP429 rate limit on three pairs after three attempts each. All predecessor Slurm steps ended. One bounded cache continuation without protocol change.",
+      "failures": [
+        {
+          "file": "runs/quality/jev/X_P_domain_1/abt-buy/expanded_screen.failures.jsonl",
+          "pair_id": "abt_480#buy_588",
+          "error": "HTTP 499",
+          "completed_at": "2026-10-13T21:40:42.793672+00:00",
+          "attempt_statuses": [
+            499
+          ]
+        },
+        {
+          "file": "runs/quality/clef_flash/X_P_domain_2/abt-buy/expanded_screen.failures.jsonl",
+          "pair_id": "abt_480#buy_992",
+          "error": "HTTP 429",
+          "completed_at": "2026-10-13T22:27:24.171383+00:00",
+          "attempt_statuses": [
+            429,
+            429,
+            429
+          ]
+        },
+        {
+          "file": "runs/quality/clef_flash/X_P_domain_2/abt-buy/expanded_screen.failures.jsonl",
+          "pair_id": "abt_635#buy_663",
+          "error": "HTTP 429",
+          "completed_at": "2026-10-13T22:27:24.475638+00:00",
+          "attempt_statuses": [
+            429,
+            429,
+            429
+          ]
+        },
+        {
+          "file": "runs/quality/clef_flash/X_P_domain_2/abt-buy/expanded_screen.failures.jsonl",
+          "pair_id": "abt_657#buy_335",
+          "error": "HTTP 429",
+          "completed_at": "2026-10-13T22:27:24.679807+00:00",
+          "attempt_statuses": [
+            429,
+            429,
+            429
+          ]
+        }
+      ],
+      "predecessor_accounting": "365146|FAILED|1:0|2026-10-14T03:28:22\n365146.batch|FAILED|1:0|2026-10-14T03:28:22\n365146.extern|COMPLETED|0:0|2026-10-14T03:28:22\n",
+      "budget_before": {
+        "attempts": 651992,
+        "reserved": 1.3877787807814457e-17,
+        "spent": 41.50212772000012,
+        "unknown_cost_attempts": 401
+      },
+      "source_hashes_verified": true,
+      "manifest_verified": true,
+      "dependent_jobs": {
+        "365219": "afterok:365453"
+      },
+      "cache_policy": "Existing successes verified by unchanged run_cell request hashes; failure journals retained; inputs/prompts/providers/concurrency/selection unchanged."
+    },
+    {
+      "job_id": 365463,
+      "predecessor": 365453,
+      "created_at": "2026-10-14T02:35:08.746583+00:00",
+      "command": ".venv/bin/python -u src/expanded_screen.py run",
+      "log": "logs/expanded-resume-365463.log",
+      "dependency": null,
+      "reason": "Previously diagnosed Jev HTTP499 internal_error on X_P_conservative_0/wdc pair50611724#77241153. Remaining writers completed; predecessor ended02:28UTC. Only one failure marker in predecessor log. Bounded cache continuation, no protocol change.",
+      "failure_journal": "runs/quality/jev/X_P_conservative_0/wdc/expanded_screen.failures.jsonl",
+      "predecessor_accounting": "365453|FAILED|1:0|2026-10-14T04:28:16\n365453.batch|FAILED|1:0|2026-10-14T04:28:16\n365453.extern|COMPLETED|0:0|2026-10-14T04:28:16\n",
+      "budget_before": {
+        "attempts": 677580,
+        "reserved": 1.3877787807814457e-17,
+        "spent": 42.13982240400007,
+        "unknown_cost_attempts": 406
+      },
+      "source_hashes_verified": true,
+      "manifest_verified": true,
+      "dependent_jobs": {
+        "365219": "afterok:365463"
+      },
+      "cache_policy": "Unchanged request hash validation; all successes and failure journals retained; frozen prompts, inputs, selection, providers and concurrency unchanged."
+    }
+  ],
+  "statistics_screen_job": 365494,
+  "statistics_screen_job_execution": {
+    "job_id": 365494,
+    "dependency": null,
+    "completed_prerequisites": [
+      365468
+    ],
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -u src/expanded_statistics.py analyze --stage screen",
+    "log": "logs/statistics-screen-365494.log",
+    "submitted_at": "2026-10-14T04:35:01.229612+00:00",
+    "verification": "artifacts/verification/screen_result_verification.json",
+    "new_api_calls": 0
+  },
+  "calibration_resume_history": [
+    {
+      "job_id": 365219,
+      "command": ".venv/bin/python -u src/expanded_calibration.py run",
+      "dependency": "afterok:365468",
+      "log": "logs/calibration-365219.log",
+      "submitted_at": "2026-10-13T16:10:46.876708+00:00"
+    }
+  ],
+  "statistics_calibration_job": 365500,
+  "statistics_calibration_job_execution": {
+    "job_id": 365500,
+    "dependency": null,
+    "completed_prerequisites": [
+      365495,
+      365494
+    ],
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -u src/expanded_statistics.py analyze --stage calibration",
+    "log": "logs/statistics-calibration-365500.log",
+    "submitted_at": "2026-10-14T05:09:14.634577+00:00",
+    "new_api_calls": 0
+  },
+  "confirmation_operational_status": {
+    "utc": "2026-10-14T11:50:32.988507+00:00",
+    "job_id": 365636,
+    "status": "running_invocation_2_surviving_writers; existing failures unchanged",
+    "diagnostic": "artifacts/operations/check_20261014T1147Z.json",
+    "new_failure": "Luna X_P_evidence_2 semi-heter prompt wrapped HTTP200/502 provider_unavailable without usage; preserved and reserved unknown cost",
+    "recovery": "Invocation1 ended with zero reservations; approved supervisor waited60s then invocation2",
+    "selection_rows": 378,
+    "unique_test_cells": 269,
+    "selection_file_sha256": "8000f7751cb03ae1a5bde62835eb85f05efe57fee942bc441f160852dd3dbf47",
+    "invocation_2_failures": [
+      {
+        "model": "jev",
+        "variant": "S1",
+        "benchmark": "billiger-de-50un",
+        "pair": "4450602322#4579172309",
+        "error": "HTTP499 internal_error"
+      },
+      {
+        "model": "luna",
+        "variant": "S1",
+        "benchmark": "billiger-de-50un",
+        "pairs": [
+          "2336490445#18465721026",
+          "3913410158#4705583754"
+        ],
+        "error": "HTTP200 wrapped502 provider_unavailable, empty response, no usage"
+      }
+    ],
+    "action": "Existing supervisor only; wait for all writers and remaining bounded invocation. No new job or Astra upload."
+  },
+  "statistics_calibration_verified": {
+    "job_id": 365500,
+    "completed_at": "2026-10-14T05:40:15Z",
+    "verification": "artifacts/verification/calibration_statistics_verification.json",
+    "planned_contrasts": 3888,
+    "numerical_contrasts": 2934,
+    "unavailable_contrasts": 954,
+    "primary_intervals": 756,
+    "holm_families": 9
+  },
+  "morning_preflight": {
+    "artifact": "artifacts/verification/morning_preflight_20261014.json",
+    "delivery_complete": false,
+    "scope": "96 request-checked AP2 development cells independently rescored; previous core/figure/audit artifact hashes refreshed. Live budget/jobs still need refresh at actual delivery."
+  },
+  "morning_delivery": {
+    "artifact": "artifacts/morning_delivery_20261014.json",
+    "issued_at_utc": "2026-10-14T07:12:21.099680+00:00",
+    "full_study_complete": false,
+    "automation_continues": true
+  },
+  "confirmation_recovery_prepared": {
+    "config": "configs/confirmation_recovery_prepared.json",
+    "status": "implemented_and_tested_not_submitted",
+    "command": ".venv/bin/python -u artifacts/operations/resume_confirmation.py"
+  },
+  "paper_extension_20261014": {
+    "utc": "2026-10-14T08:38:56.549503+00:00",
+    "authority": "Aaron direct chat approval 14 October: all todo items, three runs, stronger escalation, external Astra error analysis; expensive Astra run needs separate approval. Notify when budget exhausted, then user raises cap. Entity issue not a workstream.",
+    "todo": "docs/APPROVED_TODO_20261014.md",
+    "todo_sha256": "238a9f686367db419a62a2433b29fa469e8c834691ef2bfe3cee690b21c27f36",
+    "required_runs": 3,
+    "run1_status": "existing frozen pipeline continues",
+    "new_run_infrastructure_status": "prepared_and_offline_tested; no paid execution",
+    "external_error_analyst": "gpt-6-astra",
+    "external_error_batch_status": "prepare_only_explicit_execution_approval_pending",
+    "strong_cascade_status": "design_and_model_selection_pending",
+    "strong_cascade_exclude_analyst_model": true,
+    "budget_cap_usd": 100,
+    "budget_increase_authorized_amount": null,
+    "entity_methods_work": "no_new_work; retain_short_limitation",
+    "historical_and_morning_delivery_immutable": true,
+    "run_workspaces": [
+      "replications/run02",
+      "replications/run03"
+    ],
+    "verification": "artifacts/verification/repeated_runs_preparation.json"
+  },
+  "selective_ensemble_pilot_job": 365776,
+  "selective_ensemble_pilot_execution": "configs/selective_ensemble_pilot_execution.json",
+  "parallel_execution": {
+    "authority": "artifacts/operations/approval_parallel_aaron_20261014.json",
+    "scope_verification": "artifacts/verification/parallel_writer_scopes_20261014.json",
+    "dependencies": {
+      "365221": [],
+      "365279": [],
+      "365288": [],
+      "365300": [
+        "365636",
+        "365969"
+      ],
+      "365355": [
+        "365636",
+        "365279",
+        "365969",
+        "365300"
+      ],
+      "365887": [],
+      "365969": []
+    },
+    "legacy_confirmation_recovery": "Old supervisor still loaded; if aggregate reservation guard stops after child completion, inspect scoped confirmation failures and use parallel-aware successor only after all old confirmation steps end."
+  },
+  "schema_resume_history": [
+    {
+      "job_id": 365887,
+      "predecessor": 365288,
+      "dependency": null,
+      "command": ".venv/bin/python -u artifacts/operations/resume_schema_once.py",
+      "log": "logs/schema-resume-365887.log",
+      "execution_config": "configs/schema_resume_execution.json",
+      "diagnosis": "artifacts/operations/schema_terminal_diagnosis_20261014T1733Z.json"
+    }
+  ],
+  "fast_accounting_execution": {
+    "jobs": {
+      "confirmation": "366671",
+      "schema": "366672",
+      "core2": "366673",
+      "core3": "366674"
+    },
+    "cap_usd": 200,
+    "credit_chunk_usd": 8,
+    "checkpoint_every_attempts": 512,
+    "frozen_experiments_unchanged": true,
+    "original_timing_account_preserved": true,
+    "user_authority": "artifacts/operations/approval_fast_accounting_aaron_20261015.json"
+  },
+  "grouped_journal_execution": {
+    "jobs": {
+      "confirmation": "366694",
+      "schema": "366695",
+      "core2": "366696",
+      "core3": "366697"
+    },
+    "cap_usd": 200,
+    "credit_chunk_usd": 8,
+    "checkpoint_every_attempts": 512,
+    "frozen_experiments_unchanged": true,
+    "original_timing_account_preserved": true,
+    "user_authority": "artifacts/operations/approval_grouped_writes_aaron_20261015.json"
+  }
+}

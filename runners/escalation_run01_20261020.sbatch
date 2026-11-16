@@ -7,8 +7,8 @@
 #SBATCH --partition=cpu
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=8G
-#SBATCH --output=/ceph/aasteine/decision-em-20261013/logs/escalation-run01-%j.log
+#SBATCH --output=/path/to/decision-em/logs/escalation-run01-%j.log
 set -euo pipefail
-cd /ceph/aasteine/decision-em-20261013
+cd /path/to/decision-em
 export PYTHONPATH=src:artifacts/operations PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1
-exec .venv/bin/python -u artifacts/operations/run_escalation_20261020.py --root /ceph/aasteine/decision-em-20261013 --action execute "$@"
+exec .venv/bin/python -u artifacts/operations/run_escalation_20261020.py --root /path/to/decision-em --action execute "$@"

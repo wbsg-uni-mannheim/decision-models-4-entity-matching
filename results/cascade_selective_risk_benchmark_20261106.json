@@ -1,0 +1,3850 @@
+{
+ "description": "Selective risk of the cascade per benchmark, t from the Sol 2,000 set. Read-only, no inference (Aaron, relayed 6 Nov).\n\nJev 1.13, PPLX v1.2, Clef, Luna Dec. with B0 at the target risks 0.25, 0.5 and 1 %, t = valsel_eval.tune_risk on the pooled\nSol 2,000 set (cascade_sol2000_runs123_20261105_v2.json), test Runs 1-3. A pair is kept when min(p, 1-p) <= t; the risk is the\nshare of kept pairs where p >= 0.5 disagrees with the gold label. The target is set on pooled pairs against Sol labels, so\nper-benchmark misses are descriptive. Per model, target and benchmark: kept pairs, kept share and risk per run, mean and\nsample SD over the runs, runs above the target. Per model and target: the same pooled, runs_above_target over all\nbenchmark-run cells (of 24) and benchmarks above the target on the 3-run mean (of 8). Pooled risk checked against the v2 file.\n\n    .venv/bin/python src/cascade_selective_risk_benchmark_eval.py --out artifacts/results/cascade_selective_risk_benchmark_20261106.json\n",
+ "created_at": "2026-11-06T21:35:17.242488+00:00",
+ "tuning_source": "sol2000",
+ "units": "risk and kept share as fractions",
+ "models": {
+  "jev": {
+   "0.0025": {
+    "t": 0.18,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 27414,
+       "kept_share": 0.9069975186104219,
+       "wrong": 113,
+       "risk": 0.0041219814693222445
+      },
+      "2": {
+       "kept": 27412,
+       "kept_share": 0.9069313482216708,
+       "wrong": 112,
+       "risk": 0.0040858018386108275
+      },
+      "3": {
+       "kept": 27420,
+       "kept_share": 0.9071960297766749,
+       "wrong": 116,
+       "risk": 0.004230488694383662
+      }
+     },
+     "kept_share": {
+      "mean": 0.9070416322029226,
+      "sd": 0.00013774464843447384,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.004146090667438911,
+      "sd": 7.529615948857388e-05,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1788,
+        "kept_share": 0.9331941544885177,
+        "wrong": 3,
+        "risk": 0.0016778523489932886
+       },
+       "2": {
+        "kept": 1791,
+        "kept_share": 0.9347599164926931,
+        "wrong": 3,
+        "risk": 0.0016750418760469012
+       },
+       "3": {
+        "kept": 1789,
+        "kept_share": 0.9337160751565762,
+        "wrong": 2,
+        "risk": 0.0011179429849077697
+       }
+      },
+      "kept_share": {
+       "mean": 0.9338900487125956,
+       "sd": 0.0007972469893799241,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.001490279069982653,
+       "sd": 0.00032245557039104427,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4037,
+        "kept_share": 0.8971111111111111,
+        "wrong": 30,
+        "risk": 0.007431260837255388
+       },
+       "2": {
+        "kept": 4037,
+        "kept_share": 0.8971111111111111,
+        "wrong": 29,
+        "risk": 0.007183552142680208
+       },
+       "3": {
+        "kept": 4036,
+        "kept_share": 0.8968888888888888,
+        "wrong": 29,
+        "risk": 0.007185332011892963
+       }
+      },
+      "kept_share": {
+       "mean": 0.897037037037037,
+       "sd": 0.00012830005981992408,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.007266714997276187,
+       "sd": 0.0001425036563546681,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 4978,
+        "kept_share": 0.8669453152211772,
+        "wrong": 24,
+        "risk": 0.004821213338690237
+       },
+       "2": {
+        "kept": 4976,
+        "kept_share": 0.866597004528039,
+        "wrong": 26,
+        "risk": 0.00522508038585209
+       },
+       "3": {
+        "kept": 4984,
+        "kept_share": 0.8679902473005922,
+        "wrong": 25,
+        "risk": 0.005016051364365971
+       }
+      },
+      "kept_share": {
+       "mean": 0.8671775223499362,
+       "sd": 0.0007250665271564632,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.005020781696302766,
+       "sd": 0.000201975072659927,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1842,
+        "kept_share": 0.8989751098096632,
+        "wrong": 8,
+        "risk": 0.004343105320304018
+       },
+       "2": {
+        "kept": 1840,
+        "kept_share": 0.8979990239141045,
+        "wrong": 5,
+        "risk": 0.002717391304347826
+       },
+       "3": {
+        "kept": 1834,
+        "kept_share": 0.895070766227428,
+        "wrong": 7,
+        "risk": 0.003816793893129771
+       }
+      },
+      "kept_share": {
+       "mean": 0.8973482999837319,
+       "sd": 0.002031884821343233,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.003625763505927205,
+       "sd": 0.0008295215319961103,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8402,
+        "kept_share": 0.9675264854905573,
+        "wrong": 14,
+        "risk": 0.0016662699357295882
+       },
+       "2": {
+        "kept": 8400,
+        "kept_share": 0.9672961768770152,
+        "wrong": 16,
+        "risk": 0.0019047619047619048
+       },
+       "3": {
+        "kept": 8399,
+        "kept_share": 0.9671810225702441,
+        "wrong": 15,
+        "risk": 0.0017859268960590546
+       }
+      },
+      "kept_share": {
+       "mean": 0.9673345616459389,
+       "sd": 0.00017590110912620577,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0017856529121835158,
+       "sd": 0.00011924622058413804,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3757,
+        "kept_share": 0.8448392174499663,
+        "wrong": 26,
+        "risk": 0.006920415224913495
+       },
+       "2": {
+        "kept": 3762,
+        "kept_share": 0.8459635709467056,
+        "wrong": 24,
+        "risk": 0.006379585326953748
+       },
+       "3": {
+        "kept": 3772,
+        "kept_share": 0.8482122779401844,
+        "wrong": 30,
+        "risk": 0.007953340402969246
+       }
+      },
+      "kept_share": {
+       "mean": 0.8463383554456188,
+       "sd": 0.0017174783355654952,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.007084446984945496,
+       "sd": 0.0007995974446842197,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2288,
+        "kept_share": 0.9251920744035584,
+        "wrong": 4,
+        "risk": 0.0017482517482517483
+       },
+       "2": {
+        "kept": 2286,
+        "kept_share": 0.9243833400727861,
+        "wrong": 4,
+        "risk": 0.0017497812773403325
+       },
+       "3": {
+        "kept": 2287,
+        "kept_share": 0.9247877072381723,
+        "wrong": 4,
+        "risk": 0.0017490161783996502
+       }
+      },
+      "kept_share": {
+       "mean": 0.9247877072381723,
+       "sd": 0.0004043671653861658,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.001749016401330577,
+       "sd": 7.6476456866149e-07,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 322,
+        "kept_share": 0.7777777777777778,
+        "wrong": 4,
+        "risk": 0.012422360248447204
+       },
+       "2": {
+        "kept": 320,
+        "kept_share": 0.7729468599033816,
+        "wrong": 5,
+        "risk": 0.015625
+       },
+       "3": {
+        "kept": 319,
+        "kept_share": 0.7705314009661836,
+        "wrong": 4,
+        "risk": 0.012539184952978056
+       }
+      },
+      "kept_share": {
+       "mean": 0.7737520128824477,
+       "sd": 0.0036896744725892594,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.013528848400475087,
+       "sd": 0.0018162600719721612,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 15,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "walmart-amazon",
+     "billiger-de",
+     "semi-heter"
+    ]
+   },
+   "0.005": {
+    "t": 0.23,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 28209,
+       "kept_share": 0.9333002481389578,
+       "wrong": 184,
+       "risk": 0.006522740969194229
+      },
+      "2": {
+       "kept": 28213,
+       "kept_share": 0.9334325889164599,
+       "wrong": 194,
+       "risk": 0.006876262715769326
+      },
+      "3": {
+       "kept": 28207,
+       "kept_share": 0.9332340777502068,
+       "wrong": 188,
+       "risk": 0.006665012231006488
+      }
+     },
+     "kept_share": {
+      "mean": 0.9333223049352082,
+      "sd": 0.0001010769384053827,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.006688005305323348,
+      "sd": 0.00017787894036473854,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1818,
+        "kept_share": 0.9488517745302714,
+        "wrong": 6,
+        "risk": 0.0033003300330033004
+       },
+       "2": {
+        "kept": 1817,
+        "kept_share": 0.9483298538622129,
+        "wrong": 7,
+        "risk": 0.003852504127682994
+       },
+       "3": {
+        "kept": 1818,
+        "kept_share": 0.9488517745302714,
+        "wrong": 8,
+        "risk": 0.0044004400440044
+       }
+      },
+      "kept_share": {
+       "mean": 0.9486778009742519,
+       "sd": 0.000301331038199176,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.003851091401563565,
+       "sd": 0.0005500563661321687,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4176,
+        "kept_share": 0.928,
+        "wrong": 44,
+        "risk": 0.01053639846743295
+       },
+       "2": {
+        "kept": 4168,
+        "kept_share": 0.9262222222222222,
+        "wrong": 46,
+        "risk": 0.011036468330134356
+       },
+       "3": {
+        "kept": 4170,
+        "kept_share": 0.9266666666666666,
+        "wrong": 43,
+        "risk": 0.010311750599520384
+       }
+      },
+      "kept_share": {
+       "mean": 0.926962962962963,
+       "sd": 0.0009251848886516667,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.01062820579902923,
+       "sd": 0.00037097895744595585,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 5191,
+        "kept_share": 0.9040404040404041,
+        "wrong": 40,
+        "risk": 0.0077056443845116545
+       },
+       "2": {
+        "kept": 5197,
+        "kept_share": 0.9050853361198189,
+        "wrong": 43,
+        "risk": 0.008274004233211469
+       },
+       "3": {
+        "kept": 5206,
+        "kept_share": 0.9066527342389411,
+        "wrong": 42,
+        "risk": 0.008067614291202459
+       }
+      },
+      "kept_share": {
+       "mean": 0.9052594914663881,
+       "sd": 0.0013148440326141626,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.008015754302975193,
+       "sd": 0.00028770700927804665,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1906,
+        "kept_share": 0.9302098584675451,
+        "wrong": 11,
+        "risk": 0.005771248688352571
+       },
+       "2": {
+        "kept": 1905,
+        "kept_share": 0.9297218155197657,
+        "wrong": 11,
+        "risk": 0.005774278215223097
+       },
+       "3": {
+        "kept": 1908,
+        "kept_share": 0.931185944363104,
+        "wrong": 13,
+        "risk": 0.006813417190775681
+       }
+      },
+      "kept_share": {
+       "mean": 0.9303725394501383,
+       "sd": 0.000745497916862852,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.00611964803145045,
+       "sd": 0.0006008236258099324,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8481,
+        "kept_share": 0.9766236757254722,
+        "wrong": 20,
+        "risk": 0.0023582124749439923
+       },
+       "2": {
+        "kept": 8492,
+        "kept_share": 0.977890373099954,
+        "wrong": 26,
+        "risk": 0.0030617051342439945
+       },
+       "3": {
+        "kept": 8474,
+        "kept_share": 0.9758175955780746,
+        "wrong": 22,
+        "risk": 0.00259617654000472
+       }
+      },
+      "kept_share": {
+       "mean": 0.9767772148011669,
+       "sd": 0.0010448838928924222,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0026720313830642358,
+       "sd": 0.00035782809886024186,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3934,
+        "kept_share": 0.8846413312345401,
+        "wrong": 53,
+        "risk": 0.013472292831723437
+       },
+       "2": {
+        "kept": 3934,
+        "kept_share": 0.8846413312345401,
+        "wrong": 52,
+        "risk": 0.013218098627351297
+       },
+       "3": {
+        "kept": 3933,
+        "kept_share": 0.8844164605351923,
+        "wrong": 51,
+        "risk": 0.012967200610221205
+       }
+      },
+      "kept_share": {
+       "mean": 0.8845663743347575,
+       "sd": 0.00012982915880133803,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.01321919735643198,
+       "sd": 0.00025254790329699725,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2355,
+        "kept_share": 0.9522846744844319,
+        "wrong": 5,
+        "risk": 0.0021231422505307855
+       },
+       "2": {
+        "kept": 2348,
+        "kept_share": 0.9494541043267287,
+        "wrong": 4,
+        "risk": 0.0017035775127768314
+       },
+       "3": {
+        "kept": 2349,
+        "kept_share": 0.9498584714921149,
+        "wrong": 4,
+        "risk": 0.0017028522775649213
+       }
+      },
+      "kept_share": {
+       "mean": 0.9505324167677585,
+       "sd": 0.0015309093801860643,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.001843190680290846,
+       "sd": 0.00024244544283484474,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 348,
+        "kept_share": 0.8405797101449275,
+        "wrong": 5,
+        "risk": 0.014367816091954023
+       },
+       "2": {
+        "kept": 352,
+        "kept_share": 0.8502415458937198,
+        "wrong": 5,
+        "risk": 0.014204545454545454
+       },
+       "3": {
+        "kept": 349,
+        "kept_share": 0.8429951690821256,
+        "wrong": 5,
+        "risk": 0.014326647564469915
+       }
+      },
+      "kept_share": {
+       "mean": 0.8446054750402576,
+       "sd": 0.00502817874267184,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.014299669703656464,
+       "sd": 8.491277283484818e-05,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 15,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "walmart-amazon",
+     "billiger-de",
+     "semi-heter"
+    ]
+   },
+   "0.01": {
+    "t": 0.31,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 29020,
+       "kept_share": 0.9601323407775021,
+       "wrong": 329,
+       "risk": 0.011337008959338387
+      },
+      "2": {
+       "kept": 29000,
+       "kept_share": 0.9594706368899917,
+       "wrong": 333,
+       "risk": 0.011482758620689655
+      },
+      "3": {
+       "kept": 29005,
+       "kept_share": 0.9596360628618693,
+       "wrong": 327,
+       "risk": 0.01127391828995001
+      }
+     },
+     "kept_share": {
+      "mean": 0.959746346843121,
+      "sd": 0.0003443616210862424,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.011364561956659351,
+      "sd": 0.00010711184193116985,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1861,
+        "kept_share": 0.971294363256785,
+        "wrong": 18,
+        "risk": 0.00967221923696937
+       },
+       "2": {
+        "kept": 1860,
+        "kept_share": 0.9707724425887265,
+        "wrong": 18,
+        "risk": 0.00967741935483871
+       },
+       "3": {
+        "kept": 1856,
+        "kept_share": 0.9686847599164927,
+        "wrong": 14,
+        "risk": 0.007543103448275862
+       }
+      },
+      "kept_share": {
+       "mean": 0.9702505219206681,
+       "sd": 0.0013808722917873536,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.008964247346694647,
+       "sd": 0.0012307494648855918,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4298,
+        "kept_share": 0.9551111111111111,
+        "wrong": 67,
+        "risk": 0.015588645881805491
+       },
+       "2": {
+        "kept": 4295,
+        "kept_share": 0.9544444444444444,
+        "wrong": 68,
+        "risk": 0.015832363213038415
+       },
+       "3": {
+        "kept": 4295,
+        "kept_share": 0.9544444444444444,
+        "wrong": 67,
+        "risk": 0.01559953434225844
+       }
+      },
+      "kept_share": {
+       "mean": 0.9546666666666667,
+       "sd": 0.0003849001794597722,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.015673514479034117,
+       "sd": 0.00013767472485476563,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 5423,
+        "kept_share": 0.9444444444444444,
+        "wrong": 72,
+        "risk": 0.01327678406785912
+       },
+       "2": {
+        "kept": 5414,
+        "kept_share": 0.9428770463253222,
+        "wrong": 75,
+        "risk": 0.013852973771702993
+       },
+       "3": {
+        "kept": 5412,
+        "kept_share": 0.9425287356321839,
+        "wrong": 71,
+        "risk": 0.0131189948263119
+       }
+      },
+      "kept_share": {
+       "mean": 0.9432834088006502,
+       "sd": 0.001020457206040107,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.01341625088862467,
+       "sd": 0.00038635413630527256,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1964,
+        "kept_share": 0.9585163494387506,
+        "wrong": 21,
+        "risk": 0.010692464358452138
+       },
+       "2": {
+        "kept": 1965,
+        "kept_share": 0.95900439238653,
+        "wrong": 22,
+        "risk": 0.011195928753180661
+       },
+       "3": {
+        "kept": 1966,
+        "kept_share": 0.9594924353343094,
+        "wrong": 23,
+        "risk": 0.011698880976602238
+       }
+      },
+      "kept_share": {
+       "mean": 0.95900439238653,
+       "sd": 0.00048804294777937685,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.01119575802941168,
+       "sd": 0.0005032083307956309,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8566,
+        "kept_share": 0.9864117918010133,
+        "wrong": 41,
+        "risk": 0.00478636469764184
+       },
+       "2": {
+        "kept": 8565,
+        "kept_share": 0.9862966374942422,
+        "wrong": 42,
+        "risk": 0.004903677758318739
+       },
+       "3": {
+        "kept": 8564,
+        "kept_share": 0.9861814831874712,
+        "wrong": 42,
+        "risk": 0.004904250350303597
+       }
+      },
+      "kept_share": {
+       "mean": 0.9862966374942422,
+       "sd": 0.0001151543067710592,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.004864764268754725,
+       "sd": 6.789662383659855e-05,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 4112,
+        "kept_share": 0.9246683157184619,
+        "wrong": 89,
+        "risk": 0.02164396887159533
+       },
+       "2": {
+        "kept": 4116,
+        "kept_share": 0.9255677985158534,
+        "wrong": 89,
+        "risk": 0.021622934888241012
+       },
+       "3": {
+        "kept": 4125,
+        "kept_share": 0.9275916348099843,
+        "wrong": 90,
+        "risk": 0.02181818181818182
+       }
+      },
+      "kept_share": {
+       "mean": 0.9259425830147665,
+       "sd": 0.0014972629004901164,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.021695028526006053,
+       "sd": 0.00010717115817343119,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2421,
+        "kept_share": 0.9789729073999192,
+        "wrong": 11,
+        "risk": 0.004543577034283354
+       },
+       "2": {
+        "kept": 2414,
+        "kept_share": 0.9761423372422159,
+        "wrong": 9,
+        "risk": 0.003728251864125932
+       },
+       "3": {
+        "kept": 2415,
+        "kept_share": 0.976546704407602,
+        "wrong": 10,
+        "risk": 0.004140786749482402
+       }
+      },
+      "kept_share": {
+       "mean": 0.9772206496832457,
+       "sd": 0.0015309093801861278,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.004137538549297229,
+       "sd": 0.0004076722904201235,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 375,
+        "kept_share": 0.9057971014492754,
+        "wrong": 10,
+        "risk": 0.02666666666666667
+       },
+       "2": {
+        "kept": 371,
+        "kept_share": 0.8961352657004831,
+        "wrong": 10,
+        "risk": 0.026954177897574125
+       },
+       "3": {
+        "kept": 372,
+        "kept_share": 0.8985507246376812,
+        "wrong": 10,
+        "risk": 0.026881720430107527
+       }
+      },
+      "kept_share": {
+       "mean": 0.9001610305958132,
+       "sd": 0.00502817874267184,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.02683418833144944,
+       "sd": 0.00014953311431456197,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 15,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "walmart-amazon",
+     "billiger-de",
+     "semi-heter"
+    ]
+   }
+  },
+  "pplx_v12": {
+   "0.0025": {
+    "t": 0.12662899419725718,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 27966,
+       "kept_share": 0.9252605459057072,
+       "wrong": 139,
+       "risk": 0.004970321104197955
+      },
+      "2": {
+       "kept": 27977,
+       "kept_share": 0.9256244830438379,
+       "wrong": 148,
+       "risk": 0.005290059691889767
+      },
+      "3": {
+       "kept": 27977,
+       "kept_share": 0.9256244830438379,
+       "wrong": 148,
+       "risk": 0.005290059691889767
+      }
+     },
+     "kept_share": {
+      "mean": 0.925503170664461,
+      "sd": 0.00021011920466789945,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.005183480162659163,
+      "sd": 0.00018460115967417834,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1829,
+        "kept_share": 0.9545929018789144,
+        "wrong": 3,
+        "risk": 0.0016402405686167304
+       },
+       "2": {
+        "kept": 1824,
+        "kept_share": 0.9519832985386222,
+        "wrong": 1,
+        "risk": 0.0005482456140350877
+       },
+       "3": {
+        "kept": 1824,
+        "kept_share": 0.9519832985386222,
+        "wrong": 1,
+        "risk": 0.0005482456140350877
+       }
+      },
+      "kept_share": {
+       "mean": 0.9528531663187196,
+       "sd": 0.00150665519099588,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0009122439322289686,
+       "sd": 0.0006304635809814246,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4105,
+        "kept_share": 0.9122222222222223,
+        "wrong": 27,
+        "risk": 0.006577344701583435
+       },
+       "2": {
+        "kept": 4114,
+        "kept_share": 0.9142222222222223,
+        "wrong": 27,
+        "risk": 0.0065629557608167235
+       },
+       "3": {
+        "kept": 4114,
+        "kept_share": 0.9142222222222223,
+        "wrong": 27,
+        "risk": 0.0065629557608167235
+       }
+      },
+      "kept_share": {
+       "mean": 0.9135555555555556,
+       "sd": 0.0011547005383792527,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.006567752074405627,
+       "sd": 8.307458825014554e-06,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 5114,
+        "kept_share": 0.8906304423545803,
+        "wrong": 28,
+        "risk": 0.005475166210402816
+       },
+       "2": {
+        "kept": 5126,
+        "kept_share": 0.89272030651341,
+        "wrong": 32,
+        "risk": 0.006242684354272337
+       },
+       "3": {
+        "kept": 5126,
+        "kept_share": 0.89272030651341,
+        "wrong": 32,
+        "risk": 0.006242684354272337
+       }
+      },
+      "kept_share": {
+       "mean": 0.8920236851271334,
+       "sd": 0.001206583634670028,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0059868449729824965,
+       "sd": 0.00044312680697099004,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1882,
+        "kept_share": 0.9184968277208394,
+        "wrong": 9,
+        "risk": 0.004782146652497344
+       },
+       "2": {
+        "kept": 1876,
+        "kept_share": 0.915568570034163,
+        "wrong": 8,
+        "risk": 0.0042643923240938165
+       },
+       "3": {
+        "kept": 1876,
+        "kept_share": 0.915568570034163,
+        "wrong": 8,
+        "risk": 0.0042643923240938165
+       }
+      },
+      "kept_share": {
+       "mean": 0.9165446559297218,
+       "sd": 0.0016906303636591942,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.004436977100228326,
+       "sd": 0.00029892560087787026,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8510,
+        "kept_share": 0.9799631506218333,
+        "wrong": 33,
+        "risk": 0.0038777908343125733
+       },
+       "2": {
+        "kept": 8514,
+        "kept_share": 0.9804237678489176,
+        "wrong": 36,
+        "risk": 0.004228329809725159
+       },
+       "3": {
+        "kept": 8514,
+        "kept_share": 0.9804237678489176,
+        "wrong": 36,
+        "risk": 0.004228329809725159
+       }
+      },
+      "kept_share": {
+       "mean": 0.9802702287732228,
+       "sd": 0.0002659374800505272,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.00411148348458763,
+       "sd": 0.0002023837718159118,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3786,
+        "kept_share": 0.8513604677310547,
+        "wrong": 33,
+        "risk": 0.008716323296354992
+       },
+       "2": {
+        "kept": 3780,
+        "kept_share": 0.8500112435349674,
+        "wrong": 34,
+        "risk": 0.008994708994708995
+       },
+       "3": {
+        "kept": 3780,
+        "kept_share": 0.8500112435349674,
+        "wrong": 34,
+        "risk": 0.008994708994708995
+       }
+      },
+      "kept_share": {
+       "mean": 0.8504609849336632,
+       "sd": 0.0007789749528081564,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.008901913761924327,
+       "sd": 0.0001607260578832251,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2373,
+        "kept_share": 0.959563283461383,
+        "wrong": 0,
+        "risk": 0.0
+       },
+       "2": {
+        "kept": 2376,
+        "kept_share": 0.9607763849575415,
+        "wrong": 4,
+        "risk": 0.0016835016835016834
+       },
+       "3": {
+        "kept": 2376,
+        "kept_share": 0.9607763849575415,
+        "wrong": 4,
+        "risk": 0.0016835016835016834
+       }
+      },
+      "kept_share": {
+       "mean": 0.9603720177921553,
+       "sd": 0.0007003844753614462,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0011223344556677889,
+       "sd": 0.0009719701501508851,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 367,
+        "kept_share": 0.8864734299516909,
+        "wrong": 6,
+        "risk": 0.01634877384196185
+       },
+       "2": {
+        "kept": 367,
+        "kept_share": 0.8864734299516909,
+        "wrong": 6,
+        "risk": 0.01634877384196185
+       },
+       "3": {
+        "kept": 367,
+        "kept_share": 0.8864734299516909,
+        "wrong": 6,
+        "risk": 0.01634877384196185
+       }
+      },
+      "kept_share": {
+       "mean": 0.8864734299516909,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.01634877384196185,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 18,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "walmart-amazon",
+     "dn7-walmart-amazon",
+     "billiger-de",
+     "semi-heter"
+    ]
+   },
+   "0.005": {
+    "t": 0.22030329338316917,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 28839,
+       "kept_share": 0.9541439205955335,
+       "wrong": 247,
+       "risk": 0.008564790734768889
+      },
+      "2": {
+       "kept": 28820,
+       "kept_share": 0.9535153019023986,
+       "wrong": 245,
+       "risk": 0.008501040943789036
+      },
+      "3": {
+       "kept": 28820,
+       "kept_share": 0.9535153019023986,
+       "wrong": 245,
+       "risk": 0.008501040943789036
+      }
+     },
+     "kept_share": {
+      "mean": 0.9537248414667769,
+      "sd": 0.0003629331716990699,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.008522290874115653,
+      "sd": 3.680595898300044e-05,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1853,
+        "kept_share": 0.9671189979123174,
+        "wrong": 3,
+        "risk": 0.0016189962223421479
+       },
+       "2": {
+        "kept": 1853,
+        "kept_share": 0.9671189979123174,
+        "wrong": 3,
+        "risk": 0.0016189962223421479
+       },
+       "3": {
+        "kept": 1853,
+        "kept_share": 0.9671189979123174,
+        "wrong": 3,
+        "risk": 0.0016189962223421479
+       }
+      },
+      "kept_share": {
+       "mean": 0.9671189979123174,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0016189962223421479,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4268,
+        "kept_share": 0.9484444444444444,
+        "wrong": 49,
+        "risk": 0.01148078725398313
+       },
+       "2": {
+        "kept": 4265,
+        "kept_share": 0.9477777777777778,
+        "wrong": 48,
+        "risk": 0.011254396248534583
+       },
+       "3": {
+        "kept": 4265,
+        "kept_share": 0.9477777777777778,
+        "wrong": 48,
+        "risk": 0.011254396248534583
+       }
+      },
+      "kept_share": {
+       "mean": 0.9480000000000001,
+       "sd": 0.0003849001794597081,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.011329859917017432,
+       "sd": 0.0001307069079378288,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 5332,
+        "kept_share": 0.9285963079066527,
+        "wrong": 52,
+        "risk": 0.009752438109527382
+       },
+       "2": {
+        "kept": 5329,
+        "kept_share": 0.9280738418669453,
+        "wrong": 51,
+        "risk": 0.009570275849127416
+       },
+       "3": {
+        "kept": 5329,
+        "kept_share": 0.9280738418669453,
+        "wrong": 51,
+        "risk": 0.009570275849127416
+       }
+      },
+      "kept_share": {
+       "mean": 0.9282479972135145,
+       "sd": 0.000301645908667507,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.009630996602594071,
+       "sd": 0.00010517143007811155,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1956,
+        "kept_share": 0.9546120058565154,
+        "wrong": 14,
+        "risk": 0.007157464212678937
+       },
+       "2": {
+        "kept": 1954,
+        "kept_share": 0.9536359199609565,
+        "wrong": 13,
+        "risk": 0.006653019447287615
+       },
+       "3": {
+        "kept": 1954,
+        "kept_share": 0.9536359199609565,
+        "wrong": 13,
+        "risk": 0.006653019447287615
+       }
+      },
+      "kept_share": {
+       "mean": 0.9539612819261428,
+       "sd": 0.0005635434545531075,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0068211677024180555,
+       "sd": 0.00029124132108997695,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8590,
+        "kept_share": 0.9891754951635191,
+        "wrong": 44,
+        "risk": 0.005122235157159488
+       },
+       "2": {
+        "kept": 8587,
+        "kept_share": 0.9888300322432059,
+        "wrong": 44,
+        "risk": 0.00512402468848259
+       },
+       "3": {
+        "kept": 8587,
+        "kept_share": 0.9888300322432059,
+        "wrong": 44,
+        "risk": 0.00512402468848259
+       }
+      },
+      "kept_share": {
+       "mean": 0.988945186549977,
+       "sd": 0.00019945311003787938,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.005123428178041556,
+       "sd": 1.0331863911162872e-06,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 4024,
+        "kept_share": 0.9048796941758489,
+        "wrong": 71,
+        "risk": 0.0176441351888668
+       },
+       "2": {
+        "kept": 4018,
+        "kept_share": 0.9035304699797616,
+        "wrong": 72,
+        "risk": 0.017919362867098058
+       },
+       "3": {
+        "kept": 4018,
+        "kept_share": 0.9035304699797616,
+        "wrong": 72,
+        "risk": 0.017919362867098058
+       }
+      },
+      "kept_share": {
+       "mean": 0.9039802113784574,
+       "sd": 0.0007789749528081564,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.017827620307687638,
+       "sd": 0.00015890277411525296,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2429,
+        "kept_share": 0.9822078447230085,
+        "wrong": 4,
+        "risk": 0.0016467682173734047
+       },
+       "2": {
+        "kept": 2425,
+        "kept_share": 0.9805903760614638,
+        "wrong": 4,
+        "risk": 0.0016494845360824743
+       },
+       "3": {
+        "kept": 2425,
+        "kept_share": 0.9805903760614638,
+        "wrong": 4,
+        "risk": 0.0016494845360824743
+       }
+      },
+      "kept_share": {
+       "mean": 0.9811295322819787,
+       "sd": 0.0009338459671485949,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0016485790965127844,
+       "sd": 1.5682673378861496e-06,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 387,
+        "kept_share": 0.9347826086956522,
+        "wrong": 10,
+        "risk": 0.025839793281653745
+       },
+       "2": {
+        "kept": 389,
+        "kept_share": 0.9396135265700483,
+        "wrong": 10,
+        "risk": 0.02570694087403599
+       },
+       "3": {
+        "kept": 389,
+        "kept_share": 0.9396135265700483,
+        "wrong": 10,
+        "risk": 0.02570694087403599
+       }
+      },
+      "kept_share": {
+       "mean": 0.9380032206119162,
+       "sd": 0.0027891317352155315,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.025751225009908577,
+       "sd": 7.670237330060062e-05,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 18,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "walmart-amazon",
+     "dn7-walmart-amazon",
+     "billiger-de",
+     "semi-heter"
+    ]
+   },
+   "0.01": {
+    "t": 0.3161978889794026,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 29402,
+       "kept_share": 0.9727708850289496,
+       "wrong": 376,
+       "risk": 0.012788245697571594
+      },
+      "2": {
+       "kept": 29400,
+       "kept_share": 0.9727047146401985,
+       "wrong": 378,
+       "risk": 0.012857142857142857
+      },
+      "3": {
+       "kept": 29400,
+       "kept_share": 0.9727047146401985,
+       "wrong": 378,
+       "risk": 0.012857142857142857
+      }
+     },
+     "kept_share": {
+      "mean": 0.9727267714364488,
+      "sd": 3.8203491757840686e-05,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.01283417713728577,
+      "sd": 3.977779362486901e-05,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1879,
+        "kept_share": 0.9806889352818372,
+        "wrong": 9,
+        "risk": 0.004789781798829164
+       },
+       "2": {
+        "kept": 1883,
+        "kept_share": 0.982776617954071,
+        "wrong": 10,
+        "risk": 0.0053106744556558685
+       },
+       "3": {
+        "kept": 1883,
+        "kept_share": 0.982776617954071,
+        "wrong": 10,
+        "risk": 0.0053106744556558685
+       }
+      },
+      "kept_share": {
+       "mean": 0.9820807237299931,
+       "sd": 0.001205324152796704,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.005137043570046967,
+       "sd": 0.00030073751563779714,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4373,
+        "kept_share": 0.9717777777777777,
+        "wrong": 78,
+        "risk": 0.017836725360164646
+       },
+       "2": {
+        "kept": 4378,
+        "kept_share": 0.9728888888888889,
+        "wrong": 76,
+        "risk": 0.01735952489721334
+       },
+       "3": {
+        "kept": 4378,
+        "kept_share": 0.9728888888888889,
+        "wrong": 76,
+        "risk": 0.01735952489721334
+       }
+      },
+      "kept_share": {
+       "mean": 0.9725185185185186,
+       "sd": 0.0006415002990996203,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.01751859171819711,
+       "sd": 0.0002755118157423507,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 5479,
+        "kept_share": 0.9541971438523162,
+        "wrong": 75,
+        "risk": 0.013688629311918233
+       },
+       "2": {
+        "kept": 5477,
+        "kept_share": 0.953848833159178,
+        "wrong": 77,
+        "risk": 0.014058791309110827
+       },
+       "3": {
+        "kept": 5477,
+        "kept_share": 0.953848833159178,
+        "wrong": 77,
+        "risk": 0.014058791309110827
+       }
+      },
+      "kept_share": {
+       "mean": 0.9539649367235574,
+       "sd": 0.00020109727244498328,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.013935403976713296,
+       "sd": 0.00021371312872291317,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1996,
+        "kept_share": 0.9741337237676916,
+        "wrong": 21,
+        "risk": 0.010521042084168337
+       },
+       "2": {
+        "kept": 1994,
+        "kept_share": 0.9731576378721327,
+        "wrong": 21,
+        "risk": 0.01053159478435306
+       },
+       "3": {
+        "kept": 1994,
+        "kept_share": 0.9731576378721327,
+        "wrong": 21,
+        "risk": 0.01053159478435306
+       }
+      },
+      "kept_share": {
+       "mean": 0.973482999837319,
+       "sd": 0.0005635434545531075,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.01052807721762482,
+       "sd": 6.092604292327341e-06,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8627,
+        "kept_share": 0.9934362045140488,
+        "wrong": 53,
+        "risk": 0.006143502955836328
+       },
+       "2": {
+        "kept": 8627,
+        "kept_share": 0.9934362045140488,
+        "wrong": 55,
+        "risk": 0.006375333256056567
+       },
+       "3": {
+        "kept": 8627,
+        "kept_share": 0.9934362045140488,
+        "wrong": 55,
+        "risk": 0.006375333256056567
+       }
+      },
+      "kept_share": {
+       "mean": 0.9934362045140488,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.006298056489316487,
+       "sd": 0.00013384728623846675,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 4197,
+        "kept_share": 0.9437823251630313,
+        "wrong": 123,
+        "risk": 0.029306647605432452
+       },
+       "2": {
+        "kept": 4193,
+        "kept_share": 0.9428828423656398,
+        "wrong": 120,
+        "risk": 0.02861912711662294
+       },
+       "3": {
+        "kept": 4193,
+        "kept_share": 0.9428828423656398,
+        "wrong": 120,
+        "risk": 0.02861912711662294
+       }
+      },
+      "kept_share": {
+       "mean": 0.9431826699647703,
+       "sd": 0.0005193166352054162,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.02884830061289278,
+       "sd": 0.0003969401392875541,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2451,
+        "kept_share": 0.9911039223615042,
+        "wrong": 5,
+        "risk": 0.002039983680130559
+       },
+       "2": {
+        "kept": 2446,
+        "kept_share": 0.9890820865345734,
+        "wrong": 6,
+        "risk": 0.0024529844644317253
+       },
+       "3": {
+        "kept": 2446,
+        "kept_share": 0.9890820865345734,
+        "wrong": 6,
+        "risk": 0.0024529844644317253
+       }
+      },
+      "kept_share": {
+       "mean": 0.989756031810217,
+       "sd": 0.0011673074589357438,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0023153175363313364,
+       "sd": 0.00023844611399180491,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 400,
+        "kept_share": 0.966183574879227,
+        "wrong": 12,
+        "risk": 0.03
+       },
+       "2": {
+        "kept": 402,
+        "kept_share": 0.9710144927536232,
+        "wrong": 13,
+        "risk": 0.03233830845771144
+       },
+       "3": {
+        "kept": 402,
+        "kept_share": 0.9710144927536232,
+        "wrong": 13,
+        "risk": 0.03233830845771144
+       }
+      },
+      "kept_share": {
+       "mean": 0.9694041867954911,
+       "sd": 0.0027891317352155957,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.03155887230514096,
+       "sd": 0.00135002301750808,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 15,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "walmart-amazon",
+     "billiger-de",
+     "semi-heter"
+    ]
+   }
+  },
+  "clef": {
+   "0.0025": {
+    "t": 0.08660000000000001,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 26538,
+       "kept_share": 0.878014888337469,
+       "wrong": 84,
+       "risk": 0.0031652724395206874
+      },
+      "2": {
+       "kept": 26538,
+       "kept_share": 0.878014888337469,
+       "wrong": 84,
+       "risk": 0.0031652724395206874
+      },
+      "3": {
+       "kept": 26538,
+       "kept_share": 0.878014888337469,
+       "wrong": 84,
+       "risk": 0.0031652724395206874
+      }
+     },
+     "kept_share": {
+      "mean": 0.878014888337469,
+      "sd": 0.0,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.0031652724395206874,
+      "sd": 0.0,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1702,
+        "kept_share": 0.8883089770354906,
+        "wrong": 1,
+        "risk": 0.0005875440658049354
+       },
+       "2": {
+        "kept": 1702,
+        "kept_share": 0.8883089770354906,
+        "wrong": 1,
+        "risk": 0.0005875440658049354
+       },
+       "3": {
+        "kept": 1702,
+        "kept_share": 0.8883089770354906,
+        "wrong": 1,
+        "risk": 0.0005875440658049354
+       }
+      },
+      "kept_share": {
+       "mean": 0.8883089770354906,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0005875440658049354,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 3812,
+        "kept_share": 0.8471111111111111,
+        "wrong": 14,
+        "risk": 0.0036726128016789086
+       },
+       "2": {
+        "kept": 3812,
+        "kept_share": 0.8471111111111111,
+        "wrong": 14,
+        "risk": 0.0036726128016789086
+       },
+       "3": {
+        "kept": 3812,
+        "kept_share": 0.8471111111111111,
+        "wrong": 14,
+        "risk": 0.0036726128016789086
+       }
+      },
+      "kept_share": {
+       "mean": 0.8471111111111111,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0036726128016789086,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 4916,
+        "kept_share": 0.8561476837338906,
+        "wrong": 22,
+        "risk": 0.004475183075671277
+       },
+       "2": {
+        "kept": 4916,
+        "kept_share": 0.8561476837338906,
+        "wrong": 22,
+        "risk": 0.004475183075671277
+       },
+       "3": {
+        "kept": 4916,
+        "kept_share": 0.8561476837338906,
+        "wrong": 22,
+        "risk": 0.004475183075671277
+       }
+      },
+      "kept_share": {
+       "mean": 0.8561476837338906,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.004475183075671277,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1733,
+        "kept_share": 0.8457784285017081,
+        "wrong": 7,
+        "risk": 0.004039238315060588
+       },
+       "2": {
+        "kept": 1733,
+        "kept_share": 0.8457784285017081,
+        "wrong": 7,
+        "risk": 0.004039238315060588
+       },
+       "3": {
+        "kept": 1733,
+        "kept_share": 0.8457784285017081,
+        "wrong": 7,
+        "risk": 0.004039238315060588
+       }
+      },
+      "kept_share": {
+       "mean": 0.8457784285017081,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.004039238315060588,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8329,
+        "kept_share": 0.959120221096269,
+        "wrong": 18,
+        "risk": 0.0021611237843678715
+       },
+       "2": {
+        "kept": 8329,
+        "kept_share": 0.959120221096269,
+        "wrong": 18,
+        "risk": 0.0021611237843678715
+       },
+       "3": {
+        "kept": 8329,
+        "kept_share": 0.959120221096269,
+        "wrong": 18,
+        "risk": 0.0021611237843678715
+       }
+      },
+      "kept_share": {
+       "mean": 0.959120221096269,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0021611237843678715,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3341,
+        "kept_share": 0.7512930065212503,
+        "wrong": 10,
+        "risk": 0.00299311583358276
+       },
+       "2": {
+        "kept": 3341,
+        "kept_share": 0.7512930065212503,
+        "wrong": 10,
+        "risk": 0.00299311583358276
+       },
+       "3": {
+        "kept": 3341,
+        "kept_share": 0.7512930065212503,
+        "wrong": 10,
+        "risk": 0.00299311583358276
+       }
+      },
+      "kept_share": {
+       "mean": 0.7512930065212503,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.00299311583358276,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2378,
+        "kept_share": 0.9615851192883138,
+        "wrong": 5,
+        "risk": 0.0021026072329688814
+       },
+       "2": {
+        "kept": 2378,
+        "kept_share": 0.9615851192883138,
+        "wrong": 5,
+        "risk": 0.0021026072329688814
+       },
+       "3": {
+        "kept": 2378,
+        "kept_share": 0.9615851192883138,
+        "wrong": 5,
+        "risk": 0.0021026072329688814
+       }
+      },
+      "kept_share": {
+       "mean": 0.9615851192883138,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0021026072329688814,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 327,
+        "kept_share": 0.7898550724637681,
+        "wrong": 7,
+        "risk": 0.021406727828746176
+       },
+       "2": {
+        "kept": 327,
+        "kept_share": 0.7898550724637681,
+        "wrong": 7,
+        "risk": 0.021406727828746176
+       },
+       "3": {
+        "kept": 327,
+        "kept_share": 0.7898550724637681,
+        "wrong": 7,
+        "risk": 0.021406727828746176
+       }
+      },
+      "kept_share": {
+       "mean": 0.7898550724637681,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.021406727828746176,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 15,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "walmart-amazon",
+     "billiger-de",
+     "semi-heter"
+    ]
+   },
+   "0.005": {
+    "t": 0.13290000000000002,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 27582,
+       "kept_share": 0.9125558312655087,
+       "wrong": 146,
+       "risk": 0.005293307229352476
+      },
+      "2": {
+       "kept": 27582,
+       "kept_share": 0.9125558312655087,
+       "wrong": 146,
+       "risk": 0.005293307229352476
+      },
+      "3": {
+       "kept": 27582,
+       "kept_share": 0.9125558312655087,
+       "wrong": 146,
+       "risk": 0.005293307229352476
+      }
+     },
+     "kept_share": {
+      "mean": 0.9125558312655087,
+      "sd": 0.0,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.005293307229352476,
+      "sd": 0.0,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1775,
+        "kept_share": 0.9264091858037579,
+        "wrong": 3,
+        "risk": 0.0016901408450704226
+       },
+       "2": {
+        "kept": 1775,
+        "kept_share": 0.9264091858037579,
+        "wrong": 3,
+        "risk": 0.0016901408450704226
+       },
+       "3": {
+        "kept": 1775,
+        "kept_share": 0.9264091858037579,
+        "wrong": 3,
+        "risk": 0.0016901408450704226
+       }
+      },
+      "kept_share": {
+       "mean": 0.9264091858037579,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0016901408450704226,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4016,
+        "kept_share": 0.8924444444444445,
+        "wrong": 25,
+        "risk": 0.006225099601593625
+       },
+       "2": {
+        "kept": 4016,
+        "kept_share": 0.8924444444444445,
+        "wrong": 25,
+        "risk": 0.006225099601593625
+       },
+       "3": {
+        "kept": 4016,
+        "kept_share": 0.8924444444444445,
+        "wrong": 25,
+        "risk": 0.006225099601593625
+       }
+      },
+      "kept_share": {
+       "mean": 0.8924444444444445,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.006225099601593625,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 5153,
+        "kept_share": 0.8974225008707767,
+        "wrong": 37,
+        "risk": 0.007180283330098972
+       },
+       "2": {
+        "kept": 5153,
+        "kept_share": 0.8974225008707767,
+        "wrong": 37,
+        "risk": 0.007180283330098972
+       },
+       "3": {
+        "kept": 5153,
+        "kept_share": 0.8974225008707767,
+        "wrong": 37,
+        "risk": 0.007180283330098972
+       }
+      },
+      "kept_share": {
+       "mean": 0.8974225008707767,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.007180283330098972,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1845,
+        "kept_share": 0.9004392386530015,
+        "wrong": 12,
+        "risk": 0.0065040650406504065
+       },
+       "2": {
+        "kept": 1845,
+        "kept_share": 0.9004392386530015,
+        "wrong": 12,
+        "risk": 0.0065040650406504065
+       },
+       "3": {
+        "kept": 1845,
+        "kept_share": 0.9004392386530015,
+        "wrong": 12,
+        "risk": 0.0065040650406504065
+       }
+      },
+      "kept_share": {
+       "mean": 0.9004392386530015,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0065040650406504065,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8445,
+        "kept_share": 0.9724781206817135,
+        "wrong": 28,
+        "risk": 0.003315571343990527
+       },
+       "2": {
+        "kept": 8445,
+        "kept_share": 0.9724781206817135,
+        "wrong": 28,
+        "risk": 0.003315571343990527
+       },
+       "3": {
+        "kept": 8445,
+        "kept_share": 0.9724781206817135,
+        "wrong": 28,
+        "risk": 0.003315571343990527
+       }
+      },
+      "kept_share": {
+       "mean": 0.9724781206817135,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.003315571343990527,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3589,
+        "kept_share": 0.8070609399595233,
+        "wrong": 25,
+        "risk": 0.006965728615213151
+       },
+       "2": {
+        "kept": 3589,
+        "kept_share": 0.8070609399595233,
+        "wrong": 25,
+        "risk": 0.006965728615213151
+       },
+       "3": {
+        "kept": 3589,
+        "kept_share": 0.8070609399595233,
+        "wrong": 25,
+        "risk": 0.006965728615213151
+       }
+      },
+      "kept_share": {
+       "mean": 0.8070609399595233,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.006965728615213151,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2404,
+        "kept_share": 0.9720986655883542,
+        "wrong": 6,
+        "risk": 0.0024958402662229617
+       },
+       "2": {
+        "kept": 2404,
+        "kept_share": 0.9720986655883542,
+        "wrong": 6,
+        "risk": 0.0024958402662229617
+       },
+       "3": {
+        "kept": 2404,
+        "kept_share": 0.9720986655883542,
+        "wrong": 6,
+        "risk": 0.0024958402662229617
+       }
+      },
+      "kept_share": {
+       "mean": 0.9720986655883542,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0024958402662229617,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 355,
+        "kept_share": 0.857487922705314,
+        "wrong": 10,
+        "risk": 0.028169014084507043
+       },
+       "2": {
+        "kept": 355,
+        "kept_share": 0.857487922705314,
+        "wrong": 10,
+        "risk": 0.028169014084507043
+       },
+       "3": {
+        "kept": 355,
+        "kept_share": 0.857487922705314,
+        "wrong": 10,
+        "risk": 0.028169014084507043
+       }
+      },
+      "kept_share": {
+       "mean": 0.857487922705314,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.028169014084507043,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 15,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "walmart-amazon",
+     "billiger-de",
+     "semi-heter"
+    ]
+   },
+   "0.01": {
+    "t": 0.2134,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 28558,
+       "kept_share": 0.9448469809760133,
+       "wrong": 289,
+       "risk": 0.010119756285454163
+      },
+      "2": {
+       "kept": 28558,
+       "kept_share": 0.9448469809760133,
+       "wrong": 289,
+       "risk": 0.010119756285454163
+      },
+      "3": {
+       "kept": 28558,
+       "kept_share": 0.9448469809760133,
+       "wrong": 289,
+       "risk": 0.010119756285454163
+      }
+     },
+     "kept_share": {
+      "mean": 0.9448469809760133,
+      "sd": 0.0,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.010119756285454163,
+      "sd": 0.0,
+      "runs": 3
+     },
+     "runs_above_target": 3,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1827,
+        "kept_share": 0.9535490605427975,
+        "wrong": 5,
+        "risk": 0.002736726874657909
+       },
+       "2": {
+        "kept": 1827,
+        "kept_share": 0.9535490605427975,
+        "wrong": 5,
+        "risk": 0.002736726874657909
+       },
+       "3": {
+        "kept": 1827,
+        "kept_share": 0.9535490605427975,
+        "wrong": 5,
+        "risk": 0.002736726874657909
+       }
+      },
+      "kept_share": {
+       "mean": 0.9535490605427975,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.002736726874657909,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4203,
+        "kept_share": 0.934,
+        "wrong": 49,
+        "risk": 0.01165833928146562
+       },
+       "2": {
+        "kept": 4203,
+        "kept_share": 0.934,
+        "wrong": 49,
+        "risk": 0.01165833928146562
+       },
+       "3": {
+        "kept": 4203,
+        "kept_share": 0.934,
+        "wrong": 49,
+        "risk": 0.01165833928146562
+       }
+      },
+      "kept_share": {
+       "mean": 0.934,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.01165833928146562,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 5378,
+        "kept_share": 0.9366074538488331,
+        "wrong": 78,
+        "risk": 0.014503532911863145
+       },
+       "2": {
+        "kept": 5378,
+        "kept_share": 0.9366074538488331,
+        "wrong": 78,
+        "risk": 0.014503532911863145
+       },
+       "3": {
+        "kept": 5378,
+        "kept_share": 0.9366074538488331,
+        "wrong": 78,
+        "risk": 0.014503532911863145
+       }
+      },
+      "kept_share": {
+       "mean": 0.9366074538488331,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.014503532911863145,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1933,
+        "kept_share": 0.9433870180575891,
+        "wrong": 17,
+        "risk": 0.008794619762027936
+       },
+       "2": {
+        "kept": 1933,
+        "kept_share": 0.9433870180575891,
+        "wrong": 17,
+        "risk": 0.008794619762027936
+       },
+       "3": {
+        "kept": 1933,
+        "kept_share": 0.9433870180575891,
+        "wrong": 17,
+        "risk": 0.008794619762027936
+       }
+      },
+      "kept_share": {
+       "mean": 0.9433870180575891,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.008794619762027936,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8550,
+        "kept_share": 0.9845693228926762,
+        "wrong": 47,
+        "risk": 0.005497076023391813
+       },
+       "2": {
+        "kept": 8550,
+        "kept_share": 0.9845693228926762,
+        "wrong": 47,
+        "risk": 0.005497076023391813
+       },
+       "3": {
+        "kept": 8550,
+        "kept_share": 0.9845693228926762,
+        "wrong": 47,
+        "risk": 0.005497076023391813
+       }
+      },
+      "kept_share": {
+       "mean": 0.9845693228926762,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.005497076023391813,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3870,
+        "kept_share": 0.8702496064762761,
+        "wrong": 74,
+        "risk": 0.019121447028423774
+       },
+       "2": {
+        "kept": 3870,
+        "kept_share": 0.8702496064762761,
+        "wrong": 74,
+        "risk": 0.019121447028423774
+       },
+       "3": {
+        "kept": 3870,
+        "kept_share": 0.8702496064762761,
+        "wrong": 74,
+        "risk": 0.019121447028423774
+       }
+      },
+      "kept_share": {
+       "mean": 0.8702496064762761,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.019121447028423774,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2422,
+        "kept_share": 0.9793772745653053,
+        "wrong": 7,
+        "risk": 0.002890173410404624
+       },
+       "2": {
+        "kept": 2422,
+        "kept_share": 0.9793772745653053,
+        "wrong": 7,
+        "risk": 0.002890173410404624
+       },
+       "3": {
+        "kept": 2422,
+        "kept_share": 0.9793772745653053,
+        "wrong": 7,
+        "risk": 0.002890173410404624
+       }
+      },
+      "kept_share": {
+       "mean": 0.9793772745653053,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.002890173410404624,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 375,
+        "kept_share": 0.9057971014492754,
+        "wrong": 12,
+        "risk": 0.032
+       },
+       "2": {
+        "kept": 375,
+        "kept_share": 0.9057971014492754,
+        "wrong": 12,
+        "risk": 0.032
+       },
+       "3": {
+        "kept": 375,
+        "kept_share": 0.9057971014492754,
+        "wrong": 12,
+        "risk": 0.032
+       }
+      },
+      "kept_share": {
+       "mean": 0.9057971014492754,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.032,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 12,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "billiger-de",
+     "semi-heter"
+    ]
+   }
+  },
+  "luna_decisions": {
+   "0.0025": {
+    "t": 0.02,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 24610,
+       "kept_share": 0.8142266335814723,
+       "wrong": 31,
+       "risk": 0.001259650548557497
+      },
+      "2": {
+       "kept": 24610,
+       "kept_share": 0.8142266335814723,
+       "wrong": 31,
+       "risk": 0.001259650548557497
+      },
+      "3": {
+       "kept": 24614,
+       "kept_share": 0.8143589743589743,
+       "wrong": 31,
+       "risk": 0.0012594458438287153
+      }
+     },
+     "kept_share": {
+      "mean": 0.814270747173973,
+      "sd": 7.640698351555318e-05,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.001259582313647903,
+      "sd": 1.1818633026643668e-07,
+      "runs": 3
+     },
+     "runs_above_target": 0,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1521,
+        "kept_share": 0.7938413361169102,
+        "wrong": 1,
+        "risk": 0.0006574621959237344
+       },
+       "2": {
+        "kept": 1521,
+        "kept_share": 0.7938413361169102,
+        "wrong": 1,
+        "risk": 0.0006574621959237344
+       },
+       "3": {
+        "kept": 1521,
+        "kept_share": 0.7938413361169102,
+        "wrong": 1,
+        "risk": 0.0006574621959237344
+       }
+      },
+      "kept_share": {
+       "mean": 0.7938413361169102,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0006574621959237344,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 3641,
+        "kept_share": 0.8091111111111111,
+        "wrong": 11,
+        "risk": 0.0030211480362537764
+       },
+       "2": {
+        "kept": 3641,
+        "kept_share": 0.8091111111111111,
+        "wrong": 11,
+        "risk": 0.0030211480362537764
+       },
+       "3": {
+        "kept": 3641,
+        "kept_share": 0.8091111111111111,
+        "wrong": 11,
+        "risk": 0.0030211480362537764
+       }
+      },
+      "kept_share": {
+       "mean": 0.8091111111111111,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0030211480362537764,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 4321,
+        "kept_share": 0.7525252525252525,
+        "wrong": 11,
+        "risk": 0.0025457070122656793
+       },
+       "2": {
+        "kept": 4321,
+        "kept_share": 0.7525252525252525,
+        "wrong": 11,
+        "risk": 0.0025457070122656793
+       },
+       "3": {
+        "kept": 4321,
+        "kept_share": 0.7525252525252525,
+        "wrong": 11,
+        "risk": 0.0025457070122656793
+       }
+      },
+      "kept_share": {
+       "mean": 0.7525252525252525,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0025457070122656793,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1427,
+        "kept_share": 0.6964372864812104,
+        "wrong": 1,
+        "risk": 0.000700770847932726
+       },
+       "2": {
+        "kept": 1427,
+        "kept_share": 0.6964372864812104,
+        "wrong": 1,
+        "risk": 0.000700770847932726
+       },
+       "3": {
+        "kept": 1427,
+        "kept_share": 0.6964372864812104,
+        "wrong": 1,
+        "risk": 0.000700770847932726
+       }
+      },
+      "kept_share": {
+       "mean": 0.6964372864812104,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.000700770847932726,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8093,
+        "kept_share": 0.9319438046982957,
+        "wrong": 3,
+        "risk": 0.00037069072037563324
+       },
+       "2": {
+        "kept": 8093,
+        "kept_share": 0.9319438046982957,
+        "wrong": 3,
+        "risk": 0.00037069072037563324
+       },
+       "3": {
+        "kept": 8091,
+        "kept_share": 0.9317134960847536,
+        "wrong": 3,
+        "risk": 0.0003707823507601038
+       }
+      },
+      "kept_share": {
+       "mean": 0.9318670351604483,
+       "sd": 0.00013296874002523154,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.00037072126383712344,
+       "sd": 5.290282714002577e-08,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3019,
+        "kept_share": 0.6788846413312345,
+        "wrong": 1,
+        "risk": 0.0003312355084465055
+       },
+       "2": {
+        "kept": 3019,
+        "kept_share": 0.6788846413312345,
+        "wrong": 1,
+        "risk": 0.0003312355084465055
+       },
+       "3": {
+        "kept": 3023,
+        "kept_share": 0.679784124128626,
+        "wrong": 1,
+        "risk": 0.0003307972213033411
+       }
+      },
+      "kept_share": {
+       "mean": 0.679184468930365,
+       "sd": 0.0005193166352054162,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0003310894127321173,
+       "sd": 2.5304520008831887e-07,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2262,
+        "kept_share": 0.914678528103518,
+        "wrong": 0,
+        "risk": 0.0
+       },
+       "2": {
+        "kept": 2262,
+        "kept_share": 0.914678528103518,
+        "wrong": 0,
+        "risk": 0.0
+       },
+       "3": {
+        "kept": 2266,
+        "kept_share": 0.9162959967650627,
+        "wrong": 0,
+        "risk": 0.0
+       }
+      },
+      "kept_share": {
+       "mean": 0.9152176843240329,
+       "sd": 0.0009338459671485949,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 326,
+        "kept_share": 0.7874396135265701,
+        "wrong": 3,
+        "risk": 0.009202453987730062
+       },
+       "2": {
+        "kept": 326,
+        "kept_share": 0.7874396135265701,
+        "wrong": 3,
+        "risk": 0.009202453987730062
+       },
+       "3": {
+        "kept": 324,
+        "kept_share": 0.782608695652174,
+        "wrong": 3,
+        "risk": 0.009259259259259259
+       }
+      },
+      "kept_share": {
+       "mean": 0.785829307568438,
+       "sd": 0.0027891317352155957,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.009221389078239795,
+       "sd": 3.279653880877153e-05,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 9,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "semi-heter"
+    ]
+   },
+   "0.005": {
+    "t": 0.04,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 26117,
+       "kept_share": 0.8640860215053764,
+       "wrong": 94,
+       "risk": 0.003599188268177815
+      },
+      "2": {
+       "kept": 26117,
+       "kept_share": 0.8640860215053764,
+       "wrong": 94,
+       "risk": 0.003599188268177815
+      },
+      "3": {
+       "kept": 26124,
+       "kept_share": 0.8643176178660049,
+       "wrong": 95,
+       "risk": 0.003636502832644312
+      }
+     },
+     "kept_share": {
+      "mean": 0.8641632202922526,
+      "sd": 0.00013371222115221806,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.003611626456333314,
+      "sd": 2.154357383942548e-05,
+      "runs": 3
+     },
+     "runs_above_target": 0,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1661,
+        "kept_share": 0.8669102296450939,
+        "wrong": 1,
+        "risk": 0.0006020469596628537
+       },
+       "2": {
+        "kept": 1661,
+        "kept_share": 0.8669102296450939,
+        "wrong": 1,
+        "risk": 0.0006020469596628537
+       },
+       "3": {
+        "kept": 1661,
+        "kept_share": 0.8669102296450939,
+        "wrong": 1,
+        "risk": 0.0006020469596628537
+       }
+      },
+      "kept_share": {
+       "mean": 0.8669102296450939,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0006020469596628537,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 3857,
+        "kept_share": 0.8571111111111112,
+        "wrong": 21,
+        "risk": 0.0054446460980036296
+       },
+       "2": {
+        "kept": 3857,
+        "kept_share": 0.8571111111111112,
+        "wrong": 21,
+        "risk": 0.0054446460980036296
+       },
+       "3": {
+        "kept": 3857,
+        "kept_share": 0.8571111111111112,
+        "wrong": 21,
+        "risk": 0.0054446460980036296
+       }
+      },
+      "kept_share": {
+       "mean": 0.8571111111111112,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0054446460980036296,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 4808,
+        "kept_share": 0.8373389063044235,
+        "wrong": 35,
+        "risk": 0.007279534109816971
+       },
+       "2": {
+        "kept": 4808,
+        "kept_share": 0.8373389063044235,
+        "wrong": 35,
+        "risk": 0.007279534109816971
+       },
+       "3": {
+        "kept": 4808,
+        "kept_share": 0.8373389063044235,
+        "wrong": 35,
+        "risk": 0.007279534109816971
+       }
+      },
+      "kept_share": {
+       "mean": 0.8373389063044235,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.007279534109816971,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1613,
+        "kept_share": 0.7872132747681796,
+        "wrong": 3,
+        "risk": 0.0018598884066955983
+       },
+       "2": {
+        "kept": 1613,
+        "kept_share": 0.7872132747681796,
+        "wrong": 3,
+        "risk": 0.0018598884066955983
+       },
+       "3": {
+        "kept": 1613,
+        "kept_share": 0.7872132747681796,
+        "wrong": 3,
+        "risk": 0.0018598884066955983
+       }
+      },
+      "kept_share": {
+       "mean": 0.7872132747681796,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0018598884066955983,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8249,
+        "kept_share": 0.9499078765545831,
+        "wrong": 20,
+        "risk": 0.002424536307431204
+       },
+       "2": {
+        "kept": 8249,
+        "kept_share": 0.9499078765545831,
+        "wrong": 20,
+        "risk": 0.002424536307431204
+       },
+       "3": {
+        "kept": 8252,
+        "kept_share": 0.9502533394748963,
+        "wrong": 20,
+        "risk": 0.0024236548715462916
+       }
+      },
+      "kept_share": {
+       "mean": 0.9500230308613542,
+       "sd": 0.00019945311003787938,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0024242424954695665,
+       "sd": 5.08897245427484e-07,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3201,
+        "kept_share": 0.7198111086125478,
+        "wrong": 6,
+        "risk": 0.0018744142455482662
+       },
+       "2": {
+        "kept": 3201,
+        "kept_share": 0.7198111086125478,
+        "wrong": 6,
+        "risk": 0.0018744142455482662
+       },
+       "3": {
+        "kept": 3205,
+        "kept_share": 0.7207105914099393,
+        "wrong": 5,
+        "risk": 0.0015600624024961
+       }
+      },
+      "kept_share": {
+       "mean": 0.7201109362116783,
+       "sd": 0.0005193166352054162,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0017696302978642108,
+       "sd": 0.0001814911212064232,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2353,
+        "kept_share": 0.9514759401536595,
+        "wrong": 3,
+        "risk": 0.0012749681257968552
+       },
+       "2": {
+        "kept": 2353,
+        "kept_share": 0.9514759401536595,
+        "wrong": 3,
+        "risk": 0.0012749681257968552
+       },
+       "3": {
+        "kept": 2355,
+        "kept_share": 0.9522846744844319,
+        "wrong": 5,
+        "risk": 0.0021231422505307855
+       }
+      },
+      "kept_share": {
+       "mean": 0.951745518263917,
+       "sd": 0.00046692298357429746,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0015576928340414987,
+       "sd": 0.0004896935592348099,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 375,
+        "kept_share": 0.9057971014492754,
+        "wrong": 5,
+        "risk": 0.013333333333333334
+       },
+       "2": {
+        "kept": 375,
+        "kept_share": 0.9057971014492754,
+        "wrong": 5,
+        "risk": 0.013333333333333334
+       },
+       "3": {
+        "kept": 373,
+        "kept_share": 0.9009661835748792,
+        "wrong": 5,
+        "risk": 0.013404825737265416
+       }
+      },
+      "kept_share": {
+       "mean": 0.9041867954911433,
+       "sd": 0.0027891317352155957,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.013357164134644028,
+       "sd": 4.127615865520078e-05,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 9,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "wdc",
+     "dblp-scholar",
+     "semi-heter"
+    ]
+   },
+   "0.01": {
+    "t": 0.06,
+    "pooled": {
+     "per_run": {
+      "1": {
+       "kept": 27226,
+       "kept_share": 0.9007775020678247,
+       "wrong": 179,
+       "risk": 0.006574597810916036
+      },
+      "2": {
+       "kept": 27226,
+       "kept_share": 0.9007775020678247,
+       "wrong": 179,
+       "risk": 0.006574597810916036
+      },
+      "3": {
+       "kept": 27235,
+       "kept_share": 0.9010752688172043,
+       "wrong": 178,
+       "risk": 0.006535707729025152
+      }
+     },
+     "kept_share": {
+      "mean": 0.9008767576509512,
+      "sd": 0.00017191571291005876,
+      "runs": 3
+     },
+     "risk": {
+      "mean": 0.006561634450285741,
+      "sd": 2.245319924850873e-05,
+      "runs": 3
+     },
+     "runs_above_target": 0,
+     "runs_without_kept_pairs": 0
+    },
+    "per_benchmark": {
+     "abt-buy": {
+      "per_run": {
+       "1": {
+        "kept": 1752,
+        "kept_share": 0.9144050104384134,
+        "wrong": 1,
+        "risk": 0.0005707762557077625
+       },
+       "2": {
+        "kept": 1752,
+        "kept_share": 0.9144050104384134,
+        "wrong": 1,
+        "risk": 0.0005707762557077625
+       },
+       "3": {
+        "kept": 1752,
+        "kept_share": 0.9144050104384134,
+        "wrong": 1,
+        "risk": 0.0005707762557077625
+       }
+      },
+      "kept_share": {
+       "mean": 0.9144050104384134,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0005707762557077625,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "wdc": {
+      "per_run": {
+       "1": {
+        "kept": 4039,
+        "kept_share": 0.8975555555555556,
+        "wrong": 28,
+        "risk": 0.006932409012131715
+       },
+       "2": {
+        "kept": 4039,
+        "kept_share": 0.8975555555555556,
+        "wrong": 28,
+        "risk": 0.006932409012131715
+       },
+       "3": {
+        "kept": 4039,
+        "kept_share": 0.8975555555555556,
+        "wrong": 28,
+        "risk": 0.006932409012131715
+       }
+      },
+      "kept_share": {
+       "mean": 0.8975555555555556,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.006932409012131715,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-scholar": {
+      "per_run": {
+       "1": {
+        "kept": 5050,
+        "kept_share": 0.8794845001741554,
+        "wrong": 53,
+        "risk": 0.010495049504950496
+       },
+       "2": {
+        "kept": 5050,
+        "kept_share": 0.8794845001741554,
+        "wrong": 53,
+        "risk": 0.010495049504950496
+       },
+       "3": {
+        "kept": 5050,
+        "kept_share": 0.8794845001741554,
+        "wrong": 53,
+        "risk": 0.010495049504950496
+       }
+      },
+      "kept_share": {
+       "mean": 0.8794845001741554,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.010495049504950496,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     },
+     "walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 1753,
+        "kept_share": 0.8555392874572962,
+        "wrong": 9,
+        "risk": 0.00513405590416429
+       },
+       "2": {
+        "kept": 1753,
+        "kept_share": 0.8555392874572962,
+        "wrong": 9,
+        "risk": 0.00513405590416429
+       },
+       "3": {
+        "kept": 1753,
+        "kept_share": 0.8555392874572962,
+        "wrong": 9,
+        "risk": 0.00513405590416429
+       }
+      },
+      "kept_share": {
+       "mean": 0.8555392874572962,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.00513405590416429,
+       "sd": 0.0,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "dn7-walmart-amazon": {
+      "per_run": {
+       "1": {
+        "kept": 8413,
+        "kept_share": 0.9687931828650391,
+        "wrong": 40,
+        "risk": 0.004754546535124212
+       },
+       "2": {
+        "kept": 8413,
+        "kept_share": 0.9687931828650391,
+        "wrong": 40,
+        "risk": 0.004754546535124212
+       },
+       "3": {
+        "kept": 8415,
+        "kept_share": 0.9690234914785812,
+        "wrong": 40,
+        "risk": 0.004753416518122401
+       }
+      },
+      "kept_share": {
+       "mean": 0.9688699524028865,
+       "sd": 0.00013296874002523154,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.004754169862790275,
+       "sd": 6.524156201848071e-07,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "billiger-de": {
+      "per_run": {
+       "1": {
+        "kept": 3445,
+        "kept_share": 0.7746795592534292,
+        "wrong": 33,
+        "risk": 0.009579100145137881
+       },
+       "2": {
+        "kept": 3445,
+        "kept_share": 0.7746795592534292,
+        "wrong": 33,
+        "risk": 0.009579100145137881
+       },
+       "3": {
+        "kept": 3453,
+        "kept_share": 0.7764785248482122,
+        "wrong": 32,
+        "risk": 0.00926730379380249
+       }
+      },
+      "kept_share": {
+       "mean": 0.7752792144516902,
+       "sd": 0.0010386332704108324,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.009475168028026084,
+       "sd": 0.0001800157073758311,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "dblp-acm": {
+      "per_run": {
+       "1": {
+        "kept": 2388,
+        "kept_share": 0.9656287909421755,
+        "wrong": 9,
+        "risk": 0.0037688442211055275
+       },
+       "2": {
+        "kept": 2388,
+        "kept_share": 0.9656287909421755,
+        "wrong": 9,
+        "risk": 0.0037688442211055275
+       },
+       "3": {
+        "kept": 2386,
+        "kept_share": 0.9648200566114031,
+        "wrong": 9,
+        "risk": 0.0037720033528918693
+       }
+      },
+      "kept_share": {
+       "mean": 0.9653592128319181,
+       "sd": 0.00046692298357429746,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.0037698972650343082,
+       "sd": 1.8239255872499393e-06,
+       "runs": 3
+      },
+      "runs_above_target": 0,
+      "runs_without_kept_pairs": 0
+     },
+     "semi-heter": {
+      "per_run": {
+       "1": {
+        "kept": 386,
+        "kept_share": 0.9323671497584541,
+        "wrong": 6,
+        "risk": 0.015544041450777202
+       },
+       "2": {
+        "kept": 386,
+        "kept_share": 0.9323671497584541,
+        "wrong": 6,
+        "risk": 0.015544041450777202
+       },
+       "3": {
+        "kept": 387,
+        "kept_share": 0.9347826086956522,
+        "wrong": 6,
+        "risk": 0.015503875968992248
+       }
+      },
+      "kept_share": {
+       "mean": 0.9331723027375202,
+       "sd": 0.0013945658676077978,
+       "runs": 3
+      },
+      "risk": {
+       "mean": 0.015530652956848884,
+       "sd": 2.3189551720674166e-05,
+       "runs": 3
+      },
+      "runs_above_target": 3,
+      "runs_without_kept_pairs": 0
+     }
+    },
+    "cells_above_target": 6,
+    "cells": 24,
+    "benchmarks_above_target_on_mean": [
+     "dblp-scholar",
+     "semi-heter"
+    ]
+   }
+  }
+ }
+}

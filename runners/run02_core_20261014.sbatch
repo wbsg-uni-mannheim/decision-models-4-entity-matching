@@ -1,4 +1,4 @@
 #!/bin/bash
 set -euo pipefail
-cd /ceph/aasteine/decision-em-20261013
-exec .venv/bin/python -u artifacts/operations/repeated_runs_parallel.py --root /ceph/aasteine/decision-em-20261013 --run-id 2 --stage core --admission /ceph/aasteine/decision-em-20261013/configs/run02_core_admission_20261014.json --parallel-policy /ceph/aasteine/decision-em-20261013/configs/parallel_execution_20261014.json
+cd /path/to/decision-em
+exec .venv/bin/python -u artifacts/operations/repeated_runs_parallel.py --root /path/to/decision-em --run-id 2 --stage core --admission /path/to/decision-em/configs/run02_core_admission_20261014.json --parallel-policy /path/to/decision-em/configs/parallel_execution_20261014.json

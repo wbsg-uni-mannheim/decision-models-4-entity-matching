@@ -1,0 +1,1074 @@
+{
+ "description": "Paired bootstrap of the validation-selected prompt against B0 on test, per model. Read-only, no inference.\n\nSelection from artifacts/results/prompt_validation_20261027.json (selection[m][b].prompt). Test journals as in\npromptval_eval.test_f1: prompt12_run01_20261019, B0 from the baseline table (runs/quality) except the prompt12 extra\nmodels (pplx_v12), which use their own B0. Reference arm: test oracle = best of the ten zero-shot prompts per benchmark\non test (ties: promptval.PROMPTS order, B0 first). Method of inputs_b0_eval.py: stratified per benchmark, 10,000\nreplicates, seed 0, same resample for B0 and the arm; mean F1 difference over the 8 benchmarks in points, 95% CI,\ncorrect->wrong and wrong->correct counts against B0. Point diffs are checked against prompt_validation_20261027.json.\n\n    .venv/bin/python src/promptval_bootstrap_eval.py --out artifacts/results/prompt_validation_bootstrap_20261030.json\n",
+ "replicates": 10000,
+ "selection_file": "artifacts/results/prompt_validation_20261027.json",
+ "cells": {
+  "jev": {
+   "abt-buy": {
+    "valid_selected": {
+     "prompt": "PE_domain_complex",
+     "f1": 0.9035294117647059,
+     "f1_b0": 0.9099756690997567,
+     "diff": -0.6446257335050776,
+     "flip": 0.008350730688935281
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9108433734939759,
+     "f1_b0": 0.9099756690997567,
+     "diff": 0.08677043942192375,
+     "flip": 0.0020876826722338203
+    }
+   },
+   "wdc": {
+    "valid_selected": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.8714011516314779,
+     "f1_b0": 0.8522613065326633,
+     "diff": 1.9139845098814612,
+     "flip": 0.010444444444444444
+    },
+    "test_oracle": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.8714011516314779,
+     "f1_b0": 0.8522613065326633,
+     "diff": 1.9139845098814612,
+     "flip": 0.010444444444444444
+    }
+   },
+   "dblp-scholar": {
+    "valid_selected": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.9221876389506447,
+     "f1_b0": 0.9191374663072777,
+     "diff": 0.3050172643367044,
+     "flip": 0.008185301288749565
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9239766081871345,
+     "f1_b0": 0.9191374663072777,
+     "diff": 0.483914187985679,
+     "flip": 0.008185301288749565
+    }
+   },
+   "walmart-amazon": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.8711340206185567,
+     "f1_b0": 0.8711340206185567,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.8849104859335039,
+     "f1_b0": 0.8711340206185567,
+     "diff": 1.377646531494714,
+     "flip": 0.004392386530014641
+    }
+   },
+   "dn7-walmart-amazon": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.7514792899408284,
+     "f1_b0": 0.7514792899408284,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "NA_complex",
+     "f1": 0.764367816091954,
+     "f1_b0": 0.7514792899408284,
+     "diff": 1.2888526151125679,
+     "flip": 0.0013818516812528789
+    }
+   },
+   "billiger-de": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.7285886610373945,
+     "f1_b0": 0.7285886610373945,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.7285886610373945,
+     "f1_b0": 0.7285886610373945,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "dblp-acm": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.9714912280701754,
+     "f1_b0": 0.9714912280701754,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9725576289791438,
+     "f1_b0": 0.9714912280701754,
+     "diff": 0.10664009089683679,
+     "flip": 0.0028305701577031944
+    }
+   },
+   "semi-heter": {
+    "valid_selected": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.9453376205787781,
+     "f1_b0": 0.9054054054054054,
+     "diff": 3.9932215173372754,
+     "flip": 0.036231884057971016
+    },
+    "test_oracle": {
+     "prompt": "PE_domain_simple",
+     "f1": 0.9548387096774194,
+     "f1_b0": 0.9054054054054054,
+     "diff": 4.943330427201397,
+     "flip": 0.033816425120772944
+    }
+   }
+  },
+  "clef": {
+   "abt-buy": {
+    "valid_selected": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.9174311926605505,
+     "f1_b0": 0.9086538461538461,
+     "diff": 0.8777346506704364,
+     "flip": 0.010438413361169102
+    },
+    "test_oracle": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.9238095238095239,
+     "f1_b0": 0.9086538461538461,
+     "diff": 1.5155677655677713,
+     "flip": 0.005219206680584551
+    }
+   },
+   "wdc": {
+    "valid_selected": {
+     "prompt": "PE_general_complex",
+     "f1": 0.8478900883218842,
+     "f1_b0": 0.8548387096774194,
+     "diff": -0.69486213555352,
+     "flip": 0.009555555555555555
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.8577036310107949,
+     "f1_b0": 0.8548387096774194,
+     "diff": 0.28649213333755696,
+     "flip": 0.0077777777777777776
+    }
+   },
+   "dblp-scholar": {
+    "valid_selected": {
+     "prompt": "PE_general_complex",
+     "f1": 0.9227293267058292,
+     "f1_b0": 0.9046270066100094,
+     "diff": 1.8102320095819802,
+     "flip": 0.017241379310344827
+    },
+    "test_oracle": {
+     "prompt": "PE_domain_simple",
+     "f1": 0.9250340754202635,
+     "f1_b0": 0.9046270066100094,
+     "diff": 2.0407068810254114,
+     "flip": 0.014803204458376872
+    }
+   },
+   "walmart-amazon": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.8802083333333334,
+     "f1_b0": 0.8802083333333334,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.8802083333333334,
+     "f1_b0": 0.8802083333333334,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "dn7-walmart-amazon": {
+    "valid_selected": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.7308781869688386,
+     "f1_b0": 0.7436619718309859,
+     "diff": -1.2783784862147374,
+     "flip": 0.0016121602947950253
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.7445652173913043,
+     "f1_b0": 0.7436619718309859,
+     "diff": 0.09032455603183998,
+     "flip": 0.002418240442192538
+    }
+   },
+   "billiger-de": {
+    "valid_selected": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.6492942453854506,
+     "f1_b0": 0.6791131855309218,
+     "diff": -2.981894014547126,
+     "flip": 0.021587587137395996
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.6791131855309218,
+     "f1_b0": 0.6791131855309218,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "dblp-acm": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.9724366041896362,
+     "f1_b0": 0.9724366041896362,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.9724366041896362,
+     "f1_b0": 0.9724366041896362,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "semi-heter": {
+    "valid_selected": {
+     "prompt": "PE_general_simple",
+     "f1": 0.9385113268608414,
+     "f1_b0": 0.9342105263157895,
+     "diff": 0.4300800545051886,
+     "flip": 0.012077294685990338
+    },
+    "test_oracle": {
+     "prompt": "NA_complex",
+     "f1": 0.9483870967741935,
+     "f1_b0": 0.9342105263157895,
+     "diff": 1.4176570458404036,
+     "flip": 0.014492753623188406
+    }
+   }
+  },
+  "clef_flash": {
+   "abt-buy": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.8333333333333334,
+     "f1_b0": 0.8333333333333334,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.8516129032258064,
+     "f1_b0": 0.8333333333333334,
+     "diff": 1.8279569892473035,
+     "flip": 0.007828810020876827
+    }
+   },
+   "wdc": {
+    "valid_selected": {
+     "prompt": "NA_simple",
+     "f1": 0.7243589743589743,
+     "f1_b0": 0.7217321571772254,
+     "diff": 0.2626817181748953,
+     "flip": 0.021111111111111112
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.7243589743589743,
+     "f1_b0": 0.7217321571772254,
+     "diff": 0.2626817181748953,
+     "flip": 0.021111111111111112
+    }
+   },
+   "dblp-scholar": {
+    "valid_selected": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9284106258442143,
+     "f1_b0": 0.9021129797326434,
+     "diff": 2.6297646111570927,
+     "flip": 0.018112156043190525
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9284106258442143,
+     "f1_b0": 0.9021129797326434,
+     "diff": 2.6297646111570927,
+     "flip": 0.018112156043190525
+    }
+   },
+   "walmart-amazon": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.6558558558558558,
+     "f1_b0": 0.6558558558558558,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.6558558558558558,
+     "f1_b0": 0.6558558558558558,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "dn7-walmart-amazon": {
+    "valid_selected": {
+     "prompt": "NA_simple",
+     "f1": 0.42406015037593986,
+     "f1_b0": 0.4040114613180516,
+     "diff": 2.004868905788826,
+     "flip": 0.015776140027637033
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.42406015037593986,
+     "f1_b0": 0.4040114613180516,
+     "diff": 2.004868905788826,
+     "flip": 0.015776140027637033
+    }
+   },
+   "billiger-de": {
+    "valid_selected": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.45616535994297935,
+     "f1_b0": 0.437976437976438,
+     "diff": 1.8188921966541371,
+     "flip": 0.0386777602878345
+    },
+    "test_oracle": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.45616535994297935,
+     "f1_b0": 0.437976437976438,
+     "diff": 1.8188921966541371,
+     "flip": 0.0386777602878345
+    }
+   },
+   "dblp-acm": {
+    "valid_selected": {
+     "prompt": "PE_general_complex",
+     "f1": 0.9547413793103449,
+     "f1_b0": 0.9205020920502092,
+     "diff": 3.42392872601357,
+     "flip": 0.015365952284674484
+    },
+    "test_oracle": {
+     "prompt": "PE_general_complex",
+     "f1": 0.9547413793103449,
+     "f1_b0": 0.9205020920502092,
+     "diff": 3.42392872601357,
+     "flip": 0.015365952284674484
+    }
+   },
+   "semi-heter": {
+    "valid_selected": {
+     "prompt": "PE_general_complex",
+     "f1": 0.9476923076923077,
+     "f1_b0": 0.9422492401215805,
+     "diff": 0.5443067570727211,
+     "flip": 0.00966183574879227
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.9480122324159022,
+     "f1_b0": 0.9422492401215805,
+     "diff": 0.5762992294321645,
+     "flip": 0.014492753623188406
+    }
+   }
+  },
+  "luna_decisions": {
+   "abt-buy": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.9103139013452914,
+     "f1_b0": 0.9103139013452914,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.9103139013452914,
+     "f1_b0": 0.9103139013452914,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "wdc": {
+    "valid_selected": {
+     "prompt": "PE_domain_complex",
+     "f1": 0.854262144821265,
+     "f1_b0": 0.8654037886340977,
+     "diff": -1.114164381283278,
+     "flip": 0.019555555555555555
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.8659594985535197,
+     "f1_b0": 0.8654037886340977,
+     "diff": 0.05557099194219983,
+     "flip": 0.010666666666666666
+    }
+   },
+   "dblp-scholar": {
+    "valid_selected": {
+     "prompt": "NA_complex",
+     "f1": 0.9125610297381269,
+     "f1_b0": 0.9011576135351737,
+     "diff": 1.1403416202953265,
+     "flip": 0.01654475792406827
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9147647880763856,
+     "f1_b0": 0.9011576135351737,
+     "diff": 1.3607174541211964,
+     "flip": 0.020027864855451064
+    }
+   },
+   "walmart-amazon": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.8457943925233645,
+     "f1_b0": 0.8457943925233645,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.8524590163934426,
+     "f1_b0": 0.8457943925233645,
+     "diff": 0.6664623870078046,
+     "flip": 0.009272816007808687
+    }
+   },
+   "dn7-walmart-amazon": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.7468030690537084,
+     "f1_b0": 0.7468030690537084,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.7525773195876289,
+     "f1_b0": 0.7468030690537084,
+     "diff": 0.5774250533920444,
+     "flip": 0.001957623215108245
+    }
+   },
+   "billiger-de": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.6914103923647932,
+     "f1_b0": 0.6914103923647932,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.6914103923647932,
+     "f1_b0": 0.6914103923647932,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "dblp-acm": {
+    "valid_selected": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.98,
+     "f1_b0": 0.9660460021905805,
+     "diff": 1.3953997809419527,
+     "flip": 0.00606550748079256
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.98,
+     "f1_b0": 0.9660460021905805,
+     "diff": 1.3953997809419527,
+     "flip": 0.00606550748079256
+    }
+   },
+   "semi-heter": {
+    "valid_selected": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9426751592356688,
+     "f1_b0": 0.9473684210526315,
+     "diff": -0.4693261816962724,
+     "flip": 0.021739130434782608
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.9512195121951219,
+     "f1_b0": 0.9473684210526315,
+     "diff": 0.38510911424903815,
+     "flip": 0.016908212560386472
+    }
+   }
+  },
+  "pplx_v12": {
+   "abt-buy": {
+    "valid_selected": {
+     "prompt": "PE_general_complex",
+     "f1": 0.9364705882352942,
+     "f1_b0": 0.9400479616306955,
+     "diff": -0.35773733954013176,
+     "flip": 0.0041753653444676405
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.9466019417475728,
+     "f1_b0": 0.9400479616306955,
+     "diff": 0.6553980116877356,
+     "flip": 0.004697286012526096
+    }
+   },
+   "wdc": {
+    "valid_selected": {
+     "prompt": "PE_domain_simple",
+     "f1": 0.8775710088148874,
+     "f1_b0": 0.871587462082912,
+     "diff": 0.598354673197532,
+     "flip": 0.008888888888888889
+    },
+    "test_oracle": {
+     "prompt": "PE_general_complex",
+     "f1": 0.8783382789317508,
+     "f1_b0": 0.871587462082912,
+     "diff": 0.6750816848838714,
+     "flip": 0.0057777777777777775
+    }
+   },
+   "dblp-scholar": {
+    "valid_selected": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.9292076887013596,
+     "f1_b0": 0.9260120986505351,
+     "diff": 0.31955900508244817,
+     "flip": 0.006269592476489028
+    },
+    "test_oracle": {
+     "prompt": "PE_general_complex",
+     "f1": 0.9362880886426593,
+     "f1_b0": 0.9260120986505351,
+     "diff": 1.0275989992124201,
+     "flip": 0.007836990595611285
+    }
+   },
+   "walmart-amazon": {
+    "valid_selected": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.9010416666666666,
+     "f1_b0": 0.9043927648578811,
+     "diff": -0.33510981912144855,
+     "flip": 0.003416300634455832
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.9043927648578811,
+     "f1_b0": 0.9043927648578811,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "dn7-walmart-amazon": {
+    "valid_selected": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.7740112994350282,
+     "f1_b0": 0.7671232876712328,
+     "diff": 0.6888011763795387,
+     "flip": 0.0014970059880239522
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.7769028871391076,
+     "f1_b0": 0.7671232876712328,
+     "diff": 0.9779599467874767,
+     "flip": 0.0023030861354214646
+    }
+   },
+   "billiger-de": {
+    "valid_selected": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.7181818181818181,
+     "f1_b0": 0.7156626506024096,
+     "diff": 0.251916757940851,
+     "flip": 0.015291207555655498
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.7181818181818181,
+     "f1_b0": 0.7156626506024096,
+     "diff": 0.251916757940851,
+     "flip": 0.015291207555655498
+    }
+   },
+   "dblp-acm": {
+    "valid_selected": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9812154696132597,
+     "f1_b0": 0.9811738648947951,
+     "diff": 0.0041604718464594015,
+     "flip": 0.002426202992317024
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.9833147942157954,
+     "f1_b0": 0.9811738648947951,
+     "diff": 0.21409293210002955,
+     "flip": 0.0016174686615446825
+    }
+   },
+   "semi-heter": {
+    "valid_selected": {
+     "prompt": "PE_general_simple",
+     "f1": 0.9581993569131833,
+     "f1_b0": 0.9411764705882353,
+     "diff": 1.7022886324947972,
+     "flip": 0.012077294685990338
+    },
+    "test_oracle": {
+     "prompt": "PE_general_simple",
+     "f1": 0.9581993569131833,
+     "f1_b0": 0.9411764705882353,
+     "diff": 1.7022886324947972,
+     "flip": 0.012077294685990338
+    }
+   }
+  },
+  "kev": {
+   "abt-buy": {
+    "valid_selected": {
+     "prompt": "PE_general_simple",
+     "f1": 0.8699551569506726,
+     "f1_b0": 0.8755760368663594,
+     "diff": -0.5620879915686827,
+     "flip": 0.006263048016701462
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.8755760368663594,
+     "f1_b0": 0.8755760368663594,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "wdc": {
+    "valid_selected": {
+     "prompt": "NA_simple",
+     "f1": 0.7603725656223539,
+     "f1_b0": 0.7639123102866779,
+     "diff": -0.35397446643240515,
+     "flip": 0.01622222222222222
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.7675585284280937,
+     "f1_b0": 0.7639123102866779,
+     "diff": 0.3646218141415747,
+     "flip": 0.011555555555555555
+    }
+   },
+   "dblp-scholar": {
+    "valid_selected": {
+     "prompt": "NA_complex",
+     "f1": 0.8966124065112187,
+     "f1_b0": 0.890061565523307,
+     "diff": 0.6550840987911699,
+     "flip": 0.01654475792406827
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.9006622516556292,
+     "f1_b0": 0.890061565523307,
+     "diff": 1.0600686132322235,
+     "flip": 0.01584813653779171
+    }
+   },
+   "walmart-amazon": {
+    "valid_selected": {
+     "prompt": "PE_general_simple",
+     "f1": 0.7446808510638298,
+     "f1_b0": 0.7436974789915967,
+     "diff": 0.09833720722330908,
+     "flip": 0.021473889702293802
+    },
+    "test_oracle": {
+     "prompt": "PE_general_simple",
+     "f1": 0.7446808510638298,
+     "f1_b0": 0.7436974789915967,
+     "diff": 0.09833720722330908,
+     "flip": 0.021473889702293802
+    }
+   },
+   "dn7-walmart-amazon": {
+    "valid_selected": {
+     "prompt": "NA_simple",
+     "f1": 0.6865671641791045,
+     "f1_b0": 0.6844660194174758,
+     "diff": 0.21011447616287038,
+     "flip": 0.0023030861354214646
+    },
+    "test_oracle": {
+     "prompt": "PE_general_simple",
+     "f1": 0.6896551724137931,
+     "f1_b0": 0.6844660194174758,
+     "diff": 0.5189152996317392,
+     "flip": 0.0020727775218793184
+    }
+   },
+   "billiger-de": {
+    "valid_selected": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.5485812553740327,
+     "f1_b0": 0.5324232081911263,
+     "diff": 1.6158047182906365,
+     "flip": 0.013717112660220373
+    },
+    "test_oracle": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.5485812553740327,
+     "f1_b0": 0.5324232081911263,
+     "diff": 1.6158047182906365,
+     "flip": 0.013717112660220373
+    }
+   },
+   "dblp-acm": {
+    "valid_selected": {
+     "prompt": "PE_general_complex",
+     "f1": 0.842436974789916,
+     "f1_b0": 0.7662178702570379,
+     "diff": 7.621910453287805,
+     "flip": 0.05863323898099474
+    },
+    "test_oracle": {
+     "prompt": "PE_general_complex",
+     "f1": 0.842436974789916,
+     "f1_b0": 0.7662178702570379,
+     "diff": 7.621910453287805,
+     "flip": 0.05863323898099474
+    }
+   },
+   "semi-heter": {
+    "valid_selected": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.8987341772151899,
+     "f1_b0": 0.9125,
+     "diff": -1.376582278481009,
+     "flip": 0.01932367149758454
+    },
+    "test_oracle": {
+     "prompt": "PE_domain_simple",
+     "f1": 0.9283489096573209,
+     "f1_b0": 0.9125,
+     "diff": 1.5848909657320887,
+     "flip": 0.021739130434782608
+    }
+   }
+  },
+  "luna": {
+   "abt-buy": {
+    "valid_selected": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9434889434889435,
+     "f1_b0": 0.948905109489051,
+     "diff": -0.5416166000107525,
+     "flip": 0.007306889352818371
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.948905109489051,
+     "f1_b0": 0.948905109489051,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "wdc": {
+    "valid_selected": {
+     "prompt": "X_P_conservative_0",
+     "f1": 0.8810483870967742,
+     "f1_b0": 0.8839556004036327,
+     "diff": -0.29072133068585027,
+     "flip": 0.011333333333333334
+    },
+    "test_oracle": {
+     "prompt": "PE_domain_complex",
+     "f1": 0.8882410106899903,
+     "f1_b0": 0.8839556004036327,
+     "diff": 0.42854102863575383,
+     "flip": 0.012444444444444444
+    }
+   },
+   "dblp-scholar": {
+    "valid_selected": {
+     "prompt": "PE_domain_complex",
+     "f1": 0.9064084831719686,
+     "f1_b0": 0.8855625301786576,
+     "diff": 2.0845952993311045,
+     "flip": 0.02681992337164751
+    },
+    "test_oracle": {
+     "prompt": "PE_general_complex",
+     "f1": 0.9104271933853928,
+     "f1_b0": 0.8855625301786576,
+     "diff": 2.4864663206735194,
+     "flip": 0.025078369905956112
+    }
+   },
+   "walmart-amazon": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.9063291139240506,
+     "f1_b0": 0.9063291139240506,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.906801007556675,
+     "f1_b0": 0.9063291139240506,
+     "diff": 0.04718936326244538,
+     "flip": 0.013665202537823329
+    }
+   },
+   "dn7-walmart-amazon": {
+    "valid_selected": {
+     "prompt": "B0",
+     "f1": 0.7777777777777778,
+     "f1_b0": 0.7777777777777778,
+     "diff": 0.0,
+     "flip": 0.0
+    },
+    "test_oracle": {
+     "prompt": "B0",
+     "f1": 0.7777777777777778,
+     "f1_b0": 0.7777777777777778,
+     "diff": 0.0,
+     "flip": 0.0
+    }
+   },
+   "billiger-de": {
+    "valid_selected": {
+     "prompt": "NA_simple",
+     "f1": 0.6415458937198067,
+     "f1_b0": 0.6552763819095477,
+     "diff": -1.3730488189740986,
+     "flip": 0.040926467281313245
+    },
+    "test_oracle": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.7295742232451093,
+     "f1_b0": 0.6552763819095477,
+     "diff": 7.429784133556161,
+     "flip": 0.04587362266696649
+    }
+   },
+   "dblp-acm": {
+    "valid_selected": {
+     "prompt": "NA_complex",
+     "f1": 0.9821029082774049,
+     "f1_b0": 0.9725576289791438,
+     "diff": 0.95452792982611,
+     "flip": 0.010109179134654266
+    },
+    "test_oracle": {
+     "prompt": "NA_simple",
+     "f1": 0.9822222222222222,
+     "f1_b0": 0.9725576289791438,
+     "diff": 0.9664593243078445,
+     "flip": 0.006874241811564901
+    }
+   },
+   "semi-heter": {
+    "valid_selected": {
+     "prompt": "X_P_domain_0",
+     "f1": 0.9381107491856677,
+     "f1_b0": 0.9419354838709677,
+     "diff": -0.382473468529998,
+     "flip": 0.007246376811594203
+    },
+    "test_oracle": {
+     "prompt": "X_P_evidence_0",
+     "f1": 0.9487179487179487,
+     "f1_b0": 0.9419354838709677,
+     "diff": 0.6782464846980973,
+     "flip": 0.004830917874396135
+    }
+   }
+  }
+ },
+ "bootstrap": {
+  "jev": {
+   "valid_selected": {
+    "diff": 0.6959496947562954,
+    "ci95": [
+     0.26280159397847674,
+     1.144765816964091
+    ],
+    "correct_to_wrong": 50,
+    "wrong_to_correct": 75,
+    "diff_matches_prompt_validation": true
+   },
+   "test_oracle": {
+    "diff": 1.2751423502493227,
+    "ci95": [
+     0.7923404013617883,
+     1.8121629007298294
+    ],
+    "correct_to_wrong": 47,
+    "wrong_to_correct": 93,
+    "diff_matches_prompt_validation": true
+   }
+  },
+  "clef": {
+   "valid_selected": {
+    "diff": -0.2296359901947223,
+    "ci95": [
+     -0.7195425460738116,
+     0.2697487848756104
+    ],
+    "correct_to_wrong": 153,
+    "wrong_to_correct": 124,
+    "diff_matches_prompt_validation": true
+   },
+   "test_oracle": {
+    "diff": 0.6688435477253729,
+    "ci95": [
+     0.2380217037439432,
+     1.114241655160533
+    ],
+    "correct_to_wrong": 57,
+    "wrong_to_correct": 100,
+    "diff_matches_prompt_validation": true
+   }
+  },
+  "clef_flash": {
+   "valid_selected": {
+    "diff": 1.3355553643576552,
+    "ci95": [
+     0.978726525461171,
+     1.6932057297780991
+    ],
+    "correct_to_wrong": 181,
+    "wrong_to_correct": 369,
+    "diff_matches_prompt_validation": true
+   },
+   "test_oracle": {
+    "diff": 1.5680490470584987,
+    "ci95": [
+     1.160269113092712,
+     1.9862267483334626
+    ],
+    "correct_to_wrong": 185,
+    "wrong_to_correct": 382,
+    "diff_matches_prompt_validation": true
+   }
+  },
+  "luna_decisions": {
+   "valid_selected": {
+    "diff": 0.1190313547822161,
+    "ci95": [
+     -0.23404624179333477,
+     0.4686906251385428
+    ],
+    "correct_to_wrong": 97,
+    "wrong_to_correct": 110,
+    "diff_matches_prompt_validation": true
+   },
+   "test_oracle": {
+    "diff": 0.5550855977067795,
+    "ci95": [
+     0.13507732989647556,
+     0.9864875734684179
+    ],
+    "correct_to_wrong": 83,
+    "wrong_to_correct": 138,
+    "diff_matches_prompt_validation": true
+   }
+  },
+  "pplx_v12": {
+   "valid_selected": {
+    "diff": 0.3590291947850058,
+    "ci95": [
+     -0.10713327826484738,
+     0.8412789717214292
+    ],
+    "correct_to_wrong": 89,
+    "wrong_to_correct": 94,
+    "diff_matches_prompt_validation": true
+   },
+   "test_oracle": {
+    "diff": 0.6880421206383978,
+    "ci95": [
+     0.2193385722691903,
+     1.1643885300395338
+    ],
+    "correct_to_wrong": 77,
+    "wrong_to_correct": 100,
+    "diff_matches_prompt_validation": true
+   }
+  },
+  "kev": {
+   "valid_selected": {
+    "diff": 0.9885757771592119,
+    "ci95": [
+     0.3628830286934602,
+     1.616486969055483
+    ],
+    "correct_to_wrong": 192,
+    "wrong_to_correct": 266,
+    "diff_matches_prompt_validation": true
+   },
+   "test_oracle": {
+    "diff": 1.6080686339424222,
+    "ci95": [
+     1.028696405543186,
+     2.205186472892856
+    ],
+    "correct_to_wrong": 159,
+    "wrong_to_correct": 261,
+    "diff_matches_prompt_validation": true
+   }
+  },
+  "luna": {
+   "valid_selected": {
+    "diff": 0.0564078763695644,
+    "ci95": [
+     -0.4021041418149509,
+     0.5133153905632887
+    ],
+    "correct_to_wrong": 210,
+    "wrong_to_correct": 219,
+    "diff_matches_prompt_validation": true
+   },
+   "test_oracle": {
+    "diff": 1.5045858318917276,
+    "ci95": [
+     0.996315907103284,
+     2.0309791919432794
+    ],
+    "correct_to_wrong": 145,
+    "wrong_to_correct": 306,
+    "diff_matches_prompt_validation": true
+   }
+  }
+ },
+ "created_at": "2026-10-30T08:17:07.132910+00:00"
+}

@@ -1,0 +1,15 @@
+[project]
+name = "pplx-vllm"
+version = "0.1.0"
+description = "vLLM plugin: pplx-decider-v1.2 joint inline-readout as a token_classify pooling model"
+requires-python = ">=3.12"
+
+[project.entry-points."vllm.general_plugins"]
+pplx_vllm = "pplx_vllm:register"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["pplx_vllm"]

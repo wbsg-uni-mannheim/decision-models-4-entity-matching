@@ -1,0 +1,109 @@
+{
+  "utc": "2026-10-14T17:53:32.688345+00:00",
+  "run_id": 3,
+  "stage": "core",
+  "slurm_job_id": "365895",
+  "budget_cap_usd": 100,
+  "runner_sha256": "c4f0ba89bf9abf88f9675888654f6b594932d87bd9d728b69615a8d5d48818ab",
+  "launcher_sha256": "34b41c42de362e6657181f683c7ff1f814be1b181a02bf5f58deb2a78d1a5aba",
+  "parallel_policy_sha256": "abca3ad7b5a4ea0835aef50a1877402bcfdfdf05e5bc2f090b969a8bb27a3d3d",
+  "replica": "/path/to/decision-em/replications/run03",
+  "approval_file": "artifacts/operations/approval_runs23_aaron_20261014.json",
+  "approval_sha256": "2e5703ca1fddc3f788957e4b87a2414f1608a16b1a0c12d48f50df366444c849",
+  "dependency": "afterok:365894",
+  "budget_snapshot": {
+    "attempts": 1289848,
+    "direct_openai_commitments": {
+      "astra-discovery-e475aae65b0f95c1": {
+        "actual_usd": 1.326705,
+        "approval_reference": "Direct user message in thread 01a1349c-b93e-7e20-aa60-f5edf1e60521 on 2026-10-14; exact quote stored below",
+        "package_sha256": "e475aae65b0f95c189891ab6f30c3dfc1e570af149a6dcc82df41eb4c1753a27",
+        "reserved_usd": 11.0,
+        "status": "reconciled"
+      }
+    },
+    "ensemble_pilot_commitments": {
+      "c1d26fcd612f456d8da70cca908f9d6307d40d903187bf5e8b232a828822b367": {
+        "actual_usd": 0.124831,
+        "authorization": "docs/APPROVED_TODO_20261014.md; operator admission verifies broad ensemble authorization",
+        "ceiling_exceeded": false,
+        "prior_actual_usd": 0.0032979999999999997,
+        "reserved_usd": 9.996702,
+        "resume_count": 1,
+        "status": "reconciled"
+      }
+    },
+    "reserved": 1.700000000000078,
+    "spent": 79.72727632499851,
+    "unknown_cost_attempts": 705
+  },
+  "funding_policy": "Incremental atomic per-request spending under the unchanged shared USD100 cap. This is not a reservation or funding promise for the full run. Stop at cap; no top-up or automatic failed-stage restart.",
+  "prerequisite_status": "real smoke job pending; afterok and completed stage journal both required at execution",
+  "reviewed_project_jobs": [
+    {
+      "id": "365300",
+      "name": "decision-em-rules",
+      "scope": "learned rules plus shared domain controls; must remain behind confirmation",
+      "self": false
+    },
+    {
+      "id": "365355",
+      "name": "statistics-full",
+      "scope": "cache-only final statistics; must wait all results",
+      "self": false
+    },
+    {
+      "id": "365895",
+      "name": "decision-em-run03-core",
+      "scope": "Exclusive replications/run03 core stage; independent caches, shared root budget, per-run development selection",
+      "self": false
+    },
+    {
+      "id": "365894",
+      "name": "decision-em-run03-smoke",
+      "scope": "Exclusive replications/run03 smoke stage; independent caches, shared root budget, per-run development selection",
+      "self": false
+    },
+    {
+      "id": "365893",
+      "name": "decision-em-run02-core",
+      "scope": "Exclusive replications/run02 core stage; independent caches, shared root budget, per-run development selection",
+      "self": false
+    },
+    {
+      "id": "365892",
+      "name": "decision-em-run02-smoke",
+      "scope": "Exclusive replications/run02 smoke stage; independent caches, shared root budget, per-run development selection",
+      "self": false
+    },
+    {
+      "id": "365268",
+      "name": "decision-em-cascade-live",
+      "scope": "runs/expanded_cascades_live separate chains and journals; reads frozen B0/routes",
+      "self": false
+    },
+    {
+      "id": "365279",
+      "name": "decision-em-variants",
+      "scope": "quality B0 additional benchmark names; distinct from confirmation cells",
+      "self": false
+    },
+    {
+      "id": "365746",
+      "scope": "different project",
+      "metadata_sha256": "5a639a43d0a5f0260864cf11176f37902959b4bd87642c6393e02f2e218df8b7"
+    },
+    {
+      "id": "365887",
+      "name": "decision-em-schema-resume",
+      "scope": "schema/schema_pilot only; one unchanged cache continuation after all365288 steps terminal",
+      "self": false
+    },
+    {
+      "id": "365636",
+      "name": "decision-em-confirm-recovery",
+      "scope": "quality selected-prompt development/test; existing supervisor only",
+      "self": false
+    }
+  ]
+}

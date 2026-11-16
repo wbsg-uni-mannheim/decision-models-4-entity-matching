@@ -1,0 +1,246 @@
+{
+ "benchmarks": {
+  "abt-buy": {
+   "counts": {
+    "base": 4000,
+    "base_gpt_pos": 709,
+    "labels_bad": 1269,
+    "labels_clean": 4048,
+    "labels_raw": 5317,
+    "pool_bad": 2781,
+    "pool_clean": 17719,
+    "pool_raw": 20500,
+    "seed_bad": 26,
+    "seed_clean": 74,
+    "seed_in_base": true,
+    "seed_raw": 100
+   },
+   "selection": "runs/labelsets_sol_b0_20261028/selection/abt-buy.json",
+   "sha256": "1bd2b5da5946ecf0b5ed8c37867d5cfe7b5e0708358a569a2d2839dd707e8aec",
+   "source_sha256": {
+    "active_labels_latest.csv": "bc8549942dae6c9538665a950998d6795485414041232e2e2e867c4779cc3c75",
+    "faiss_candidates.csv": "04e3d9b6331aa7014a8a5a1ba7d1216130c9309dac930b2f9d81051a89cb3fb0",
+    "seed_labels.csv": "62db518d946e5ade18f1c696b595080fa9567957cbf064eca2bb55ae3bdf2fc6"
+   },
+   "target": {
+    "neg": 3291,
+    "pos": 709,
+    "share": 0.2
+   }
+  },
+  "billiger-de": {
+   "counts": {
+    "base": 4000,
+    "base_gpt_pos": 800,
+    "labels_bad": 32,
+    "labels_clean": 12051,
+    "labels_raw": 12083,
+    "pool_bad": 187,
+    "pool_clean": 69693,
+    "pool_raw": 69880,
+    "seed_bad": 0,
+    "seed_clean": 100,
+    "seed_in_base": true,
+    "seed_raw": 100
+   },
+   "selection": "runs/labelsets_sol_b0_20261028/selection/billiger-de.json",
+   "sha256": "3db237757ae086b5262681f7aab09a1357d9f1c31455afae0135f7ad12cec450",
+   "source_sha256": {
+    "active_labels_latest.csv": "72191eb3bd87ef64ed7fdb139da3f80de25273f559db09fcd0cb848f071cdf40",
+    "faiss_candidates.csv": "4b5c9519ba940a55e508aba9e215f099d65a01a318cee875595d3dd0b90088a5",
+    "seed_labels.csv": "9aeff8541a5167bfd8392a9f422a089fc945d70fd339b10ac4faef6459ed8d0d"
+   },
+   "target": {
+    "neg": 3200,
+    "pos": 800,
+    "share": 0.2
+   }
+  },
+  "dblp-acm": {
+   "counts": {
+    "base": 4000,
+    "base_gpt_pos": 800,
+    "labels_bad": 1340,
+    "labels_clean": 4811,
+    "labels_raw": 6151,
+    "pool_bad": 2393,
+    "pool_clean": 43727,
+    "pool_raw": 46120,
+    "seed_bad": 18,
+    "seed_clean": 82,
+    "seed_in_base": true,
+    "seed_raw": 100
+   },
+   "selection": "runs/labelsets_sol_b0_20261028/selection/dblp-acm.json",
+   "sha256": "656982560db05d477091d20a580f17a302feda7a8276a68ca894abb6e182c586",
+   "source_sha256": {
+    "active_labels_latest.csv": "4ac49e0d33a1f5f7c0ee15a234db54eab4206e565d8f1fd0830eeafb53e2b8c2",
+    "faiss_candidates.csv": "372b6f59185f8dcac6e6d7c590cc36f11e2fef01f3e3bd8bc3c1bd724884ad67",
+    "seed_labels.csv": "a741ee0e81d9fbfc80f366f7fe3cead144b2824cf2da3fdf4092b2571b81939c"
+   },
+   "target": {
+    "neg": 3200,
+    "pos": 800,
+    "share": 0.2
+   }
+  },
+  "dblp-scholar": {
+   "counts": {
+    "base": 4000,
+    "base_gpt_pos": 800,
+    "labels_bad": 3121,
+    "labels_clean": 15541,
+    "labels_raw": 18662,
+    "pool_bad": 3625,
+    "pool_clean": 46455,
+    "pool_raw": 50080,
+    "seed_bad": 16,
+    "seed_clean": 84,
+    "seed_in_base": true,
+    "seed_raw": 100
+   },
+   "selection": "runs/labelsets_sol_b0_20261028/selection/dblp-scholar.json",
+   "sha256": "f31cae9e39b8b7a18171d1dfc77188b8e54df751b7b1a1e0ebef61395cb50518",
+   "source_sha256": {
+    "active_labels_latest.csv": "34f2bc55d2066701c4f5d163642893e09969067b0f7caa327be58a4ae699f2dd",
+    "faiss_candidates.csv": "d78a4703c1bc71651dbea9c651da3f933083c4bc6e3ca9f7fe0efeefec999af1",
+    "seed_labels.csv": "1afb695a1d18421c08c4c143a7de75a4c91a5ec8dfaf4a55708db6a261444981"
+   },
+   "target": {
+    "neg": 3200,
+    "pos": 800,
+    "share": 0.2
+   }
+  },
+  "dn7-walmart-amazon": {
+   "counts": {
+    "base": 4000,
+    "base_gpt_pos": 150,
+    "labels_bad": 1560,
+    "labels_clean": 7044,
+    "labels_raw": 8604,
+    "pool_bad": 4780,
+    "pool_clean": 46300,
+    "pool_raw": 51080,
+    "seed_bad": 9,
+    "seed_clean": 73,
+    "seed_in_base": true,
+    "seed_raw": 82
+   },
+   "selection": "runs/labelsets_sol_b0_20261028/selection/dn7-walmart-amazon.json",
+   "sha256": "3b2f0d1f32c5ec4fa683cbdc4d923d1317c035f5395bf53752e0a219b940afe4",
+   "source_sha256": {
+    "active_labels_latest.csv": "d0cfad7bcfb78e982f586790e4caaaf5b6898729675961357d3407ef6e1fce0b",
+    "faiss_candidates.csv": "fd56e2a871aa31fc9bd3ecc995d5bffbabd5b688be4d4ef34502b7d902428b83",
+    "seed_labels.csv": "8a4f273fd6332e6fcfbe4bc224ef0fc9583150fdff03a3048e3f90dbebd4250c"
+   },
+   "target": {
+    "neg": 3850,
+    "pos": 150,
+    "share": 0.0375
+   }
+  },
+  "semi-heter": {
+   "counts": {
+    "base": 1880,
+    "base_gpt_pos": 438,
+    "labels_bad": 2,
+    "labels_clean": 1880,
+    "labels_raw": 1882,
+    "pool_bad": 2,
+    "pool_clean": 19878,
+    "pool_raw": 19880,
+    "seed_bad": 0,
+    "seed_clean": 100,
+    "seed_in_base": true,
+    "seed_raw": 100
+   },
+   "selection": "runs/labelsets_sol_b0_20261028/selection/semi-heter.json",
+   "sha256": "6b2542eb7550be084993be27f63c01c9cd6f57d0a8476e7181b3e5c4500deed7",
+   "source_sha256": {
+    "active_labels_latest.csv": "8238432b80e8b89f824fbe14b3a7afc4d05b0e50f220df83235b0a4a0f7b346c",
+    "faiss_candidates.csv": "dd7cda41fdd035af683e9967012dd4533d07476c201e3ca417e16628fbbb945f",
+    "seed_labels.csv": "e2d0b79809380dda39c86cd77cbcd2c742401f28ba5b7ed0d5663c989c698546"
+   },
+   "target": {
+    "neg": null,
+    "pos": null,
+    "share": 0.38225806451612904
+   }
+  },
+  "walmart-amazon": {
+   "counts": {
+    "base": 4000,
+    "base_gpt_pos": 611,
+    "labels_bad": 1178,
+    "labels_clean": 4939,
+    "labels_raw": 6117,
+    "pool_bad": 2397,
+    "pool_clean": 29183,
+    "pool_raw": 31580,
+    "seed_bad": 16,
+    "seed_clean": 84,
+    "seed_in_base": true,
+    "seed_raw": 100
+   },
+   "selection": "runs/labelsets_sol_b0_20261028/selection/walmart-amazon.json",
+   "sha256": "63524d080259cb1417d570d9efcf32be815ee5549a9d7efd6bae7dd055ea03a9",
+   "source_sha256": {
+    "active_labels_latest.csv": "7d7e516eacf44219a80f6ac91db0f369356e056f7bf5d6088400ca56a012567c",
+    "faiss_candidates.csv": "02b8fd4453afb298b99804d9ad2730984d0ce1f36a1e9e05d6599f44819512b1",
+    "seed_labels.csv": "3a3e52658b9de015f03f8a4b319d6cede8687a77e8c6272ddddd9def080dbb69"
+   },
+   "target": {
+    "neg": 3389,
+    "pos": 611,
+    "share": 0.2
+   }
+  },
+  "wdc": {
+   "counts": {
+    "base": 4000,
+    "base_gpt_pos": 800,
+    "labels_bad": 0,
+    "labels_clean": 26008,
+    "labels_raw": 26021,
+    "pool_bad": 0,
+    "pool_clean": 90558,
+    "pool_raw": 90558,
+    "seed_bad": 0,
+    "seed_clean": 100,
+    "seed_in_base": true,
+    "seed_raw": 100
+   },
+   "selection": "runs/labelsets_sol_b0_20261028/selection/wdc.json",
+   "sha256": "8d6662d555b90c2ad7bd36f309e9218b2fd78da0fdc1525cd6f390cfd002609e",
+   "source_sha256": {
+    "active_labels_latest.csv": "5e49c3843df0fdc98b667f2e90e96fd65c08d4e65dc2b514cfd9fe8af94388a5",
+    "faiss_candidates.csv": "c58bde6030a813b3cf1ac73865b7a107c1dcefda756181a392ce92bfd1437263",
+    "seed_labels.csv": "f799e294fd1cceeb6b788b22cffa0770d1301b57dfbb68f8260e1e1c369e1f6c"
+   },
+   "target": {
+    "neg": 3200,
+    "pos": 800,
+    "share": 0.2
+   }
+  }
+ },
+ "created_at": "2026-10-27T22:36:47.418432+00:00",
+ "labeling_config_sha256": "10f5257599a0441bf7f431ba5afac161c3417f0b1ee9731e40aaa3a483bc79be",
+ "labeling_module_sha256": "003eca03ebf58c07bfbe623e590e23a43324ffdec518d8c3299a4f0cffd2bee9",
+ "model": "gpt-6.1-sol",
+ "parameters": {
+  "active_candidates": 20000,
+  "al_round": 100,
+  "extend_round": 500,
+  "seed": [
+   100,
+   30,
+   400
+  ],
+  "set_size": 4000,
+  "top_matchers": 5,
+  "workers": 16
+ },
+ "script_sha256": "7d74766715244098a694a8d458a27c6946d7f770afa708fe4dec45153fb5a481"
+}
