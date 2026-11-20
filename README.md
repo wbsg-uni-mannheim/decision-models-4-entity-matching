@@ -44,6 +44,7 @@ All API runs took place between 14 October and 5 November 2026. The exact reques
 | [`docs/THRESHOLDS.md`](docs/THRESHOLDS.md) | Decision and deferral thresholds per model and benchmark |
 | [`docs/BENCHMARK_ATTRIBUTES.md`](docs/BENCHMARK_ATTRIBUTES.md) | Attributes per benchmark that enter the serialization |
 | [`docs/ADDITIONAL_BASELINES.md`](docs/ADDITIONAL_BASELINES.md) | Handwritten rules and logistic regression baselines |
+| [`docs/CASCADE_BASELINES.md`](docs/CASCADE_BASELINES.md) | Random and similarity baselines of the model cascades, including both variants of the similarity baseline |
 | [`docs/LOCAL_INFERENCE.md`](docs/LOCAL_INFERENCE.md) | Hardware, software, and settings of the local runs |
 
 ## Names in the code
